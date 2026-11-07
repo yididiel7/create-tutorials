@@ -1,0 +1,89 @@
+{
+  "slug": "zle-expand-history-error-fix",
+  "filePath": "zle _expand_history_error_fix.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Fix zle _expand_history Error in Zsh\n\nTitle: Zle Expand History Error Fix\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Devel…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Problem",
+      "slug": "problem"
+    },
+    {
+      "level": 3,
+      "text": "Root Cause",
+      "slug": "root-cause"
+    },
+    {
+      "level": 3,
+      "text": "Fix: Custom magic-space Widget",
+      "slug": "fix-custom-magic-space-widget"
+    },
+    {
+      "level": 3,
+      "text": "If _expand_history Still Fails",
+      "slug": "if-expand-history-still-fails"
+    },
+    {
+      "level": 3,
+      "text": "Test It Works",
+      "slug": "test-it-works"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Why _expand_history Missing",
+      "slug": "why-expand-history-missing"
+    },
+    {
+      "level": 3,
+      "text": "Widget Architecture",
+      "slug": "widget-architecture"
+    },
+    {
+      "level": 3,
+      "text": "History Expansion Widgets",
+      "slug": "history-expansion-widgets"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Zsh Line Editor (ZLE)",
+      "slug": "zsh-line-editor-zle"
+    },
+    {
+      "level": 3,
+      "text": "Custom Widget Flow",
+      "slug": "custom-widget-flow"
+    },
+    {
+      "level": 3,
+      "text": "Available Expansion Widgets",
+      "slug": "available-expansion-widgets"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 2,
+  "content": "LOG: [LEARN] Guide: Fix zle _expand_history Error in Zsh\n\n**Title:** Zle Expand History Error Fix\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** zle _expand_history_error_fix.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Problem\n```\nzle: _expand_history: no such widget\n```\nError when using `bindkey ' ' magic-space` with custom magic-space function calling `zle _expand_history`.\n\n### Root Cause\n- `_expand_history` is not a standard Zsh widget\n- `zshcontrib` module (which provides `magic-space`) not installed on Arch Linux\n\n### Fix: Custom magic-space Widget\n```bash\n# Add to ~/.zshrc\nmagic-space() {\n    # Expand history (like !!, !$, etc.)\n    zle _expand_history\n    # Insert space\n    zle self-insert\n}\nzle -N magic-space\nbindkey ' ' magic-space\n```\n\n### If _expand_history Still Fails\n```bash\nmagic-space() {\n    # Use history-expand-word (standard widget)\n    zle history-expand-word\n    zle self-insert\n}\nzle -N magic-space\nbindkey ' ' magic-space\n```\n\n### Test It Works\n```bash\n$ source ~/.zshrc\n$ echo \"hello world\"\n$ !!<SPACE>   # Expands to: echo \"hello world\"\n$ !$<SPACE>   # Expands to: \"hello world\"\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Why _expand_history Missing\n- Part of `zshcontrib` module\n- Not included in standard Arch `zsh` package\n- Module file: `/usr/lib/zsh/5.9/zshcontrib.so` missing\n\n### Widget Architecture\n```bash\n# Built-in widgets\nzle -l\n\n# Custom widget\nmy-widget() { zle some-action }\nzle -N my-widget\nbindkey 'KEY' my-widget\n```\n\n### History Expansion Widgets\n| Widget | Purpose |\n|--------|---------|\n| `history-expand-word` | Expand !!, !$, etc. |\n| `magic-space` | Expand + insert space |\n| `expand-history-or-space` | Combined (if available) |\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Zsh Line Editor (ZLE)\n```\nKeystrokes → ZLE → Widget → Action\n     ↑          ↑\n   bindkey   zle -N\n```\n\n### Custom Widget Flow\n```bash\nmagic-space() {\n    zle history-expand-word  # Expand !!, !$, !n\n    zle self-insert          # Insert space char\n}\nzle -N magic-space           # Register widget\nbindkey ' ' magic-space      # Bind to space\n```\n\n### Available Expansion Widgets\n```bash\n$ zle -l | grep -i expand\n# history-expand-word\n# expand-history-or-space (if available)\n```\n\n### References\n- `man zshzle`\n- [Zsh Manual: History Expansion](https://zsh.sourceforge.io/Doc/Release/History-Expansion.html)\n- [Arch Wiki: Zsh](https://wiki.archlinux.org/title/Zsh)\n"
+}

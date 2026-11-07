@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import MarkdownContent from '../../components/MarkdownContent.astro';
+
+export async function getStaticPaths() {
+  const tutorials = await getCollection('tutorials');
+  return tutorials.map(t => ({ params: { slug: t.id }, props: { entry: t } }));
+}
+
+const { entry } = Astro.props;
+const { title, date, author, category, tags, readingTime, headings, content } = entry.data;
+---
+
+<Layout title={title} description={content.slice(0, 160).replace(/[#*`]/g, '')}>
+  <article class="max-w-4xl mx-auto">
+    <header class="mb-8 pb-6 border-b border-arch-border">
+      <div class="flex flex-wrap items-center gap-3 text-sm text-arch-muted mb-3">
+        <span class="rounded px-2 py-0.5 text-xs font-medium bg-arch-cyan/10 text-arch-cyan">{category}</span>
+        {date && <time datetime={date}>{new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>}
+        <span>·</span>
+        <span>{readingTime} min read</span>
+      </div>
+      <h1 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-white">{title}</h1>
+      <p class="mt-3 text-arch-muted">By {author}</p>
+      <div class="mt-4 flex flex-wrap gap-1">
+        {tags.map(tag => <span class="rounded px-2 py-0.5 text-xs border border-arch-border text-arch-muted">{tag}</span>)}
+      </div>
+    </header>
+
+    {headings.length > 1 && (
+      <aside class="hidden lg:block lg:absolute lg:left-[-280px] lg:w-64 lg:pt-8">
+        <nav class="sticky top-24 space-y-1" aria-label="Table of contents">
+          <h4 class="text-xs font-medium uppercase tracking-wider text-arch-muted mb-2">On this page</h4>
+          <ul>
+            {headings.map(h => (
+              <li class="pl-{h.level * 2}"><a href={`#${h.slug}`} class="text-sm text-arch-muted hover:text-white transition-colors block py-0.5">{h.text}</a></li>
+            ))}
+          </ul>
+        </nav>
+      </aside>
+    )}
+
+    <div class="prose lg:max-w-none">
+      <MarkdownContent content={content} />
+    </div>
+
+    <footer class="mt-12 pt-8 border-t border-arch-border">
+      <a href="/tutorials" class="btn-secondary inline-flex items-center gap-2">
+        <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back to Tutorials
+      </a>
+    </footer>
+  </article>
+</Layout>

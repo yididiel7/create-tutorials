@@ -1,0 +1,79 @@
+{
+  "slug": "instruct-command-for-package-management",
+  "filePath": "Instruct-Command-for-Package-Management.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Reference: Package Manager Commands (pacman, yay, npm, bun, cargo)\n\nTitle: Instruct Command for Package Management\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yidid…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "pacman (Arch Official Repositories)",
+      "slug": "pacman-arch-official-repositories"
+    },
+    {
+      "level": 3,
+      "text": "yay (AUR Helper)",
+      "slug": "yay-aur-helper"
+    },
+    {
+      "level": 3,
+      "text": "npm / bun (Node.js)",
+      "slug": "npm-bun-node-js"
+    },
+    {
+      "level": 3,
+      "text": "cargo (Rust)",
+      "slug": "cargo-rust"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Package Manager Roles",
+      "slug": "package-manager-roles"
+    },
+    {
+      "level": 3,
+      "text": "pacman Flags Explained",
+      "slug": "pacman-flags-explained"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "pacman Database",
+      "slug": "pacman-database"
+    },
+    {
+      "level": 3,
+      "text": "AUR Safety",
+      "slug": "aur-safety"
+    },
+    {
+      "level": 3,
+      "text": "bun vs npm",
+      "slug": "bun-vs-npm"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 3,
+  "content": "LOG: [LEARN] Reference: Package Manager Commands (pacman, yay, npm, bun, cargo)\n\n**Title:** Instruct Command for Package Management\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Instruct-Command-for-Package-Management.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### pacman (Arch Official Repositories)\n```bash\n# Install multiple packages\n$ sudo pacman -S package1 package2 package3\n\n# Install with auto-dependencies\n$ sudo pacman -Sy --needed package1 package2\n\n# Query installed package info\n$ pacman -Qi package-name\n\n# List files owned by package\n$ pacman -Ql package-name\n\n# List all installed packages with locations\n$ pacman -Ql\n```\n\n### yay (AUR Helper)\n```bash\n# Install AUR package\n$ yay -S package-name\n\n# Query package info\n$ yay -Qi package-name\n\n# List files\n$ yay -Ql package-name\n```\n\n### npm / bun (Node.js)\n```bash\n# npm: install multiple\n$ npm install package1 package2 package3\n\n# npm: global install multiple\n$ npm install -g package1 package2 package3\n\n# bun: install (project)\n$ bun add package1 package2\n\n# bun: global (workspace)\n$ bun install -w package1 package2\n```\n\n### cargo (Rust)\n```bash\n# Install binary\n$ cargo install package-name\n\n# List installed binaries\n$ cargo install --list\n\n# Update installed binaries\n$ cargo install --list | awk '{print $1}' | xargs cargo install\n\n# Dependency tree\n$ cargo tree\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Package Manager Roles\n| Manager | Scope | Use Case |\n|---------|-------|----------|\n| pacman | System (official repos) | Core system, maintained packages |\n| yay | System (AUR) | Community-maintained, cutting-edge |\n| npm/bun | Project (Node.js) | JavaScript/TypeScript dependencies |\n| cargo | Project (Rust) | Rust dependencies |\n\n### pacman Flags Explained\n- `-S` — sync (install from repos)\n- `-y` — refresh databases\n- `--needed` — skip already installed\n- `-Q` — query local database\n- `-l` — list files\n- `-i` — detailed info\n\n## The \"Deep Dive\" (The Technical Root)\n\n### pacman Database\n- `/var/lib/pacman/local/` — installed package metadata\n- `/var/cache/pacman/pkg/` — downloaded packages\n\n### AUR Safety\n```bash\n# Always review PKGBUILD before installing\n$ yay -G package-name  # Download PKGBUILD\n$ vim PKGBUILD         # Inspect\n$ makepkg -si          # Build and install\n```\n\n### bun vs npm\n- bun: faster, built-in bundler, `bun.lockb` lockfile\n- npm: mature, `package-lock.json`, wider ecosystem\n\n### References\n- `man pacman`, `man yay`\n- [Arch Wiki: Pacman](https://wiki.archlinux.org/title/Pacman)\n- [Arch Wiki: AUR](https://wiki.archlinux.org/title/Arch_User_Repository)"
+}

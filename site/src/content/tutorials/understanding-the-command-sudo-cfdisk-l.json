@@ -1,0 +1,13 @@
+{
+  "slug": "understanding-the-command-sudo-cfdisk-l",
+  "filePath": "Understanding_the_Command_sudo_cfdisk_l.md",
+  "title": "Understanding_the_Command_sudo_cfdisk_l",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Title: Understanding the Command sudo cfdisk l\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Understanding_the_Command_sudo_c…",
+  "headings": [],
+  "readingTime": 2,
+  "content": "**Title:** Understanding the Command sudo cfdisk l\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Understanding_the_Command_sudo_cfdisk_l.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\nUnderstanding the Command: sudo cfdisk -l\n\nThe command sudo cfdisk -l is used in Linux systems to list the\npartitions on all available disks. Here’s a breakdown of what each part\nof the command does:\nBreakdown of the Command\n\nsudo: This prefix allows the command to be executed with superuser\n(administrative) privileges. Since partitioning and disk management\nrequire elevated permissions, sudo is necessary.\n\ncfdisk: This is a text-based partition table manipulator for Linux. It\nprovides a user-friendly interface for managing disk partitions.\n\n-l: This option stands for \"list.\" It instructs cfdisk to display a list\nof all known disks and their partitions, including information such as\nthe partition name, size, and filesystem type.\n\nWhat the Command Does\n\nWhen you run sudo cfdisk -l, it will:\n\n    List all available storage devices on your system.\n    Display details about each device's partitions, such as:\n        Device names (like /dev/sda, /dev/sdb)\n        Partition sizes\n        Filesystem types\n\nThis command is particularly useful for getting an overview of the disk\nsetup before performing any partitioning or formatting tasks.\nExample Output\n\nYou might see output resembling:\n\nCode\n\nDisk /dev/sda: 500.1 GB, 500107862016 bytes\n  Device Boot      Start         End      Blocks   Id  System\n/dev/sda1   *          2048      102604      102400   83  Linux\n/dev/sda2          102605    500117503    499984026   5  Extended\n/dev/sda5          102606      204703      510000   83  Linux\n\nThis output indicates the partitions on the /dev/sda device, including\nbootable partitions, their sizes, and filesystem types.\n"
+}

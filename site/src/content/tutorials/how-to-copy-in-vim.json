@@ -1,0 +1,109 @@
+{
+  "slug": "how-to-copy-in-vim",
+  "filePath": "How_to_Copy_in_Vim.md",
+  "title": "Character-wise Selection",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Title: How to Copy in Vim\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: How_to_Copy_in_Vim.md\nCopyright: © 2026-2027 Sr.…",
+  "headings": [
+    {
+      "level": 3,
+      "text": "Character-wise Selection",
+      "slug": "character-wise-selection"
+    },
+    {
+      "level": 3,
+      "text": "Line-wise Selection",
+      "slug": "line-wise-selection"
+    },
+    {
+      "level": 3,
+      "text": "Block Selection",
+      "slug": "block-selection"
+    },
+    {
+      "level": 3,
+      "text": "Word and Line Motions:",
+      "slug": "word-and-line-motions"
+    },
+    {
+      "level": 3,
+      "text": "Advanced Motions:",
+      "slug": "advanced-motions"
+    },
+    {
+      "level": 3,
+      "text": "Text Object Copying",
+      "slug": "text-object-copying"
+    },
+    {
+      "level": 3,
+      "text": "Key Registers for Copying:",
+      "slug": "key-registers-for-copying"
+    },
+    {
+      "level": 3,
+      "text": "Basic System Clipboard Copying:",
+      "slug": "basic-system-clipboard-copying"
+    },
+    {
+      "level": 3,
+      "text": "Visual Mode + System Clipboard:",
+      "slug": "visual-mode-system-clipboard"
+    },
+    {
+      "level": 3,
+      "text": "Using Named Registers",
+      "slug": "using-named-registers"
+    },
+    {
+      "level": 3,
+      "text": "Appending to Registers",
+      "slug": "appending-to-registers"
+    },
+    {
+      "level": 3,
+      "text": "Workflow 1: Copy Multiple Items",
+      "slug": "workflow-1-copy-multiple-items"
+    },
+    {
+      "level": 3,
+      "text": "Workflow 2: Copy to External App",
+      "slug": "workflow-2-copy-to-external-app"
+    },
+    {
+      "level": 3,
+      "text": "Workflow 3: Safe Copying",
+      "slug": "workflow-3-safe-copying"
+    },
+    {
+      "level": 3,
+      "text": "System Clipboard Not Working?",
+      "slug": "system-clipboard-not-working"
+    },
+    {
+      "level": 3,
+      "text": "Copied Text Gets Overwritten?",
+      "slug": "copied-text-gets-overwritten"
+    },
+    {
+      "level": 3,
+      "text": "No Visual Feedback When Copying?",
+      "slug": "no-visual-feedback-when-copying"
+    },
+    {
+      "level": 4,
+      "text": "Basic Copying:",
+      "slug": "basic-copying"
+    },
+    {
+      "level": 4,
+      "text": "System Clipboard:",
+      "slug": "system-clipboard"
+    }
+  ],
+  "readingTime": 6,
+  "content": "**Title:** How to Copy in Vim\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** How_to_Copy_in_Vim.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n# How to Copy in Vim\n\n[Markdown](https://r.jina.ai/https://www.learnvim.com/guides/how-to-copy-in-vim)\n\nTitle: How to Copy in Vim\n\nURL Source: https://www.learnvim.com/guides/how-to-copy-in-vim\n\nMarkdown Content:\nCopying (called \"yanking\" in vim) is fundamental to efficient text\nediting. This comprehensive guide covers all the ways to copy text in\nvim, from basic commands to advanced register usage and system clipboard\nintegration.\n\n💡 Tip: After copying text, you'll want to paste it! Check out our\ncompanion guide:[How to Paste in\nVim](https://www.learnvim.com/guides/how-to-paste-in-vim)\n\nBasic Copying Commands\n----------------------\n\nIn vim, copying is called \"yanking\" and uses the y command. Here are the\nfundamental copying commands:\n\n*   yy - Copy (yank) the entire current line\n*   Y - Copy from cursor to end of line (same as y$)\n*   y - Copy selected text (used with visual mode or motions)\n\nQuick Example:\n\n1.   1. Position cursor on a line you want to copy\n2.   2. Press yy to copy the entire line\n3.   3. Move to where you want to paste\n4.   4. Press p to paste (see our [pasting\nguide](https://www.learnvim.com/guides/how-to-paste-in-vim))\n\nVisual Mode Copying\n-------------------\n\nVisual mode lets you select exactly what you want to copy before yanking\nit:\n\n### Character-wise Selection\n\n1.   1. Press v to enter visual mode\n2.   2. Use arrow keys or h j k l to select text\n3.   3. Press y to copy the selection\n\n### Line-wise Selection\n\n1.   1. Press V (capital V) to enter line visual mode\n2.   2. Use j/k to select multiple lines\n3.   3. Press y to copy all selected lines\n\n### Block Selection\n\n1.   1. Press Ctrl+v to enter visual block mode\n2.   2. Select a rectangular block of text\n3.   3. Press y to copy the block\n\nMotion-Based Copying\n--------------------\n\nCombine y with vim motions to copy specific text patterns efficiently:\n\n### Word and Line Motions:\n\n*   yw - Copy current word\n*   yW - Copy current WORD (including punctuation)\n*   y$ - Copy to end of line\n*   y0 - Copy to beginning of line\n*   y^ - Copy to beginning of line (excluding leading whitespace)\n\n### Advanced Motions:\n\n*   yG - Copy to end of file\n*   ygg - Copy to beginning of file\n*   y3j - Copy 3 lines down\n*   y2w - Copy 2 words\n*   y) - Copy to end of sentence\n\n### Text Object Copying\n\nCopy entire text objects with these powerful commands:\n\n*   yiw - Copy inner word (word under cursor)\n*   yaw - Copy a word (including surrounding whitespace)\n*   yi\" - Copy text inside quotes\n*   ya\" - Copy text including quotes\n*   yi( - Copy text inside parentheses\n*   ya( - Copy text including parentheses\n\nUnderstanding Vim Registers\n---------------------------\n\nVim uses registers to store copied text. Understanding registers unlocks\npowerful copying workflows:\n\n### Key Registers for Copying:\n\n*   \" - Default (unnamed) register - where text goes when you don't\nspecify a register\n*   0 - Yank register - always contains the last yanked (copied) text\n*   + - System clipboard register (works on all systems)\n*   * - Primary selection register (Linux/Unix)\n*   a-z - Named registers for storing specific text\n\nCopying to System Clipboard\n---------------------------\n\nTo copy text from vim to other applications (like web browsers, other\neditors):\n\n### Basic System Clipboard Copying:\n\n*   \"+yy - Copy current line to system clipboard\n*   \"+y - Copy selected text to system clipboard\n*   \"*y - Copy to primary selection (Linux)\n\n### Visual Mode + System Clipboard:\n\n1.   1. Select text with v, V, or Ctrl+v\n2.   2. Press \"+y to copy to system clipboard\n3.   3. Now you can paste in any other application with Ctrl+V\n\nAdvanced Copying Techniques\n---------------------------\n\n### Using Named Registers\n\nStore different pieces of text in named registers for complex editing\nworkflows:\n\n*   \"ayy - Copy current line to register 'a'\n*   \"by3w - Copy 3 words to register 'b'\n*   \"cyi\" - Copy text inside quotes to register 'c'\n\n### Appending to Registers\n\nUse uppercase register names to append instead of overwrite:\n\n*   \"Ayy - Append current line to register 'a'\n*   \"By$ - Append from cursor to end of line to register 'b'\n\nCommon Copying Workflows\n------------------------\n\n### Workflow 1: Copy Multiple Items\n\n1.   1. Copy first item: \"ayy (to register 'a')\n2.   2. Copy second item: \"byy (to register 'b')\n3.   3. Copy third item: \"cyy (to register 'c')\n4.   4. Paste any item: \"ap, \"bp, or \"cp\n\n### Workflow 2: Copy to External App\n\n1.   1. Select text in visual mode (v or V)\n2.   2. Copy to system clipboard: \"+y\n3.   3. Switch to other application\n4.   4. Paste with Ctrl+V (or Cmd+V on Mac)\n\n### Workflow 3: Safe Copying\n\n1.   1. Copy important text: \"0yy (yank register)\n2.   2. Do other operations (delete, change, etc.)\n3.   3. Paste original text: \"0p (always has your yanked text)\n\nTroubleshooting Common Issues\n-----------------------------\n\n### System Clipboard Not Working?\n\n*   • Check if vim has clipboard support: :echo has('clipboard')\n*   • Try \"+y instead of \"*y\n*   • Install vim with clipboard support (vim-gtk, vim-x11, or gvim)\n*   • On some systems, use :set clipboard=unnamedplus\n\n### Copied Text Gets Overwritten?\n\n*   • Use the yank register: \"0p always has your last yanked text\n*   • Use named registers: \"ay then \"ap\n*   • Avoid deleting text if you need to preserve copied content\n\n### No Visual Feedback When Copying?\n\n*   • Add to your .vimrc: :set showcmd\n*   • For visual feedback on yank: :set hlsearch\n*   • Some vim distributions show yank highlighting automatically\n\nQuick Reference\n---------------\n\n#### Basic Copying:\n\n*   yy - Copy current line\n*   yw - Copy word\n*   y$ - Copy to end of line\n*   yG - Copy to end of file\n\n#### System Clipboard:\n\n*   \"+yy - Copy line to clipboard\n*   \"+y - Copy selection to clipboard\n*   \"ay - Copy to register 'a'\n\n🔗 Next Step: Now that you know how to copy text, learn how to paste it\neffectively! Read our comprehensive guide:[How to Paste in\nVim](https://www.learnvim.com/guides/how-to-paste-in-vim)\n\nMastering vim's copying system gives you incredible text manipulation\npower. Start with basic yy and y commands, then gradually incorporate\nvisual mode selections, motion-based copying, and register usage as your\nskills develop.\n\nReady to master vim's copy-paste workflow with hands-on practice? Our\ninteractive course covers copying, pasting, registers, and all essential\nvim skills!\n\n[Start Learning Vim](https://www.learnvim.com/#pricing)\n"
+}

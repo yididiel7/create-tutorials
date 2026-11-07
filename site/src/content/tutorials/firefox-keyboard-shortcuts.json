@@ -1,0 +1,69 @@
+{
+  "slug": "firefox-keyboard-shortcuts",
+  "filePath": "firefox-keyboard-shortcuts.md",
+  "title": "Windows Navigation",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Keyboard Shortcuts for Firefox\n\n Windows Navigation\n\nTo do this\tPress this\n\nBack\tAlt + ← \nBackspace\nForward\tAlt + → \nShift + Backspace\nHome\tAlt + Home\nOpen File\tCtrl + O\nReload\tF5 \nCtrl + R\nReload…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "Windows Navigation",
+      "slug": "windows-navigation"
+    },
+    {
+      "level": 2,
+      "text": "Current Page",
+      "slug": "current-page"
+    },
+    {
+      "level": 2,
+      "text": "Editing",
+      "slug": "editing"
+    },
+    {
+      "level": 2,
+      "text": "Search",
+      "slug": "search"
+    },
+    {
+      "level": 2,
+      "text": "Windows & Tabs",
+      "slug": "windows-tabs"
+    },
+    {
+      "level": 2,
+      "text": "History",
+      "slug": "history"
+    },
+    {
+      "level": 2,
+      "text": "Bookmarks",
+      "slug": "bookmarks"
+    },
+    {
+      "level": 2,
+      "text": "Tools",
+      "slug": "tools"
+    },
+    {
+      "level": 2,
+      "text": "PDF Viewer",
+      "slug": "pdf-viewer"
+    },
+    {
+      "level": 2,
+      "text": "Miscellaneous",
+      "slug": "miscellaneous"
+    },
+    {
+      "level": 2,
+      "text": "Media shortcuts",
+      "slug": "media-shortcuts"
+    }
+  ],
+  "readingTime": 5,
+  "content": "# Keyboard Shortcuts for Firefox\n\n## Windows Navigation\n\nTo do this\tPress this\n\nBack\tAlt + ← \nBackspace\nForward\tAlt + → \nShift + Backspace\nHome\tAlt + Home\nOpen File\tCtrl + O\nReload\tF5 \nCtrl + R\nReload (override cache)\tCtrl + F5 \nCtrl + Shift + R\nStop\tEsc\n\n \n## Current Page\nTo do this            \tPress this\nGo Down a Screen      \tPage Down\nGo Up a Screen        \tPage Up\nGo to Bottom of Page  \tEnd\nGo to Top of Page     \tHome\nMove to Next Frame    \tF6\nMove to Previous Frame\tShift + F6\nPrint                 \tCtrl + P\nSave Page As          \tCtrl + S\nZoom In               \tCtrl + +\nZoom Out              \tCtrl + –\nZoom Reset            \tCtrl + 0\n\n \n## Editing\nTo do this           \tPress this\nCopy                 \tCtrl + C\nCut                  \tCtrl + X\nDelete               \tDel\nPaste                \tCtrl + V\nPaste (as plain text)\tCtrl + Shift + V\nRedo                 \tCtrl + Y \nCtrl + Shift + Z\nSelect All\tCtrl + A\nUndo\tCtrl + Z\n\n \n## Search\n\nTo do this                                        \tPress this\t \nFind                                              \tCtrl + F  \t\nFind Again                                        \tF3 \nCtrl + G                                          \t\nFind Previous                                     \tShift + F3 \nCtrl + Shift + G                                  \t\nQuick Find within link-text only                  \t‘  \t\nQuick Find                                        \t/  \t\nClose the Find or Quick Find bar                  \tEsc\t– when the Find or Quick Find bar is focused\nFocus Search bar                                  \tCtrl + K \nCtrl + ECtrl + J                                  \t\nQuickly switch between search engines             \tCtrl + ↑ \nCtrl + ↓                                          \t– when Search Bar is focused\nView menu to switch , add or manage search engines\tAlt + ↑ \nAlt + ↓ \nF4\t– when Search Bar is focused\n\n## Windows & Tabs\n\nSome of these shortcuts require the currently selected tab to be “in focus.”  Currently, the only way to do this is to select an adjacent object and “tab into” the current tab, for instance, by hitting Alt + D to select the address bar, and then Shift + Tab twice.\n\n\nTo do this\tPress this\t \n\nClose Tab             \tCtrl + W \nCtrl + F4             \t– except for App Tabs\nClose Window          \tCtrl + Shift + W \nAlt + F4              \t\nMove Tab in focus Left\tCtrl + ← \nCtrl + ↑ \nCtrl + Shift + Page Up\t\nMove Tab in focus Right\tCtrl + → \nCtrl + ↓ \nCtrl + Shift + Page Down\t\nMove Tab in focus to start\tCtrl + Home\t\nMove Tab in focus to end\tCtrl + End\t\nMute/Unmute Audio\tCtrl + M\t\nNew Tab\tCtrl + T\t\nNew Window\tCtrl + N\t\nNew Private Window\tCtrl + Shift + P\t\nNext Tab\tCtrl + Tab \nCtrl + Page Down\t\nOpen Address in New Tab\tAlt + Enter\t– from Location Bar or Search Bar\nPrevious Tab\tCtrl + Shift + Tab \nCtrl + Page Up\t\nUndo Close Tab\tCtrl + Shift + T\t\nUndo Close Window\tCtrl + Shift + N\t\nSelect Tab 1 to 8\tCtrl + 1to8 \nAlt + 1to8\t\nSelect Last Tab\tCtrl + 9 \nAlt + 9\t\nTab Groups View\tCtrl + Shift + E\t\nClose Tab Groups View\tEsc\t\nNext Tab Group\tCtrl + `\t– only for some keyboard layouts\nPrevious Tab Group\tCtrl + Shift + `\t– only for some keyboard layouts\n\n\n## History\n\nTo do this              \tPress this\nHistory sidebar         \tCtrl + H\nLibrary window (History)\tCtrl + Shift + H\nClear Recent History    \t\n\nCtrl + Shift + Del\n \n## Bookmarks\n\nTo do this        \tPress this\nBookmark All Tabs \tCtrl + Shift + D\nBookmark This Page\tCtrl + D\nBookmarks sidebar \tCtrl + B \nCtrl + I \nCtrl + B\nLibrary window (Bookmarks)\tCtrl + Shift + B \nCtrl + Shift + O\n\n\n## Tools\nTo do this\tPress this\nDownloads \tCtrl + J \nCtrl + Shift + Y\nAdd-ons\tCtrl + Shift + A\nToggle Developer Tools\tF12 \nCtrl + Shift + I\nWeb Console\tCtrl + Shift + K\nInspector\tCtrl + Shift + C\nDebugger\tCtrl + Shift + S\nStyle Editor\tShift + F7\nProfiler\tShift + F5\nNetwork\tCtrl + Shift + Q\nDeveloper Toolbar\tShift + F2\nResponsive Design View\tCtrl + Shift + M\nScratchpad\tShift + F4\nPage Source\tCtrl + U\nError ConsoleBrowser Console\tCtrl + Shift + J\nPage Info\tCtrl + I\n\n \n## PDF Viewer\n\nTo do this                     \tPress this\nNext page                      \tN or J or →\nPrevious page                  \tP or K or ←\nZoom in                        \tCtrl + +\nZoom out                       \tCtrl + –\nAutomatic Zoom                 \tCtrl + 0\nRotate the document clockwise  \tR\nRotate counterclockwise        \tShift + R\nSwitch to Presentation Mode    \tCtrl + Alt + P\nToggle Hand Tool               \tH\nFocus the Page Number input box\tCtrl + Alt + G\n\n \n## Miscellaneous\n\nTo do this                                                     \tPress this\nComplete .com Address                                          \tCtrl + Enter\nComplete .net Address                                          \tShift + Enter\nComplete .org Address                                          \tCtrl + Shift + Enter\nDelete Selected Autocomplete Entry                             \tDel\nToggle Full Screen                                             \tF11\nToggle Menu Bar activation (showing it temporarily when hidden)\tAlt \nF10\nShow/Hide Add-on Bar\tCtrl + /\nCaret Browsing\tF7\nSelect Location Bar\tF6 \nAlt + D \nCtrl + L\n\n \n## Media shortcuts\n\nTo do this             \tPress this\nToggle Play / Pause    \tSpace bar\nDecrease volume        \t↓\nIncrease volume        \t↑\nMute audio             \tCtrl + ↓\nUnmute audio           \tCtrl + ↑\nSeek back 15 seconds   \t←\nSeek back 10 %         \tCtrl + ←\nSeek forward 15 seconds\t→\nSeek forward 10 %      \tCtrl + →\nSeek to the beginning  \tHome\nSeek to the end        \tEnd\n"
+}

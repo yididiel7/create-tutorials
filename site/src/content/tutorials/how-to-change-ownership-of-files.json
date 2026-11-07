@@ -1,0 +1,34 @@
+{
+  "slug": "how-to-change-ownership-of-files",
+  "filePath": "How-to-change-Ownership-of-Files.md",
+  "title": "Change Ownership commands in Linux",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "How to change Ownership of Files\n\n Change Ownership commands in Linux\n\n$ sudo chown srhills:srhills .config/polybar/config.ini\n\n$ sudo chmod +x .config/polybar/launch.sh\n\n Polybar Texts Sett…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "Change Ownership commands in Linux",
+      "slug": "change-ownership-commands-in-linux"
+    },
+    {
+      "level": 2,
+      "text": "Polybar Texts Settings",
+      "slug": "polybar-texts-settings"
+    },
+    {
+      "level": 2,
+      "text": "Polybar Directory:",
+      "slug": "polybar-directory"
+    },
+    {
+      "level": 2,
+      "text": "Configuration File:",
+      "slug": "configuration-file"
+    }
+  ],
+  "readingTime": 1,
+  "content": "# How to change Ownership of Files\n\n## Change Ownership commands in Linux\n\n`$ sudo chown srhills:srhills .config/polybar/config.ini`\n\n`$ sudo chmod +x .config/polybar/launch.sh`\n\n## Polybar Texts Settings\n\n## Polybar Directory:\n\n`$ /home/srhills/.config/openbox-themes/themes/default/polybar`\n\n## Configuration File:\n\n*Edit File: \n`nvim config.ini`\n\n; text\nfont-0 = \"JetBrainsMono Nerd Font:size=10;3\"\n; icons\nfont-1 = \"Iosevka Nerd Font:size=12;3\"\n; glyphs\nfont-2 = \"Iosevka Nerd Font:size=15;4\"\n; dot\nfont-3 = \"Iosevka Nerd Font:size=10;4\"\n; clock & mpd\nfont-4 = \"Iosevka:style=bold:size=10;4\"\n; Archcraft\nfont-5 = \"archcraft:size=12;3\"\n\n\n\nrequire 'lspconfig'.marksman.setup {}\n"
+}

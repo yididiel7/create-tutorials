@@ -1,0 +1,49 @@
+{
+  "slug": "editing-text-in-vim-by-selecting-and-replacing-2026-01-24-17-58-47",
+  "filePath": "Editing_Text_in_Vim_by_Selecting_and_Replacing_2026-01-24_17-58-47.md",
+  "title": "Editing Text in Vim by Selecting and Replacing",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Title: Editing Text in Vim by Selecting and Replacing\nDate: 2026-01-24 (17:58:47 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Editing_Text_in_Vim_by_Se…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "Editing Text in Vim by Selecting and Replacing",
+      "slug": "editing-text-in-vim-by-selecting-and-replacing"
+    },
+    {
+      "level": 3,
+      "text": "1. Enter Visual Mode",
+      "slug": "1-enter-visual-mode"
+    },
+    {
+      "level": 3,
+      "text": "2. Select the Text",
+      "slug": "2-select-the-text"
+    },
+    {
+      "level": 3,
+      "text": "3. Replace the Selected Text",
+      "slug": "3-replace-the-selected-text"
+    },
+    {
+      "level": 3,
+      "text": "4. Confirm the Changes",
+      "slug": "4-confirm-the-changes"
+    },
+    {
+      "level": 3,
+      "text": "Example",
+      "slug": "example"
+    },
+    {
+      "level": 3,
+      "text": "Additional Commands for Replacement",
+      "slug": "additional-commands-for-replacement"
+    }
+  ],
+  "readingTime": 2,
+  "content": "**Title:** Editing Text in Vim by Selecting and Replacing\n**Date:** 2026-01-24 (17:58:47 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Editing_Text_in_Vim_by_Selecting_and_Replacing_2026-01-24_17-58-47.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## Editing Text in Vim by Selecting and Replacing\n\nIn Vim, you can efficiently edit text by selecting and replacing it\nusing visual mode and commands for substitution. Here’s how to do it:\n\n<hr>\n\n### 1. Enter Visual Mode\n\n- **Character Selection**: Press `v` to enter character-wise visual\nmode.\n- **Line Selection**: Press `V` to select entire lines.\n- **Block Selection**: Press `Ctrl + v` to select a block of text.\n\n### 2. Select the Text\n\nUse the arrow keys or `h`, `j`, `k`, `l` to navigate and highlight the\ntext you want to replace.\n\n### 3. Replace the Selected Text\n\nOnce you have highlighted the desired text:\n\n- Press `c` to change the selected text. This will allow you to type the\nnew text directly.\n- Alternatively, you can use `r` to replace a single character at a\ntime.\n\n### 4. Confirm the Changes\n\nAfter typing the new text, press `Esc` to exit visual mode and return to\nnormal mode.\n\n### Example\n\n1. **Highlight**: Use `v` and navigate to highlight \"apple\".\n2. **Change**: Press `c`, type \"orange\", and then press `Esc`.\n\n<hr>\n\n### Additional Commands for Replacement\n\n- **Substitution Command**: If you prefer to replace text through\ncommand mode, use the following format:\n  `:%s/old/new/g`\n  This replaces all instances of \"old\" with \"new\" in the entire file.\n\n- **Confirmation for Each Replacement**: You can add `c` at the end:\n  `:%s/old/new/gc`\n  This will prompt you for confirmation for each replacement.\n\nThese methods give you versatile options for editing text in Vim. Would\nyou like to know more about any specific feature?\n"
+}

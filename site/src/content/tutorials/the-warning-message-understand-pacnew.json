@@ -1,0 +1,99 @@
+{
+  "slug": "the-warning-message-understand-pacnew",
+  "filePath": "The-Warning-Message-Understand-pacnew.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Handle .pacnew Files on Arch Linux\n\nTitle: The Warning Message Understand Pacnew\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "When You See This Warning",
+      "slug": "when-you-see-this-warning"
+    },
+    {
+      "level": 3,
+      "text": "Step 1: Review the .pacnew File",
+      "slug": "step-1-review-the-pacnew-file"
+    },
+    {
+      "level": 3,
+      "text": "Step 2: Compare with Current Config",
+      "slug": "step-2-compare-with-current-config"
+    },
+    {
+      "level": 3,
+      "text": "Step 3: Merge Changes",
+      "slug": "step-3-merge-changes"
+    },
+    {
+      "level": 3,
+      "text": "Step 4: Generate Locales",
+      "slug": "step-4-generate-locales"
+    },
+    {
+      "level": 3,
+      "text": "Step 5: Clean Up",
+      "slug": "step-5-clean-up"
+    },
+    {
+      "level": 3,
+      "text": "Automated Tool: pacdiff",
+      "slug": "automated-tool-pacdiff"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Why .pacnew Files Exist",
+      "slug": "why-pacnew-files-exist"
+    },
+    {
+      "level": 3,
+      "text": "File Types",
+      "slug": "file-types"
+    },
+    {
+      "level": 3,
+      "text": "Merge Strategy",
+      "slug": "merge-strategy"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "pacdiff Workflow",
+      "slug": "pacdiff-workflow"
+    },
+    {
+      "level": 3,
+      "text": "Configuration File Locations",
+      "slug": "configuration-file-locations"
+    },
+    {
+      "level": 3,
+      "text": "Finding All .pacnew Files",
+      "slug": "finding-all-pacnew-files"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 2,
+  "content": "LOG: [LEARN] Guide: Handle .pacnew Files on Arch Linux\n\n**Title:** The Warning Message Understand Pacnew\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** The-Warning-Message-Understand-pacnew.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### When You See This Warning\n```\nwarning: /etc/locale.gen installed as /etc/locale.gen.pacnew\n```\nA new version of a config file was packaged, but your modified version was kept.\n\n### Step 1: Review the .pacnew File\n```bash\n$ vim /etc/locale.gen.pacnew\n# or\n$ cat /etc/locale.gen.pacnew\n```\n\n### Step 2: Compare with Current Config\n```bash\n$ diff -u /etc/locale.gen /etc/locale.gen.pacnew\n# Or side-by-side:\n$ vimdiff /etc/locale.gen /etc/locale.gen.pacnew\n```\n\n### Step 3: Merge Changes\n```bash\n$ vim /etc/locale.gen\n# Manually add new lines from .pacnew\n# Uncomment required locales (e.g., en_US.UTF-8 UTF-8)\n```\n\n### Step 4: Generate Locales\n```bash\n$ sudo locale-gen\n```\n\n### Step 5: Clean Up\n```bash\n$ sudo rm /etc/locale.gen.pacnew\n```\n\n### Automated Tool: pacdiff\n```bash\n$ sudo pacman -S pacutils\n$ sudo pacdiff\n# Interactively merge each .pacnew/.pacsave\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Why .pacnew Files Exist\n- Pacman never overwrites user-modified config files\n- New upstream config saved as `.pacnew`\n- You must manually merge changes\n\n### File Types\n| Extension | Meaning |\n|-----------|---------|\n| `.pacnew` | New default config (you modified original) |\n| `.pacsave` | Backup of removed config (package removed) |\n| `.pacorig` | Original config (from pacman -U downgrade) |\n\n### Merge Strategy\n1. **New options** — add them (usually safe)\n2. **Changed defaults** — evaluate if you want new behavior\n3. **Your customizations** — keep them\n\n## The \"Deep Dive\" (The Technical Root)\n\n### pacdiff Workflow\n```bash\n$ pacdiff\n# For each file:\n#   v — view diff (vimdiff)\n#   e — edit current (merge manually)\n#   r — replace with .pacnew (lose customizations)\n#   q — quit\n```\n\n### Configuration File Locations\n```\n/etc/                    # System configs\n/usr/share/pkgname/      # Package defaults (reference)\n```\n\n### Finding All .pacnew Files\n```bash\n$ find /etc -name \"*.pacnew\" -type f\n$ pacman -Qii | grep -A1 \"Modified\"  # Shows modified configs per package\n```\n\n### References\n- `man pacman`, `man pacdiff`\n- [Arch Wiki: Pacnew and Pacsave](https://wiki.archlinux.org/title/Pacnew_and_Pacsave)\n- [Arch Wiki: Configuration files](https://wiki.archlinux.org/title/Configuration_files)"
+}

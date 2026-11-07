@@ -1,0 +1,13 @@
+{
+  "slug": "null-ls-nvim-fixed",
+  "filePath": "null-ls-nvim-fixed.md",
+  "title": "null-ls-nvim-fixed",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Fixed! The issues were:\n\n1. Duplicate null-ls entries - You had null-ls.nvim defined twice in\nplugins.lua (lines 81-86 and 94-99). Removed the duplicate.\n2. Wrong require statement - Your config file…",
+  "headings": [],
+  "readingTime": 1,
+  "content": "Fixed! The issues were:\n\n1. Duplicate null-ls entries - You had null-ls.nvim defined twice in\nplugins.lua (lines 81-86 and 94-99). Removed the duplicate.\n2. Wrong require statement - Your config file was requiring \"none-ls\"\ninstead of \"null-ls\".\n3. Cache corruption - The Lua cache had corrupted entries mixing none-ls\nand null-ls.\n\nWhat to do now:\n\n1. Restart Neovim completely\n2. The error should be resolved\nIf you still get errors after restart, you may also need to run\n:PackerSync or :Lazy sync to ensure all plugins are properly updated.\n\nPerfect! I've fixed both occurrences of the deprecated\nvim.tbl_add_reverse_lookup function in the null-ls.nvim plugin. The\nchanges replace the deprecated function calls with manual reverse lookup\ncreation, which is the recommended approach in newer Neovim versions.\n\nOThe fixes:\n1. Line 17: Replaced vim.tbl_add_reverse_lookup(lsp_methods) with a\nmanual loop\n2. Line 29: Replaced vim.tbl_add_reverse_lookup(internal_methods) with a\nmanual loop\nThis should resolve the deprecation warning you're seeing when using\nNeovim.\n"
+}

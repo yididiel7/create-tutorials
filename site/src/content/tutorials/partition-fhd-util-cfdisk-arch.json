@@ -1,0 +1,94 @@
+{
+  "slug": "partition-fhd-util-cfdisk-arch",
+  "filePath": "Partition_FHD_Util_Cfdisk_Arch.md",
+  "title": "Introduction",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Title: Partition FHD Util Cfdisk Arch\nDate: 2025-11-16 (23:26:26 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Partition_FHD_Util_Cfdisk_Arch.md\nCopyr…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "Introduction",
+      "slug": "introduction"
+    },
+    {
+      "level": 2,
+      "text": "Required Dependencies",
+      "slug": "required-dependencies"
+    },
+    {
+      "level": 2,
+      "text": "Required Commands Definitions",
+      "slug": "required-commands-definitions"
+    },
+    {
+      "level": 2,
+      "text": "Estimated Time",
+      "slug": "estimated-time"
+    },
+    {
+      "level": 2,
+      "text": "Skill Level",
+      "slug": "skill-level"
+    },
+    {
+      "level": 3,
+      "text": "Step-by-Step Instructions",
+      "slug": "step-by-step-instructions"
+    },
+    {
+      "level": 4,
+      "text": "1. Back Up Your Data",
+      "slug": "1-back-up-your-data"
+    },
+    {
+      "level": 4,
+      "text": "2. Disconnect Your Hard Drive",
+      "slug": "2-disconnect-your-hard-drive"
+    },
+    {
+      "level": 4,
+      "text": "3. Identify Your Hard Drive",
+      "slug": "3-identify-your-hard-drive"
+    },
+    {
+      "level": 4,
+      "text": "4. Create a New Partition",
+      "slug": "4-create-a-new-partition"
+    },
+    {
+      "level": 4,
+      "text": "5. Format Your Partition",
+      "slug": "5-format-your-partition"
+    },
+    {
+      "level": 4,
+      "text": "6. Create a New Partition (Optional)",
+      "slug": "6-create-a-new-partition-optional"
+    },
+    {
+      "level": 4,
+      "text": "7. Verify Your Partition",
+      "slug": "7-verify-your-partition"
+    },
+    {
+      "level": 4,
+      "text": "8. Set Up File Systems",
+      "slug": "8-set-up-file-systems"
+    },
+    {
+      "level": 4,
+      "text": "9. Configure Mount Points",
+      "slug": "9-configure-mount-points"
+    },
+    {
+      "level": 3,
+      "text": "Additional Tips and Troubleshooting Advice",
+      "slug": "additional-tips-and-troubleshooting-advice"
+    }
+  ],
+  "readingTime": 4,
+  "content": "**Title:** Partition FHD Util Cfdisk Arch\n**Date:** 2025-11-16 (23:26:26 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Partition_FHD_Util_Cfdisk_Arch.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\nPartitioning and Formatting a Hard Drive with cfdisk Utility in Arch\nLinux\n\n## Introduction\n\nIn this tutorial, we will walk you through the process of partitioning\nand formatting a hard drive using the cfdisk utility in Arch Linux.\nThis guide is designed for users who are comfortable with basic computer\nhardware and operating systems.\n\n## Required Dependencies\n\n- Arch Linux\n- cfdisk utility (part of the Arch Linux installation)\n\n## Required Commands Definitions\n\n- `cfdisk`: A disk partitioning utility used to create, modify, and\ndelete partitions on a hard drive.\n- `lsblk`: A command used to list all block devices (hard drives, etc.)\nconnected to the system.\n\n## Estimated Time\n\nApproximately 30 minutes to complete this tutorial, depending on your\nlevel of experience with computer hardware and operating systems.\n\n## Skill Level\n\n* Beginner: Familiarity with basic computer hardware and operating\nsystems.\n* Intermediate: Experience with Linux distributions and command-line\ninterfaces.\n* Advanced: Knowledge of advanced disk partitioning techniques and\ntroubleshooting methods.\n\n### Step-by-Step Instructions\n\n#### 1. Back Up Your Data\n\nBefore starting the partitioning process, make sure to back up your\nimportant files and data. You can use the `dd` command or a third-party\nbackup tool to create backups of your data.\n\n#### 2. Disconnect Your Hard Drive\n\nDisconnect your hard drive from your computer using one of the following\nmethods:\n\n* Using the power button: Unplug the power cord connected to the hard\ndrive.\n* Using the SATA switch: If you have an SATA switch on your motherboard,\nuse it to disconnect the hard drive from the system.\n\n#### 3. Identify Your Hard Drive\n\nLocate your hard drive and identify its device name using `lsblk`. You\ncan do this by running the following command:\n\n```bash\nlsblk\n```\n\nOnce you know the device name of your hard drive, you can use the\n`cfdisk` utility to access it.\n\n#### 4. Create a New Partition\n\nRun the `cfdisk` utility and select \"Create\" from the menu. Choose the\npartition type as \"Linux Filesystem\" (default).\n\n* For Linux Filesystems, you will see an option to create a new\npartition.\n* Select the partition size based on your needs.\n\n#### 5. Format Your Partition\n\nSelect the partition you created in step 4 and choose the file system\ntype. You can choose from various file systems such as ext4, xfs, or\nreiserfs.\n\nFor example:\n\n```bash\ncfdisk /dev/sda1\n```\n\nFormat your partition using the following command:\n\n```bash\nmkfs.ext4 /dev/sda1\n```\n\n#### 6. Create a New Partition (Optional)\n\nIf you want to create an additional partition for data, repeat steps\n4-5.\n\n* For Linux Filesystems, select \"Create\" and choose the file system\ntype.\n* Format your new partition using the following command:\n\n```bash\nmkfs.ext4 /dev/sda2\n```\n\n#### 7. Verify Your Partition\n\nVerify that your hard drive is successfully partitioned by running the\n`df` command:\n\n```bash\ndf -h\n```\n\nThis will display information about the mounted file systems on your\nsystem.\n\n#### 8. Set Up File Systems\n\nCreate a new file system for your data and mount it using the following\ncommands:\n\n* For ext4, run:\n\n```bash\nmkfs.ext4 /dev/sda2\n```\n\nMount the partition using:\n\n```bash\nsudo mkdir -p /mnt/data\nsudo mount /dev/sda2 /mnt/data\n```\n\n#### 9. Configure Mount Points\n\nConfigure the mount points for your data by adding them to the\n`/etc/fstab` file.\n\n* For ext4, add the following lines to the ` fstab` file:\n\n```bash\nUUID=<your UUID> /mnt/data ext4 defaults 0 2\n```\n\nReplace `<your UUID>` with your actual UUID.\n\n### Additional Tips and Troubleshooting Advice\n\n* Make sure to back up your data regularly to avoid losing important\nfiles.\n* Use a third-party backup tool or service to ensure that all your data\nis safely backed up.\n* If you encounter any issues during the partitioning process, refer to\nthe `cfdisk` documentation for troubleshooting advice.\n\nBy following these steps and using the provided commands, you should be\nable to successfully partition and format your hard drive using the\ncfdisk utility in Arch Linux.\n"
+}

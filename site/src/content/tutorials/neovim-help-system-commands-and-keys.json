@@ -1,0 +1,19 @@
+{
+  "slug": "neovim-help-system-commands-and-keys",
+  "filePath": "Neovim-Help-System-Commands-and-Keys.md",
+  "title": "Install from package",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Neovim Help System - Commands & Keys\n\nBasic Help Commands\n\nOpening Help\n\n- :help or :h - Open main help page\n- :help {subject} - Get help on specific topic (e.g., :help nvim-tree)\n- :helpgrep {patte…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "Install from package",
+      "slug": "install-from-package"
+    }
+  ],
+  "readingTime": 3,
+  "content": "# Neovim Help System - Commands & Keys\n\nBasic Help Commands\n\nOpening Help\n\n- :help or :h - Open main help page\n- :help {subject} - Get help on specific topic (e.g., :help nvim-tree)\n- :helpgrep {pattern} - Search help for pattern\n- :help! - Force help (useful when command exists)\n\nYour Custom Key Mappings\n\nFrom your configuration, you have these help-related mappings:\n\nLeader-based mappings:\n\n- <leader>fh - Telescope help tags (fuzzy search through help pages)\n- <leader>ls - LSP signature help (shows function signatures)\n\nHelp Navigation\n\nMoving in Help Windows\n- j/k - Move up/down lines\n- h/l - Move left/right\n- Ctrl+u/Ctrl+d - Page up/down\n- gg/G - Go to top/bottom\n- /{pattern} - Search forward\n- ?{pattern} - Search backward\n- n/N - Next/previous search result\n\nLinks (Tags)\n\n- Ctrl+] or <Enter> - Follow link under cursor\n- Ctrl+t - Jump back (go back to previous topic)\n- Ctrl+o - Jump to older position\n- Ctrl+i - Jump to newer position\n\nWindow Management\n\n- :close or :q - Close help window\n- :only - Make help window the only one\n- :split - Split window and open help\n\nAdvanced Help Features\n\nHelp Categories\n\n- :help functions - All built-in functions\n- :help options - All options\n- :help commands - All commands\n- :help pattern - Search patterns\n- :help usr_01 - User manual (01-40 chapters)\n\nContext-Sensitive Help\n\n- K (normal mode) - Get help for word under cursor\n- :help word - Help for specific word/command\nTelescope Integration (Your Setup)\nUse <leader>fh to get fuzzy searchable help:\n- Type keywords to filter help topics\n- Much faster than traditional help navigation\n\nQuick Reference Commands\n\n\" Most useful help commands\n\n:h quickref          \" Quick reference guide\n:h tutor             \" Interactive tutorial\n:h index             \" Help index\n:h helphelp          \" Help about help system\n:h pattern.txt       \" Pattern matching\n:h :help             \" Help about :help command\n:h netrw             \" File browser help\n:h lsp               \" LSP functionality\n\nGetting Help for Specific Topics\n\nFor plugins:\n\n- :help nvim-tree - Help for nvim-tree plugin\n- :help telescope - Help for telescope\n- :help which-key - Help for which-key\n\nFor programming:\n- :help ft-python - Python file type help\n- :help lsp-config - LSP configuration\n- :help treesitter - Treesitter features\n\nFor configuration:\n\n- :help init.lua - Lua configuration\n- :help vim.keymap.set - Key mapping function\n- :help vim.opt - Setting options\n\nYour <leader>fh mapping to Telescope help_tags is the most efficient way\nto search through available help topics interactively.\n\n\n## Install from package\n\nArch Linux\n\nNeovim can be installed from the community repository:\n\nsudo pacman -S neovim\n\nAlternatively, Neovim can be also installed using the PKGBUILD\nneovim-git, available on the AUR.\n\nAlternatively, Neovim Nightly builds can be also installed using the\nPKGBUILD neovim-nightly-bin,\navailable on the AUR.\n\nThe Python module is available from the community repository:\n\nsudo pacman -S python-pynvim\n\nRuby modules (currently only supported in neovim-git) are available from\nthe AUR as ruby-neovim.\n"
+}

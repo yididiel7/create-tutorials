@@ -1,0 +1,44 @@
+{
+  "slug": "paperless-digities-your-life",
+  "filePath": "Paperless_Digities_Your_Life.md",
+  "title": "IDEAS",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Title: Paperless Digitize Your Life\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Paperless_Digities_Your_Life.md\nCopyright…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "IDEAS",
+      "slug": "ideas"
+    },
+    {
+      "level": 2,
+      "text": "INSIGHTS",
+      "slug": "insights"
+    },
+    {
+      "level": 2,
+      "text": "QUOTES",
+      "slug": "quotes"
+    },
+    {
+      "level": 2,
+      "text": "HABITS",
+      "slug": "habits"
+    },
+    {
+      "level": 2,
+      "text": "FACTS",
+      "slug": "facts"
+    },
+    {
+      "level": 2,
+      "text": "CRON Jobs",
+      "slug": "cron-jobs"
+    }
+  ],
+  "readingTime": 3,
+  "content": "**Title:** Paperless Digitize Your Life\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Paperless_Digities_Your_Life.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n# Digitize Your Life | Deploying a Paperless Document System You Can Access Anywhere\n\n    1. [Video by: Travis @Twingate](https://youtu.be/NcpOnOcMoA0)\n\nLearn to digitize and securely access your physical documents from\nanywhere.\nThis tutorial demonstrates deploying the open-source Paperless-ngx\nsystem on a home server.\nThe video also details setting up Twingate for remote access, including\nautomated backups.\n\n**Fabric YouTube yt -sp extract_wisdom pattern:**\n\n```\n❯ yt https://youtu.be/NcpOnOcMoA0 | fabric -sp extract_wisdom\n```\n\n# SUMMARY\n- Travis, a tech enthusiast, discusses the use of Paperless NGX, an\nopen-source document management system, to digitize physical documents.\n- He explains how to install and configure Paperless NGX on a private\nserver using Docker Compose.\n\n## IDEAS\n* Paperless NGX can be used to digitize physical documents from various\nsources, including emails, lab records, and recipes.\n* The system allows for easy tagging and categorization of documents\nbased on their content or type.\n* Document OCR (Optical Character Recognition) technology enables the\nautomatic extraction of text from scanned documents.\n* Paperless NGX provides a secure and private online archive for digital\ndocuments, accessible via Twing (a secure web gateway).\n* Regular backups can be performed using Docker Compose, allowing for\ndaily or scheduled backups.\n* The system promotes sustainability by initially tagging documents with\nan inbox tag and then archiving them when not needed.\n\n## INSIGHTS\n- Digitizing physical documents can help reduce paper waste and increase\nproductivity.\n- Paperless NGX offers a flexible and customizable solution for managing\ndigital documents.\n- The system's OCR technology enables the automatic extraction of text\nfrom scanned documents, making it easier to search and manage digital\ncontent.\n- Regular backups and archiving ensure that important documents are\npreserved even in case of data loss or corruption.\n\n## QUOTES\n- \"Digitizing your life with an open-source project like Paperless NGX\ncan be a game-changer.\"\n- \"Paperless NGX is a great tool for storing long-term copies of\nimportant documents, but it's not meant to replace traditional storage\nmethods entirely.\"\n\n## HABITS\n* Regularly scan and digitize physical documents.\n* Use Paperless NGX to manage digital documents and create an online\narchive.\n* Perform regular backups using Docker Compose.\n\n## FACTS\n* Paperless NGX is an open-source document management system that uses\nOCR technology for automatic text extraction from scanned documents.\n* The system provides a secure and private online archive for digital\ndocuments, accessible via Twing.\n* Regular backups can be performed using Docker Compose to ensure data\npreservation in case of loss or corruption.\n\n## CRON Jobs\n- Perform daily backups at 12 UTC using cron tab e.\n"
+}

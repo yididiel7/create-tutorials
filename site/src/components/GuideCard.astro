@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  category: string;
+  slug: string;
+  readTime: string;
+}
+
+const { title, description, category, slug, readTime } = Astro.props;
+---
+
+<article class="p-6 rounded-lg border border-arch-border bg-arch-surface hover:border-arch-cyan/50 transition-all group flex flex-col justify-between">
+  <div>
+    <div class="flex items-center justify-between text-xs text-arch-muted mb-3">
+      <span class="px-2.5 py-1 rounded-full bg-arch-bg border border-arch-border text-arch-sky font-mono">{category}</span>
+      <span>{readTime}</span>
+    </div>
+    <h3 class="text-xl font-semibold text-white group-hover:text-arch-cyan transition-colors mb-2">
+      <a href={`/guides/${slug}`}>{title}</a>
+    </h3>
+    <p class="text-arch-muted text-sm line-clamp-2">{description}</p>
+  </div>
+  <div class="mt-4 pt-4 border-t border-arch-border/50 flex items-center text-sm text-arch-cyan font-medium">
+    Read Guide <span class="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+  </div>
+</article>

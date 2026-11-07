@@ -1,0 +1,89 @@
+{
+  "slug": "prompt-rewrite-reforge-markdown-files",
+  "filePath": "Prompt-Rewrite-Reforge-Markdown-Files.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Reference: Prompt Rewrite — Reforge Markdown Files\n\nTitle: Prompt Rewrite Reforge Markdown Files\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Li…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Original Request",
+      "slug": "original-request"
+    },
+    {
+      "level": 3,
+      "text": "Rewritten Prompt",
+      "slug": "rewritten-prompt"
+    },
+    {
+      "level": 3,
+      "text": "Prompt Rewrite: Reforge Markdown File with Section Titles",
+      "slug": "prompt-rewrite-reforge-markdown-file-with-section-titles"
+    },
+    {
+      "level": 3,
+      "text": "Usage",
+      "slug": "usage"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "What the Prompt Does",
+      "slug": "what-the-prompt-does"
+    },
+    {
+      "level": 3,
+      "text": "Why 72 Columns?",
+      "slug": "why-72-columns"
+    },
+    {
+      "level": 3,
+      "text": "Standard Markdown Guidelines",
+      "slug": "standard-markdown-guidelines"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Geany Configuration",
+      "slug": "geany-configuration"
+    },
+    {
+      "level": 3,
+      "text": "fabric improve_prompt Pattern",
+      "slug": "fabric-improve-prompt-pattern"
+    },
+    {
+      "level": 3,
+      "text": "Markdown Linting",
+      "slug": "markdown-linting"
+    },
+    {
+      "level": 3,
+      "text": "AGENTS.md Compliance",
+      "slug": "agents-md-compliance"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 2,
+  "content": "LOG: [LEARN] Reference: Prompt Rewrite — Reforge Markdown Files\n\n**Title:** Prompt Rewrite Reforge Markdown Files\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Prompt-Rewrite-Reforge-Markdown-Files.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Original Request\n```bash\necho \"Can you reformat the Mardown file with section titles the default line breaking column is 72 for geany editor\" | fabric -sp improve_prompt\n```\n\n### Rewritten Prompt\n```markdown\n### Prompt Rewrite: Reforge Markdown File with Section Titles\n\n**Line Breaking:** Set default line breaking to 72 columns in Geany Editor.\n**Markdown Formatting:** Reformat the Markdown file according to standard guidelines.\n```\n\n### Usage\n```bash\n# Apply to any markdown file\necho \"Your prompt here\" | fabric -sp improve_prompt\n\n# Or pipe file content\ncat your-file.md | fabric -sp improve_prompt\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### What the Prompt Does\n| Aspect | Specification |\n|--------|---------------|\n| **Line Breaking** | 72 columns (Geany default) |\n| **Structure** | Add proper section titles |\n| **Format** | Standard Markdown guidelines |\n\n### Why 72 Columns?\n- Geany editor default\n- Readable in terminal (80-char width with margins)\n- Git diff friendly\n- Matches Markdown conventions\n\n### Standard Markdown Guidelines\n| Element | Rule |\n|---------|------|\n| Headers | ATX style (`# Header`) |\n| Lists | `- ` or `1.` with consistent indentation |\n| Code blocks | Fenced with language tags |\n| Line length | ≤72 chars (prose), no limit in code |\n| Links | `[text](url)` descriptive |\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Geany Configuration\n```ini\n# ~/.config/geany/filedefs/filetypes.markdown.conf\n[settings]\nline_wrap=1\nline_wrap_margin=72\n```\n\n### fabric improve_prompt Pattern\n```bash\n# The improve_prompt pattern enhances prompts by:\n# 1. Adding structure (headers, sections)\n# 2. Clarifying requirements\n# 3. Adding constraints\n# 4. Specifying output format\n```\n\n### Markdown Linting\n```bash\n# Install\npip install markdownlint-cli\n\n# Check\nmarkdownlint *.md\n\n# Fix\nmarkdownlint --fix *.md\n```\n\n### AGENTS.md Compliance\n- 72-column line wrapping\n- ATX headers (`# Header`)\n- Fenced code blocks with language\n- Proper metadata block\n- No trailing whitespace\n- Single final newline\n\n### References\n- [Geany Documentation](https://www.geany.org/doc/)\n- [Markdown Guide](https://www.markdownguide.org/)\n- [fabric GitHub](https://github.com/danielmiessler/fabric)\n- [AGENTS.md](https://github.com/your-repo/AGENTS.md)"
+}

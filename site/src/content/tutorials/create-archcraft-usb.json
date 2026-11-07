@@ -1,0 +1,84 @@
+{
+  "slug": "create-archcraft-usb",
+  "filePath": "create-archcraft-usb.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Create Archcraft Bootable USB with dd\n\nTitle: Create Archcraft Bootable USB\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Dev…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Step 1: Identify USB Device",
+      "slug": "step-1-identify-usb-device"
+    },
+    {
+      "level": 3,
+      "text": "Step 2: Write ISO to USB",
+      "slug": "step-2-write-iso-to-usb"
+    },
+    {
+      "level": 3,
+      "text": "Step 3: Verify Write",
+      "slug": "step-3-verify-write"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Why dd?",
+      "slug": "why-dd"
+    },
+    {
+      "level": 3,
+      "text": "ISO Hybrid Format",
+      "slug": "iso-hybrid-format"
+    },
+    {
+      "level": 3,
+      "text": "Block Size Considerations",
+      "slug": "block-size-considerations"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "dd Command Breakdown",
+      "slug": "dd-command-breakdown"
+    },
+    {
+      "level": 3,
+      "text": "Safety Checks",
+      "slug": "safety-checks"
+    },
+    {
+      "level": 3,
+      "text": "Alternative: Ventoy (Multi-ISO)",
+      "slug": "alternative-ventoy-multi-iso"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 2,
+  "content": "LOG: [LEARN] Guide: Create Archcraft Bootable USB with dd\n\n**Title:** Create Archcraft Bootable USB\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** create-archcraft-usb.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Linux system (any distro)\n- Archcraft ISO downloaded\n- USB drive (4 GB minimum)\n- Root/sudo access\n\n### Step 1: Identify USB Device\n```bash\n$ sudo fdisk -l\n# Or:\n$ lsblk -o NAME,SIZE,MODEL,TRAN\n# Find target: /dev/sdX (e.g., /dev/sdb)\n# ⚠️ VERIFY: This will DESTROY all data on the device!\n```\n\n### Step 2: Write ISO to USB\n```bash\n$ sudo dd bs=4M if=path/to/archcraft.iso of=/dev/sdX status=progress oflag=sync\n```\n- `bs=4M` — 4 MB block size (faster)\n- `status=progress` — show progress\n- `oflag=sync` — ensure data written before completion\n\n### Step 3: Verify Write\n```bash\n$ sync\n$ sudo fdisk -l /dev/sdX\n# Should show ISO partitions\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Why dd?\n- Universal: available on all Unix-like systems\n- Bit-for-bit copy: preserves ISO hybrid MBR/GPT\n- Creates both BIOS and UEFI bootable media\n- No additional tools needed\n\n### ISO Hybrid Format\nArchcraft ISO is a hybrid image:\n- MBR partition table for BIOS\n- GPT partition table for UEFI\n- El Torito boot sector for optical media\n\n### Block Size Considerations\n| bs= | Speed | Notes |\n|-----|-------|-------|\n| 4M | Fast | Recommended default |\n| 1M | Slower | More progress updates |\n| 64K | Slowest | Maximum compatibility |\n\n## The \"Deep Dive\" (The Technical Root)\n\n### dd Command Breakdown\n```bash\ndd if=input_file of=output_device bs=block_size flags\n```\n- `if=` — input file (ISO)\n- `of=` — output device (USB, NOT partition!)\n- `bs=` — read/write block size\n- `oflag=sync` — synchronous I/O (data integrity)\n- `status=progress` — periodic progress reports\n\n### Safety Checks\n```bash\n# ALWAYS verify before writing\n$ lsblk /dev/sdX\n# Check: SIZE matches USB, not system disk!\n\n# Dry run (shows what would happen)\n$ sudo dd if=archcraft.iso of=/dev/sdX bs=4M count=0 status=progress\n```\n\n### Alternative: Ventoy (Multi-ISO)\n```bash\n# Install Ventoy to USB once\n$ sudo ventoy -i /dev/sdX\n\n# Then copy multiple ISOs to USB as files\n$ cp archcraft.iso /mnt/ventoy/\n$ cp other.iso /mnt/ventoy/\n```\n\n### References\n- `man dd`\n- [Archcraft Wiki: Boot with USB](https://wiki.archcraft.io/docs/boot-iso/boot-with-usb)\n- [Arch Wiki: USB flash installation media](https://wiki.archlinux.org/title/USB_flash_installation_media)"
+}

@@ -1,0 +1,89 @@
+{
+  "slug": "arch-linux-command-line-commands",
+  "filePath": "Arch_Linux_command-line_commands.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Reference: Arch Linux Command-Line Commands\n\nTitle: Arch Linux Command-Line Commands\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, D…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Basic Commands",
+      "slug": "basic-commands"
+    },
+    {
+      "level": 3,
+      "text": "File Management",
+      "slug": "file-management"
+    },
+    {
+      "level": 3,
+      "text": "User Management",
+      "slug": "user-management"
+    },
+    {
+      "level": 3,
+      "text": "System Administration",
+      "slug": "system-administration"
+    },
+    {
+      "level": 3,
+      "text": "Networking",
+      "slug": "networking"
+    },
+    {
+      "level": 3,
+      "text": "System Monitoring",
+      "slug": "system-monitoring"
+    },
+    {
+      "level": 3,
+      "text": "Security",
+      "slug": "security"
+    },
+    {
+      "level": 3,
+      "text": "Miscellaneous",
+      "slug": "miscellaneous"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Command Categories",
+      "slug": "command-categories"
+    },
+    {
+      "level": 3,
+      "text": "Arch-Specific Notes",
+      "slug": "arch-specific-notes"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "uname -a Breakdown",
+      "slug": "uname-a-breakdown"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 3,
+  "content": "LOG: [LEARN] Reference: Arch Linux Command-Line Commands\n\n**Title:** Arch Linux Command-Line Commands\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Arch_Linux_command-line_commands.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Basic Commands\n```bash\n$ ls              # list files and directories\n$ cd              # change directory\n$ pwd             # print working directory\n$ mkdir           # make a new directory\n$ rm              # remove a file or directory\n$ touch           # create a new empty file\n$ cp              # copy a file\n$ mv              # move or rename a file\n$ echo            # print text to the console\n$ cat             # read text from a file\n```\n\n### File Management\n```bash\n$ ls -l                   # detailed listing\n$ find .                  # search files recursively\n$ grep pattern            # search patterns in files\n$ awk 'pattern' file      # process text with awk\n$ sed 'pattern' file      # stream edit with sed\n$ rsync -avz src dest     # synchronize files\n```\n\n### User Management\n```bash\n$ useradd username        # create user\n$ userdel username        # delete user\n$ groups username         # list user groups\n$ gpasswd groupname       # manage group membership\n$ su                      # switch user\n$ sudo                    # run as superuser\n```\n\n### System Administration\n```bash\n$ systemctl start service    # start service\n$ systemctl stop service     # stop service\n$ systemctl enable service   # enable at boot\n$ systemctl disable service  # disable at boot\n$ journalctl                 # view system logs\n$ logrotate log_file         # rotate logs\n$ ufw status                 # firewall status\n```\n\n### Networking\n```bash\n$ ping hostname           # test connectivity\n$ nslookup hostname       # DNS lookup\n$ dig hostname            # detailed DNS query\n$ ip addr show            # show network addresses\n$ ip route                # show routing table\n```\n\n### System Monitoring\n```bash\n$ top                     # process list\n$ htop                    # interactive process viewer\n$ vmstat                  # virtual memory stats\n$ sar                     # system activity report\n```\n\n### Security\n```bash\n$ chown user:group path   # change ownership\n$ chmod +x script         # make executable\n$ ss -lpni                # socket/process info\n$ kill pid                # kill process\n```\n\n### Miscellaneous\n```bash\n$ date                    # current date/time\n$ hostname                # system hostname\n$ uptime                  # system uptime\n$ free -h                 # memory usage\n$ lscpu                   # CPU info\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Command Categories\nCommands are grouped by functional area for quick reference. Use `man <command>` for detailed documentation.\n\n### Arch-Specific Notes\n- Package management via `pacman` (not apt/dnf)\n- Service management via `systemctl` (systemd only)\n- Configuration in `/etc/` following Arch conventions\n\n## The \"Deep Dive\" (The Technical Root)\n\n### uname -a Breakdown\n```bash\n$ uname -a\nLinux arch-vm 5.15.21-arch1-1 #1 SMP PREEMPT Sat, 12 Feb 2022 13:38:47 +0000 x86_64 x86_64 x86_64 GNU/Linux\n```\n- `Linux` — kernel name\n- `arch-vm` — hostname\n- `5.15.21-arch1-1` — kernel version\n- `#1 SMP PREEMPT ...` — build info\n- `x86_64 x86_64 x86_64` — machine/processor/hardware platform\n- `GNU/Linux` — OS\n\n### References\n- `man <command>` for any command\n- [Arch Wiki: General recommendations](https://wiki.archlinux.org/title/General_recommendations)\n- [Arch Wiki: System maintenance](https://wiki.archlinux.org/title/System_maintenance)"
+}

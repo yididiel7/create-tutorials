@@ -1,0 +1,13 @@
+{
+  "slug": "niri-zsh-completion-config-fix",
+  "filePath": "Niri-Guides/niri-zsh-completion-config-fix.md",
+  "title": "niri-zsh-completion-config-fix",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "Niri-Guides",
+  "tags": [],
+  "description": "Title: Niri ZSH Completion Config Fix\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: niri-zsh-completion-config-fix.md\nCopyr…",
+  "headings": [],
+  "readingTime": 2,
+  "content": "**Title:** Niri ZSH Completion Config Fix\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** niri-zsh-completion-config-fix.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\nPerfect! The niri zsh completion configuration is now set up correctly.\nHere's what I've accomplished:\n✅ Niri ZSH Completion Configuration\n1. Installation Complete\n- Generated completion file from: niri completions zsh\n- Moved to proper location: ~/.local/share/zsh/completions/_niri\n- Made executable with proper permissions\n- Added to zsh completion path in your .zshrc\n2. Configuration Verified\n- ✅ Completion file exists at ~/.local/share/zsh/completions/_niri\n- ✅ Proper #compdef niri header present\n- ✅ File is part of zsh fpath (line 253 in .zshrc)\n- ✅ Completion system loads properly (compinit called twice in .zshrc)\n- ✅ Function _niri is discoverable by zsh\n3. Available Completions\nThe completion system now provides tab completion for:\nMain Commands:\n- niri --help, niri --version\n- niri --config, niri --session\n- niri msg, niri validate, niri panic, niri completions\nNiri IPC Actions:\n- niri msg action [action-name] (quit, load-config-file, screenshot,\netc.)\n- niri msg outputs, niri msg workspaces, niri msg windows\n- niri msg focused-output, niri msg focused-window\n- All 100+ niri actions with full argument completion\nExamples:\nniri [TAB]           # Shows main commands\nniri msg [TAB]        # Shows msg subcommands\nniri msg action [TAB]  # Shows all available actions\nniri msg action quit [TAB]  # Shows --skip-confirmation option\n4. Ready to Use\nThe completion system is now fully configured and will work in new zsh\nsessions. To test immediately:\n# Start a new shell session or reload:\nsource ~/.zshrc\n# Test tab completion:\nniri [TAB]           # Should show available commands\nniri msg [TAB]        # Should show msg subcommands\nThe niri zsh completion is now properly integrated into your shell\nconfiguration!\n"
+}

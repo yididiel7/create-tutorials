@@ -1,0 +1,13 @@
+{
+  "slug": "content-raw-cfdisk",
+  "filePath": "content_raw_cfdisk.md",
+  "title": "content_raw_cfdisk",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Here's a step-by-step guide on formatting a hard drive using cfdisk in\nArch Linux:\n\nPrerequisites:\n\n You have installed Arch Linux.\n You have an unformatted hard drive that you want to format.…",
+  "headings": [],
+  "readingTime": 2,
+  "content": "Here's a step-by-step guide on formatting a hard drive using `cfdisk` in\nArch Linux:\n\n**Prerequisites:**\n\n* You have installed Arch Linux.\n* You have an unformatted hard drive that you want to format.\n* You know the device path of your hard drive, e.g., `/dev/sdb`.\n\n**Step 1: Unmount the hard drive (umount)**\n\nBefore formatting the hard drive, you need to unmount it. This will\nallow you to reformat the disk.\n\n```bash\numount /dev/sdb\n```\n\n**Step 2: Format the hard drive**\n\nNow that the hard drive is unmounted, you can format it using `cfdisk`.\nYou'll need to create a new partition and set the file system type.\nLet's use ext4 as the file system type.\n\n```bash\ncfdisk /dev/sdb\n```\n\n**Step 3: Create a new partition (n)**\n\nIn the cfdisk menu, select \"New\" and enter the desired partition size\n(e.g., 1 GB). You'll need to choose the part of the hard drive where you\nwant to create the partition.\n\n* Partition 1 (first partition): `/dev/sdb1`\n* Partition 2 (second partition): `/dev/sdb2`\n\n**Step 4: Set the file system type**\n\nIn the \"Partition\" menu, select the partition that you created in Step\n3. Then, click on the \"File System\" button and enter `ext4` as the file\nsystem type.\n\n```bash\ncfdisk /dev/sdb1\n```\n\n**Step 5: Create a mount point (e.g., `/mnt`)**\n\nIn the cfdisk menu, select \"Mountpoint\" and enter a desired location for\nyour mounted partition. Let's create a new directory called `/mnt`.\n\n* Mountpoint `/mnt`: `y`\n* Reboot system: `n`\n\n**Step 6: Verify the format (mkfs)**\n\nAfter creating the mount point and setting the file system type, you can\nverify that the hard drive is formatted using `mkfs`:\n\n```bash\nmkfs.ext4 /dev/sdb1\n```\n\n**Step 7: Mount the hard drive**\n\nTo use your newly formatted hard drive, follow these steps:\n\n```bash\nmount /dev/sdb1 /mnt\n```\n\nThis will mount the hard drive at `/mnt`.\n\nCongratulations! Your Arch Linux system is now up and running on the\nformatted hard drive.\n\nNote: Make sure to replace `/dev/sdb` with the actual device path of\nyour hard drive.\n"
+}

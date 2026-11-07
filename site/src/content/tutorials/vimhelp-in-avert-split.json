@@ -1,0 +1,13 @@
+{
+  "slug": "vimhelp-in-avert-split",
+  "filePath": "vimhelp-in-avert-split.md",
+  "title": "vimhelp-in-avert-split",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "The command to open help in a vert split is:\n\n:vert help <topic>\n\n\nCtrl+W, S (case does not matter) for horizontal splitting\n\nCtrl+W, v (lower case) for vertical splitting\n\nCtrl+W, q (lower case)…",
+  "headings": [],
+  "readingTime": 1,
+  "content": "# The command to open help in a vert split is:\n\n`:vert help <topic>`\n\n\nCtrl+W, S (case does not matter) for horizontal splitting\n\nCtrl+W, v (lower case) for vertical splitting\n\nCtrl+W, q (lower case) to close one\n\nCtrl+W, Ctrl+W to switch between windows\n\nCtrl+W, j (or k, h, l; lowercase) to switch to adjacent window (down, up, left, right respectively)\n"
+}

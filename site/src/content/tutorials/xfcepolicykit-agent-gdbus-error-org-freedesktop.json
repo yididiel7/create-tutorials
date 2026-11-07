@@ -1,0 +1,39 @@
+{
+  "slug": "xfcepolicykit-agent-gdbus-error-org-freedesktop",
+  "filePath": "xfcepolicykit-agent-GDBus-Error-org-freedesktop.md",
+  "title": "COMMENT THIS OUT",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Xfce policykit agent GDBus.Error:org.freedesktop.Policykit1.Error.Failed 2022\n\n[Solved]\nxefce-policykit1-error-failed.md\nxfce based distro commands:\nxfce4-panel --disable-wm-check\n\nOR\n\nxfce4 panel…",
+  "headings": [
+    {
+      "level": 3,
+      "text": "COMMENT THIS OUT",
+      "slug": "comment-this-out"
+    },
+    {
+      "level": 2,
+      "text": "polkit agent",
+      "slug": "polkit-agent"
+    },
+    {
+      "level": 2,
+      "text": "if [[ ! `pidof xfce-polkit` ]]; then",
+      "slug": "if-pidof-xfce-polkit-then"
+    },
+    {
+      "level": 2,
+      "text": "/usr/lib/xfce-polkit/xfce-polkit &",
+      "slug": "usr-lib-xfce-polkit-xfce-polkit"
+    },
+    {
+      "level": 2,
+      "text": "fi",
+      "slug": "fi"
+    }
+  ],
+  "readingTime": 1,
+  "content": "# Xfce policykit agent GDBus.Error:org.freedesktop.Policykit1.Error.Failed 2022\n\n[Solved]\nxefce-policykit1-error-failed.md\nxfce based distro commands:\nxfce4-panel --disable-wm-check\n\n#OR#\n\nxfce4 panel\n\nArchcraft, Openbox, Bspwm, i3 etc shown in video.\n\nTags:\ndesktop error solved,desktop error solving,gdbus error solved,solved linux error,gdbus.error:org.freedesktop.dbus.error,solved,linux desktop not showing,error solved,linxu error solved,error,linux, #GDBusErrororgfreedesktopDBusError \n#ErrorSolved\n\n\n### COMMENT THIS OUT\n\n## polkit agent\n## if [[ ! `pidof xfce-polkit` ]]; then\n##\t/usr/lib/xfce-polkit/xfce-polkit &\n## fi\n"
+}

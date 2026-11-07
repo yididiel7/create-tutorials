@@ -1,0 +1,54 @@
+{
+  "slug": "niri-install-wayland-compositor-on-arch-linux-2026-02-09-17-30-34",
+  "filePath": "Niri-Guides/Niri-Install-Wayland-Compositor-on-Arch-Linux_2026-02-09_17-30-34.md",
+  "title": "How to Install and Customize Niri Wayland Compositor on Arch Linux",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "Niri-Guides",
+  "tags": [],
+  "description": "Title: Niri Install Wayland Compositor on Arch Linux\nDate: 2026-02-09 (17:30:34 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Niri-Install-Wayland-Compo…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "How to Install and Customize Niri Wayland Compositor on Arch Linux",
+      "slug": "how-to-install-and-customize-niri-wayland-compositor-on-arch-linux"
+    },
+    {
+      "level": 3,
+      "text": "Step 1: Prepare Your System",
+      "slug": "step-1-prepare-your-system"
+    },
+    {
+      "level": 3,
+      "text": "Step 2: Install Niri and Dependencies",
+      "slug": "step-2-install-niri-and-dependencies"
+    },
+    {
+      "level": 3,
+      "text": "Step 3: Set Up Niri as a User Service",
+      "slug": "step-3-set-up-niri-as-a-user-service"
+    },
+    {
+      "level": 3,
+      "text": "Step 4: Configure Niri",
+      "slug": "step-4-configure-niri"
+    },
+    {
+      "level": 3,
+      "text": "Step 5: Use Xwayland for X11 Applications",
+      "slug": "step-5-use-xwayland-for-x11-applications"
+    },
+    {
+      "level": 3,
+      "text": "Step 6: Additional Customizations",
+      "slug": "step-6-additional-customizations"
+    },
+    {
+      "level": 3,
+      "text": "Step 7: Enjoy and Further Tweaks",
+      "slug": "step-7-enjoy-and-further-tweaks"
+    }
+  ],
+  "readingTime": 3,
+  "content": "**Title:** Niri Install Wayland Compositor on Arch Linux\n**Date:** 2026-02-09 (17:30:34 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Niri-Install-Wayland-Compositor-on-Arch-Linux_2026-02-09_17-30-34.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## How to Install and Customize Niri Wayland Compositor on Arch Linux\n\nInstalling and customizing the Niri Wayland compositor on Arch Linux\ninvolves a few straightforward steps. Here’s a step-by-step guide to get\nyou started.\n\n---\n\n### Step 1: Prepare Your System\n\nBefore you begin, ensure that your system is up to date and you have the\nnecessary tools installed. Open your terminal and run:\n\n```bash\nsudo pacman -Syu\n```\n\n---\n\n### Step 2: Install Niri and Dependencies\n\nYou can install Niri along with some essential packages using the\nfollowing command:\n\n```bash\nsudo pacman -S niri xwayland-satellite xdg-desktop-portal-gnome xdg-desktop-portal-gtk alacritty\n```\n\nIf you want a graphical launcher and a shell, you can additionally\ninstall:\n\n```bash\nparu -S dms-shell-bin matugen cava qt6-multimedia-ffmpeg\n```\n\n**Note:** The specific installations may require a package manager like\n`paru` which can be installed from `AUR` if it’s not already available.\n\n---\n\n### Step 3: Set Up Niri as a User Service\n\nOnce installed, configure Niri to start automatically:\n\n```bash\nsystemctl --user enable niri.service\nsystemctl --user start niri.service\n```\n\n---\n\n### Step 4: Configure Niri\n\n1. **Initial Configuration:**\nAfter logging out and choosing Niri in your display manager, you may\nhave some initial setting tweaks to perform. If you run into duplicate\nbars (like Waybar appearing), you can kill it with:\n\n   ```bash\n   pkill waybar\n   ```\n\n2. **Edit Configuration File:**\n   Open Niri’s configuration file to customize your environment:\n\n   ```bash\n   nano ~/.config/niri/config.kdl\n   ```\n\nHere, you can adjust settings like keybindings, layout preferences, and\nmore. For example, to customize gaps and focus rings:\n\n   ```kdl\n   layout {\n       gaps 5\n       focus-ring {\n           width 1.5\n           active-color \"#7fc8ff\"\n           inactive-color \"#505050\"\n       }\n       border {\n           off\n       }\n   }\n   ```\n\n---\n\n### Step 5: Use Xwayland for X11 Applications\n\nIf you need to run X11 applications, ensure you set up\n`xwayland-satellite`. To start it automatically with Niri, add this line\nto your configuration:\n\n```kdl\nspawn-at-startup \"xwayland-satellite\"\n```\n\n---\n\n### Step 6: Additional Customizations\n\n- **Launchers and Utilities:**\nTo enhance your experience, you can install additional utilities such as\n`fuzzel` for application launching or `mako` for notifications.\n\n```bash\nsudo pacman -Sy fuzzel mako swaybg\n```\n\n- **Set Up Keybindings:**\nCustomize keybindings in `config.kdl` to make navigation smoother and\nimprove your workflow. For example:\n\n```kdl\nkeybindings {\n    super + Return = open_terminal\n}\n```\n\n---\n\n### Step 7: Enjoy and Further Tweaks\n\nOnce you have everything set up, log back into your Niri session and\nstart experimenting. Use commands like `niri msg outputs` to check your\nmonitor configurations and make any layout adjustments if necessary.\n\nFeel free to explore more advanced settings in the Niri documentation or\ncommunity resources to fully customize your environment to your liking.\n\n---\n\nBy following these steps, you should have Niri installed and customized\nto your preferences on Arch Linux. If you have any specific requirements\nor features you'd like to implement further, let me know!\n"
+}

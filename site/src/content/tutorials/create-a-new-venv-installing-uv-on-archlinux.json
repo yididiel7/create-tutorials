@@ -1,0 +1,99 @@
+{
+  "slug": "create-a-new-venv-installing-uv-on-archlinux",
+  "filePath": "Create-a-New-VENV-Installing-UV-on-Archlinux.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Create Python Virtual Environment with UV on Arch Linux\n\nTitle: Create a New VENV Installing UV on Archlinux\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yidi…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Step 1: Install UV",
+      "slug": "step-1-install-uv"
+    },
+    {
+      "level": 3,
+      "text": "Step 2: Verify Installation",
+      "slug": "step-2-verify-installation"
+    },
+    {
+      "level": 3,
+      "text": "Step 3: Create Virtual Environment",
+      "slug": "step-3-create-virtual-environment"
+    },
+    {
+      "level": 3,
+      "text": "Step 4: Activate Environment",
+      "slug": "step-4-activate-environment"
+    },
+    {
+      "level": 3,
+      "text": "Step 5: Install Dependencies",
+      "slug": "step-5-install-dependencies"
+    },
+    {
+      "level": 3,
+      "text": "Step 6: Run Project",
+      "slug": "step-6-run-project"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "UV Commands Map",
+      "slug": "uv-commands-map"
+    },
+    {
+      "level": 3,
+      "text": "Project vs Virtual Environment",
+      "slug": "project-vs-virtual-environment"
+    },
+    {
+      "level": 3,
+      "text": "Python Version Selection",
+      "slug": "python-version-selection"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "UV Architecture",
+      "slug": "uv-architecture"
+    },
+    {
+      "level": 3,
+      "text": "Cache Management",
+      "slug": "cache-management"
+    },
+    {
+      "level": 3,
+      "text": "Lockfile",
+      "slug": "lockfile"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 2,
+  "content": "LOG: [LEARN] Guide: Create Python Virtual Environment with UV on Arch Linux\n\n**Title:** Create a New VENV Installing UV on Archlinux\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Create-a-New-VENV-Installing-UV-on-Archlinux.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Arch Linux\n- Internet connection\n\n### Step 1: Install UV\n```bash\n# Official installer (recommended)\n$ curl -LsSf https://astral.sh/uv/install.sh | sh\n\n# Or via pacman\n$ sudo pacman -S uv\n\n# Or via pip\n$ pip install uv\n```\n\n### Step 2: Verify Installation\n```bash\n$ uv --version\n```\n\n### Step 3: Create Virtual Environment\n```bash\n$ uv venv .venv\n```\n\n### Step 4: Activate Environment\n```bash\n$ source .venv/bin/activate\n# Prompt changes to show (.venv)\n```\n\n### Step 5: Install Dependencies\n```bash\n# From requirements.txt\n$ uv pip install -r requirements.txt\n\n# Or add packages directly\n$ uv pip install package1 package2\n```\n\n### Step 6: Run Project\n```bash\n$ uv run python main.py\n# Or with activated env:\n$ python main.py\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### UV Commands Map\n| UV Command | Equivalent |\n|------------|------------|\n| `uv venv` | `python -m venv` |\n| `uv pip install` | `pip install` |\n| `uv pip sync` | `pip install -r requirements.txt` |\n| `uv run` | Runs in venv without activation |\n| `uv add` | Add to pyproject.toml (projects) |\n\n### Project vs Virtual Environment\n- `uv init` — creates project with `pyproject.toml`\n- `uv venv` — creates standalone virtual environment\n\n### Python Version Selection\n```bash\n$ uv python list              # List available\n$ uv python install 3.12      # Install version\n$ uv venv --python 3.12 .venv # Use specific version\n```\n\n## The \"Deep Dive\" (The Technical Root)\n\n### UV Architecture\n- Written in Rust, single binary\n- Uses hard links for global cache (`~/.cache/uv`)\n- Parallel operations, minimal overhead\n\n### Cache Management\n```bash\n$ uv cache clean          # Remove cache\n$ uv cache dir            # Show cache location\n```\n\n### Lockfile\n- `uv.lock` — cross-platform lockfile\n- `requirements.txt` — compatible export\n\n### References\n- [UV Documentation](https://docs.astral.sh/uv/)\n- [UV GitHub](https://github.com/astral-sh/uv)\n- [PEP 621](https://peps.python.org/pep-0621/) — pyproject.toml standard"
+}

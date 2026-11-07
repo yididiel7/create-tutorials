@@ -1,0 +1,13 @@
+{
+  "slug": "gitbutler-cli-install",
+  "filePath": "GitButler-Cli-Install.md",
+  "title": "GitButler-Cli-Install",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Title: GitButler CLI Install\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: GitButler-Cli-Install.md\nCopyright: © 2026-202…",
+  "headings": [],
+  "readingTime": 1,
+  "content": "**Title:** GitButler CLI Install\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** GitButler-Cli-Install.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n# GitButler Intro to the GitButler CLI\n\n    1. [Getting Started](https://docs.gitbutler.com/guide).\n\n    2.[Youtube video](https://youtu.be/Jg8L3SbgZ3o).\n\nINSTALL GITBUTLER INSTRUCTIONS\n\nCurl install\n\nYou can install the CLI by running the following command in your\nterminal:\n\n```$ curl -fsSL https://gitbutler.com/install.sh | sh```\n\nSetup\n\nIf you go into any existing Git repository and run but setup,\nit will make some neccesary changes to your setup in order for GitButler to manage your data.\n\nIf you run almost any but command in an existing Git repository in an interactive terminal,\nit will ask you if you want to set it up and then run the command you were trying to run.\n\nSo basically just run but anywhere to get started. At any time after this, you can run but teardown to undo\nthe GitButler changes and go back to being a boring old Git project. It will not remove GitButler metadata,\nso feel free to go back and forth if you need to.\n"
+}

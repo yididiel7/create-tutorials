@@ -1,0 +1,84 @@
+{
+  "slug": "warp-terminal-install-errors-corrected",
+  "filePath": "warp-terminal-install-errors-corrected.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Fix Warp Terminal Install on Arch Linux\n\nTitle: Warp Terminal Install Errors Corrected\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Fix: Force Install with Overwrite",
+      "slug": "fix-force-install-with-overwrite"
+    },
+    {
+      "level": 3,
+      "text": "Expected Output",
+      "slug": "expected-output"
+    },
+    {
+      "level": 3,
+      "text": "Verify Working",
+      "slug": "verify-working"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Why Conflicts Occur",
+      "slug": "why-conflicts-occur"
+    },
+    {
+      "level": 3,
+      "text": "`--overwrite '*'` Flag",
+      "slug": "overwrite-flag"
+    },
+    {
+      "level": 3,
+      "text": "Warp Terminal Architecture",
+      "slug": "warp-terminal-architecture"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Pacman Conflict Resolution",
+      "slug": "pacman-conflict-resolution"
+    },
+    {
+      "level": 3,
+      "text": "Warp Terminal Structure",
+      "slug": "warp-terminal-structure"
+    },
+    {
+      "level": 3,
+      "text": "Troubleshooting",
+      "slug": "troubleshooting"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 2,
+  "content": "LOG: [LEARN] Guide: Fix Warp Terminal Install on Arch Linux\n\n**Title:** Warp Terminal Install Errors Corrected\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** warp-terminal-install-errors-corrected.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Arch Linux\n- Pacman package manager\n- Internet connection\n\n### Fix: Force Install with Overwrite\n```bash\n# Force install, overwriting conflicting files\n$ sudo pacman -S --overwrite '*' warp-terminal\n\n# Verify installation\n$ which warp-terminal\n/usr/bin/warp-terminal\n\n# Launch in background\n$ warp-terminal &\n\n# Check running processes\n$ ps aux | grep warp\n```\n\n### Expected Output\n```\nMain Warp process (PID 122251)\nGPU recovery process (PID 122255)\nTerminal server process (PID 122260)\n```\n\n### Verify Working\n- Access from applications menu\n- Run `warp-terminal` from any terminal\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Why Conflicts Occur\n- Previous partial install left files\n- Files owned by different packages\n- Pacman refuses to overwrite by default\n\n### `--overwrite '*'` Flag\n- Forces pacman to overwrite all conflicting files\n- Use with caution (can break other packages)\n- Safe for single-package reinstall\n\n### Warp Terminal Architecture\n```\nwarp-terminal (main)\n├── warp-terminal (GPU recovery)\n└── warp-terminal (terminal server)\n```\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Pacman Conflict Resolution\n```bash\n# Check what would be overwritten\n$ sudo pacman -S --overwrite '*' --print-format \"%f\" warp-terminal\n\n# Manual conflict check\n$ pacman -Qo /usr/bin/warp-terminal\n$ pacman -Qo /usr/lib/warp-terminal/\n\n# Clean reinstall\n$ sudo pacman -Rns warp-terminal\n$ sudo pacman -S warp-terminal\n```\n\n### Warp Terminal Structure\n```\n/usr/bin/warp-terminal          # Main binary\n/usr/lib/warp-terminal/         # Libraries, resources\n/usr/share/applications/        # Desktop entry\n~/.config/warp-terminal/        # User config\n~/.local/share/warp-terminal/   # User data\n```\n\n### Troubleshooting\n```bash\n# GPU issues\n$ warp-terminal --disable-gpu\n\n# Reset config\n$ rm -rf ~/.config/warp-terminal\n\n# Debug logging\n$ WARP_LOG=debug warp-terminal\n```\n\n### References\n- [Warp Terminal](https://www.warp.dev/)\n- [Arch Wiki: Pacman](https://wiki.archlinux.org/title/Pacman)\n- `man pacman`\n"
+}

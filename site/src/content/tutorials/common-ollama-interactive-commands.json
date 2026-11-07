@@ -1,0 +1,104 @@
+{
+  "slug": "common-ollama-interactive-commands",
+  "filePath": "Common-ollama-interactive-commands.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Reference: Ollama Interactive Commands & Parameters\n\nTitle: Common Ollama Interactive Commands\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linu…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Interactive Commands",
+      "slug": "interactive-commands"
+    },
+    {
+      "level": 3,
+      "text": "Model Management",
+      "slug": "model-management"
+    },
+    {
+      "level": 3,
+      "text": "Context Length",
+      "slug": "context-length"
+    },
+    {
+      "level": 3,
+      "text": "Key Parameters",
+      "slug": "key-parameters"
+    },
+    {
+      "level": 3,
+      "text": "API Integration",
+      "slug": "api-integration"
+    },
+    {
+      "level": 3,
+      "text": "Model Selection Guide",
+      "slug": "model-selection-guide"
+    },
+    {
+      "level": 3,
+      "text": "GPU Setup",
+      "slug": "gpu-setup"
+    },
+    {
+      "level": 3,
+      "text": "Env Variables",
+      "slug": "env-variables"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Parameter Effects",
+      "slug": "parameter-effects"
+    },
+    {
+      "level": 3,
+      "text": "Quantization",
+      "slug": "quantization"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Modelfile",
+      "slug": "modelfile"
+    },
+    {
+      "level": 3,
+      "text": "GGUF Import",
+      "slug": "gguf-import"
+    },
+    {
+      "level": 3,
+      "text": "OpenAI Compatibility",
+      "slug": "openai-compatibility"
+    },
+    {
+      "level": 3,
+      "text": "Troubleshooting",
+      "slug": "troubleshooting"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 3,
+  "content": "LOG: [LEARN] Reference: Ollama Interactive Commands & Parameters\n\n**Title:** Common Ollama Interactive Commands\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Common-ollama-interactive-commands.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Interactive Commands\n```bash\n/set parameter temperature 0.7\n/set parameter num_ctx 8192\n/set parameter top_p 0.9\n/show info\n/save session-name\n/load session-name\n/bye\n```\n\n### Model Management\n```bash\n$ ollama list\n$ ollama show llama3.2\n$ ollama pull llama3.2:8b-instruct-q5_K_M\n$ ollama rm mistral:7b\n$ ollama cp llama3.2 my-llama3.2\n$ ollama ps\n```\n\n### Context Length\n```bash\n# Interactive\n/set parameter num_ctx 8192\n# API\n{\"options\": {\"num_ctx\": 8192}}\n# Modelfile\nPARAMETER num_ctx 8192\n```\n\n### Key Parameters\n| Param | Values | Effect |\n|-------|--------|--------|\n| `temperature` | 0.2–1.0+ | Deterministic → Creative |\n| `top_p` | 0.1–1.0 | Nucleus sampling |\n| `top_k` | 1–100 | Top-k sampling |\n| `num_predict` | -1 to N | Max output tokens |\n| `stop` | [\"str\"] | Stop sequences |\n| `repeat_penalty` | 1.0–2.0 | Repetition penalty |\n\n### API Integration\n```bash\n# Generate\ncurl http://localhost:11434/api/generate -d '{\"model\":\"phi4-mini\",\"prompt\":\"...\",\"stream\":false}'\n# Chat\ncurl http://localhost:11434/api/chat -d '{\"model\":\"llama3.2\",\"messages\":[{\"role\":\"user\",\"content\":\"...\"}]}'\n# Embeddings\ncurl http://localhost:11434/api/embeddings -d '{\"model\":\"nomic-embed-text\",\"prompt\":\"...\"}'\n\n# OpenAI compatible\nfrom openai import OpenAI\nclient = OpenAI(base_url=\"http://localhost:11434/v1\", api_key=\"ollama\")\n```\n\n### Model Selection Guide\n| Task | Model |\n|------|-------|\n| Chat | llama3.2, mistral, gemma3 |\n| Code | codellama, phi4, starcoder2 |\n| Low RAM | phi4-mini, q4_K_M |\n| Vision | llava, moondream |\n\n### GPU Setup\n| Vendor | Requirement |\n|--------|-------------|\n| NVIDIA | CUDA 5.0+, proprietary drivers |\n| AMD | ROCm, RX 6000+ |\n| Apple | Metal (auto) |\n\n### Env Variables\n| Var | Purpose |\n|-----|---------|\n| `OLLAMA_HOST` | Bind address (default 127.0.0.1:11434) |\n| `OLLAMA_MODELS` | Model storage path |\n| `OLLAMA_KEEP_ALIVE` | RAM retention (e.g., 5m, -1=forever) |\n| `OLLAMA_DEBUG` | Verbose logging |\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Parameter Effects\n- `temperature 0.2` — deterministic, factual\n- `temperature 0.7` — balanced (default)\n- `temperature 1.0+` — creative, diverse\n- `num_ctx` — larger = more context, more RAM\n- `num_predict -1` — unlimited output\n\n### Quantization\n| Level | Size | Quality |\n|-------|------|---------|\n| q4_K_M | ~4GB | Good balance |\n| q5_K_M | ~5GB | Better |\n| q8_0 | ~8GB | Near original |\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Modelfile\n```dockerfile\nFROM llama3.2\nPARAMETER temperature 0.7\nPARAMETER num_ctx 4096\nSYSTEM \"You are a cybersecurity expert.\"\nTEMPLATE \"{{ if .System }}System: {{ .System }}{{ end }}User: {{ .Prompt }}Assistant: \"\n```\n\n### GGUF Import\n```bash\nollama create my-model -f Modelfile\n# Modelfile:\nFROM ./model.gguf\nPARAMETER num_ctx 4096\n```\n\n### OpenAI Compatibility\n```python\nclient = OpenAI(base_url=\"http://localhost:11434/v1\", api_key=\"ollama\")\nclient.chat.completions.create(model=\"llama3.2\", messages=[...])\n```\n\n### Troubleshooting\n| Issue | Fix |\n|-------|-----|\n| Port conflict | `OLLAMA_HOST=0.0.0.0:11435` |\n| GPU not detected | Update drivers, check CUDA/ROCm |\n| Slow downloads | Check proxy/firewall |\n\n### References\n- [Ollama Docs](https://github.com/ollama/ollama)\n- [Model Library](https://ollama.com/library)"
+}

@@ -1,0 +1,79 @@
+{
+  "slug": "configuring-a-new-kvm-on-arch-linux-using-qemu-cli",
+  "filePath": "configuring-a-new-kvm-on-arch-linux-using-qemu-cli.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Create KVM Virtual Machine with QEMU CLI on Arch Linux\n\nTitle: Configuring a New KVM on Arch Linux Using QEMU CLI\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr.…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Step 1: Create VM Directory",
+      "slug": "step-1-create-vm-directory"
+    },
+    {
+      "level": 3,
+      "text": "Step 2: Create Disk Image",
+      "slug": "step-2-create-disk-image"
+    },
+    {
+      "level": 3,
+      "text": "Step 3: Install OS (First Boot)",
+      "slug": "step-3-install-os-first-boot"
+    },
+    {
+      "level": 3,
+      "text": "Step 4: Boot Installed VM",
+      "slug": "step-4-boot-installed-vm"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Key QEMU Options",
+      "slug": "key-qemu-options"
+    },
+    {
+      "level": 3,
+      "text": "qcow2 Format",
+      "slug": "qcow2-format"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Advanced Options",
+      "slug": "advanced-options"
+    },
+    {
+      "level": 3,
+      "text": "Snapshots",
+      "slug": "snapshots"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 2,
+  "content": "LOG: [LEARN] Guide: Create KVM Virtual Machine with QEMU CLI on Arch Linux\n\n**Title:** Configuring a New KVM on Arch Linux Using QEMU CLI\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** configuring-a-new-kvm-on-arch-linux-using-qemu-cli.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Arch Linux with KVM/QEMU installed\n- Linux ISO for installation\n- Root/sudo access\n\n### Step 1: Create VM Directory\n```bash\n$ mkdir -p ~/kvm\n$ mv /path/to/linux-distro.iso ~/kvm/\n$ cd ~/kvm\n```\n\n### Step 2: Create Disk Image\n```bash\n$ qemu-img create -f qcow2 disk.img 20G\n```\n\n### Step 3: Install OS (First Boot)\n```bash\n$ qemu-system-x86_64 \\\n    -enable-kvm \\\n    -cdrom linux-distro.iso \\\n    -boot menu=on \\\n    -drive file=disk.img,format=qcow2 \\\n    -m 4G \\\n    -cpu host \\\n    -vga virtio \\\n    -display sdl,gl=on\n```\n\n### Step 4: Boot Installed VM\n```bash\n$ qemu-system-x86_64 \\\n    -enable-kvm \\\n    -boot menu=on \\\n    -drive file=disk.img,format=qcow2 \\\n    -m 4G \\\n    -cpu host \\\n    -vga virtio \\\n    -display sdl,gl=on\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Key QEMU Options\n| Option | Purpose |\n|--------|---------|\n| `-enable-kvm` | Use KVM acceleration |\n| `-cdrom` | Boot from ISO |\n| `-boot menu=on` | Show boot menu |\n| `-drive file=...,format=qcow2` | Disk image |\n| `-m 4G` | 4 GB RAM |\n| `-cpu host` | Passthrough host CPU |\n| `-vga virtio` | Paravirtualized graphics |\n| `-display sdl,gl=on` | SDL with OpenGL |\n\n### qcow2 Format\n- Copy-on-write, snapshots, compression\n- Native QEMU format, better than raw\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Advanced Options\n```bash\n# Multiple cores\n-smp 4\n\n# Network (user-mode)\n-netdev user,id=net0 -device virtio-net-pci,netdev=net0\n\n# Bridged network (requires bridge setup)\n-netdev bridge,id=net0,br=bridge0 -device virtio-net-pci,netdev=net0\n\n# VirtIO disk (better performance)\n-drive file=disk.img,if=virtio,format=qcow2\n\n# UEFI boot\n-drive if=pflash,format=raw,readonly=on,file=/usr/share/edk2-ovmf/x64/OVMF_CODE.fd\n-drive if=pflash,format=raw,file=/tmp/OVMF_VARS.fd\n```\n\n### Snapshots\n```bash\n# Create snapshot\n$ qemu-img snapshot -c snapshot_name disk.img\n\n# List snapshots\n$ qemu-img snapshot -l disk.img\n\n# Apply snapshot\n$ qemu-img snapshot -a snapshot_name disk.img\n```\n\n### References\n- `man qemu-system-x86_64`\n- `man qemu-img`\n- [Arch Wiki: QEMU](https://wiki.archlinux.org/title/QEMU)"
+}

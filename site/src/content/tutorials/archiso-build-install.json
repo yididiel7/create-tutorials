@@ -1,0 +1,94 @@
+{
+  "slug": "archiso-build-install",
+  "filePath": "archiso_build_install.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Build Custom Arch Linux ISO with archiso\n\nTitle: archiso Build and Install\nDate: 2025-12-08 (00:00:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Deve…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Step 1: Install archiso",
+      "slug": "step-1-install-archiso"
+    },
+    {
+      "level": 3,
+      "text": "Step 2: Create Working Directory",
+      "slug": "step-2-create-working-directory"
+    },
+    {
+      "level": 3,
+      "text": "Step 3: Copy Default Configuration",
+      "slug": "step-3-copy-default-configuration"
+    },
+    {
+      "level": 3,
+      "text": "Step 4: Customize the ISO",
+      "slug": "step-4-customize-the-iso"
+    },
+    {
+      "level": 3,
+      "text": "Step 5: Build the ISO",
+      "slug": "step-5-build-the-iso"
+    },
+    {
+      "level": 3,
+      "text": "Step 6: Test the ISO",
+      "slug": "step-6-test-the-iso"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "archiso Structure",
+      "slug": "archiso-structure"
+    },
+    {
+      "level": 3,
+      "text": "Profiles",
+      "slug": "profiles"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Key Directories",
+      "slug": "key-directories"
+    },
+    {
+      "level": 3,
+      "text": "Build Process",
+      "slug": "build-process"
+    },
+    {
+      "level": 3,
+      "text": "Customization Examples",
+      "slug": "customization-examples"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 2,
+  "content": "LOG: [LEARN] Guide: Build Custom Arch Linux ISO with archiso\n\n**Title:** archiso Build and Install\n**Date:** 2025-12-08 (00:00:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** archiso_build_install.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Arch Linux installed\n- Root/sudo access\n- Internet connection\n\n### Step 1: Install archiso\n```bash\n$ sudo pacman -Syu\n$ sudo pacman -S archiso\n```\n\n### Step 2: Create Working Directory\n```bash\n$ mkdir -p ~/archiso-custom\n$ cd ~/archiso-custom\n```\n\n### Step 3: Copy Default Configuration\n```bash\n$ cp -r /usr/share/archiso/configs/releng/* ~/archiso-custom/\n```\n\n### Step 4: Customize the ISO\nEdit configuration files as needed:\n- `packages.x86_64` — add/remove packages\n- `airootfs/` — customize root filesystem\n- `build.sh` — modify build options\n- `syslinux/` or `grub/` — bootloader config\n\n### Step 5: Build the ISO\n```bash\n$ sudo ./build.sh -v\n```\nISO output in `out/` directory.\n\n### Step 6: Test the ISO\n```bash\n$ qemu-system-x86_64 -cdrom out/archlinux-*.iso\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### archiso Structure\n- `/usr/share/archiso/configs/releng/` — default profile\n- `packages.x86_64` — package list for x86_64\n- `airootfs/` — becomes `/` in live environment\n- `build.sh` — wrapper around `mkarchiso`\n\n### Profiles\n- `releng` — official installation media\n- `baseline` — minimal base\n- Custom profiles in `~/.config/archiso/`\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Key Directories\n| Path | Purpose |\n|------|---------|\n| `/usr/share/archiso/` | Templates, scripts, hooks |\n| `/usr/share/doc/archiso/` | Documentation |\n| `/etc/archiso/` | System-wide config |\n\n### Build Process\n1. `mkarchiso` creates chroot\n2. Installs packages from `packages.x86_64`\n3. Applies `airootfs` overlay\n4. Generates initramfs with `mkinitcpio`\n5. Creates bootable ISO with syslinux/grub\n\n### Customization Examples\n```bash\n# Add graphical environment\necho \"plasma\" >> packages.x86_64\n\n# Add custom script\nmkdir -p airootfs/usr/local/bin\ncp myscript.sh airootfs/usr/local/bin/\nchmod +x airootfs/usr/local/bin/myscript.sh\n```\n\n### References\n- [Arch Wiki: archiso](https://wiki.archlinux.org/title/Archiso)\n- `man mkarchiso`\n- `man archiso`"
+}

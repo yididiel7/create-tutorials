@@ -1,0 +1,89 @@
+{
+  "slug": "updating-archcraft-hooks-os-specific",
+  "filePath": "Updating-Archcraft-Hooks-OS-Specific.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Debug: Fix Archcraft Pacman Hook Dependency Errors\n\nTitle: Updating Archcraft Hooks OS Specific\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Lin…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Error Symptoms",
+      "slug": "error-symptoms"
+    },
+    {
+      "level": 3,
+      "text": "Fix: Install Missing Dependencies",
+      "slug": "fix-install-missing-dependencies"
+    },
+    {
+      "level": 3,
+      "text": "Fix: Import and Trust PGP Key (if needed)",
+      "slug": "fix-import-and-trust-pgp-key-if-needed"
+    },
+    {
+      "level": 3,
+      "text": "Verify Hooks Work",
+      "slug": "verify-hooks-work"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Archcraft Pacman Hooks",
+      "slug": "archcraft-pacman-hooks"
+    },
+    {
+      "level": 3,
+      "text": "Hook Triggers",
+      "slug": "hook-triggers"
+    },
+    {
+      "level": 3,
+      "text": "Dependencies",
+      "slug": "dependencies"
+    },
+    {
+      "level": 3,
+      "text": "--overwrite '*'",
+      "slug": "overwrite"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Hook Format (INI-style)",
+      "slug": "hook-format-ini-style"
+    },
+    {
+      "level": 3,
+      "text": "PGP Key Trust",
+      "slug": "pgp-key-trust"
+    },
+    {
+      "level": 3,
+      "text": "Debugging Hooks",
+      "slug": "debugging-hooks"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 2,
+  "content": "LOG: [LEARN] Debug: Fix Archcraft Pacman Hook Dependency Errors\n\n**Title:** Updating Archcraft Hooks OS Specific\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Updating-Archcraft-Hooks-OS-Specific.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Error Symptoms\n```\nerror: failed to run hook 'archcraft-hook-zsh.hook'\nerror: command failed to execute correctly\n```\nHooks fail due to missing dependencies.\n\n### Fix: Install Missing Dependencies\n```bash\n$ sudo pacman -S zsh libnotify --noconfirm --overwrite '*'\n```\n\n### Fix: Import and Trust PGP Key (if needed)\n```bash\n$ sudo pacman-key --recv-keys 19A1E427461B1795F73F629631F4254AFE49E02E\n$ sudo pacman-key --lsign-key 19A1E427461B1795F73F629631F4254AFE49E02E\n```\n\n### Verify Hooks Work\n```bash\n$ sudo pacman -Syu\n# Watch for hook output:\n# Hook #5: \"Updating executables in /usr/bin...\" — archcraft-hook-zsh.hook\n# Hook #6: \"Updating Archcraft OS-Specific Configurations...\"\n# Hook #7: \"Updating Archcraft Pixmaps...\"\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Archcraft Pacman Hooks\nLocated in `/usr/share/libalpm/hooks/`:\n- `archcraft-hook-zsh.hook` — updates zsh completions\n- `archcraft-hook-config.hook` — OS-specific configs\n- `archcraft-hook-pixmaps.hook` — icon/theme caches\n\n### Hook Triggers\nRun on package transactions matching `Type = Package` and `Operation = Install/Upgrade/Remove`.\n\n### Dependencies\n| Hook | Requires |\n|------|----------|\n| zsh hook | `zsh` |\n| config/pixmaps hooks | `libnotify` (for desktop notifications) |\n\n### --overwrite '*'\nForces installation when files conflict between packages. Use cautiously.\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Hook Format (INI-style)\n```ini\n[Trigger]\nType = Package\nOperation = Install\nOperation = Upgrade\nTarget = *\n\n[Action]\nDescription = Updating zsh completions...\nWhen = PostTransaction\nExec = /usr/bin/zsh -c \"autoload -U compinit; compinit\"\n```\n\n### PGP Key Trust\n- `pacman-key --recv-keys` — fetch from keyserver\n- `pacman-key --lsign-key` — locally sign (trust)\n- Keys stored in `/etc/pacman.d/gnupg/`\n\n### Debugging Hooks\n```bash\n# Test hook manually\n$ /usr/bin/zsh -c \"autoload -U compinit; compinit\"\n\n# Verbose pacman\n$ sudo pacman -Syu --debug\n```\n\n### References\n- [Arch Wiki: Pacman Hooks](https://wiki.archlinux.org/title/Pacman#Hooks)\n- [Arch Wiki: Pacman-key](https://wiki.archlinux.org/title/Pacman-key)\n- Archcraft hooks source: `/usr/share/libalpm/hooks/archcraft-*.hook`"
+}

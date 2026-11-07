@@ -1,0 +1,154 @@
+{
+  "slug": "fabric-usage-guide",
+  "filePath": "fabric-usage-guide.md",
+  "title": "Installation and Setup",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Fabric Clipboard Automation - Complete Usage Guide\n\n Installation and Setup\n\n 1. Make the monitor script executable\nbash\nchmod +x $HOME/fabric-clipboard-monitor.sh\n\n\n 2. Add aliases to…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "Installation and Setup",
+      "slug": "installation-and-setup"
+    },
+    {
+      "level": 3,
+      "text": "1. Make the monitor script executable",
+      "slug": "1-make-the-monitor-script-executable"
+    },
+    {
+      "level": 3,
+      "text": "2. Add aliases to your shell profile",
+      "slug": "2-add-aliases-to-your-shell-profile"
+    },
+    {
+      "level": 3,
+      "text": "3. Reload shell configuration",
+      "slug": "3-reload-shell-configuration"
+    },
+    {
+      "level": 2,
+      "text": "Usage Scenarios",
+      "slug": "usage-scenarios"
+    },
+    {
+      "level": 3,
+      "text": "Scenario 1: Automatic Background Monitoring (Production)",
+      "slug": "scenario-1-automatic-background-monitoring-production"
+    },
+    {
+      "level": 3,
+      "text": "Scenario 2: Development/Testing Mode",
+      "slug": "scenario-2-development-testing-mode"
+    },
+    {
+      "level": 3,
+      "text": "Scenario 3: One-Shot Processing",
+      "slug": "scenario-3-one-shot-processing"
+    },
+    {
+      "level": 3,
+      "text": "Scenario 4: Manual Control",
+      "slug": "scenario-4-manual-control"
+    },
+    {
+      "level": 2,
+      "text": "Advanced Configuration",
+      "slug": "advanced-configuration"
+    },
+    {
+      "level": 3,
+      "text": "Customizing the Monitor Script",
+      "slug": "customizing-the-monitor-script"
+    },
+    {
+      "level": 3,
+      "text": "Using Different Fabric Patterns",
+      "slug": "using-different-fabric-patterns"
+    },
+    {
+      "level": 2,
+      "text": "Real-World Examples",
+      "slug": "real-world-examples"
+    },
+    {
+      "level": 3,
+      "text": "Example 1: Summarize Articles",
+      "slug": "example-1-summarize-articles"
+    },
+    {
+      "level": 3,
+      "text": "Example 2: Code Explanation",
+      "slug": "example-2-code-explanation"
+    },
+    {
+      "level": 3,
+      "text": "Example 3: Email/Message Drafting",
+      "slug": "example-3-email-message-drafting"
+    },
+    {
+      "level": 3,
+      "text": "Example 4: Meeting Notes Processing",
+      "slug": "example-4-meeting-notes-processing"
+    },
+    {
+      "level": 2,
+      "text": "Troubleshooting",
+      "slug": "troubleshooting"
+    },
+    {
+      "level": 3,
+      "text": "Check Logs",
+      "slug": "check-logs"
+    },
+    {
+      "level": 3,
+      "text": "Common Issues",
+      "slug": "common-issues"
+    },
+    {
+      "level": 2,
+      "text": "Security Considerations",
+      "slug": "security-considerations"
+    },
+    {
+      "level": 3,
+      "text": "Content Privacy",
+      "slug": "content-privacy"
+    },
+    {
+      "level": 3,
+      "text": "Resource Usage",
+      "slug": "resource-usage"
+    },
+    {
+      "level": 3,
+      "text": "Access Control",
+      "slug": "access-control"
+    },
+    {
+      "level": 2,
+      "text": "Integration with Other Tools",
+      "slug": "integration-with-other-tools"
+    },
+    {
+      "level": 3,
+      "text": "Keyboard Shortcuts",
+      "slug": "keyboard-shortcuts"
+    },
+    {
+      "level": 3,
+      "text": "Window Manager Integration",
+      "slug": "window-manager-integration"
+    },
+    {
+      "level": 3,
+      "text": "Systemd Service (for true startup)",
+      "slug": "systemd-service-for-true-startup"
+    }
+  ],
+  "readingTime": 4,
+  "content": "# Fabric Clipboard Automation - Complete Usage Guide\n\n## Installation and Setup\n\n### 1. Make the monitor script executable\n```bash\nchmod +x $HOME/fabric-clipboard-monitor.sh\n```\n\n### 2. Add aliases to your shell profile\n```bash\n# Add to ~/.bashrc or ~/.zshrc\nsource $HOME/fabric-aliases.sh\n```\n\n### 3. Reload shell configuration\n```bash\nsource ~/.bashrc  # or source ~/.zshrc\n```\n\n## Usage Scenarios\n\n### Scenario 1: Automatic Background Monitoring (Production)\n```bash\n# Start automatic clipboard monitoring at startup\nfabric-clipboard\n```\n**What happens:**\n- Monitors clipboard continuously in background\n- Only processes new clipboard content (no duplicates)\n- Handles errors gracefully\n- Logs all activity to `~/.fabric-clipboard.log`\n- Prevents infinite loops and resource exhaustion\n\n**Use case:** Set up once and forget - runs automatically whenever you copy text\n\n### Scenario 2: Development/Testing Mode\n```bash\n# Run in foreground with visible output\nfabric-clipboard-dev\n```\n**What happens:**\n- Same functionality as production version\n- Runs in foreground so you can see immediate results\n- Press Ctrl+C to stop\n- Useful for testing and debugging\n\n**Use case:** Testing the integration or troubleshooting issues\n\n### Scenario 3: One-Shot Processing\n```bash\n# Process current clipboard content immediately\nfabric-process\n```\n**What happens:**\n- Takes current clipboard content\n- Sends it to Fabric AI for processing\n- Exits after processing\n- No monitoring loop\n\n**Use case:** Process specific text once without continuous monitoring\n\n### Scenario 4: Manual Control\n```bash\n# Start monitoring manually\nfabric-start\n\n# Check if running\nfabric-status\n\n# Stop monitoring\nfabric-stop\n```\n\n**Use case:** Precise control over when monitoring runs\n\n## Advanced Configuration\n\n### Customizing the Monitor Script\nEdit `~/fabric-clipboard-monitor.sh` to modify:\n\n```bash\n# Change monitoring frequency (seconds)\nSLEEP_INTERVAL=2\n\n# Set maximum content length to process\nMAX_CONTENT_LENGTH=5000\n\n# Custom log file location\nLOG_FILE=\"$HOME/custom-fabric.log\"\n```\n\n### Using Different Fabric Patterns\n```bash\n# Process with specific fabric pattern\nwl-paste -selection clipboard -o | fabric -p summarize\n\n# Process with custom model\nwl-paste -selection clipboard -o | fabric -c --model claude-3-opus\n\n# Process with multiple patterns\nwl-paste -selection clipboard -o | fabric -p summarize -p extract_key_points\n```\n\n## Real-World Examples\n\n### Example 1: Summarize Articles\n1. Copy an article to clipboard\n2. Fabric automatically processes it\n3. Get a summary back instantly\n\n### Example 2: Code Explanation\n1. Copy code snippet to clipboard\n2. Fabric automatically explains what it does\n3. Great for learning and code reviews\n\n### Example 3: Email/Message Drafting\n1. Copy bullet points or rough notes\n2. Fabric automatically formats into professional email\n3. Copy the processed result and send\n\n### Example 4: Meeting Notes Processing\n1. Copy raw meeting notes\n2. Fabric automatically structures and organizes\n3. Get clean, formatted meeting minutes\n\n## Troubleshooting\n\n### Check Logs\n```bash\n# View recent activity\ntail -f ~/.fabric-clipboard.log\n\n# Search for errors\ngrep \"error\\|failed\" ~/.fabric-clipboard.log\n```\n\n### Common Issues\n\n**1. Fabric not found**\n```bash\n# Check if fabric is installed\nwhich fabric\n\n# Install if missing\npip install fabric-pattern\n```\n\n**2. Wayland clipboard issues**\n```bash\n# Check if wl-copy/wl-paste work\necho \"test\" | wl-copy\nwl-paste\n```\n\n**3. Multiple instances running**\n```bash\n# Stop all instances\nfabric-stop\n\n# Remove stuck PID file\nrm -f ~/.fabric-clipboard.pid\n```\n\n**4. Permissions issues**\n```bash\n# Make script executable\nchmod +x ~/fabric-clipboard-monitor.sh\n```\n\n## Security Considerations\n\n### Content Privacy\n- All clipboard content is processed by Fabric AI\n- Log files contain clipboard content (first 50 chars)\n- Consider encrypting log files for sensitive content\n\n### Resource Usage\n- Monitor script uses minimal CPU (sleep-based polling)\n- Fabric API calls consume bandwidth/tokens\n- Set `MAX_CONTENT_LENGTH` to prevent processing large files\n\n### Access Control\n- Script runs with your user permissions\n- Ensure Fabric API credentials are properly secured\n- Consider running as separate user for isolation\n\n## Integration with Other Tools\n\n### Keyboard Shortcuts\n```bash\n# Add to ~/.config/wayland-keybindings\n# Ctrl+Alt+F: Process clipboard with fabric\nbind ctrl+alt+f exec fabric-process\n```\n\n### Window Manager Integration\n```bash\n# Add to i3 config\nbindsym $mod+Ctrl+f exec fabric-process\n```\n\n### Systemd Service (for true startup)\nCreate `~/.config/systemd/user/fabric-clipboard.service`:\n```ini\n[Unit]\nDescription=Fabric Clipboard Monitor\nAfter=graphical-session.target\n\n[Service]\nType=simple\nExecStart=%h/fabric-clipboard-monitor.sh\nRestart=always\nRestartSec=5\n\n[Install]\nWantedBy=default.target\n```\n\nEnable with:\n```bash\nsystemctl --user enable fabric-clipboard.service\nsystemctl --user start fabric-clipboard.service\n```"
+}

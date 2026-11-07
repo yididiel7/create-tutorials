@@ -1,0 +1,94 @@
+{
+  "slug": "kitty-color-schemes-how-to-change",
+  "filePath": "Kitty-Color-Schemes-How-to-Change.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Change Kitty Terminal Color Schemes\n\nTitle: Kitty Color Schemes How to Change\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, D…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Method 1: Themes Kitten (Recommended)",
+      "slug": "method-1-themes-kitten-recommended"
+    },
+    {
+      "level": 3,
+      "text": "Method 2: Manual Config (Modular)",
+      "slug": "method-2-manual-config-modular"
+    },
+    {
+      "level": 3,
+      "text": "Method 3: Custom Theme File",
+      "slug": "method-3-custom-theme-file"
+    },
+    {
+      "level": 3,
+      "text": "Method 4: Theme Switcher Script",
+      "slug": "method-4-theme-switcher-script"
+    },
+    {
+      "level": 3,
+      "text": "Method 5: Remote Control (Instant)",
+      "slug": "method-5-remote-control-instant"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Config Structure",
+      "slug": "config-structure"
+    },
+    {
+      "level": 3,
+      "text": "Built-in Themes",
+      "slug": "built-in-themes"
+    },
+    {
+      "level": 3,
+      "text": "Reload Mechanisms",
+      "slug": "reload-mechanisms"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Color Palette Format",
+      "slug": "color-palette-format"
+    },
+    {
+      "level": 3,
+      "text": "kitty.conf Include Pattern",
+      "slug": "kitty-conf-include-pattern"
+    },
+    {
+      "level": 3,
+      "text": "Remote Control Protocol",
+      "slug": "remote-control-protocol"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 3,
+  "content": "LOG: [LEARN] Guide: Change Kitty Terminal Color Schemes\n\n**Title:** Kitty Color Schemes How to Change\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Kitty-Color-Schemes-How-to-Change.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Kitty terminal installed\n- Kitty config at `~/.config/kitty/kitty.conf`\n\n### Method 1: Themes Kitten (Recommended)\n```bash\n# Interactive theme selector\n$ kitten themes\n# Navigate with arrows, Enter to apply\n\n# Direct application\n$ kitten themes --reload-in=all \"Catppuccin-Mocha\"\n```\n\n### Method 2: Manual Config (Modular)\n```bash\n# Edit ~/.config/kitty/kitty.conf\n# Change include line:\ninclude colors.conf          # Current\n# include dank-theme.conf    # Alternative\n# include dark-theme.auto.conf  # Another\n\n# Reload without restart\n$ kill -USR1 $(pgrep kitty)\n# Or: kitty @ load-config\n```\n\n### Method 3: Custom Theme File\n```bash\n# Create ~/.config/kitty/my-theme.conf\nbackground #1a1b26\nforeground #c0caf5\nselection_background #33467c\ncursor #c0caf5\ncolor0 #414868\ncolor1 #f7768e\ncolor2 #9ece6a\n# ... color3-color15\n\n# In kitty.conf:\ninclude my-theme.conf\n```\n\n### Method 4: Theme Switcher Script\n```bash\n#!/bin/bash\n# ~/.config/kitty/switch-theme.sh\nTHEME_DIR=\"$HOME/.config/kitty/themes\"\nCONFIG_FILE=\"$HOME/.config/kitty/kitty.conf\"\n\nif [ \"$1\" = \"list\" ]; then\n    ls \"$THEME_DIR\" | grep '\\.conf$'\n    exit 0\nfi\n\nTHEME_FILE=\"$THEME_DIR/$1.conf\"\n[ -f \"$THEME_FILE\" ] || { echo \"Theme '$1' not found\"; exit 1; }\n\nsed -i \"s|^include .*.conf|include themes/$1.conf|\" \"$CONFIG_FILE\"\nkill -USR1 $(pgrep kitty)\n```\n```bash\n$ chmod +x ~/.config/kitty/switch-theme.sh\n$ ./switch-theme.sh list\n$ ./switch-theme.sh dark\n```\n\n### Method 5: Remote Control (Instant)\n```bash\n# Single color change\n$ kitty @ set-colors background=\"#1a1b26\"\n\n# Multiple colors\n$ kitty @ set-colors background=\"#1a1b26\" foreground=\"#c0caf5\"\n\n# Full theme via remote\n$ kitty @ load-config\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Config Structure\n```\n~/.config/kitty/\n├── kitty.conf           # Main config (includes theme)\n├── colors.conf          # Active theme\n├── my-theme.conf        # Custom theme\n├── themes/              # Theme directory\n│   ├── catppuccin.conf\n│   ├── dracula.conf\n│   └── gruvbox.conf\n└── switch-theme.sh      # Switcher script\n```\n\n### Built-in Themes\nRun `kitten themes` to see all. Popular:\n- Catppuccin (Latte, Frappé, Macchiato, Mocha)\n- Dracula\n- Gruvbox (light/dark)\n- Monokai\n- Solarized (light/dark)\n\n### Reload Mechanisms\n| Method | Command | Scope |\n|--------|---------|-------|\n| Signal | `kill -USR1 $(pgrep kitty)` | All kitty windows |\n| Remote | `kitty @ load-config` | Current session |\n| Remote | `kitten themes --reload-in=all` | All sessions |\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Color Palette Format\n```bash\n# 16-color ANSI palette\ncolor0  # black\ncolor1  # red\ncolor2  # green\ncolor3  # yellow\ncolor4  # blue\ncolor5  # magenta\ncolor6  # cyan\ncolor7  # white\ncolor8  # bright black\ncolor9  # bright red\ncolor10 # bright green\ncolor11 # bright yellow\ncolor12 # bright blue\ncolor13 # bright magenta\ncolor14 # bright cyan\ncolor15 # bright white\n\n# Special colors\nbackground      # default background\nforeground      # default foreground\nselection_background  # text selection bg\nselection_foreground  # text selection fg\ncursor          # cursor color\ncursor_text_color     # text on cursor\n```\n\n### kitty.conf Include Pattern\n```bash\n# In kitty.conf\ninclude colors.conf\n# OR\ninclude themes/catppuccin-mocha.conf\n```\n\n### Remote Control Protocol\n```bash\n# Unix socket at $KITTY_LISTEN_ON\n# Requires: allow_remote_control yes in kitty.conf\n```\n\n### References\n- [Kitty Themes](https://sw.kovidgoyal.net/kitty/conf/#themes)\n- [Kitty Remote Control](https://sw.kovidgoyal.net/kitty/remote-control/)\n- `kitten themes --help`"
+}

@@ -1,0 +1,74 @@
+{
+  "slug": "how-to-paste-in-vim",
+  "filePath": "How_to_paste_in_vim.md",
+  "title": "Key Registers to Know:",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Title: How to Paste in Vim\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: How_to_paste_in_vim.md\nCopyright: © 2026-2027 Sr…",
+  "headings": [
+    {
+      "level": 3,
+      "text": "Key Registers to Know:",
+      "slug": "key-registers-to-know"
+    },
+    {
+      "level": 3,
+      "text": "In Normal Mode:",
+      "slug": "in-normal-mode"
+    },
+    {
+      "level": 3,
+      "text": "In Insert Mode:",
+      "slug": "in-insert-mode"
+    },
+    {
+      "level": 3,
+      "text": "Scenario 1: Copy and Paste Within Vim",
+      "slug": "scenario-1-copy-and-paste-within-vim"
+    },
+    {
+      "level": 3,
+      "text": "Scenario 2: Replace Selected Text",
+      "slug": "scenario-2-replace-selected-text"
+    },
+    {
+      "level": 3,
+      "text": "Scenario 3: Paste Multiple Times",
+      "slug": "scenario-3-paste-multiple-times"
+    },
+    {
+      "level": 3,
+      "text": "Using Named Registers",
+      "slug": "using-named-registers"
+    },
+    {
+      "level": 3,
+      "text": "Pasting in Command Mode",
+      "slug": "pasting-in-command-mode"
+    },
+    {
+      "level": 3,
+      "text": "System Clipboard Not Working?",
+      "slug": "system-clipboard-not-working"
+    },
+    {
+      "level": 3,
+      "text": "Pasted Text Has Wrong Indentation?",
+      "slug": "pasted-text-has-wrong-indentation"
+    },
+    {
+      "level": 4,
+      "text": "Basic Pasting:",
+      "slug": "basic-pasting"
+    },
+    {
+      "level": 4,
+      "text": "System Clipboard:",
+      "slug": "system-clipboard"
+    }
+  ],
+  "readingTime": 4,
+  "content": "**Title:** How to Paste in Vim\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** How_to_paste_in_vim.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n# How to paste in vim\n\n[Convert_to_markdown](https://r.jina.ai/https://www.learnvim.com/guides/how-to-paste-in-vim).\n\nTitle: How to Paste in Vim\n\nURL Source: https://www.learnvim.com/guides/how-to-paste-in-vim\n\nMarkdown Content:\nVim Basics\n\nPasting in vim works differently than most text editors. This\ncomprehensive guide covers everything you need to know about pasting\ntext in vim, from basic commands to advanced register usage.\n\n💡 Tip: Before pasting, you need to copy text! Check out our companion\nguide:[How to Copy in\nVim](https://www.learnvim.com/guides/how-to-copy-in-vim)\n\nBasic Pasting Commands\n----------------------\n\nThese are the fundamental pasting commands you'll use most often in vim:\n\n*   p - Paste after the cursor (or below current line for line-wise\ntext)\n*   P - Paste before the cursor (or above current line for line-wise\ntext)\n\nQuick Example:\n\n1.   1. Position cursor on a line you want to copy\n2.   2. Press yy to copy (yank) the entire line\n3.   3. Move to where you want to paste\n4.   4. Press p to paste below or P to paste above\n\nUnderstanding Vim Registers\n---------------------------\n\nVim uses registers to store copied text. Think of them as multiple\nclipboards that can hold different pieces of text simultaneously.\n\n### Key Registers to Know:\n\n*   \" - The default (unnamed) register. Used when you don't specify a\nregister.\n*   * - System clipboard register (primary selection on Linux)\n*   + - System clipboard register (works on all systems)\n*   a-z - Named registers you can use to store specific text\n*   0 - Contains the last yanked (copied) text\n*   1-9 - Contains recently deleted text (deletion history)\n\nPasting from System Clipboard\n-----------------------------\n\nTo paste text you copied from outside vim (like from a web browser or\nanother application):\n\n### In Normal Mode:\n\n*   \"+p - Paste from system clipboard after cursor\n*   \"+P - Paste from system clipboard before cursor\n*   \"*p - Alternative system clipboard (Linux primary selection)\n\n### In Insert Mode:\n\n*   Ctrl+R + - Paste from system clipboard\n*   Ctrl+Shift+V - May work in some terminals\n\nCommon Pasting Scenarios\n------------------------\n\n### Scenario 1: Copy and Paste Within Vim\n\n1.   1. Select text in visual mode (v or V)\n2.   2. Copy with y (yank)\n3.   3. Move to destination\n4.   4. Paste with p or P\n\n### Scenario 2: Replace Selected Text\n\n1.   1. Copy text you want to use as replacement\n2.   2. Select text to replace in visual mode\n3.   3. Press p to replace selection with copied text\n\n### Scenario 3: Paste Multiple Times\n\n1.   1. Copy text once\n2.   2. Use \"0p to paste from the yank register\n3.   3. This avoids issues when deleting text overwrites the default\nregister\n\nAdvanced Pasting Techniques\n---------------------------\n\n### Using Named Registers\n\nStore different pieces of text in named registers for later use:\n\n*   \"ay - Copy to register 'a'\n*   \"ap - Paste from register 'a'\n*   \"by - Copy to register 'b'\n*   \"bp - Paste from register 'b'\n\n### Pasting in Command Mode\n\nWhen typing commands, you can paste register contents:\n\n*   Ctrl+R \" - Paste from default register\n*   Ctrl+R + - Paste from system clipboard\n*   Ctrl+R a - Paste from register 'a'\n\nTroubleshooting Common Issues\n-----------------------------\n\n### System Clipboard Not Working?\n\n*   • Check if vim has clipboard support: :echo has('clipboard')\n*   • Try \"+p instead of \"*p\n*   • Install vim with clipboard support (vim-gtk, vim-x11, or gvim)\n\n### Pasted Text Has Wrong Indentation?\n\n*   • Use :set paste before pasting, then :set nopaste\n*   • Or use \"+p which often handles indentation better\n\nQuick Reference\n---------------\n\n#### Basic Pasting:\n\n*   p - Paste after cursor\n*   P - Paste before cursor\n*   yy then p - Copy line and paste\n\n#### System Clipboard:\n\n*   \"+p - Paste from system clipboard\n*   Ctrl+R + - Paste in insert mode\n*   \"+y - Copy to system clipboard\n\n🔗 Complete the Workflow: Now that you know how to paste, master the\ncopying side too! Read our comprehensive guide:[How to Copy in\nVim](https://www.learnvim.com/guides/how-to-copy-in-vim)\n\nMastering vim's pasting system takes practice, but once you understand\nregisters and these commands, you'll have powerful text manipulation\ncapabilities at your fingertips. Start with the basic p and P commands,\nthen gradually incorporate system clipboard and register usage as\nneeded.\n\nWant to master vim quickly with hands-on practice? Our interactive\ncourse covers pasting, registers, and all essential vim skills with real\nexercises!\n\n[Start Learning Vim](https://www.learnvim.com/#pricing)\n"
+}

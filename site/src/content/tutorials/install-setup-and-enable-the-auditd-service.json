@@ -1,0 +1,94 @@
+{
+  "slug": "install-setup-and-enable-the-auditd-service",
+  "filePath": "Install_Setup-and-enable-the_Auditd_service.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Install and Configure auditd on Arch Linux\n\nTitle: Install, Setup, and Enable the Auditd Service\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills,…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Step 1: Install audit Package",
+      "slug": "step-1-install-audit-package"
+    },
+    {
+      "level": 3,
+      "text": "Step 2: Enable and Start Service",
+      "slug": "step-2-enable-and-start-service"
+    },
+    {
+      "level": 3,
+      "text": "Step 3: Configure Audit Rules",
+      "slug": "step-3-configure-audit-rules"
+    },
+    {
+      "level": 3,
+      "text": "Step 4: Load Rules and Verify",
+      "slug": "step-4-load-rules-and-verify"
+    },
+    {
+      "level": 3,
+      "text": "Step 5: View Logs",
+      "slug": "step-5-view-logs"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "auditd Components",
+      "slug": "auditd-components"
+    },
+    {
+      "level": 3,
+      "text": "Rule Syntax",
+      "slug": "rule-syntax"
+    },
+    {
+      "level": 3,
+      "text": "Permissions",
+      "slug": "permissions"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Kernel Audit Subsystem",
+      "slug": "kernel-audit-subsystem"
+    },
+    {
+      "level": 3,
+      "text": "Performance Considerations",
+      "slug": "performance-considerations"
+    },
+    {
+      "level": 3,
+      "text": "Integration",
+      "slug": "integration"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 2,
+  "content": "LOG: [LEARN] Guide: Install and Configure auditd on Arch Linux\n\n**Title:** Install, Setup, and Enable the Auditd Service\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Install_Setup-and-enable-the_Auditd_service.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Arch Linux\n- Root/sudo access\n\n### Step 1: Install audit Package\n```bash\n$ sudo pacman -S audit\n```\n\n### Step 2: Enable and Start Service\n```bash\n$ sudo systemctl enable --now auditd\n```\n\n### Step 3: Configure Audit Rules\n```bash\n# Create rules file\n$ sudo vim /etc/audit/rules.d/audit.rules\n\n# Example: Monitor file access\n-w /etc/passwd -p wa -k identity\n-w /etc/shadow -p wa -k identity\n-w /etc/sudoers -p wa -k scope\n\n# Example: Monitor syscalls\n-a always,exit -F arch=b64 -S execve -k exec\n```\n\n### Step 4: Load Rules and Verify\n```bash\n$ sudo auditctl -R /etc/audit/rules.d/audit.rules\n$ sudo auditctl -l\n$ sudo systemctl status auditd\n```\n\n### Step 5: View Logs\n```bash\n$ sudo ausearch -k identity\n$ sudo aureport --summary\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### auditd Components\n- **auditd daemon**: Kernel → userspace log collector\n- **auditctl**: Runtime rule management\n- **ausearch/aureport**: Log analysis\n- **Rules**: `/etc/audit/rules.d/*.rules` (persistent)\n\n### Rule Syntax\n```\n-w path -p permissions -k keyname    # File watch\n-a action,filter -S syscall -k key   # Syscall audit\n```\n\n### Permissions\n- `r` — read, `w` — write, `x` — execute, `a` — attribute change\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Kernel Audit Subsystem\n- Netlink socket communication\n- Kernel ring buffer (configurable size)\n- Rate limiting: `auditctl --rate-limit`\n\n### Performance Considerations\n- High syscall volume → disk I/O pressure\n- Use `-F` filters to reduce noise\n- Consider `audispd` plugins for remote logging\n\n### Integration\n- `auditd` + `systemd` — automatic service management\n- `auditd` + `SELinux` — combined MAC + audit\n- Log forwarding: `audispd-plugins` → syslog/remote\n\n### References\n- `man auditd`, `man auditctl`, `man ausearch`\n- [Arch Wiki: Audit](https://wiki.archlinux.org/title/Audit_framework)\n- [Red Hat Audit Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/security_hardening/setting-up-and-configuring-auditing)"
+}

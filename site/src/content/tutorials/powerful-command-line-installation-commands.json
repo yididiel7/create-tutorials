@@ -1,0 +1,89 @@
+{
+  "slug": "powerful-command-line-installation-commands",
+  "filePath": "Powerful-Command-line-Installation-Commands.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Reference: Pacman Package Installation Commands\n\nTitle: Powerful Command-Line Installation Commands\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Basic Package Install",
+      "slug": "basic-package-install"
+    },
+    {
+      "level": 3,
+      "text": "Multiple Packages",
+      "slug": "multiple-packages"
+    },
+    {
+      "level": 3,
+      "text": "Install Without Confirmation",
+      "slug": "install-without-confirmation"
+    },
+    {
+      "level": 3,
+      "text": "Overwrite Conflicting Files",
+      "slug": "overwrite-conflicting-files"
+    },
+    {
+      "level": 3,
+      "text": "Refresh Databases and Install",
+      "slug": "refresh-databases-and-install"
+    },
+    {
+      "level": 3,
+      "text": "Install Only If Not Present",
+      "slug": "install-only-if-not-present"
+    },
+    {
+      "level": 3,
+      "text": "Full Upgrade Then Install",
+      "slug": "full-upgrade-then-install"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Common Flag Combinations",
+      "slug": "common-flag-combinations"
+    },
+    {
+      "level": 3,
+      "text": "Package Groups",
+      "slug": "package-groups"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "pacman Internals",
+      "slug": "pacman-internals"
+    },
+    {
+      "level": 3,
+      "text": "Conflict Resolution",
+      "slug": "conflict-resolution"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 2,
+  "content": "LOG: [LEARN] Reference: Pacman Package Installation Commands\n\n**Title:** Powerful Command-Line Installation Commands\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Powerful-Command-line-Installation-Commands.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Basic Package Install\n```bash\n$ sudo pacman -S package_name\n```\n\n### Multiple Packages\n```bash\n$ sudo pacman -S package1 package2 package3\n```\n\n### Install Without Confirmation\n```bash\n$ sudo pacman -S --noconfirm package_name\n```\n\n### Overwrite Conflicting Files\n```bash\n$ sudo pacman -S --overwrite '*' package_name\n```\n\n### Refresh Databases and Install\n```bash\n$ sudo pacman -Sy package_name\n```\n\n### Install Only If Not Present\n```bash\n$ sudo pacman -S --needed package_name\n```\n\n### Full Upgrade Then Install\n```bash\n$ sudo pacman -Syu package_name\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Common Flag Combinations\n| Flags | Use Case |\n|-------|----------|\n| `-S` | Sync (install from repo) |\n| `-Sy` | Refresh DB + install |\n| `-Syu` | Full upgrade + install |\n| `--needed` | Skip already installed |\n| `--noconfirm` | Automation/scripts |\n| `--overwrite '*'` | Force file conflicts |\n\n### Package Groups\n```bash\n$ sudo pacman -S gnome              # Group\n$ sudo pacman -Sg                   # List groups\n$ sudo pacman -Qg gnome             # List group packages\n```\n\n## The \"Deep Dive\" (The Technical Root)\n\n### pacman Internals\n- Downloads to `/var/cache/pacman/pkg/`\n- Extracts to `/` with `libarchive`\n- Runs install scripts (pre/post)\n- Updates local DB in `/var/lib/pacman/local/`\n\n### Conflict Resolution\n```bash\n# Check what would be overwritten\n$ sudo pacman -S --overwrite '*' --print-format \"%f\" package\n\n# Manual resolution\n$ sudo pacman -Qo /path/to/file\n$ sudo pacman -R conflicting-package\n```\n\n### References\n- `man pacman`\n- [Arch Wiki: Pacman](https://wiki.archlinux.org/title/Pacman)"
+}

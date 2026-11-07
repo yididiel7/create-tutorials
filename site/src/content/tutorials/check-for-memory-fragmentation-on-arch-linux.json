@@ -1,0 +1,13 @@
+{
+  "slug": "check-for-memory-fragmentation-on-arch-linux",
+  "filePath": "check-for-memory-fragmentation-on-Arch-Linux.md",
+  "title": "check-for-memory-fragmentation-on-Arch-Linux",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Here are the key commands to check for memory fragmentation on Linux:\n\nPrimary Commands\n\n1. /proc/buddyinfo - Most Direct Method\n\ncat /proc/buddyinfo\n\nShows free memory blocks by order (power of 2). H…",
+  "headings": [],
+  "readingTime": 2,
+  "content": "Here are the key commands to check for memory fragmentation on Linux:\n\nPrimary Commands\n\n1. /proc/buddyinfo - Most Direct Method\n\ncat /proc/buddyinfo\n\nShows free memory blocks by order (power of 2). High counts in small\norders + low counts in large orders = fragmentation.\n\n2. vmstat - Memory Pressure Indicators\n\nvmstat -m\n\nLook for high numa_hit/numa_miss ratios and pgmajfault (major page\nfaults).\n\n3. slabtop - Kernel Memory Allocation\n\nslabtop\n\nShows kernel object cache usage; high fragmentation appears as many\nsmall objects.\n\nComprehensive Commands\n\n4. procinfo or procps Tools\n\n# Memory statistics including fragmentation\n\ncat /proc/meminfo | grep -E\n\"(MemTotal|MemFree|Committed_AS|AnonPages|Slab)\"\n\n# Huge pages (related to fragmentation)\n\ncat /proc/sys/vm/nr_hugepages\n\ncat /proc/meminfo | grep Huge\n\n5. numactl - NUMA-Aware Analysis\n\n# NUMA memory distribution\n\nnumactl --hardware\n\n\nnumactl --show\n\n6. perf - Advanced Memory Analysis\n# Memory fragmentation events\n\nperf stat -e kmem:mm_page_alloc,kmem:mm_page_free sleep 5\n\nQuick Fragmentation Check Script\n\n#!/bin/bash\necho \"=== Memory Fragmentation Check ===\"\necho \"Buddy Info:\"\ncat /proc/buddyinfo\necho -e \"\\nKey MemInfo:\"\ncat /proc/meminfo | grep -E \"(MemFree|AnonPages|Slab|Huge)\"\necho -e \"\\nVMStat:\"\nvmstat -s | grep -E \"(memory|page)\"\n\n\nInterpretation Tips:\n\n- Healthy: Good distribution across block orders in buddyinfo\n\n- Fragmented: Many small blocks, few large blocks, high major page\nfaults\n\n- Slab fragmentation: High slab usage with many objects in\n/proc/slabinfo\n\nThe cat /proc/buddyinfo command is your primary tool for direct\nfragmentation analysis.\n"
+}

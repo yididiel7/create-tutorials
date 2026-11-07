@@ -1,0 +1,109 @@
+{
+  "slug": "ollama-cli-tricks",
+  "filePath": "Ollama-CLI-tricks.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Reference: Ollama CLI Tricks & Patterns\n\nTitle: Ollama CLI Tricks\nDate: 2026-02-09 (22:27:16 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc:…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Input from Stdin",
+      "slug": "input-from-stdin"
+    },
+    {
+      "level": 3,
+      "text": "Multiline Input",
+      "slug": "multiline-input"
+    },
+    {
+      "level": 3,
+      "text": "Input from File",
+      "slug": "input-from-file"
+    },
+    {
+      "level": 3,
+      "text": "Consuming Web Pages",
+      "slug": "consuming-web-pages"
+    },
+    {
+      "level": 3,
+      "text": "Chaining LLMs (Pipe Output)",
+      "slug": "chaining-llms-pipe-output"
+    },
+    {
+      "level": 3,
+      "text": "Output to File",
+      "slug": "output-to-file"
+    },
+    {
+      "level": 3,
+      "text": "Verbose Output",
+      "slug": "verbose-output"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Input Methods",
+      "slug": "input-methods"
+    },
+    {
+      "level": 3,
+      "text": "Chaining Strategy",
+      "slug": "chaining-strategy"
+    },
+    {
+      "level": 3,
+      "text": "Output Formats",
+      "slug": "output-formats"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Streaming vs Non-Streaming",
+      "slug": "streaming-vs-non-streaming"
+    },
+    {
+      "level": 3,
+      "text": "Verbose Mode",
+      "slug": "verbose-mode"
+    },
+    {
+      "level": 3,
+      "text": "Format Options",
+      "slug": "format-options"
+    },
+    {
+      "level": 3,
+      "text": "File I/O Patterns",
+      "slug": "file-i-o-patterns"
+    },
+    {
+      "level": 3,
+      "text": "Web Scraping + LLM",
+      "slug": "web-scraping-llm"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 3,
+  "content": "LOG: [LEARN] Reference: Ollama CLI Tricks & Patterns\n\n**Title:** Ollama CLI Tricks\n**Date:** 2026-02-09 (22:27:16 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Ollama-CLI-tricks.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Input from Stdin\n```bash\n$ ollama run llama3.1 \"prompt\"\n```\n\n### Multiline Input\n```bash\n$ ollama run llama3.1 \"\"\"\nMulti-line\nprompt here\n\"\"\"\n```\n\n### Input from File\n```bash\n# Pipe operator\n$ cat fox.txt | ollama run llama3.1 \"Translate to German\"\n# Redirection operator\n$ ollama run llama3.1 \"Translate to German\" < fox.txt\n```\n\n### Consuming Web Pages\n```bash\n$ curl -s https://lite.cnn.com/.../index.html | ollama run llama3.1 \"Summarize this HTML\"\n$ curl -s https://lite.cnn.com/.../index.html | ollama run llama3.1 \"Find all people names\"\n```\n\n### Chaining LLMs (Pipe Output)\n```bash\n$ ollama run llama3.1 \"How do you make scrambled eggs?\" | ollama run llama3.1 \"Translate to German\"\n```\n\n### Output to File\n```bash\n# JSON output\n$ ollama run llama3.1 \"Countries of Europe\" --format json > europe.json\n\n# Append to file\n$ ollama run llama3 \"Tell me a joke about programming\" > jokes.md\n$ ollama run llama3 \"Tell me a joke about programming\" >> jokes.md\n```\n\n### Verbose Output\n```bash\n$ ollama run llama3.1 --verbose \"What is the capital of Iceland?\"\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Input Methods\n| Method | Syntax | Use Case |\n|--------|--------|----------|\n| Direct prompt | `ollama run model \"prompt\"` | Simple queries |\n| Stdin pipe | `cat file \\| ollama run model \"prompt\"` | File + instruction |\n| Redirection | `ollama run model \"prompt\" < file` | File as context |\n| Heredoc | `ollama run model <<'EOF' ... EOF` | Multi-line prompts |\n\n### Chaining Strategy\n- Output of model A → Input to model B\n- Useful for: translate → summarize, generate → format, code → explain\n- Each hop adds latency; prefer single model when possible\n\n### Output Formats\n| Flag | Format | Use Case |\n|------|--------|----------|\n| `--format json` | JSON | Programmatic parsing |\n| `--format text` | Plain text | Default |\n| `> file` | Redirect | Save output |\n| `>> file` | Append | Accumulate output |\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Streaming vs Non-Streaming\n```bash\n# Streaming (default)\n$ ollama run llama3.1 \"prompt\"\n\n# Non-streaming (complete response)\n$ ollama run llama3.1 \"prompt\" --stream false\n```\n\n### Verbose Mode\n```bash\n$ ollama run llama3.1 --verbose \"prompt\"\n# Shows: model load time, token count, eval rate\n```\n\n### Format Options\n```bash\n$ ollama run llama3.1 \"List countries\" --format json\n# {\"countries\": [\"Austria\", \"Belgium\", ...]}\n\n$ ollama run llama3.1 \"Code\" --format text\n```\n\n### File I/O Patterns\n```bash\n# Read file as context\n$ ollama run llama3.2 \"Summarize\" < long-doc.txt\n\n# Save response\n$ ollama run llama3.2 \"Prompt\" > output.txt\n\n# Append to log\n$ ollama run llama3.2 \"Prompt\" >> session.log\n\n# JSON + file\n$ ollama run llama3.1 \"Data\" --format json > data.json\n```\n\n### Web Scraping + LLM\n```bash\n# Use text-mode sites (lite.cnn.com, textise.net)\n$ curl -s https://lite.cnn.com/article.html | ollama run llama3.1 \"Summarize\"\n\n# Extract specific info\n$ curl -s https://example.com | ollama run llama3.1 \"Extract all email addresses\"\n```\n\n### References\n- `man ollama`\n- [Ollama GitHub](https://github.com/ollama/ollama)"
+}

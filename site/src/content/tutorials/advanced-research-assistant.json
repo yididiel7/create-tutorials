@@ -1,0 +1,109 @@
+{
+  "slug": "advanced-research-assistant",
+  "filePath": "Advanced-Research-Assistant.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Web-LLM.py Interactive Research Assistant\n\nTitle: Advanced Research Assistant\nDate: 2026-02-11 (17:46:18 IST)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Installation",
+      "slug": "installation"
+    },
+    {
+      "level": 3,
+      "text": "Usage Modes",
+      "slug": "usage-modes"
+    },
+    {
+      "level": 4,
+      "text": "Interactive Research Mode",
+      "slug": "interactive-research-mode"
+    },
+    {
+      "level": 4,
+      "text": "Direct Tool Usage (Programmatic)",
+      "slug": "direct-tool-usage-programmatic"
+    },
+    {
+      "level": 3,
+      "text": "Research Commands (Interactive)",
+      "slug": "research-commands-interactive"
+    },
+    {
+      "level": 3,
+      "text": "Research Flow",
+      "slug": "research-flow"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Architecture",
+      "slug": "architecture"
+    },
+    {
+      "level": 3,
+      "text": "Search Tools",
+      "slug": "search-tools"
+    },
+    {
+      "level": 3,
+      "text": "Two Usage Paradigms",
+      "slug": "two-usage-paradigms"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Query Processing",
+      "slug": "query-processing"
+    },
+    {
+      "level": 3,
+      "text": "Rate Limiting Handling",
+      "slug": "rate-limiting-handling"
+    },
+    {
+      "level": 3,
+      "text": "Research Summary Output",
+      "slug": "research-summary-output"
+    },
+    {
+      "level": 3,
+      "text": "Conversation Mode",
+      "slug": "conversation-mode"
+    },
+    {
+      "level": 3,
+      "text": "Configuration",
+      "slug": "configuration"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 3,
+  "content": "LOG: [LEARN] Guide: Web-LLM.py Interactive Research Assistant\n\n**Title:** Advanced Research Assistant\n**Date:** 2026-02-11 (17:46:18 IST)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Advanced-Research-Assistant.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Python 3.10+\n- `uv` package manager (`curl -LsSf https://astral.sh/uv/install.sh | sh`)\n- Internet connection\n\n### Installation\n```bash\n# Clone or create Web-LLM.py\ngit clone <repo>  # or create from source\n\n# Install dependencies\nuv sync\n\n# Or run directly\nuv run Web-LLM.py\n```\n\n### Usage Modes\n\n#### Interactive Research Mode\n```bash\n$ uv run Web-LLM.py\n\n    ╔═══════════════════════════════════════════════════════════╗\n    ║             🌐 Advanced Research Assistant 🤖             ║\n    ╚═══════════════════════════════════════════════════════════╝\n\n    Welcome to the Advanced Research Assistant!\n\n    Usage:\n    - Start your research query with '@'\n      Example: \"@analyze the impact of AI on healthcare\"\n\n    Press CTRL+D (Linux/Mac) or CTRL+Z (Windows) to submit input.\n```\n\n#### Direct Tool Usage (Programmatic)\n```python\n# Built-in search tools available:\nwebsearch(\"latest AI breakthroughs 2026\")\nwebfetch(\"https://example.com/article\")\ncodesearch(\"python async pattern\")\ngoogle_search(\"AI healthcare 2026\")\n```\n\n### Research Commands (Interactive)\n| Command | Action |\n|---------|--------|\n| `s` | Show research status |\n| `f` | Show current focus |\n| `q` | Quit research |\n\n### Research Flow\n```\n1. Enter query with @ prefix\n2. System initiates research\n3. Runs searches, fetches pages\n4. Generates summary\n5. Shows available commands\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Architecture\n```\nUser Query (@query)\n    ↓\nQuery Parser\n    ↓\nSearch Strategy (websearch/codesearch/google_search)\n    ↓\nParallel Fetching (webfetch)\n    ↓\nContent Extraction & Summarization\n    ↓\nResearch Summary Generation\n    ↓\nInteractive Commands (s/f/q)\n```\n\n### Search Tools\n| Tool | Purpose |\n|------|---------|\n| `websearch()` | General web search |\n| `webfetch()` | Fetch specific URL content |\n| `codesearch()` | Code/examples search |\n| `google_search()` | Google search API |\n\n### Two Usage Paradigms\n| Mode | Use Case |\n|------|----------|\n| **Interactive** | Exploratory research, iterative refinement |\n| **Programmatic** | Automation, scripts, pipelines |\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Query Processing\n```\n@analyze the impact of AI on healthcare\n    ↓\n1. Parse: extract topic \"AI healthcare impact\"\n2. Strategy: websearch + webfetch\n3. Execute: parallel searches\n4. Synthesize: summary + citations\n5. Present: summary + commands\n```\n\n### Rate Limiting Handling\n- DuckDuckGo API rate limits → fallback to direct tools\n- Built-in: `websearch()`, `webfetch()`, `codesearch()`\n- Programmatic access bypasses interactive limits\n\n### Research Summary Output\n```\n================================================================================\n                RESEARCH SUMMARY\n================================================================================\nOriginal Query: analyze the impact of AI on healthcare\nGenerated on: 2026-02-11 17:46:18\n[...synthesized findings...]\n================================================================================\n                End of Summary\n================================================================================\n```\n\n### Conversation Mode\n```\nInstructions:\n- Type question + CTRL+D to submit\n- 'quit' + CTRL+D to exit\n- User messages: green\n- AI responses: cyan\n```\n\n### Configuration\n```bash\n# Environment variables\nexport DDG_RATE_LIMIT_DELAY=2\nexport WEB_FETCH_TIMEOUT=30\n\n# Custom search engines\nexport SEARCH_ENGINES=\"duckduckgo,google,bing\"\n```\n\n### References\n- [uv package manager](https://docs.astral.sh/uv/)\n- [DuckDuckGo HTML](https://html.duckduckgo.com/)\n- [Python requests](https://docs.python-requests.org/)"
+}

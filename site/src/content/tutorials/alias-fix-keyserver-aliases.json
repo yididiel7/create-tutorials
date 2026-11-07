@@ -1,0 +1,79 @@
+{
+  "slug": "alias-fix-keyserver-aliases",
+  "filePath": "alias-fix-keyserver-aliases.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Reference: Fix GPG Keyserver Aliases for Arch Linux\n\nTitle: Alias Fix Keyserver Aliases\nDate: 2026-02-02 (20:55:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Fix 1: Keyserver Auto-Retrieve",
+      "slug": "fix-1-keyserver-auto-retrieve"
+    },
+    {
+      "level": 3,
+      "text": "Fix 2: Copy Pacman GPG Config to User Directory",
+      "slug": "fix-2-copy-pacman-gpg-config-to-user-directory"
+    },
+    {
+      "level": 3,
+      "text": "Test Aliases",
+      "slug": "test-aliases"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Why These Fixes Work",
+      "slug": "why-these-fixes-work"
+    },
+    {
+      "level": 3,
+      "text": "Pacman GPG Key Management",
+      "slug": "pacman-gpg-key-management"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "GPG Config Files",
+      "slug": "gpg-config-files"
+    },
+    {
+      "level": 3,
+      "text": "Key Retrieval Flow",
+      "slug": "key-retrieval-flow"
+    },
+    {
+      "level": 3,
+      "text": "Troubleshooting",
+      "slug": "troubleshooting"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 2,
+  "content": "LOG: [LEARN] Reference: Fix GPG Keyserver Aliases for Arch Linux\n\n**Title:** Alias Fix Keyserver Aliases\n**Date:** 2026-02-02 (20:55:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** alias-fix-keyserver-aliases.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Arch Linux with pacman\n- GPG configured for pacman keys\n- Root/sudo access\n\n### Fix 1: Keyserver Auto-Retrieve\n```bash\n# Add to ~/.zshrc or ~/.bashrc\nalias fix-gpg-retrieve=\"gpg --keyserver-options auto-key-retrieve --receive-keys\"\n```\n\n### Fix 2: Copy Pacman GPG Config to User Directory\n```bash\n# Add to ~/.zshrc or ~/.bashrc\nalias fix-keyserver='mkdir -p ~/.gnupg && cp /etc/pacman.d/gnupg/gpg.conf ~/.gnupg/ && echo \"done\"'\n```\n\n### Test Aliases\n```bash\n# Source your config\n$ source ~/.zshrc\n\n# Test fix-keyserver\n$ fix-keyserver\ndone\n\n# Test fix-gpg-retrieve (requires a key ID)\n$ fix-gpg-retrieve <KEY_ID>\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Why These Fixes Work\n| Issue | Root Cause | Solution |\n|-------|------------|----------|\n| `fix-keyserver` | User `~/.gnupg/gpg.conf` missing or outdated | Copy system pacman GPG config |\n| `fix-gpg-retrieve` | Keyserver not configured for auto-retrieve | Add `--keyserver-options auto-key-retrieve` |\n\n### Pacman GPG Key Management\n- System keys: `/etc/pacman.d/gnupg/` (managed by pacman)\n- User keys: `~/.gnupg/` (used by gpg commands)\n- Keyserver pool: `hkps://keyserver.ubuntu.com`, `hkps://keys.openpgp.org`\n\n## The \"Deep Dive\" (The Technical Root)\n\n### GPG Config Files\n```bash\n# System (pacman)\n/etc/pacman.d/gnupg/gpg.conf\n/etc/pacman.d/gnupg/pubring.kbx\n\n# User\n~/.gnupg/gpg.conf\n~/.gnupg/pubring.kbx\n```\n\n### Key Retrieval Flow\n```bash\n# With auto-key-retrieve\n$ gpg --keyserver-options auto-key-retrieve --receive-keys KEYID\n# 1. Queries keyserver pool\n# 2. Downloads and imports key\n# 3. Verifies key signature\n\n# Without (manual)\n$ gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys KEYID\n```\n\n### Troubleshooting\n```bash\n# List trusted keys\n$ pacman-key -l\n\n# Refresh all keys\n$ sudo pacman-key --refresh-keys\n\n# Fix corrupted keyring\n$ sudo pacman-key --init\n$ sudo pacman-key --populate archlinux\n```\n\n### References\n- [Arch Wiki: Pacman-key](https://wiki.archlinux.org/title/Pacman-key)\n- [Arch Wiki: GnuPG](https://wiki.archlinux.org/title/GnuPG)\n- `man gpg`, `man pacman-key`"
+}

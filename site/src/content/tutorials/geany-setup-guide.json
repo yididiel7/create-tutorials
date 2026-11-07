@@ -1,0 +1,139 @@
+{
+  "slug": "geany-setup-guide",
+  "filePath": "GEANY_SETUP_GUIDE.md",
+  "title": "Overview",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Geany Python Code Checker Setup Guide\n\n Overview\nThis guide configures Geany to check Python code using pycodestyle, pyflakes, and pylint.\nPress F9 to check your code, view errors in the Compiler…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "Overview",
+      "slug": "overview"
+    },
+    {
+      "level": 2,
+      "text": "Step 1: Install Required Tools",
+      "slug": "step-1-install-required-tools"
+    },
+    {
+      "level": 2,
+      "text": "Step 2: Setup the Helper Script",
+      "slug": "step-2-setup-the-helper-script"
+    },
+    {
+      "level": 2,
+      "text": "Step 3: Configure Geany Build Commands",
+      "slug": "step-3-configure-geany-build-commands"
+    },
+    {
+      "level": 3,
+      "text": "Command Configuration Table",
+      "slug": "command-configuration-table"
+    },
+    {
+      "level": 3,
+      "text": "Field Explanations:",
+      "slug": "field-explanations"
+    },
+    {
+      "level": 2,
+      "text": "Step 4: Test the Setup",
+      "slug": "step-4-test-the-setup"
+    },
+    {
+      "level": 2,
+      "text": "Step 5: Using Error Navigation",
+      "slug": "step-5-using-error-navigation"
+    },
+    {
+      "level": 3,
+      "text": "Compiler Tab Features:",
+      "slug": "compiler-tab-features"
+    },
+    {
+      "level": 3,
+      "text": "Navigation Shortcuts:",
+      "slug": "navigation-shortcuts"
+    },
+    {
+      "level": 2,
+      "text": "Step 6: Advanced Configuration (Optional)",
+      "slug": "step-6-advanced-configuration-optional"
+    },
+    {
+      "level": 3,
+      "text": "Add Multiple Check Commands:",
+      "slug": "add-multiple-check-commands"
+    },
+    {
+      "level": 4,
+      "text": "pycodestyle only:",
+      "slug": "pycodestyle-only"
+    },
+    {
+      "level": 4,
+      "text": "pyflakes only:",
+      "slug": "pyflakes-only"
+    },
+    {
+      "level": 4,
+      "text": "pylint only:",
+      "slug": "pylint-only"
+    },
+    {
+      "level": 3,
+      "text": "Enhanced Script with Auto-format:",
+      "slug": "enhanced-script-with-auto-format"
+    },
+    {
+      "level": 2,
+      "text": "Troubleshooting",
+      "slug": "troubleshooting"
+    },
+    {
+      "level": 3,
+      "text": "Issue: \"check_python_code: command not found\"",
+      "slug": "issue-check-python-code-command-not-found"
+    },
+    {
+      "level": 3,
+      "text": "Issue: Errors not highlighting in editor",
+      "slug": "issue-errors-not-highlighting-in-editor"
+    },
+    {
+      "level": 3,
+      "text": "Issue: Python tools not found",
+      "slug": "issue-python-tools-not-found"
+    },
+    {
+      "level": 3,
+      "text": "Issue: Permission denied",
+      "slug": "issue-permission-denied"
+    },
+    {
+      "level": 2,
+      "text": "Error Regular Expression Explained",
+      "slug": "error-regular-expression-explained"
+    },
+    {
+      "level": 2,
+      "text": "Keyboard Shortcuts Reference",
+      "slug": "keyboard-shortcuts-reference"
+    },
+    {
+      "level": 2,
+      "text": "Example Output",
+      "slug": "example-output"
+    },
+    {
+      "level": 2,
+      "text": "Additional Tips",
+      "slug": "additional-tips"
+    }
+  ],
+  "readingTime": 5,
+  "content": "# Geany Python Code Checker Setup Guide\n\n## Overview\nThis guide configures Geany to check Python code using pycodestyle, pyflakes, and pylint.\nPress F9 to check your code, view errors in the Compiler tab, and click errors to jump to code lines.\n\n## Step 1: Install Required Tools\n\n```bash\npip install pycodestyle pyflakes pylint\n```\n\n## Step 2: Setup the Helper Script\n\n1. Save the `check_python_code` script to a location in your PATH:\n   ```bash\n   # Option A: System-wide\n   sudo cp check_python_code /usr/local/bin/\n   sudo chmod +x /usr/local/bin/check_python_code\n   \n   # Option B: User-only\n   mkdir -p ~/.local/bin\n   cp check_python_code ~/.local/bin/\n   chmod +x ~/.local/bin/check_python_code\n   # Add to ~/.bashrc: export PATH=\"$HOME/.local/bin:$PATH\"\n   ```\n\n## Step 3: Configure Geany Build Commands\n\n1. **Open Geany**\n2. **Open or create a Python file** (to activate Python mode)\n3. Go to **Build → Set Build Commands** (or press Ctrl+Shift+C)\n4. Find the section labeled **\"Python commands\"**\n5. Configure the following:\n\n### Command Configuration Table\n\n| Field | Value |\n|-------|-------|\n| **Label** | Check |\n| **Command** | `check_python_code %f` |\n| **Working directory** | `%d` |\n| **Error regular expression** | `([^:]+):([0-9]+):([0-9:]+)? .*` |\n\n### Field Explanations:\n\n- **Label**: The name shown in the Build menu (e.g., \"Check\")\n- **Command**: The script to run\n  - `%f` = Full path to current file\n  - `%d` = Directory of current file\n  - `%e` = Filename without extension\n- **Working directory**: Where to execute the command (`%d` = file's directory)\n- **Error regular expression**: Pattern to parse tool output for error location\n\n## Step 4: Test the Setup\n\n1. Create a test Python file with intentional errors:\n   ```python\n   # test_errors.py\n   def badFunction( x,y ):\n       unused_var = 42\n       return x+y\n   ```\n\n2. Save the file in Geany\n3. Press **F9** or go to **Build → Check**\n4. View results in the **Compiler** tab (bottom panel)\n\n## Step 5: Using Error Navigation\n\n### Compiler Tab Features:\n- **View all errors**: Listed in Compiler tab with file:line:column format\n- **Click to jump**: Click any error message to jump to that line\n- **Red underlines**: Editor shows red squiggly underlines on error lines\n- **Status bar**: Shows current error count\n\n### Navigation Shortcuts:\n- **F9**: Run code check\n- **F4**: Jump to next error\n- **Shift+F4**: Jump to previous error\n- **Ctrl+Shift+C**: Open Build Commands dialog\n\n## Step 6: Advanced Configuration (Optional)\n\n### Add Multiple Check Commands:\n\nYou can add separate commands for different tools:\n\n#### pycodestyle only:\n- Label: `Check Style`\n- Command: `pycodestyle %f`\n- Error regex: `([^:]+):([0-9]+):([0-9:]+)? .*`\n\n#### pyflakes only:\n- Label: `Check Syntax`\n- Command: `pyflakes %f`\n- Error regex: `([^:]+):([0-9]+):.*`\n\n#### pylint only:\n- Label: `Lint`\n- Command: `pylint --msg-template=\"{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}\" --reports=n %f`\n- Error regex: `([^:]+):([0-9]+):.*`\n\n### Enhanced Script with Auto-format:\n\nIf you want auto-formatting capability, use the enhanced script with black and isort:\n\n```bash\n# Add a format command:\n# Label: Format\n# Command: check_python_code \"%f\" format\n# Error regex: ([^:]+):([0-9]+):([0-9:]+)? .*\n```\n\n## Troubleshooting\n\n### Issue: \"check_python_code: command not found\"\n**Solution**: Ensure the script is in your PATH:\n```bash\nwhich check_python_code\n# If empty, add to PATH:\nexport PATH=\"$HOME/.local/bin:$PATH\"\n```\n\n### Issue: Errors not highlighting in editor\n**Solution**: Verify the Error regular expression matches your tool output:\n- pycodestyle: `file.py:10:5: E302 expected 2 blank lines`\n- pyflakes: `file.py:10: 'x' imported but unused`\n- pylint: `file.py:10: [C0303(trailing-whitespace), ] Trailing whitespace`\n\n### Issue: Python tools not found\n**Solution**: Use full path or python -m:\n```bash\n# Instead of: pycodestyle %f\n# Use: python3 -m pycodestyle %f\n# Or: /home/username/.local/bin/pycodestyle %f\n```\n\n### Issue: Permission denied\n**Solution**: Make script executable:\n```bash\nchmod +x /path/to/check_python_code\n```\n\n## Error Regular Expression Explained\n\nThe regex `([^:]+):([0-9]+):([0-9:]+)? .*` breaks down as:\n\n```\n([^:]+)     # Group 1: Filename (any chars except colon)\n:           # Literal colon separator\n([0-9]+)    # Group 2: Line number (one or more digits)\n:           # Literal colon separator\n([0-9:]+)?  # Group 3: Column number (optional, digits + optional colon)\n.*          # Rest of the message\n```\n\nGeany uses:\n- Group 1 → Filename\n- Group 2 → Line number  \n- Group 3 → Column (optional)\n\n## Keyboard Shortcuts Reference\n\n| Shortcut | Action |\n|----------|--------|\n| F9 | Run \"Check\" command |\n| F4 | Jump to next error |\n| Shift+F4 | Jump to previous error |\n| Ctrl+Shift+C | Set Build Commands |\n| Ctrl+Shift+D | Build menu |\n| Ctrl+PageUp/Down | Switch between Compiler/Terminal tabs |\n\n## Example Output\n\nWhen you press F9, the Compiler tab will show:\n\n```\n======  pycodestyle  ======\n/home/user/test.py:2:1: E302 expected 2 blank lines, found 1\n/home/user/test.py:2:15: E231 missing whitespace after ','\n======  pyflakes  ======\n/home/user/test.py:3:5: undefined name 'unused_var'\n======  pylint  ======\n/home/user/test.py:2:0: [C0103(invalid-name), badFunction] Function name \"badFunction\" doesn't conform to snake_case naming style\n```\n\nClick any line to jump to the error location!\n\n## Additional Tips\n\n1. **Customize pycodestyle**: Create `~/.config/pycodestyle` with:\n   ```ini\n   [pycodestyle]\n   max-line-length = 120\n   ignore = E203, W503\n   ```\n\n2. **Customize pylint**: Create `.pylintrc` in your project:\n   ```bash\n   pylint --generate-rcfile > ~/.pylintrc\n   ```\n\n3. **Use per-project configs**: Place `.pylintrc` or `setup.cfg` in project root\n\n4. **Integrate with version control**: Add pre-commit hooks to run checks before commits\n"
+}

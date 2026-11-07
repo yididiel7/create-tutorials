@@ -1,0 +1,94 @@
+{
+  "slug": "starship-install-config",
+  "filePath": "starship-install-config.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Install and Configure Starship Prompt\n\nTitle: Starship Install Config\nDate: 2023-12-29\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: starship-instal…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Install Starship",
+      "slug": "install-starship"
+    },
+    {
+      "level": 3,
+      "text": "Configure Shell",
+      "slug": "configure-shell"
+    },
+    {
+      "level": 3,
+      "text": "Configure Starship",
+      "slug": "configure-starship"
+    },
+    {
+      "level": 3,
+      "text": "Install Nerd Font (Required for Icons)",
+      "slug": "install-nerd-font-required-for-icons"
+    },
+    {
+      "level": 3,
+      "text": "Test Installation",
+      "slug": "test-installation"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Why Starship?",
+      "slug": "why-starship"
+    },
+    {
+      "level": 3,
+      "text": "Module System",
+      "slug": "module-system"
+    },
+    {
+      "level": 3,
+      "text": "Common Modules",
+      "slug": "common-modules"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Configuration File Structure",
+      "slug": "configuration-file-structure"
+    },
+    {
+      "level": 3,
+      "text": "Performance",
+      "slug": "performance"
+    },
+    {
+      "level": 3,
+      "text": "Advanced: Custom Commands",
+      "slug": "advanced-custom-commands"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 3,
+  "content": "LOG: [LEARN] Guide: Install and Configure Starship Prompt\n\n**Title:** Starship Install Config\n**Date:** 2023-12-29\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** starship-install-config.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Rust toolchain (for building) or package manager\n- Nerd Font installed (for icons)\n- Compatible shell: bash, zsh, fish, nushell, etc.\n\n### Install Starship\n```bash\n# Arch Linux\n$ sudo pacman -S starship\n\n# Universal (Rust)\n$ curl -sS https://starship.rs/install.sh | sh\n\n# Other package managers\n$ brew install starship      # macOS\n$ dnf install starship       # Fedora\n$ apt install starship       # Ubuntu/Debian (may be older)\n```\n\n### Configure Shell\n```bash\n# Bash (~/.bashrc)\neval \"$(starship init bash)\"\n\n# Zsh (~/.zshrc)\neval \"$(starship init zsh)\"\n\n# Fish (~/.config/fish/config.fish)\nstarship init fish | source\n\n# Nushell\nmkdir -p ~/.config/nushell\necho 'eval (starship init nu)' >> ~/.config/nushell/env.nu\n```\n\n### Configure Starship\n```bash\n# Create config directory\n$ mkdir -p ~/.config\n\n# Create config file\n$ starship preset nerd-font-symbols -o ~/.config/starship.toml\n# Or use blank preset\n$ starship preset plain-text-symbols -o ~/.config/starship.toml\n```\n\n### Install Nerd Font (Required for Icons)\n```bash\n# Arch Linux\n$ sudo pacman -S nerd-fonts\n\n# Manual: Download from https://www.nerdfonts.com/font-downloads\n# Recommended: FiraCode Nerd Font, JetBrainsMono Nerd Font\n\n# Set in terminal emulator (Kitty example)\n# font_family FiraCode Nerd Font\n```\n\n### Test Installation\n```bash\n$ starship --version\n$ starship explain  # Shows active modules\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Why Starship?\n| Feature | Benefit |\n|---------|---------|\n| Written in Rust | Fast, minimal overhead |\n| Cross-shell | Same config for bash/zsh/fish |\n| Modular | Enable/disable modules easily |\n| No external deps | Just one binary |\n\n### Module System\n```toml\n# ~/.config/starship.toml\n[directory]\ntruncation_length = 3\ntruncation_symbol = \"…/\"\n\n[git_branch]\nsymbol = \"🌱 \"\n\n[cmd_duration]\nmin_time = 500\nformat = \"took [$duration]($style) \"\n```\n\n### Common Modules\n| Module | Shows |\n|--------|-------|\n| `directory` | Current path |\n| `git_branch` | Branch name |\n| `git_status` | Dirty/clean state |\n| `cmd_duration` | Last command time |\n| `python`/`node`/`rust` | Version when in project |\n| `docker_context` | Active Docker context |\n| `kubernetes` | Current k8s context |\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Configuration File Structure\n```toml\n# ~/.config/starship.toml\nformat = \"\"\"$all\"\"\"\n\n# Prompt order\nprompt_order = [\n  \"username\",\n  \"hostname\",\n  \"directory\",\n  \"git_branch\",\n  \"git_status\",\n  \"cmd_duration\",\n  \"character\",\n]\n\n# Module config\n[character]\nsuccess_symbol = \"[➜](bold green)\"\nerror_symbol = \"[➜](bold red)\"\nvicmd_symbol = \"[❮](bold green)\"\n\n[directory]\nstyle = \"bold cyan\"\ntruncation_length = 3\n\n[git_branch]\nsymbol = \"🌱 \"\nstyle = \"bold green\"\n\n[git_status]\nconflicted = \"🏳\"\nahead = \"⇡${count}\"\nbehind = \"⇣${count}\"\ndiverged = \"⇕⇡${ahead_count}⇣${behind_count}\"\nuntracked = \"?\"\nstashed = \"$\"\nmodified = \"!\"\ndeleted = \"🗑\"\n```\n\n### Performance\n- Starship written in Rust, minimal overhead\n- Lazy module loading (only runs when needed)\n- Caching for git operations\n- Typical overhead: < 5ms\n\n### Advanced: Custom Commands\n```toml\n[custom.foo]\ncommand = \"echo hello\"\nwhen = \"true\"\nformat = \"[$output]($style) \"\n```\n\n### References\n- [Starship Docs](https://starship.rs/config/)\n- [Starship Presets](https://starship.rs/presets/)\n- [Nerd Fonts](https://www.nerdfonts.com/)\n- `starship --help`, `starship explain`"
+}

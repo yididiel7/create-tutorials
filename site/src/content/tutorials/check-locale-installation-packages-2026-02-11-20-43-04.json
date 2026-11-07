@@ -1,0 +1,94 @@
+{
+  "slug": "check-locale-installation-packages-2026-02-11-20-43-04",
+  "filePath": "Check-Locale-Installation-Packages_2026-02-11_20-43-04.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Reference: Arch Linux Locale Configuration and Troubleshooting\n\nTitle: Check Locale Installation Packages\nDate: 2026-02-11 (20:43:04 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Understanding .pacnew Files",
+      "slug": "understanding-pacnew-files"
+    },
+    {
+      "level": 3,
+      "text": "Fix Locale Warning: \"cannot change locale (en_US.UTF-8)\"",
+      "slug": "fix-locale-warning-cannot-change-locale-en-us-utf-8"
+    },
+    {
+      "level": 4,
+      "text": "Step 1: Edit /etc/locale.gen",
+      "slug": "step-1-edit-etc-locale-gen"
+    },
+    {
+      "level": 4,
+      "text": "Step 2: Generate Locales",
+      "slug": "step-2-generate-locales"
+    },
+    {
+      "level": 4,
+      "text": "Step 3: Set System Locale",
+      "slug": "step-3-set-system-locale"
+    },
+    {
+      "level": 4,
+      "text": "Step 4: Apply to Current Session",
+      "slug": "step-4-apply-to-current-session"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Locale Files Hierarchy",
+      "slug": "locale-files-hierarchy"
+    },
+    {
+      "level": 3,
+      "text": "locale-gen vs update-locale",
+      "slug": "locale-gen-vs-update-locale"
+    },
+    {
+      "level": 3,
+      "text": "Common Locale Variables",
+      "slug": "common-locale-variables"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "diff Output Format",
+      "slug": "diff-output-format"
+    },
+    {
+      "level": 3,
+      "text": "Locale Generation Internals",
+      "slug": "locale-generation-internals"
+    },
+    {
+      "level": 3,
+      "text": "Troubleshooting Checklist",
+      "slug": "troubleshooting-checklist"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 2,
+  "content": "LOG: [LEARN] Reference: Arch Linux Locale Configuration and Troubleshooting\n\n**Title:** Check Locale Installation Packages\n**Date:** 2026-02-11 (20:43:04 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Check-Locale-Installation-Packages_2026-02-11_20-43-04.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Understanding .pacnew Files\nWhen `locale.gen` is modified and updated:\n```bash\n$ diff /etc/locale.gen /etc/locale.gen.pacnew\n```\n- `169d168` — line deleted from second file\n- `517a517,522` — lines added to second file\n\n### Fix Locale Warning: \"cannot change locale (en_US.UTF-8)\"\n\n#### Step 1: Edit /etc/locale.gen\n```bash\n$ sudo vim /etc/locale.gen\n# Uncomment: en_US.UTF-8 UTF-8\n# Uncomment other needed locales\n```\n\n#### Step 2: Generate Locales\n```bash\n$ sudo locale-gen\n```\n\n#### Step 3: Set System Locale\n```bash\n$ sudo vim /etc/locale.conf\n# Add: LANG=en_US.UTF-8\n```\n\n#### Step 4: Apply to Current Session\n```bash\n$ export LANG=en_US.UTF-8\n$ export LC_ALL=en_US.UTF-8\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Locale Files Hierarchy\n1. `/etc/locale.gen` — available locales (uncomment to enable)\n2. `/etc/locale.conf` — system default locale\n3. `~/.config/locale.conf` — user override (optional)\n4. Environment variables — session override\n\n### locale-gen vs update-locale\n- `locale-gen` — Arch standard, reads `/etc/locale.gen`\n- `update-locale` — Debian/Ubuntu only, not on Arch\n\n### Common Locale Variables\n| Variable | Purpose |\n|----------|---------|\n| `LANG` | Default locale |\n| `LC_ALL` | Overrides all LC_* |\n| `LC_MESSAGES` | Message language |\n| `LC_TIME` | Date/time format |\n\n## The \"Deep Dive\" (The Technical Root)\n\n### diff Output Format\n```\n169d168       # delete line 169 from file 2\n517a517,522   # append lines 517-522 after line 517 in file 2\n```\n\n### Locale Generation Internals\n- `locale-gen` runs `localedef` for each uncommented line\n- Creates `/usr/lib/locale/locale-archive`\n- Binary format for fast runtime lookup\n\n### Troubleshooting Checklist\n1. `locale -a` — list generated locales\n2. `locale` — show current settings\n3. `/etc/locale.gen` — check uncommented lines\n4. `/etc/locale.conf` — check LANG\n5. Reboot or relogin after changes\n\n### References\n- `man locale-gen`, `man locale.conf`\n- [Arch Wiki: Locale](https://wiki.archlinux.org/title/Locale)\n- [GNU gettext: Locale](https://www.gnu.org/software/gettext/manual/html_node/Locale.html)"
+}

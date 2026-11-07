@@ -1,0 +1,69 @@
+{
+  "slug": "diy-partition-formatting-with-cfdisk",
+  "filePath": "DIY_Partition_formatting_with_cfdisk.md",
+  "title": "Introduction",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Title: DIY Partition Formatting with Cfdisk\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: DIY_Partition_formatting_with_cfdis…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "Introduction",
+      "slug": "introduction"
+    },
+    {
+      "level": 2,
+      "text": "Required Dependencies",
+      "slug": "required-dependencies"
+    },
+    {
+      "level": 2,
+      "text": "Estimated Time",
+      "slug": "estimated-time"
+    },
+    {
+      "level": 2,
+      "text": "Skill Level",
+      "slug": "skill-level"
+    },
+    {
+      "level": 3,
+      "text": "Step-by-Step Instructions",
+      "slug": "step-by-step-instructions"
+    },
+    {
+      "level": 4,
+      "text": "Step 1: Create a New Partition",
+      "slug": "step-1-create-a-new-partition"
+    },
+    {
+      "level": 4,
+      "text": "Step 2: Format the Partition",
+      "slug": "step-2-format-the-partition"
+    },
+    {
+      "level": 4,
+      "text": "Step 3: Create a New File System",
+      "slug": "step-3-create-a-new-file-system"
+    },
+    {
+      "level": 4,
+      "text": "Step 4: Verify the Partitioning",
+      "slug": "step-4-verify-the-partitioning"
+    },
+    {
+      "level": 3,
+      "text": "Additional Tips",
+      "slug": "additional-tips"
+    },
+    {
+      "level": 3,
+      "text": "Troubleshooting Advice",
+      "slug": "troubleshooting-advice"
+    }
+  ],
+  "readingTime": 3,
+  "content": "**Title:** DIY Partition Formatting with Cfdisk\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** DIY_Partition_formatting_with_cfdisk.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n# Do It Yourself: Partitioning and Formatting a Disk using cfdisk utility in ('arch-Linux')\n\n\n## Introduction\nIn this tutorial, we will guide you through the process of partitioning\nand formatting a disk in Arch Linux using the cfdisk utility. This\ntutorial is designed for users with some basic knowledge of Linux and\nfile systems.\n\n# Do It Yourself: Partitioning annd Fromatting a Disk in Arch Linux using cfdisk\n\n## Required Dependencies\n- Arch Linux OS (version 21 or later)a\n- `cfdisk` utility (comes pre-installed)\n- `fdisk` command-line utility\n- `parted` command-line utility\n\n## Estimated Time\nThis tutorial should take approximately 30-45 minutes to complete,\ndepending on your familiarity with the commands and your comfort level\nwith technical tasks.\n\n## Skill Level\nBeginner\n\n### Step-by-Step Instructions\n\n#### Step 1: Create a New Partition\nTo create a new partition, you will need to use the `fdisk` command-line\nutility. Open a terminal and type:\n```\nsudo fdisk -l\n```\nThis will list all available partitions on your disk. Look for an\nunallocated space that you want to format as a new partition.\n\n#### Step 2: Format the Partition\nTo format the partition, use the `mkfs` command followed by the file\nsystem type (e.g., ext4). For example:\n```\nsudo mkfs.ext4 /dev/sda1\n```\nReplace `/dev/sda1` with the device name of your new partition. This\nwill create a new file system on the partition and format it as an ext4\nfile system.\n\n#### Step 3: Create a New File System\nTo set up a new file system, use the `mkfs` command followed by the file\nsystem type (e.g., xfs). For example:\n```\nsudo mkfs.xfs /dev/sda2\n```\nReplace `/dev/sda2` with the device name of your new partition. This\nwill create an xfs file system on the partition.\n\n#### Step 4: Verify the Partitioning\nTo verify that the partitioning process was successful, use the `lsblk`\ncommand:\n```\nsudo lsblk -f\n```\nThis will list all available devices (including partitions) and their\ncorresponding file systems. Check to ensure that both `/dev/sda1` and\n`/dev/sda2` are listed as separate partitions.\n\n### Additional Tips\n\n* Make sure to close all running applications on the disk you want to\npartition before starting the process.\n* If you encounter any errors during the process, refer to the `fdisk`\nand `parted` man pages for troubleshooting advice.\n* Be cautious when creating a new file system, as it will overwrite any\nexisting data on the device.\n\n### Troubleshooting Advice\n\n* If you receive an error message indicating that the disk is already\nformatted, try using a different file system type (e.g., ext3).\n* If you encounter issues with partitioning or formatting, refer to the\nArch Linux documentation for more information.\n"
+}

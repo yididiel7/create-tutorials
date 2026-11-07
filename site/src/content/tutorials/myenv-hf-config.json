@@ -1,0 +1,13 @@
+{
+  "slug": "myenv-hf-config",
+  "filePath": "myenv-hf_Config.md",
+  "title": "myenv-hf_Config",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "❯ uv venv myenv-hf\nUsing CPython 3.14.2 interpreter at: /usr/bin/python\nCreating virtual environment at: myenv-hf\nActivate with: source myenv-hf/bin/activate…",
+  "headings": [],
+  "readingTime": 1,
+  "content": "❯ uv venv myenv-hf\nUsing CPython 3.14.2 interpreter at: /usr/bin/python\nCreating virtual environment at: myenv-hf\nActivate with: source myenv-hf/bin/activate\n"
+}

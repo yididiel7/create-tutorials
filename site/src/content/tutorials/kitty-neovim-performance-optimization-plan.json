@@ -1,0 +1,99 @@
+{
+  "slug": "kitty-neovim-performance-optimization-plan",
+  "filePath": "Kitty-Neovim-Performance-Optimization-Plan.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Fix Kitty + Neovim Performance Issues\n\nTitle: Kitty Neovim Performance Optimization Plan\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Lin…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Immediate Wins (5-10 min)",
+      "slug": "immediate-wins-5-10-min"
+    },
+    {
+      "level": 4,
+      "text": "1. Kitty Config Optimizations",
+      "slug": "1-kitty-config-optimizations"
+    },
+    {
+      "level": 4,
+      "text": "2. Neovim Cache Cleanup",
+      "slug": "2-neovim-cache-cleanup"
+    },
+    {
+      "level": 4,
+      "text": "3. Plugin Lazy-Loading",
+      "slug": "3-plugin-lazy-loading"
+    },
+    {
+      "level": 3,
+      "text": "Deep Optimization (20-30 min)",
+      "slug": "deep-optimization-20-30-min"
+    },
+    {
+      "level": 4,
+      "text": "4. Plugin Audit",
+      "slug": "4-plugin-audit"
+    },
+    {
+      "level": 4,
+      "text": "5. Remove Unused Plugins",
+      "slug": "5-remove-unused-plugins"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Performance Priority",
+      "slug": "performance-priority"
+    },
+    {
+      "level": 3,
+      "text": "Root Causes",
+      "slug": "root-causes"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Kitty Rendering Pipeline",
+      "slug": "kitty-rendering-pipeline"
+    },
+    {
+      "level": 3,
+      "text": "Neovim Startup Phases",
+      "slug": "neovim-startup-phases"
+    },
+    {
+      "level": 3,
+      "text": "Profiling Commands",
+      "slug": "profiling-commands"
+    },
+    {
+      "level": 3,
+      "text": "Expected Results",
+      "slug": "expected-results"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 4,
+  "content": "LOG: [LEARN] Guide: Fix Kitty + Neovim Performance Issues\n\n**Title:** Kitty Neovim Performance Optimization Plan\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Kitty-Neovim-Performance-Optimization-Plan.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Immediate Wins (5-10 min)\n\n#### 1. Kitty Config Optimizations\n```bash\n# ~/.config/kitty/kitty.conf\nbackground_opacity 1.0          # Disable transparency (major perf win)\nrepaint_delay 8                 # Lower = smoother (default 10)\ninput_delay 2                   # More responsive (default 3)\nsync_to_monitor yes             # Prevent tearing\nscrollback_lines 2500           # Reduce from 5000\ncursor_blink_interval 0         # Disable blinking\ndisable_ligatures always        # Better perf\nenable_audio_bell no\nvisual_bell_duration 0.0\n```\n\n#### 2. Neovim Cache Cleanup\n```bash\n# Check space usage\n$ du -sh ~/.local/share/nvim/* | sort -hr\n\n# Clean swap/shada\n$ rm -rf ~/.local/state/nvim/swap/*\n$ rm -rf ~/.local/state/nvim/shada/*\n\n# Clean base46 compiled themes (NvChad)\n$ rm -rf ~/.local/share/nvim/nvchad/base46/*\n\n# Recompile clean\n$ nvim --headless -c 'lua require(\"base46\").load_all_highlights()' -c 'qa'\n```\nExpected: 754MB → ~100-200MB\n\n#### 3. Plugin Lazy-Loading\n```lua\n-- ~/.config/nvim/lua/custom/plugins.lua\n{ 'Exafunction/codeium.vim', event = 'InsertEnter' },\n{ 'mfussenegger/nvim-dap', cmd = { 'DapContinue', 'DapToggleBreakpoint' } },\n{ 'rcarriga/nvim-dap-ui', dependencies = { 'mfussenegger/nvim-dap' }, cmd = 'DapContinue' },\n{ 'simrat39/symbols-outline.nvim', cmd = { 'SymbolsOutline', 'SymbolsOutlineOpen' } },\n{ 'folke/noice.nvim', event = 'VeryLazy', cond = function() return vim.fn.has('nvim-0.9') == 1 end },\n```\n\n### Deep Optimization (20-30 min)\n\n#### 4. Plugin Audit\n```bash\n# Profile startup\n$ nvim --startuptime /tmp/startup.log -c 'qa!'\n$ cat /tmp/startup.log | sort -k2 -nr | head -20\n\n# List plugins with load times\n$ nvim --headless -c 'lua require(\"lazy\").stats()' -c 'qa' 2>&1 | head -50\n```\n\n#### 5. Remove Unused Plugins\n- DAP plugins if not debugging\n- Go-specific plugins if not using Go\n- Replace `noice.nvim` with `j-hui/fidget.nvim` (lighter)\n- Use built-in LSP formatting instead of `none-ls`\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Performance Priority\n| Priority | Action | Impact | Effort |\n|----------|--------|--------|--------|\n| 🔴 P0 | Disable kitty transparency | HIGH | 1 min |\n| 🔴 P0 | Clean 754MB nvim cache | HIGH | 2 min |\n| 🟡 P1 | Lazy-load codeium.vim | HIGH | 2 min |\n| 🟡 P1 | Lazy-load DAP plugins | HIGH | 5 min |\n| 🟡 P1 | Kitty repaint_delay | MED | 1 min |\n| 🟢 P2 | Remove unused plugins | MED | 10 min |\n| 🔵 P3 | Replace noice.nvim | LOW | 15 min |\n\n### Root Causes\n| Component | Issue | Fix |\n|-----------|-------|-----|\n| Kitty | `background_opacity 0.8` | GPU compositing overhead |\n| Nvim | 754MB base46 cache | Stale compiled themes |\n| Plugins | `event = 'BufEnter'` on heavy plugins | Loads on every buffer |\n| Kitty | Ligatures enabled | Font shaping cost |\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Kitty Rendering Pipeline\n```\nInput → Parser → Grid → Renderer (GPU) → Display\n              ↑\n         Transparency adds blend pass\n         Ligatures add font shaping\n```\n\n### Neovim Startup Phases\n```\n1. Init vim runtime\n2. Load lazy.nvim\n3. Load plugin specs (parallel)\n4. Run plugin config()\n5. Source after/ftplugin\n6. Draw UI\n```\n\n### Profiling Commands\n```bash\n# Kitty bench\n$ kitty +bench\n\n# Nvim detailed startup\n$ nvim --startuptime /tmp/startup.log -c 'qa!'\n$ cat /tmp/startup.log | head -30\n\n# Continuous monitoring\nnvim() {\n    local start=$EPOCHREALTIME\n    command nvim \"$@\"\n    local elapsed=$((EPOCHREALTIME - start))\n    (( elapsed > 0.5 )) && echo \"⚠️ Nvim took ${elapsed}s\"\n}\n```\n\n### Expected Results\n- Kitty: Smoother scroll, less GPU/CPU\n- Nvim: Startup < 150ms (from 500ms+)\n- Disk: 600MB+ freed\n\n### References\n- [Kitty Performance](https://sw.kovidgoyal.net/kitty/faq/#performance)\n- [Lazy.nvim Profiling](https://github.com/folke/lazy.nvim#profiling)\n- [NvChad Base46](https://github.com/NvChad/base46)"
+}

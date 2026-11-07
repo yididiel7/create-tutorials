@@ -1,0 +1,99 @@
+{
+  "slug": "tmux-display-popup-custom-configuration",
+  "filePath": "Tmux-display-popup-custom-configuration.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Reference: Tmux Display Popup Custom Configuration\n\nTitle: Tmux Display Popup Custom Configuration\nDate: 2026-02-14 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Core Popup Bindings",
+      "slug": "core-popup-bindings"
+    },
+    {
+      "level": 3,
+      "text": "Display Menu (Prefix+D)",
+      "slug": "display-menu-prefix-d"
+    },
+    {
+      "level": 3,
+      "text": "Plugin Configuration (Catppuccin)",
+      "slug": "plugin-configuration-catppuccin"
+    },
+    {
+      "level": 3,
+      "text": "Split Preserving Path",
+      "slug": "split-preserving-path"
+    },
+    {
+      "level": 3,
+      "text": "Initialize TPM (Bottom of Config)",
+      "slug": "initialize-tpm-bottom-of-config"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "display-popup Options",
+      "slug": "display-popup-options"
+    },
+    {
+      "level": 3,
+      "text": "Popup vs Split",
+      "slug": "popup-vs-split"
+    },
+    {
+      "level": 3,
+      "text": "fzf Integration",
+      "slug": "fzf-integration"
+    },
+    {
+      "level": 3,
+      "text": "Nested Popup Limitation",
+      "slug": "nested-popup-limitation"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "display-popup Internals",
+      "slug": "display-popup-internals"
+    },
+    {
+      "level": 3,
+      "text": "Environment in Popups",
+      "slug": "environment-in-popups"
+    },
+    {
+      "level": 3,
+      "text": "Performance",
+      "slug": "performance"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 4,
+  "content": "LOG: [LEARN] Reference: Tmux Display Popup Custom Configuration\n\n**Title:** Tmux Display Popup Custom Configuration\n**Date:** 2026-02-14 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Tmux-display-popup-custom-configuration.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Tmux 3.2+ (for `display-popup`)\n- TPM (Tmux Plugin Manager) for plugins\n\n### Core Popup Bindings\n```bash\n# ~/.tmux.conf\n\n# LazyGit popup (Ctrl+Y)\nbind C-y display-popup \\\n  -d \"#{pane_current_path}\" \\\n  -w 80% \\\n  -h 80% \\\n  -E \"lazygit\"\n\n# New session popup (Ctrl+N)\nbind C-n display-popup -E \\\n  'bash -i -c \"read -p \\\"Session name: \\\" name; tmux new-session -d -s \\$name && tmux switch-client -t \\$name\"'\n\n# Session switcher with fzf (Ctrl+J)\nbind C-j display-popup -E \\\n  \"tmux list-sessions | sed -E 's/:.*$//' | grep -v \\\"^$(tmux display-message -p '#S')\\$\\\" | fzf --reverse | xargs tmux switch-client -t\"\n\n# IPython popup (Ctrl+P)\nbind C-p display-popup -E \"ipython\"\n\n# rmpc (music) popup (Ctrl+F)\nbind C-f display-popup \\\n  -w 80% \\\n  -h 80% \\\n  -E 'rmpc'\n\n# Ranger file manager (Ctrl+R)\nbind C-r display-popup \\\n  -d \"#{pane_current_path}\" \\\n  -w 90% \\\n  -h 90% \\\n  -E \"ranger\"\n\n# Edit zshrc (Ctrl+Z)\nbind C-z display-popup \\\n  -w 80% \\\n  -h 80% \\\n  -E 'nvim ~/.zshrc'\n\n# Chat script (Ctrl+G)\nbind C-g display-popup -E \"bash -i ~/.tmux/scripts/chat-popup.sh\"\n\n# New zsh pane (Ctrl+T)\nbind C-t display-popup \\\n  -d \"#{pane_current_path}\" \\\n  -w 75% \\\n  -h 75% \\\n  -E \"zsh\"\n```\n\n### Display Menu (Prefix+D)\n```bash\nbind d display-menu -T \"#[align=centre]Dotfiles\" -x C -y C \\\n  \".zshrc\"            z  \"display-popup -E 'nvim ~/.zshrc'\" \\\n  \".tmux.conf\"        t  \"display-popup -E 'nvim ~/.tmux.conf'\" \\\n  \".sketchybarrc\"     s  \"display-popup -d \\\"~/.config/sketchybar\\\" -E 'nvim ~/.config/sketchybar/sketchybarrc'\" \\\n  \"Exit\"              q  \"\"\n```\n\n### Plugin Configuration (Catppuccin)\n```bash\n# TPM plugins\nset -g @plugin 'tmux-plugins/tpm'\nset -g @plugin 'tmux-plugins/tmux-sensible'\nset -g @plugin 'christoomey/vim-tmux-navigator'\nset -g @plugin 'dreamsofcode-io/catppuccin-tmux'\n\n# Catppuccin theme config\nset -g @catppuccin_window_left_separator \"\"\nset -g @catppuccin_window_right_separator \" \"\nset -g @catppuccin_window_middle_separator \" █\"\nset -g @catppuccin_window_number_position \"right\"\nset -g @catppuccin_window_default_fill \"number\"\nset -g @catppuccin_window_default_text \"#W\"\nset -g @catppuccin_window_current_fill \"number\"\nset -g @catppuccin_window_current_text \"#W#{?window_zoomed_flag,(),}\"\n\nset -g @catppuccin_status_modules_right \"directory date_time\"\nset -g @catppuccin_status_modules_left \"session\"\nset -g @catppuccin_status_left_separator \" \"\nset -g @catppuccin_status_right_separator \" \"\nset -g @catppuccin_status_right_separator_inverse \"no\"\nset -g @catppuccin_status_fill \"icon\"\nset -g @catppuccin_status_connect_separator \"no\"\nset -g @catppuccin_directory_text \"#{b:pane_current_path}\"\nset -g @catppuccin_date_time_text \"%H:%M\"\nset -g @catppuccin_window_status_style \"rounded\"\n\nset -g status-position top\n```\n\n### Split Preserving Path\n```bash\nbind '%' split-window -h -c \"#{pane_current_path}\"\nbind '\"' split-window -v -c \"#{pane_current_path}\"\n```\n\n### Initialize TPM (Bottom of Config)\n```bash\nrun '~/.tmux/plugins/tpm/tpm'\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### display-popup Options\n| Option | Description |\n|--------|-------------|\n| `-d PATH` | Working directory |\n| `-w WIDTH` | Width (%, px, or cells) |\n| `-h HEIGHT` | Height |\n| `-E CMD` | Execute command (exits on cmd exit) |\n| `-B` | Run in background |\n| `-T TITLE` | Popup title |\n| `-x/-y` | X/Y position (C=center, R=right, P=pane) |\n\n### Popup vs Split\n| Use Case | Method |\n|----------|--------|\n| Temporary tool (lazygit, ranger) | `display-popup` |\n| Persistent workspace | `split-window` |\n| Quick REPL (ipython, zsh) | `display-popup -E` |\n| Session management | `display-popup` + tmux commands |\n\n### fzf Integration\n```bash\n# Session switcher with preview\nbind C-j display-popup -E \\\n  \"tmux list-sessions -F '#{session_name}: #{session_windows} windows' | \\\n   fzf --reverse --preview 'tmux capture-pane -pt {}' | \\\n   cut -d: -f1 | xargs tmux switch-client -t\"\n```\n\n### Nested Popup Limitation\n```bash\n# Known issue: nested popups don't work\n# Workaround: Use split-window for nested, or redesign\n# bind C-k display-popup -E \"...\"  # May fail if already in popup\n```\n\n## The \"Deep Dive\" (The Technical Root)\n\n### display-popup Internals\n- Creates new tmux client attached to popup pane\n- Separate from main session pane tree\n- Exits when command exits (with `-E`)\n- Shares tmux server, separate client\n\n### Environment in Popups\n```bash\n# Popups inherit most env vars\n# But: $TMUX_PANE differs, $TERM may differ\n# Use -d for correct working directory\n```\n\n### Performance\n- Popups create new client → slight overhead\n- For frequent use, consider splits instead\n- `-B` background mode for long-running\n\n### References\n- `man tmux` (DISPLAY-POPUP section)\n- [Tmux GitHub](https://github.com/tmux/tmux)\n- [Catppuccin Tmux](https://github.com/catppuccin/tmux)"
+}

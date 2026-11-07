@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const tutorials = await getCollection('tutorials');
+const allTags = [...new Set(tutorials.flatMap(t => t.data.tags))]
+  .sort()
+  .map(tag => ({
+    name: tag,
+    count: tutorials.filter(t => t.data.tags.includes(tag)).length,
+    slug: tag.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+  }));
+---
+
+<Layout title="Tags" description="Browse tutorials by tag.">
+  <header class="mb-12">
+    <h1 class="font-display text-3xl sm:text-4xl font-bold text-white">Tags</h1>
+    <p class="mt-2 text-arch-muted">{allTags.length} tags across all tutorials.</p>
+  </header>
+
+  <div class="flex flex-wrap gap-2">
+    {allTags.map(t => (
+      <a href={`/tags/${t.slug}`} class="rounded px-3 py-1.5 text-sm border border-arch-border text-arch-muted hover:border-arch-cyan hover:text-white transition-colors">
+        {t.name} <span class="text-xs text-arch-muted/60">({t.count})</span>
+      </a>
+    ))}
+  </div>
+</Layout>

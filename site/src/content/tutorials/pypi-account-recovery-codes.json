@@ -1,0 +1,19 @@
+{
+  "slug": "pypi-account-recovery-codes",
+  "filePath": "PyPI_Account_Recovery_Codes.md",
+  "title": "PyPI recovery codes",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Username: yididi7\nPassword: }V3^&ggY@5qD=9q -> OldTpda3bcB8ew74BZ\nDefault Email: hills.tyrone@gmail.com\n\nWebsite: https://pypi.org/\n\n PyPI recovery codes\n\n9e88e03106f16089 used\n42d1f8cb20c389dc\n4f…",
+  "headings": [
+    {
+      "level": 3,
+      "text": "PyPI recovery codes",
+      "slug": "pypi-recovery-codes"
+    }
+  ],
+  "readingTime": 1,
+  "content": "\nUsername: yididi7\nPassword: }V3^&ggY@5qD=9q -> OldTpda3bcB8ew74BZ\nDefault Email: hills.tyrone@gmail.com\n\nWebsite: https://pypi.org/\n\n### PyPI recovery codes\n\n9e88e03106f16089 used\n42d1f8cb20c389dc\n4f2f33715403d92f\n095abac747378671\n6e91766ab387bf51\n1015ebc9214fda94\na3f479e4fc7a62cc\n0480b8da6dd0bd79\n\n\n###PyPI_Account_Recovery_Codes.md\n\nIf you lose access to your authentication application or security key(s),\nyou’ll need to use one of these recovery codes to log into your PyPI\naccount. Each code can only be used once.\n\nThese codes should only be used for account recovery, not for typical logins.\n\nKeep these somewhere safe. If you lose your authentication application\nor security key(s) and do not have access to these recovery codes, you\nmay permanently lose access to your PyPI account!\n"
+}

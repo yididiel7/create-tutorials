@@ -1,0 +1,24 @@
+{
+  "slug": "session-ses-3c7a",
+  "filePath": "session-ses_3c7a.md",
+  "title": "User",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Git clone failure: destination exists for inir repo\nGit-clone-failure-destination-exists-for-inir-repo.md\nSession ID: ses_3c7a0cd6effeR8OvRuuqrUOZJb\nCreated: 2/7/2026, 3:51:28 PM\nUpdated:…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "User",
+      "slug": "user"
+    },
+    {
+      "level": 2,
+      "text": "Assistant (Sisyphus · llama3.2:1b · 209.2s)",
+      "slug": "assistant-sisyphus-llama3-2-1b-209-2s"
+    }
+  ],
+  "readingTime": 2,
+  "content": "# Git clone failure: destination exists for inir repo\nGit-clone-failure-destination-exists-for-inir-repo.md\n**Session ID:** ses_3c7a0cd6effeR8OvRuuqrUOZJb\n**Created:** 2/7/2026, 3:51:28 PM\n**Updated:** 2/7/2026, 3:54:58 PM\n\n---\n\n## User\n\ngit clone https://github.com/snowarch/inir.git\nfatal: destination path 'inir' already exists and is not an empty directory.\n\n---\n\n## Assistant (Sisyphus · llama3.2:1b · 209.2s)\n\nThis appears to be a snippet of code from a Git LFS (Long-Range Submodules with Local Change Tracking) configuration, possibly for a repository managed by GitHub. The specific lines of code provide instructions on how to use some additional features and functions related to submodules.\n\nHere's what each line does:\n\n1. `git clone https://github.com/snowarch/inir.git`\n   - This command clones the `inir` repository from the specified URL.\n\n2. `fatal: destination path 'inir' already exists and is not an empty directory.` \n   - The commit message says this due to a Git warning when cloning the repository for third-party developers, suggesting that you've set it up to manage local changes within its own structure rather than allowing commits and submodules to be shared between clients. As such you are prompted not to proceed further because a local copy already exists at 'inir' in your clone directory - i.e., the repository is already cloned locally.\n\nTo change this setting, modify `git config` before running the clone command. \n\nFor example:\n```bash\ngit config --global parentDir \"inir\"\n```\nThis would tell Git to automatically treat the local clone as a submodule and store it in a directory named 'inir' within your Git configuration. This would prevent you from cloning a file at that path, but allow for commits on any other branch or code.\n\nRemember that by making this change, any clone of `inir` at that location will also treat it as a submodule; so all future clones at the root directory (`--root`) should now properly use submodules, giving you full control over how your repository structures are set up.\n\n---\n\n"
+}

@@ -1,0 +1,114 @@
+{
+  "slug": "tails-install-on-linux",
+  "filePath": "Tails_Install_On_Linux.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Install Tails OS to USB with Cryptographic Verification\n\nTitle: Tails Install On Linux\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Step 1: Download and Verify Signing Key",
+      "slug": "step-1-download-and-verify-signing-key"
+    },
+    {
+      "level": 3,
+      "text": "Step 2: Verify Key via Web of Trust (Debian)",
+      "slug": "step-2-verify-key-via-web-of-trust-debian"
+    },
+    {
+      "level": 3,
+      "text": "Step 3: Certify Tails Key with Your Key",
+      "slug": "step-3-certify-tails-key-with-your-key"
+    },
+    {
+      "level": 3,
+      "text": "Step 4: Download Tails USB Image",
+      "slug": "step-4-download-tails-usb-image"
+    },
+    {
+      "level": 3,
+      "text": "Step 5: Verify Image Signature",
+      "slug": "step-5-verify-image-signature"
+    },
+    {
+      "level": 3,
+      "text": "Step 6: Identify USB Device",
+      "slug": "step-6-identify-usb-device"
+    },
+    {
+      "level": 3,
+      "text": "Step 7: Write Image to USB",
+      "slug": "step-7-write-image-to-usb"
+    },
+    {
+      "level": 3,
+      "text": "Step 8: Verify and Eject",
+      "slug": "step-8-verify-and-eject"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Why GnuPG Verification?",
+      "slug": "why-gnupg-verification"
+    },
+    {
+      "level": 3,
+      "text": "Key Concepts",
+      "slug": "key-concepts"
+    },
+    {
+      "level": 3,
+      "text": "dd Options Explained",
+      "slug": "dd-options-explained"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Tails Security Model",
+      "slug": "tails-security-model"
+    },
+    {
+      "level": 3,
+      "text": "Signature Verification Details",
+      "slug": "signature-verification-details"
+    },
+    {
+      "level": 3,
+      "text": "Alternative: Tails Installer (GUI)",
+      "slug": "alternative-tails-installer-gui"
+    },
+    {
+      "level": 3,
+      "text": "Persistence (Optional)",
+      "slug": "persistence-optional"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 3,
+  "content": "LOG: [LEARN] Guide: Install Tails OS to USB with Cryptographic Verification\n\n**Title:** Tails Install On Linux\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Tails_Install_On_Linux.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Linux system (any distro)\n- USB stick (8 GB minimum, all data lost)\n- Internet connection\n- GnuPG installed\n\n### Step 1: Download and Verify Signing Key\n```bash\n$ wget https://tails.boum.org/tails-signing.key\n$ gpg --import < tails-signing.key\n```\n\n### Step 2: Verify Key via Web of Trust (Debian)\n```bash\n# Install Debian keyring (contains developer keys)\n$ sudo apt update && sudo apt install debian-keyring\n# Or on Arch:\n$ sudo pacman -S archlinux-keyring\n\n# Import Chris Lamb's key (former Debian PL)\n$ gpg --keyring=/usr/share/keyrings/debian-keyring.gpg \\\n    --export chris@chris-lamb.co.uk | gpg --import\n\n# Check certifications on Tails key\n$ gpg --keyid-format 0xlong --check-sigs A490D0F4D311A4153E2BB7CADBB802B258ACD84F\n# Look for: sig! 0x1E953E27D4311E58 2020-03-19 Chris Lamb\n```\n\n### Step 3: Certify Tails Key with Your Key\n```bash\n$ gpg --lsign-key A490D0F4D311A4153E2BB7CADBB802B258ACD84F\n```\n\n### Step 4: Download Tails USB Image\n```bash\n# Check latest version at https://tails.boum.org/install/\n$ wget --continue https://download.tails.net/tails/stable/tails-amd64-6.11/tails-amd64-6.11.img\n```\n\n### Step 5: Verify Image Signature\n```bash\n$ wget https://tails.boum.org/torrents/files/tails-amd64-6.11.img.sig\n$ TZ=UTC gpg --no-options --keyid-format long \\\n    --verify tails-amd64-6.11.img.sig tails-amd64-6.11.img\n\n# Expected output:\n# gpg: Good signature from \"Tails developers <tails@boum.org>\" [full]\n```\n\n### Step 6: Identify USB Device\n```bash\n$ ls -1 /dev/sd?\n# Note current devices\n\n# Plug in USB stick\n$ ls -1 /dev/sd?\n# New device = your USB (e.g., /dev/sdb)\n# ⚠️ ALL DATA WILL BE LOST!\n```\n\n### Step 7: Write Image to USB\n```bash\n$ sudo dd if=tails-amd64-6.11.img of=/dev/sdX bs=16M oflag=direct status=progress\n# If permission denied:\n$ sudo dd if=tails-amd64-6.11.img of=/dev/sdX bs=16M oflag=direct status=progress\n```\n\n### Step 8: Verify and Eject\n```bash\n$ sync\n$ sudo eject /dev/sdX\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Why GnuPG Verification?\n- Ensures image not tampered (supply chain security)\n- Web of Trust: Debian developers certify Tails key\n- Your certification = you trust the chain\n\n### Key Concepts\n| Concept | Purpose |\n|---------|---------|\n| `tails-signing.key` | Tails project's signing key |\n| `debian-keyring` | Debian developer keys (trust anchors) |\n| `.sig` file | Detached signature |\n| `sig!` | Valid certification (exclamation = trusted) |\n\n### dd Options Explained\n| Option | Meaning |\n|--------|---------|\n| `bs=16M` | 16 MB blocks (optimal for flash) |\n| `oflag=direct` | Bypass page cache (data integrity) |\n| `status=progress` | Show transfer progress |\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Tails Security Model\n- Amnesic: no persistence by default\n- Tor-only networking\n- Based on Debian stable\n- Verified boot chain: BIOS → GRUB → kernel → initramfs\n\n### Signature Verification Details\n```bash\n# Full verification command breakdown\nTZ=UTC                          # UTC timezone for reproducible timestamps\ngpg --no-options                # Ignore gpg.conf\n    --keyid-format long         # Full key IDs\n    --verify sig_file img_file  # Verify detached signature\n```\n\n### Alternative: Tails Installer (GUI)\n```bash\n# On Debian/Ubuntu/Fedora:\n$ sudo apt install tails-installer\n# Or download AppImage from tails.boum.org\n```\n\n### Persistence (Optional)\nAfter first boot, configure encrypted persistence:\n- Applications → Tails → Configure persistent volume\n- Stores: WiFi passwords, browser bookmarks, GPG keys, etc.\n\n### References\n- [Tails Installation Guide](https://tails.boum.org/install/)\n- [Tails OpenPGP Verification](https://tails.boum.org/contribute/design/OpenPGP_verification/)\n- `man dd`, `man gpg`"
+}

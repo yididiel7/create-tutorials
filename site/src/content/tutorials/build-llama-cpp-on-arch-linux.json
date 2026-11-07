@@ -1,0 +1,99 @@
+{
+  "slug": "build-llama-cpp-on-arch-linux",
+  "filePath": "build-llama.cpp-on-Arch-Linux.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Build llama.cpp on Arch Linux with UV\n\nTitle: Build llama.cpp on Arch Linux in a UV Virtual Environment\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Step 1: Install Dependencies",
+      "slug": "step-1-install-dependencies"
+    },
+    {
+      "level": 3,
+      "text": "Step 2: Clone Repository",
+      "slug": "step-2-clone-repository"
+    },
+    {
+      "level": 3,
+      "text": "Step 3: Create UV Virtual Environment",
+      "slug": "step-3-create-uv-virtual-environment"
+    },
+    {
+      "level": 3,
+      "text": "Step 4: Configure Build (with CUDA)",
+      "slug": "step-4-configure-build-with-cuda"
+    },
+    {
+      "level": 3,
+      "text": "Step 5: Build",
+      "slug": "step-5-build"
+    },
+    {
+      "level": 3,
+      "text": "Step 6: Run Model",
+      "slug": "step-6-run-model"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Why UV?",
+      "slug": "why-uv"
+    },
+    {
+      "level": 3,
+      "text": "llama.cpp Architecture",
+      "slug": "llama-cpp-architecture"
+    },
+    {
+      "level": 3,
+      "text": "CUDA Support",
+      "slug": "cuda-support"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Build Options",
+      "slug": "build-options"
+    },
+    {
+      "level": 3,
+      "text": "Quantization",
+      "slug": "quantization"
+    },
+    {
+      "level": 3,
+      "text": "UV vs pip/venv",
+      "slug": "uv-vs-pip-venv"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 2,
+  "content": "LOG: [LEARN] Guide: Build llama.cpp on Arch Linux with UV\n\n**Title:** Build llama.cpp on Arch Linux in a UV Virtual Environment\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** build-llama.cpp-on-Arch-Linux.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Arch Linux\n- Git, CMake, CUDA toolkit (optional)\n- UV package manager\n\n### Step 1: Install Dependencies\n```bash\n$ sudo pacman -S git cmake nvidia-cuda-toolkit python uv\n```\n\n### Step 2: Clone Repository\n```bash\n$ git clone https://github.com/ggerganov/llama.cpp.git\n$ cd llama.cpp\n```\n\n### Step 3: Create UV Virtual Environment\n```bash\n$ uv venv .venv\n$ source .venv/bin/activate\n```\n\n### Step 4: Configure Build (with CUDA)\n```bash\n$ cmake -B build -DGGML_CUDA=ON\n```\n\n### Step 5: Build\n```bash\n$ cmake --build build --config Release\n```\n\n### Step 6: Run Model\n```bash\n# CLI mode\n$ ./build/bin/llama-cli -m path/to/model.gguf -n 512 -ngl 32\n\n# Server mode\n$ ./build/bin/llama-server -m path/to/model.gguf -n 512 -ngl 32\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Why UV?\n- Fast, Rust-based package manager\n- Virtual environments via `uv venv`\n- Compatible with pip/requirements.txt\n\n### llama.cpp Architecture\n- `llama-cli` — command-line inference\n- `llama-server` — OpenAI-compatible API server\n- GGML backend — CPU/GPU acceleration\n\n### CUDA Support\n- `-DGGML_CUDA=ON` enables NVIDIA GPU offload\n- `-ngl` layers to offload (32 = all for 7B models)\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Build Options\n| Option | Description |\n|--------|-------------|\n| `-DGGML_CUDA=ON` | NVIDIA CUDA |\n| `-DGGML_METAL=ON` | Apple Metal |\n| `-DGGML_VULKAN=ON` | Vulkan/AMD |\n| `-DGGML_BLAS=ON` | BLAS acceleration |\n\n### Quantization\nModels use GGUF format with quantization (Q4_K_M, Q8_0, etc.) for efficient inference.\n\n### UV vs pip/venv\n```bash\n# UV (faster, single binary)\n$ uv venv .venv\n$ uv pip install -r requirements.txt\n\n# Traditional\n$ python -m venv .venv\n$ .venv/bin/pip install -r requirements.txt\n```\n\n### References\n- [llama.cpp GitHub](https://github.com/ggerganov/llama.cpp)\n- [UV Documentation](https://docs.astral.sh/uv/)\n- [Arch Wiki: CUDA](https://wiki.archlinux.org/title/CUDA)"
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "editor-terminal-functions",
+  "filePath": "editor-terminal-functions.md",
+  "title": "Keyboard combo in terminal Readline commands",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Editor Terminal Functions\n This is line editting on one line\n Thu 28 Dec 2023 01:23:55 \n\n Keyboard combo in terminal Readline commands\n\nCtrl+w = killword backwards\nCrlt+Shift+__ = Undo last edit…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "Keyboard combo in terminal Readline commands",
+      "slug": "keyboard-combo-in-terminal-readline-commands"
+    }
+  ],
+  "readingTime": 1,
+  "content": "# Editor Terminal Functions\n# This is line editting on one line\n# Thu 28 Dec 2023 01:23:55 \n\n## Keyboard combo in terminal Readline commands\n\nCtrl+w = killword backwards\nCrlt+Shift+__ = Undo last edit\nCtrl+a = Jump to the begining of the line\nCtrl+e = Jump to the end of the line\nAlt+t = Swap the last Two Arguments\nAlt+__ = Will pull in the last Argument of the previous command\nCtrl+Alt+y = Will pull in the first Argument\nAlt+2 and then Ctrl+Alt+y to get the second Argument\nAlt+BackSpace = kills a Whole word\nCtrl+x+Ctrl+e = Loads the command in $EDITOR\nalt+b or alt+f, alt+r, ctrl+u, \n"
+}

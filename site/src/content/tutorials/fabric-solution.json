@@ -1,0 +1,144 @@
+{
+  "slug": "fabric-solution",
+  "filePath": "FABRIC-SOLUTION.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Fabric Clipboard Automation with Wayland & Niri\n\nTitle: Fabric Clipboard Integration - Complete Solution\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Installation",
+      "slug": "installation"
+    },
+    {
+      "level": 4,
+      "text": "1. Shell Functions (Any Terminal)",
+      "slug": "1-shell-functions-any-terminal"
+    },
+    {
+      "level": 4,
+      "text": "2. Background Monitor (Auto-start)",
+      "slug": "2-background-monitor-auto-start"
+    },
+    {
+      "level": 4,
+      "text": "3. Niri Hotkeys (Optional)",
+      "slug": "3-niri-hotkeys-optional"
+    },
+    {
+      "level": 3,
+      "text": "Usage Scenarios",
+      "slug": "usage-scenarios"
+    },
+    {
+      "level": 4,
+      "text": "Scenario 1: Automatic Background Monitoring",
+      "slug": "scenario-1-automatic-background-monitoring"
+    },
+    {
+      "level": 4,
+      "text": "Scenario 2: Development/Testing Mode",
+      "slug": "scenario-2-development-testing-mode"
+    },
+    {
+      "level": 4,
+      "text": "Scenario 3: One-Shot Processing",
+      "slug": "scenario-3-one-shot-processing"
+    },
+    {
+      "level": 4,
+      "text": "Scenario 4: Manual Control",
+      "slug": "scenario-4-manual-control"
+    },
+    {
+      "level": 4,
+      "text": "Niri Hotkeys (Mod+Alt+...)",
+      "slug": "niri-hotkeys-mod-alt"
+    },
+    {
+      "level": 3,
+      "text": "Advanced Patterns",
+      "slug": "advanced-patterns"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Architecture",
+      "slug": "architecture"
+    },
+    {
+      "level": 3,
+      "text": "Component Roles",
+      "slug": "component-roles"
+    },
+    {
+      "level": 3,
+      "text": "Why Polling (Not inotify)?",
+      "slug": "why-polling-not-inotify"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Monitor Script Internals",
+      "slug": "monitor-script-internals"
+    },
+    {
+      "level": 3,
+      "text": "PID File Locking",
+      "slug": "pid-file-locking"
+    },
+    {
+      "level": 3,
+      "text": "Systemd Service Details",
+      "slug": "systemd-service-details"
+    },
+    {
+      "level": 3,
+      "text": "Troubleshooting",
+      "slug": "troubleshooting"
+    },
+    {
+      "level": 3,
+      "text": "Logs",
+      "slug": "logs"
+    },
+    {
+      "level": 3,
+      "text": "Security",
+      "slug": "security"
+    },
+    {
+      "level": 3,
+      "text": "WM Integration",
+      "slug": "wm-integration"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 4,
+  "content": "LOG: [LEARN] Guide: Fabric Clipboard Automation with Wayland & Niri\n\n**Title:** Fabric Clipboard Integration - Complete Solution\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** FABRIC-SOLUTION.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Wayland compositor (Niri, Sway, Hyprland, etc.)\n- `wl-clipboard` (`wl-copy`, `wl-paste`)\n- Fabric AI installed (`pip install fabric-pattern` or `cargo install fabric`)\n- Niri compositor (for hotkeys) or compatible WM\n\n### Installation\n\n#### 1. Shell Functions (Any Terminal)\n```bash\n# One-time setup\ncat >> ~/.zshrc << 'EOF'\npbcopy() { wl-copy \"$1\"; }\npbpaste() { wl-paste; }\npbfabric() { wl-paste | fabric -c; }\nEOF\nsource ~/.zshrc\n```\n\n#### 2. Background Monitor (Auto-start)\n```bash\n# Install monitor script\nchmod +x ~/fabric-clipboard-monitor.sh\n\n# Systemd user service (recommended)\nmkdir -p ~/.config/systemd/user\ncat > ~/.config/systemd/user/fabric-clipboard.service << 'EOF'\n[Unit]\nDescription=Fabric Clipboard Monitor\nAfter=graphical-session.target\n\n[Service]\nType=simple\nExecStart=%h/fabric-clipboard-monitor.sh\nRestart=always\nRestartSec=5\n\n[Install]\nWantedBy=default.target\nEOF\n\nsystemctl --user enable --now fabric-clipboard.service\n```\n\n#### 3. Niri Hotkeys (Optional)\n```bash\n# Add to ~/.config/niri/config.kdl\nhotkey \"Mod+Alt+C\" { exec \"pbfabric\"; }\nhotkey \"Mod+Alt+U\" { exec \"wl-paste -selection primary | fabric -c\"; }\nhotkey \"Mod+Alt+J\" { exec \"fabric-start\"; }\nhotkey \"Mod+Alt+M\" { exec \"fabric-stop\"; }\n```\n\n### Usage Scenarios\n\n#### Scenario 1: Automatic Background Monitoring\n```bash\n# Start monitor (or enable systemd service)\nfabric-clipboard\n# Monitors clipboard, processes new content, logs to ~/.fabric-clipboard.log\n```\n\n#### Scenario 2: Development/Testing Mode\n```bash\nfabric-clipboard-dev  # Foreground with visible output, Ctrl+C to stop\n```\n\n#### Scenario 3: One-Shot Processing\n```bash\nfabric-process  # Process current clipboard once, exit\n```\n\n#### Scenario 4: Manual Control\n```bash\nfabric-start   # Start monitoring\nfabric-status  # Check if running\nfabric-stop    # Stop monitoring\n```\n\n#### Niri Hotkeys (Mod+Alt+...)\n| Key | Action |\n|-----|--------|\n| Mod+Alt+C | Process clipboard with Fabric |\n| Mod+Alt+U | Process primary selection with Fabric |\n| Mod+Alt+J | Start Fabric monitor |\n| Mod+Alt+M | Stop Fabric monitor |\n\n### Advanced Patterns\n```bash\n# Specific pattern\nwl-paste | fabric -p summarize\n\n# Custom model\nwl-paste | fabric -c --model claude-3-opus\n\n# Multiple patterns\nwl-paste | fabric -p summarize -p extract_key_points\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Architecture\n```\n┌─────────────┐     ┌──────────────┐     ┌─────────────┐\n│  Wayland    │────▶│  wl-paste    │────▶│  Fabric AI  │\n│  Clipboard  │     │  (stdout)    │     │  Processing │\n└─────────────┘     └──────────────┘     └──────┬──────┘\n                                                │\n                                                ▼\n                                         ┌─────────────┐\n                                         │  Terminal/  │\n                                         │  Notification│\n                                         └─────────────┘\n```\n\n### Component Roles\n| Component | Purpose |\n|-----------|---------|\n| `wl-copy`/`wl-paste` | Wayland clipboard I/O |\n| `fabric-clipboard-monitor.sh` | Polls clipboard, deduplicates, calls Fabric |\n| `fabric -c` | Process stdin with default pattern |\n| `fabric -p <pattern>` | Use specific pattern |\n| Systemd service | Auto-start, restart on crash |\n\n### Why Polling (Not inotify)?\n- Wayland clipboard has no filesystem path\n- `wl-paste` is the only interface\n- Polling interval (2s default) balances latency vs CPU\n- Deduplication via content hash prevents re-processing\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Monitor Script Internals\n```bash\n#!/bin/bash\n# ~/fabric-clipboard-monitor.sh\nLAST_HASH=\"\"\nwhile true; do\n    CONTENT=$(wl-paste 2>/dev/null)\n    HASH=$(echo -n \"$CONTENT\" | sha256sum | cut -d' ' -f1)\n    if [[ \"$HASH\" != \"$LAST_HASH\" && -n \"$CONTENT\" ]]; then\n        echo \"$CONTENT\" | fabric -c\n        LAST_HASH=\"$HASH\"\n        echo \"$(date): Processed\" >> ~/.fabric-clipboard.log\n    fi\n    sleep \"${SLEEP_INTERVAL:-2}\"\ndone\n```\n\n### PID File Locking\n```bash\nPIDFILE=~/.fabric-clipboard.pid\nif [[ -f $PIDFILE ]] && kill -0 $(cat $PIDFILE) 2>/dev/null; then\n    echo \"Already running\"\n    exit 1\nfi\necho $$ > $PIDFILE\ntrap \"rm -f $PIDFILE\" EXIT\n```\n\n### Systemd Service Details\n```ini\n[Unit]\nDescription=Fabric Clipboard Monitor\nAfter=graphical-session.target\n\n[Service]\nType=simple\nExecStart=%h/fabric-clipboard-monitor.sh\nRestart=always\nRestartSec=5\nEnvironment=DISPLAY=:0\nEnvironment=WAYLAND_DISPLAY=wayland-0\n\n[Install]\nWantedBy=default.target\n```\n\n### Troubleshooting\n| Issue | Fix |\n|-------|-----|\n| Fabric not found | `which fabric` → `pip install fabric-pattern` |\n| wl-copy fails | Check Wayland: `echo $WAYLAND_DISPLAY` |\n| Multiple instances | `fabric-stop && rm ~/.fabric-clipboard.pid` |\n| Permissions | `chmod +x ~/fabric-clipboard-monitor.sh` |\n\n### Logs\n```bash\ntail -f ~/.fabric-clipboard.log\ngrep \"error\\|failed\" ~/.fabric-clipboard.log\n```\n\n### Security\n- Logs contain first 50 chars of clipboard\n- Encrypt logs for sensitive work: `gpg -c ~/.fabric-clipboard.log`\n- Set `MAX_CONTENT_LENGTH` to limit processing\n\n### WM Integration\n```bash\n# i3/Sway\nbindsym $mod+Ctrl+f exec fabric-process\n\n# Hyprland\nbind = SUPER, ALT, F, exec, fabric-process\n\n# KDE/GNOME: Custom shortcut → `fabric-process`\n```\n\n### References\n- [Fabric GitHub](https://github.com/danielmiessler/fabric)\n- [wl-clipboard](https://github.com/bugaevc/wl-clipboard)\n- [Niri Config](https://github.com/YaLTeR/niri)\n- `man wl-copy`, `man wl-paste`"
+}

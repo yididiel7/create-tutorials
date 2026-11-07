@@ -1,0 +1,99 @@
+{
+  "slug": "fhd-prompt-bestresults-deep-v3-1-671b-cloud",
+  "filePath": "FHD_Prompt_BestResults_Deep-v3_1_671b_cloud.md",
+  "title": "1. Install Necessary Tools",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Title: Formatting a Hard Drive Using (fdisk/cfdisk) on Arch Linux\nAuthor: Sr. Yididiel Hills Arch Linux AMD, Developer\nDate: November, 18-11-2025 (00:17:22 IST)\nlfnc: FHD_Prompt_BestRe…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "1. Install Necessary Tools",
+      "slug": "1-install-necessary-tools"
+    },
+    {
+      "level": 2,
+      "text": "2. Identify the Drive",
+      "slug": "2-identify-the-drive"
+    },
+    {
+      "level": 2,
+      "text": "3. Using cfdisk (Recommended for beginners)",
+      "slug": "3-using-cfdisk-recommended-for-beginners"
+    },
+    {
+      "level": 3,
+      "text": "In cfdisk:",
+      "slug": "in-cfdisk"
+    },
+    {
+      "level": 2,
+      "text": "4. Using fdisk (Traditional method)",
+      "slug": "4-using-fdisk-traditional-method"
+    },
+    {
+      "level": 3,
+      "text": "Common fdisk commands:",
+      "slug": "common-fdisk-commands"
+    },
+    {
+      "level": 3,
+      "text": "Example workflow in fdisk:",
+      "slug": "example-workflow-in-fdisk"
+    },
+    {
+      "level": 2,
+      "text": "5. Format the Partition",
+      "slug": "5-format-the-partition"
+    },
+    {
+      "level": 3,
+      "text": "For Linux filesystem (ext4):",
+      "slug": "for-linux-filesystem-ext4"
+    },
+    {
+      "level": 3,
+      "text": "For FAT32:",
+      "slug": "for-fat32"
+    },
+    {
+      "level": 3,
+      "text": "For NTFS:",
+      "slug": "for-ntfs"
+    },
+    {
+      "level": 3,
+      "text": "For Btrfs:",
+      "slug": "for-btrfs"
+    },
+    {
+      "level": 2,
+      "text": "6. Mount the Partition",
+      "slug": "6-mount-the-partition"
+    },
+    {
+      "level": 2,
+      "text": "7. Automatic Mounting at Boot",
+      "slug": "7-automatic-mounting-at-boot"
+    },
+    {
+      "level": 2,
+      "text": "8. Verify the Setup",
+      "slug": "8-verify-the-setup"
+    },
+    {
+      "level": 2,
+      "text": "Important Notes:",
+      "slug": "important-notes"
+    },
+    {
+      "level": 2,
+      "text": "Alternative: Using GNU Parted",
+      "slug": "alternative-using-gnu-parted"
+    }
+  ],
+  "readingTime": 3,
+  "content": "**Title:** Formatting a Hard Drive Using (fdisk/cfdisk) on Arch Linux\n**Author:** Sr. Yididiel Hills Arch Linux AMD, Developer\n**Date:** November, 18-11-2025 (00:17:22 IST)\n**lfnc:** FHD_Prompt_BestResults_Deep-v3_1_671b_cloud.md\n**Copyright:** © 2025–2026 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n**I ran this prompt and got a much better  result.**\n\necho \"Formatting a Hard Drive using fdisk Disk Utility on Arch-Linux. Im\nusing cfdisk and pacman package manager\" | fabric --model\ndeepseek-v3.1:671b-cloud\n\nHere's a comprehensive guide to formatting a hard drive using `fdisk` or\n`cfdisk` on Arch Linux.\n\n## 1. Install Necessary Tools\n\nFirst, ensure you have the necessary tools installed:\n\n```bash\nsudo pacman -S fdisk parted dosfstools ntfs-3g\n```\n\n## 2. Identify the Drive\n\nList all connected storage devices:\n\n```bash\nsudo fdisk -l\n```\n\nOr use `lsblk` for a simpler view:\n\n```bash\nlsblk\n```\n\nYou'll see output like:\n```\nNAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT\nsda     8:0    0 238.5G  0 disk\n├─sda1  8:1    0   512M  0 part /boot\n└─sda2  8:2    0   238G  0 part /\nsdb     8:16   0   1.8T  0 disk\n```\n\n## 3. Using cfdisk (Recommended for beginners)\n\nFor the target drive (e.g., `/dev/sdb`):\n\n```bash\nsudo cfdisk /dev/sdb\n```\n\n### In cfdisk:\n1. Use arrow keys to navigate\n2. Select \"New\" to create a new partition\n3. Choose \"Primary\" or \"Logical\" as needed\n4. Set partition size\n5. Select \"Type\" and choose the filesystem type (e.g., Linux, FAT32,\nNTFS)\n6. Select \"Write\" to apply changes\n7. Select \"Quit\" to exit\n\n## 4. Using fdisk (Traditional method)\n\n```bash\nsudo fdisk /dev/sdb\n```\n\n### Common fdisk commands:\n- `n` - Create new partition\n- `d` - Delete partition\n- `t` - Change partition type\n- `p` - Print partition table\n- `w` - Write changes and exit\n- `q` - Quit without saving\n\n### Example workflow in fdisk:\n```\nCommand (m for help): n\nPartition type: p (primary), e (extended), l (logical)\nPartition number: 1\nFirst sector: (press Enter for default)\nLast sector: (press Enter for default or specify size like +50G)\n\nCommand (m for help): t\nSelected partition 1\nHex code: 83 (for Linux), 7 (for NTFS), b (for FAT32), etc.\n\nCommand (m for help): w\n```\n\n## 5. Format the Partition\n\nAfter creating partitions, format them:\n\n### For Linux filesystem (ext4):\n```bash\nsudo mkfs.ext4 /dev/sdb1\n```\n\n### For FAT32:\n```bash\nsudo mkfs.fat -F32 /dev/sdb1\n```\n\n### For NTFS:\n```bash\nsudo mkfs.ntfs /dev/sdb1\n```\n\n### For Btrfs:\n```bash\nsudo mkfs.btrfs /dev/sdb1\n```\n\n## 6. Mount the Partition\n\nCreate a mount point and mount the partition:\n\n```bash\nsudo mkdir /mnt/mydrive\nsudo mount /dev/sdb1 /mnt/mydrive\n```\n\n## 7. Automatic Mounting at Boot\n\nEdit `/etc/fstab` to auto-mount at boot:\n\n```bash\nsudo nano /etc/fstab\n```\n\nAdd a line like:\n```\n/dev/sdb1   /mnt/mydrive   ext4   defaults   0   2\n```\n\n## 8. Verify the Setup\n\nCheck if the partition is mounted correctly:\n\n```bash\ndf -h\nlsblk\n```\n\n## Important Notes:\n\n- **⚠️ Warning**: Double-check the device name (`/dev/sdX`) to avoid\nformatting the wrong drive\n- Replace `/dev/sdb` with your actual device name\n- The first partition on the drive will be `/dev/sdb1`, second will be\n`/dev/sdb2`, etc.\n- Unmount any mounted partitions before modifying: `sudo umount\n/dev/sdb1`\n\n## Alternative: Using GNU Parted\n\nYou can also use `parted` for more advanced operations:\n\n```bash\nsudo parted /dev/sdb\n(parted) mklabel gpt\n(parted) mkpart primary ext4 1MiB 100%\n(parted) quit\n```\n\nThis guide should help you successfully format a hard drive using\ncommand-line tools on Arch Linux.\n"
+}

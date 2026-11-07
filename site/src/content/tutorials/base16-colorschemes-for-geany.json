@@ -1,0 +1,13 @@
+{
+  "slug": "base16-colorschemes-for-geany",
+  "filePath": "Base16-Colorschemes-for-Geany.md",
+  "title": "Base16-Colorschemes-for-Geany",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Title: Base16 Colorschemes for Geany\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Base16-Colorschemes-for-Geany.md\nCopyrig…",
+  "headings": [],
+  "readingTime": 1,
+  "content": "**Title:** Base16 Colorschemes for Geany\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Base16-Colorschemes-for-Geany.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\nInstallation For Base16 Colorschemes for Geany\n\n\n\n[tinted-builder-rust](git clone\nhttps://github.com/RobLoach/tinted-geany.git)\n\ngit clone https://github.com/RobLoach/tinted-geany.git\n\ncd tinted-geany\n\ncargo install tinted-builder-rust\n\ntinted-builder-rust sync\n\ntinted-builder-rust build .\n\n\n~/tinted-geany/colorschemes master*\n\n\ncp -r * ~/.config/geany/colorschemes\n\n[tinted-builder-rust](https://github.com/tinted-theming/tinted-builder-rust?tab=readme-ov-file#installation)\nInstallation\n\n    Copy the files to your ~/.config/geany/colorschemes directory.\n    Choose the scheme at View -> Editor -> Color Schemes.\n\nBuilding\n\n    Download the Geany scheme\n\ngit clone https://github.com/RobLoach/tinted-geany.git\ncd tinted-geany\n\n    Install tinted-builder-rust\n\n    Run it...\n\ntinted-builder-rust sync\ntinted-builder-rust build .\n\n[Note]: For Any Problem installing Plugins Use This command.\n\nsudo pacman -S geany-plugins --noconfirm --overwrite '*'\n"
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "refactor-markdown-prompt",
+  "filePath": "refactor_markdown_prompt.md",
+  "title": "refactor_markdown_prompt",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "You are an experienced technical writer with a strong background in\norganizing complex information for various audiences. Your specialty\nlies in restructuring documents to enhance clarity, flow, and u…",
+  "headings": [],
+  "readingTime": 2,
+  "content": "You are an experienced technical writer with a strong background in\norganizing complex information for various audiences. Your specialty\nlies in restructuring documents to enhance clarity, flow, and usability\nwhile maintaining technical accuracy.\n\nYour task is to refactor a Markdown document that requires significant\nreorganization and elimination of redundancy. Here are the details of\nthe document you'll be working with:\n\n- File Location: @librarian Directory Location\n- Original Document Content:\n@/home/srhills/ArchcraftTutorials/refactor_markdown_prompt.md\n\n---\n\nThe refactored document should be presented in a well-structured\nMarkdown format, which includes:\n\n- A clear table of contents for easy navigation\n- Distinct sections and subsections categorized as follows:\n  1. Installation\n  2. Basic Usage\n  3. Model Management\n  4. API Integration\n  5. Advanced Features\n- A progressive difficulty structure, moving from basic concepts to\nadvanced topics\n- Clear headings and a logical hierarchy that facilitates understanding\n\n---\n\nPlease ensure to:\n\n- Remove all duplicate content while retaining all unique examples,\ncommands, and useful information\n- Maintain the accuracy of all commands and technical details\n- Format examples appropriately under their respective categories\n\n---\n\nDo not:\n\n- Omit any important information or commands\n- Make assumptions about content that may not be present in the original\ndocument\n- Alter the actual commands or their technical accuracy\n\n---\n\nExample of how to structure the content:\n\n# Table of Contents\n1. Installation\n2. Basic Usage\n3. Model Management\n4. API Integration\n5. Advanced Features\n\n# Installation\n- Clear instructions for installation...\n\n# Basic Usage\n- Step-by-step guidance on basic commands...\n\n# Advanced Features\n- Overview of advanced capabilities...\n\n---\n\nThis structure should help you create a more useful and readable version\nof the Markdown document while preserving all valuable content.\n"
+}

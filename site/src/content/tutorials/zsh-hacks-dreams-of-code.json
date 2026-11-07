@@ -1,0 +1,129 @@
+{
+  "slug": "zsh-hacks-dreams-of-code",
+  "filePath": "ZSH-Hacks-Dreams-of-Code.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Reference: Zsh Hacks from Dreams of Code\n\nTitle: ZSH Hacks - Dreams of Code\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Source",
+      "slug": "source"
+    },
+    {
+      "level": 3,
+      "text": "1. Edit Command Buffer",
+      "slug": "1-edit-command-buffer"
+    },
+    {
+      "level": 3,
+      "text": "2. Undo in Zsh",
+      "slug": "2-undo-in-zsh"
+    },
+    {
+      "level": 3,
+      "text": "3. Magic Space - History Expansion",
+      "slug": "3-magic-space-history-expansion"
+    },
+    {
+      "level": 3,
+      "text": "4. chpwd Hook - Run on Directory Change",
+      "slug": "4-chpwd-hook-run-on-directory-change"
+    },
+    {
+      "level": 3,
+      "text": "4.1 Merge Multiple chpwd Hooks",
+      "slug": "4-1-merge-multiple-chpwd-hooks"
+    },
+    {
+      "level": 3,
+      "text": "5. Suffix Aliases",
+      "slug": "5-suffix-aliases"
+    },
+    {
+      "level": 3,
+      "text": "6. Global Aliases",
+      "slug": "6-global-aliases"
+    },
+    {
+      "level": 3,
+      "text": "7. zmv - Batch Rename",
+      "slug": "7-zmv-batch-rename"
+    },
+    {
+      "level": 3,
+      "text": "8. Named Directories",
+      "slug": "8-named-directories"
+    },
+    {
+      "level": 3,
+      "text": "9. Custom Widgets",
+      "slug": "9-custom-widgets"
+    },
+    {
+      "level": 3,
+      "text": "10. Hotkey Insertions (Text Snippets)",
+      "slug": "10-hotkey-insertions-text-snippets"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Key Binding Patterns",
+      "slug": "key-binding-patterns"
+    },
+    {
+      "level": 3,
+      "text": "Widget Creation",
+      "slug": "widget-creation"
+    },
+    {
+      "level": 3,
+      "text": "Hook Merging",
+      "slug": "hook-merging"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "ZLE (Zsh Line Editor)",
+      "slug": "zle-zsh-line-editor"
+    },
+    {
+      "level": 3,
+      "text": "Zmv Pattern Matching",
+      "slug": "zmv-pattern-matching"
+    },
+    {
+      "level": 3,
+      "text": "Named Directory Hash",
+      "slug": "named-directory-hash"
+    },
+    {
+      "level": 3,
+      "text": "Suffix/Global Aliases",
+      "slug": "suffix-global-aliases"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 5,
+  "content": "LOG: [LEARN] Reference: Zsh Hacks from Dreams of Code\n\n**Title:** ZSH Hacks - Dreams of Code\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** ZSH-Hacks-Dreams-of-Code.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Source\n[Dreams of Code: 10 Zsh hacks I wish I knew about sooner](https://youtu.be/3fVAtaGhUyU)\n\n### 1. Edit Command Buffer\n```bash\n# Open current command in $EDITOR (Ctrl+X, then e)\nautoload -Uz edit-command-line\nzle -N edit-command-line\nbindkey '^Xe' edit-command-line  # Ctrl+X, then e\n\n# Vi mode alternative\n# bindkey -M vicmd 'v' edit-command-line\n```\n\n### 2. Undo in Zsh\n```bash\n# Ctrl+_ (Ctrl+Underscore) - built-in undo\n# Redo (no default binding):\nbindkey '^Y' redo\n```\n\n### 3. Magic Space - History Expansion\n```bash\n# Expand !!, !$, etc. on space\n# Requires custom widget (zshcontrib not on Arch):\nmagic-space() {\n    zle history-expand-word\n    zle self-insert\n}\nzle -N magic-space\nbindkey ' ' magic-space\n```\n\n### 4. chpwd Hook - Run on Directory Change\n```bash\n# Auto-list on cd\nchpwd() { ls }\n\n# Auto-activate Python venv\nchpwd() {\n  [[ -d .venv ]] && source .venv/bin/activate\n}\n\n# Auto-load Nix dev shell\nchpwd() {\n  [[ -f flake.nix && -z $IN_NIX_SHELL ]] && nix develop\n}\n\n# Auto-use Node version\nchpwd() { [[ -f .nvmrc ]] && nvm use }\n```\n\n### 4.1 Merge Multiple chpwd Hooks\n```bash\nautoload -Uz add-zsh-hook\n\nfunction auto_venv() {\n  [[ -n $VIRTUAL_ENV && $PWD != *${VIRTUAL_ENV:h}* ]] && deactivate && return\n  [[ -n $VIRTUAL_ENV ]] && return\n  local dir=$PWD\n  while [[ $dir != / ]]; do\n    [[ -f $dir/.venv/bin/activate ]] && source $dir/.venv/bin/activate && return\n    dir=${dir:h}\n  done\n}\n\nfunction auto_nix() {\n  [[ -n $IN_NIX_SHELL ]] && return\n  local dir=$PWD\n  while [[ $dir != / ]]; do\n    [[ -f $dir/flake.nix ]] && { [[ ! -f $dir/.envrc ]] && cat > $dir/.envrc <<'EOF'\n# autogenerated: load flake dev environment\neval \"$(nix print-dev-env)\"\nEOF\n      command direnv allow $dir >/dev/null 2>&1\n      command direnv reload >/dev/null 2>&1\n      return\n    }\n    dir=${dir:h}\n  done\n}\n\nfunction auto_nvm() { [[ -f .nvmrc ]] && nvm use }\n\nadd-zsh-hook chpwd auto_venv\nadd-zsh-hook chpwd auto_nix\nadd-zsh-hook chpwd auto_nvm\n```\n\n### 5. Suffix Aliases\n```bash\nalias -s json=jless\nalias -s md=bat\nalias -s go='$EDITOR'\nalias -s rs='$EDITOR'\nalias -s txt=bat\nalias -s log=bat\nalias -s py='$EDITOR'\nalias -s js='$EDITOR'\nalias -s ts='$EDITOR'\nalias -s html=open  # macOS\n```\n\n### 6. Global Aliases\n```bash\nalias -g NE='2>/dev/null'\nalias -g NO='>/dev/null'\nalias -g NUL='>/dev/null 2>&1'\nalias -g J='| jq'\nalias -g C='| pbcopy'       # macOS\nalias -g C='| xclip -selection clipboard'  # Linux\n```\n\n### 7. zmv - Batch Rename\n```bash\nautoload -Uz zmv\n# zmv '(*).log' '$1.txt'           # Rename .log to .txt\n# zmv -w '*.log' '*.txt'           # Same, simpler\n# zmv -n '(*).log' '$1.txt'        # Dry run\n# zmv -i '(*).log' '$1.txt'        # Interactive\nalias zcp='zmv -C'  # Copy\nalias zln='zmv -L'  # Link\n```\n\n### 8. Named Directories\n```bash\nhash -d yt=~/projects/youtube\nhash -d dot=~/.dotfiles\nhash -d dl=~/Downloads\n# Usage: cd ~yt\n```\n\n### 9. Custom Widgets\n```bash\n# Clear screen + scrollback (Ctrl+X, l)\nfunction clear-screen-and-scrollback() {\n  echoti civis >$TTY\n  printf '%b' '\\e[H\\e[2J\\e[3J' >$TTY\n  echoti cnorm >$TTY\n  zle redisplay\n}\nzle -N clear-screen-and-scrollback\nbindkey '^Xl' clear-screen-and-scrollback\n\n# Copy buffer to clipboard (Ctrl+X, c)\nfunction copy-buffer-to-clipboard() {\n  echo -n \"$BUFFER\" | pbcopy\n  zle -M \"Copied to clipboard\"\n}\nzle -N copy-buffer-to-clipboard\nbindkey '^Xc' copy-buffer-to-clipboard\n\n# Linux: use wl-copy or xclip\n```\n\n### 10. Hotkey Insertions (Text Snippets)\n```bash\n# Git commit template (Ctrl+X, g, c)\nbindkey -s '^Xgc' 'git commit -m \"\"\\C-b'\n\n# More examples\nbindkey -s '^Xgp' 'git push origin '\nbindkey -s '^Xgs' 'git status\\n'\nbindkey -s '^Xgl' 'git log --oneline -n 10\\n'\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Key Binding Patterns\n| Pattern | Use Case |\n|---------|----------|\n| `bindkey '^Xe'` | Edit buffer (Ctrl+X prefix) |\n| `bindkey -s` | Insert text snippet |\n| `bindkey -M vicmd` | Vi command mode |\n| `add-zsh-hook` | Merge multiple hooks |\n\n### Widget Creation\n```bash\nmy-widget() { zle action1; zle action2 }\nzle -N my-widget\nbindkey 'KEY' my-widget\n```\n\n### Hook Merging\n```bash\nautoload -Uz add-zsh-hook\nadd-zsh-hook chpwd func1\nadd-zsh-hook chpwd func2  # Both run on cd\n```\n\n## The \"Deep Dive\" (The Technical Root)\n\n### ZLE (Zsh Line Editor)\n```\nKeystroke -> bindkey -> Widget -> Action\n                ^\n             zle -N\n```\n\n### Zmv Pattern Matching\n```bash\nzmv '(*).log' '$1.txt'      # Capture group $1\nzmv -w '*.log' '*.txt'      # Wildcard match\nzmv -n                      # Dry run\n```\n\n### Named Directory Hash\n```bash\nhash -d name=path\ncd ~name      # Expands to path\nls ~name      # Works anywhere\n```\n\n### Suffix/Global Aliases\n```bash\nalias -s ext=cmd    # suffix: filename.ext runs cmd\nalias -g NAME=val   # global: expands anywhere in cmd\n```\n\n### References\n- [Dreams of Code Video](https://youtu.be/3fVAtaGhUyU)\n- `man zshzle`, `man zshexpn`\n- [Zsh Manual](https://zsh.sourceforge.io/Doc/)"
+}

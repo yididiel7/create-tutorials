@@ -1,0 +1,114 @@
+{
+  "slug": "formatting-hard-drive-fdisk-cfdisk-arch-linux",
+  "filePath": "Formatting-Hard-Drive-fdisk-cfdisk-Arch-Linux.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Format Hard Drive with fdisk/cfdisk on Arch Linux\n\nTitle: Formatting a Hard Drive Using fdisk/cfdisk on Arch Linux\nDate: 2025-11-18 (00:17:22 IST)\nAuthor: Sr. Yididiel…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Required Packages",
+      "slug": "required-packages"
+    },
+    {
+      "level": 3,
+      "text": "Step 1: Identify Target Drive",
+      "slug": "step-1-identify-target-drive"
+    },
+    {
+      "level": 3,
+      "text": "Step 2: Partition with cfdisk (Beginner-Friendly)",
+      "slug": "step-2-partition-with-cfdisk-beginner-friendly"
+    },
+    {
+      "level": 3,
+      "text": "Step 3: Partition with fdisk (Traditional)",
+      "slug": "step-3-partition-with-fdisk-traditional"
+    },
+    {
+      "level": 3,
+      "text": "Step 4: Format Partition",
+      "slug": "step-4-format-partition"
+    },
+    {
+      "level": 3,
+      "text": "Step 5: Mount & Verify",
+      "slug": "step-5-mount-verify"
+    },
+    {
+      "level": 3,
+      "text": "Step 8: Auto-mount at Boot (/etc/fstab)",
+      "slug": "step-8-auto-mount-at-boot-etc-fstab"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Tool Comparison",
+      "slug": "tool-comparison"
+    },
+    {
+      "level": 3,
+      "text": "Filesystem Selection",
+      "slug": "filesystem-selection"
+    },
+    {
+      "level": 3,
+      "text": "Partition Table: MBR vs GPT",
+      "slug": "partition-table-mbr-vs-gpt"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Block Device Internals",
+      "slug": "block-device-internals"
+    },
+    {
+      "level": 3,
+      "text": "Filesystem Creation Details",
+      "slug": "filesystem-creation-details"
+    },
+    {
+      "level": 3,
+      "text": "fstab Fields",
+      "slug": "fstab-fields"
+    },
+    {
+      "level": 3,
+      "text": "parted (Scriptable Alternative)",
+      "slug": "parted-scriptable-alternative"
+    },
+    {
+      "level": 3,
+      "text": "Safety Checklist",
+      "slug": "safety-checklist"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 4,
+  "content": "LOG: [LEARN] Guide: Format Hard Drive with fdisk/cfdisk on Arch Linux\n\n**Title:** Formatting a Hard Drive Using fdisk/cfdisk on Arch Linux\n**Date:** 2025-11-18 (00:17:22 IST)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Formatting-Hard-Drive-fdisk-cfdisk-Arch-Linux.md\n**Copyright:** © 2025-2026 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Arch Linux system\n- Root/sudo access\n- Target drive identified\n\n### Required Packages\n```bash\nsudo pacman -S fdisk parted dosfstools ntfs-3g\n```\n\n### Step 1: Identify Target Drive\n```bash\n# List all drives\nsudo fdisk -l\n\n# Simpler view\nlsblk\n```\n**Output example:**\n```\nNAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT\nsda     8:0    0 238.5G  0 disk\n├─sda1  8:1    0   512M  0 part /boot\n└─sda2  8:2    0   238G  0 part /\nsdb     8:16   0   1.8T  0 disk\n```\n\n### Step 2: Partition with cfdisk (Beginner-Friendly)\n```bash\nsudo cfdisk /dev/sdX\n```\n**In cfdisk:**\n| Key | Action |\n|-----|--------|\n| ↑/↓ | Navigate partitions |\n| `New` | Create partition |\n| `Primary`/`Logical` | Partition type |\n| `Size` | Set partition size |\n| `Type` | Filesystem type (83=Linux, 7=NTFS, b=FAT32) |\n| `Write` | Apply changes |\n| `Quit` | Exit |\n\n### Step 3: Partition with fdisk (Traditional)\n```bash\nsudo fdisk /dev/sdX\n```\n**Key commands:**\n| Key | Action |\n|-----|--------|\n| `n` | New partition |\n| `d` | Delete partition |\n| `t` | Change type (83=Linux, 7=NTFS, b=FAT32) |\n| `p` | Print table |\n| `w` | Write & exit |\n| `q` | Quit without saving |\n\n**Example workflow:**\n```\nCommand (m for help): n\nPartition type: p (primary)\nPartition number: 1\nFirst sector: [Enter for default]\nLast sector: +50G\n\nCommand (m for help): t\nSelected partition 1\nHex code: 83\n\nCommand (m for help): w\n```\n\n### Step 4: Format Partition\n```bash\n# ext4 (Linux)\nsudo mkfs.ext4 /dev/sdX1\n\n# FAT32 (cross-platform)\nsudo mkfs.fat -F32 /dev/sdX1\n\n# NTFS (Windows compatible)\nsudo mkfs.ntfs /dev/sdX1\n\n# Btrfs\nsudo mkfs.btrfs /dev/sdX1\n```\n\n### Step 5: Mount & Verify\n```bash\n# Create mount point\nsudo mkdir /mnt/mydrive\n\n# Mount\nsudo mount /dev/sdX1 /mnt/mydrive\n\n# Verify\ndf -h\nlsblk\n```\n\n### Step 8: Auto-mount at Boot (/etc/fstab)\n```bash\nsudo nano /etc/fstab\n```\nAdd line:\n```\n/dev/sdX1   /mnt/mydrive   ext4   defaults   0   2\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Tool Comparison\n| Tool | Best For | Learning Curve |\n|------|----------|----------------|\n| `cfdisk` | Beginners, visual | Low |\n| `fdisk` | Scripts, automation | Medium |\n| `parted` | GPT, large disks, scripts | Medium-High |\n\n### Filesystem Selection\n| FS | Use Case | Max Size | Linux | Windows | macOS |\n|----|----------|----------|-------|---------|-------|\n| ext4 | Linux native | 1 EiB | ✓ | ✗* | ✗* |\n| Btrfs | Snapshots, CoW | 16 EiB | ✓ | ✗ | ✗ |\n| FAT32 | USB, cross-platform | 2 TiB | ✓ | ✓ | ✓ |\n| NTFS | Windows shared | 256 TiB | ✓ | ✓ | ✓* |\n| exFAT | Large files, cross-platform | 128 PiB | ✓ | ✓ | ✓ |\n\n*Requires additional software\n\n### Partition Table: MBR vs GPT\n| Scheme | Max Partitions | Max Disk | UEFI Boot | Legacy Boot |\n|--------|----------------|----------|-----------|-------------|\n| MBR | 4 primary | 2 TiB | ✗ | ✓ |\n| GPT | 128+ | 9.4 ZiB | ✓ | ✓* |\n\n*Requires BIOS support\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Block Device Internals\n```\n/dev/sdX     → Entire disk\n/dev/sdX1    → Partition 1\n/dev/sdX2    → Partition 2\n```\n\n### Filesystem Creation Details\n```bash\n# ext4 with label\nsudo mkfs.ext4 -L \"MYDRIVE\" /dev/sdX1\n\n# FAT32 with label\nsudo mkfs.fat -F32 -n \"MYDRIVE\" /dev/sdX1\n\n# NTFS with label\nsudo mkfs.ntfs -L \"MYDRIVE\" /dev/sdX1\n```\n\n### fstab Fields\n```\n<device>  <mount>  <fs>  <options>  <dump>  <pass>\n/dev/sdX1 /mnt/drive ext4 defaults    0       2\n              │       │    │          │       │\n              │       │    │          │       └── fsck order (0=skip, 1=root, 2+=check)\n              │       │    │          └──────── dump backup (0=ignore)\n              │       │    └─────────────────── mount options\n              │       └──────────────────────── filesystem type\n              └──────────────────────────────── mount point\n```\n\n### parted (Scriptable Alternative)\n```bash\n# GPT + full disk partition\nsudo parted /dev/sdX mklabel gpt\nsudo parted /dev/sdX mkpart primary ext4 1MiB 100%\n```\n\n### Safety Checklist\n- [ ] Verify device with `lsblk` and `fdisk -l`\n- [ ] Unmount: `sudo umount /dev/sdX*`\n- [ ] Backup data first\n- [ ] Double-check device path\n- [ ] Test mount before fstab\n\n### References\n- `man fdisk`, `man cfdisk`, `man mkfs`, `man fstab`\n- [Arch Wiki: Partitioning](https://wiki.archlinux.org/title/Partitioning)\n- [Arch Wiki: File systems](https://wiki.archlinux.org/title/File_systems)\n- [Arch Wiki: fstab](https://wiki.archlinux.org/title/Fstab)"
+}

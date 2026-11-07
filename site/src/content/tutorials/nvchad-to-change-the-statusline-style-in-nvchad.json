@@ -1,0 +1,13 @@
+{
+  "slug": "nvchad-to-change-the-statusline-style-in-nvchad",
+  "filePath": "nvchad_to_change_the_statusline_style_in_NVChad.md",
+  "title": "nvchad_to_change_the_statusline_style_in_NVChad",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "To change the statusline style in NVChad\n\nyou have several options available through the statusline module\nconfiguration.\n\nHere are the different styles you can use:\n\n→ Read lua/custom/chadrc.lua\n\nHer…",
+  "headings": [],
+  "readingTime": 2,
+  "content": "To change the statusline style in NVChad\n\nyou have several options available through the statusline module\nconfiguration.\n\nHere are the different styles you can use:\n\n→ Read lua/custom/chadrc.lua\n\nHere are all the statusline style options you can configure:\n\nStatusline Themes\n\nYou can change the theme option to one of these:\n- \"default\" - Traditional NVChad statusline\n- \"vscode\" - VSCode-inspired statusline\n- \"vscode_colored\" - Colored VSCode variant\n- \"minimal\" - Minimal statusline design\nSeparator Styles\nYou can change the separator_style option to one of these:\n- \"default\" - Default separators\n- \"round\" - Rounded separators (works with default theme)\n- \"block\" - Block separators (what you're currently using)\n- \"arrow\" - Arrow-style separators\nExamples\nVSCode style with round separators:\nM.ui = {\n  theme = 'catppuccin',\n  statusline = {\n    theme = \"vscode\",\n    separator_style = \"round\",\n    overriden_modules = nil,\n  },\n}\nMinimal style with default separators:\nM.ui = {\n  theme = 'catppuccin',\n  statusline = {\n    theme = \"minimal\",\n    separator_style = \"default\",\n    overriden_modules = nil,\n  },\n}\nVSCode colored with arrow separators:\nM.ui = {\n  theme = 'catppuccin',\n  statusline = {\n    theme = \"vscode_colored\",\n    separator_style = \"arrow\",\n    overriden_modules = nil,\n  },\n}\n\nSimply edit /home/srhills/.config/nvim/lua/custom/chadrc.lua and change\nthe theme and/or separator_style values to your preferred combination,\nthen restart Neovim to see the changes take effect.\n"
+}

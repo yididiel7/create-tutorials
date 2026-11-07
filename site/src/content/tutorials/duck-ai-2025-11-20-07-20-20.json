@@ -1,0 +1,34 @@
+{
+  "slug": "duck-ai-2025-11-20-07-20-20",
+  "filePath": "duck.ai_2025-11-20_07-20-20.md",
+  "title": "Configure `config.kdl` for Niri",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-4o mini Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-ter…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "Configure `config.kdl` for Niri",
+      "slug": "configure-config-kdl-for-niri"
+    },
+    {
+      "level": 3,
+      "text": "Explanation of Configuration",
+      "slug": "explanation-of-configuration"
+    },
+    {
+      "level": 2,
+      "text": "Example in Full Context",
+      "slug": "example-in-full-context"
+    },
+    {
+      "level": 3,
+      "text": "Conclusion",
+      "slug": "conclusion"
+    }
+  ],
+  "readingTime": 2,
+  "content": "This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-4o mini Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).\n\n====================\n\nUser prompt 1 of 1 - 20/11/2025, 7:00:17:\nhow to configure niri spawn-sh-at-startup \"qs -c pbpaste='xclip -selection clipboard -o'\" in config.kdl\n\nGPT-4o mini:\nTo configure **Niri** to spawn `sh` at startup with the specified command in `config.kdl`, you'll need to ensure you structure the configuration correctly. Here’s how you can do it:\n\n## Configure `config.kdl` for Niri\n\n1. **Open your config.kdl file:**\n   This file is typically located in your Niri configuration directory. You may need elevated permissions depending on your setup.\n\n2. **Add the spawn configuration:**\n   Insert the following lines into `config.kdl` to set up the command with `qs`:\n\n```kdl\nspawn-sh-at-startup = {\n    command = \"qs -c pbpaste='xclip -selection clipboard -o'\"\n}\n```\n\n3. **Save and exit the file:**\n   Make sure to save the changes to ensure that Niri reads the new configuration on startup.\n\n### Explanation of Configuration\n\n- **`spawn-sh-at-startup`** is the key responsible for executing shell commands when the system starts.\n- **`command`** specifies the command you want to run (`qs -c pbpaste='xclip -selection clipboard -o'`).\n\n## Example in Full Context\n\nIf `config.kdl` already has other configurations, make sure to integrate this snippet appropriately. For example:\n\n```kdl\n# Niri Configuration File\n\n# Other configurations...\n\nspawn-sh-at-startup = {\n    command = \"qs -c pbpaste='xclip -selection clipboard -o'\"\n}\n```\n\n### Conclusion\n\nAfter you've made these changes, restart Niri to apply the new configuration. This setup allows Niri to use `xclip` to manage clipboard actions directly upon startup. If you encounter any errors or issues, double-check the syntax and ensure `xclip` is properly installed on your system."
+}

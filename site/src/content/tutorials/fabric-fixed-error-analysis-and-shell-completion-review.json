@@ -1,0 +1,104 @@
+{
+  "slug": "fabric-fixed-error-analysis-and-shell-completion-review",
+  "filePath": "Fabric-Fixed-Error-Analysis-And-Shell-Completion-Review.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Fix Fabric Zsh Completion Errors\n\nTitle: Fabric Error Analysis and Shell Completion Review\nDate: 2026-02-14 (10:12:11 IST)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin,…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Root Cause",
+      "slug": "root-cause"
+    },
+    {
+      "level": 3,
+      "text": "Fix: Remove Broken Completion",
+      "slug": "fix-remove-broken-completion"
+    },
+    {
+      "level": 3,
+      "text": "Verify Fix",
+      "slug": "verify-fix"
+    },
+    {
+      "level": 3,
+      "text": "Optimal Completion Config (Add to ~/.zshrc)",
+      "slug": "optimal-completion-config-add-to-zshrc"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Why the Error Occurred",
+      "slug": "why-the-error-occurred"
+    },
+    {
+      "level": 3,
+      "text": "Zsh Completion Architecture",
+      "slug": "zsh-completion-architecture"
+    },
+    {
+      "level": 3,
+      "text": "Cache Design (5-minute TTL)",
+      "slug": "cache-design-5-minute-ttl"
+    },
+    {
+      "level": 3,
+      "text": "Helper Functions (Removed)",
+      "slug": "helper-functions-removed"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Zsh Completion Flow",
+      "slug": "zsh-completion-flow"
+    },
+    {
+      "level": 3,
+      "text": "`_describe` vs `_arguments`",
+      "slug": "describe-vs-arguments"
+    },
+    {
+      "level": 3,
+      "text": "Autoload vs Source",
+      "slug": "autoload-vs-source"
+    },
+    {
+      "level": 3,
+      "text": "Correct Reload",
+      "slug": "correct-reload"
+    },
+    {
+      "level": 3,
+      "text": "Debug Commands",
+      "slug": "debug-commands"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 3,
+  "content": "LOG: [LEARN] Guide: Fix Fabric Zsh Completion Errors\n\n**Title:** Fabric Error Analysis and Shell Completion Review\n**Date:** 2026-02-14 (10:12:11 IST)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Fabric-Fixed-Error-Analysis-And-Shell-Completion-Review.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Zsh with completion system (`compinit`)\n- Fabric CLI installed (`which fabric`)\n- Zsh completion system enabled (`autoload -U compinit && compinit`)\n\n### Root Cause\nTwo conflicting `_fabric` completion files:\n1. `~/.zsh-completions/_fabric` (broken) — loaded first via fpath\n2. `/usr/local/share/zsh/site-functions/_fabric` (working) — system installation\n\n### Fix: Remove Broken Completion\n```bash\n# Identify conflict\n$ ls ~/.zsh-completions/_fabric /usr/local/share/zsh/site-functions/_fabric\n\n# Remove broken user completion\n$ rm ~/.zsh-completions/_fabric\n\n# Reload completion\nexec zsh\n# Or without restart:\nunfunction _fabric 2>/dev/null; autoload -U _fabric\n```\n\n### Verify Fix\n```bash\n# Test completions\nfabric -<TAB>        # Show all flags\nfabric -p <TAB>      # Complete patterns (first fetch, then cached)\nfabric -t <TAB>      # Complete temperature values\n```\n\n### Optimal Completion Config (Add to ~/.zshrc)\n```bash\n# Rebuild cache if .zshrc changed\nif [[ ~/.zshrc -nt ~/.zcompdump ]]; then\n    compinit\nelse\n    compinit -C  # Fast load from cache\nfi\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Why the Error Occurred\n| Issue | Cause |\n|-------|-------|\n| `_describe: invalid argument: fabric_patterns` | Broken completion used `_describe 'command' fabric_patterns` but `fabric_patterns` array didn't exist |\n| Wrong file loaded | `~/.zsh-completions/` precedes system path in `$fpath` |\n| Sourcing vs autoload | Sourcing completion file runs functions outside completion context |\n\n### Zsh Completion Architecture\n```\n$fpath order:\n1. ~/.zsh-completions/     ← User custom (loaded first)\n2. /usr/local/share/zsh/site-functions/  ← System packages\n3. /usr/share/zsh/functions/Completion/  ← Zsh builtin\n\nLoading:\n1. compinit scans $fpath for _* files\n2. First match wins (user overrides system)\n2. Functions registered via `zle -N` or `compdef`\n```\n\n### Cache Design (5-minute TTL)\n```bash\n# Cache key: per-command (fabric, fabric-ai)\n# TTL: 300 seconds\n# Location: ~/.cache/fabric-completion/\n# Invalidate: fabric_clear_cache function\n```\n\n### Helper Functions (Removed)\n| Function | Issue |\n|----------|-------|\n| `_fabric_temperature` | Used `_describe` with undefined arrays |\n| `_fabric_topp` | Same `_describe` conflict |\n| `_fabric_penalties` | Same `_describe` conflict |\n\n**Fix:** Reverted to simple `_arguments` format, kept caching.\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Zsh Completion Flow\n```\nUser presses TAB\n    ↓\nzle triggers completion widget\n    ↓\n_widgets[_fabric] called\n    ↓\n_arguments parses spec\n    ↓\nActions: _describe, _files, _values, _call_function\n    ↓\nResults displayed via compadd\n```\n\n### `_describe` vs `_arguments`\n```bash\n# _describe (high-level, menu)\n_describe 'command' fabric_patterns\n\n# _arguments (low-level, spec)\n_arguments \\\n  '(-p --pattern)'{-p,--pattern}'[Pattern]: :_fabric_patterns' \\\n  '(-t --temperature)'{-t,--temperature}'[Temperature]: :_fabric_temperature'\n```\n\n### Autoload vs Source\n| Method | Behavior |\n|--------|----------|\n| `source file` | Executes immediately, runs in current context |\n| `autoload -U func` | Marks for lazy load, runs in widget context |\n| `compinit` | Scans `$fpath`, registers `_*` functions |\n\n### Correct Reload\n```bash\n# Wrong (causes errors):\nsource /usr/local/share/zsh/site-functions/_fabric\n\n# Right (Method 1):\nexec zsh\n\n# Right (Method 2):\nunfunction _fabric 2>/dev/null; autoload -U _fabric\n```\n\n### Debug Commands\n```bash\n# Show loaded completions\n$ zle -l | grep fabric\n\n# Show fpath order\n$ echo $fpath\n\n# Check which _fabric loaded\n$ whence -v _fabric\n\n# Test completion in isolation\n$ _fabric\n```\n\n### References\n- `man zshzle` — Zsh Line Editor\n- `man zshcompsys` — Completion System\n- [Zsh Manual: Completion](https://zsh.sourceforge.io/Doc/Release/Completion-System.html)"
+}

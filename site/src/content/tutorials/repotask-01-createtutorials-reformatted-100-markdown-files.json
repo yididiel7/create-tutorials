@@ -1,0 +1,13 @@
+{
+  "slug": "repotask-01-createtutorials-reformatted-100-markdown-files",
+  "filePath": "RepoTask-01-CreateTutorials-Reformatted-100-Markdown-Files.md",
+  "title": "RepoTask-01-CreateTutorials-Reformatted-100-Markdown-Files",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Done! I've reformatted 99 out of 100 markdown files in the repository.\nRepoTask-01-CreateTutorials-Reformatted-100-Markdown-Files.md\nSummary\n\nTotal Files: 100 markdown files\nReformatted: 99 files\nUnch…",
+  "headings": [],
+  "readingTime": 1,
+  "content": "Done! I've reformatted 99 out of 100 markdown files in the repository.\nRepoTask-01-CreateTutorials-Reformatted-100-Markdown-Files.md\nSummary\n\nTotal Files: 100 markdown files\nReformatted: 99 files\nUnchanged: 1 file (already compliant)\nResults:\n- 69 files now have all lines ≤ 72 characters\n- 31 files contain acceptable long lines (URLs, code blocks, command output, tables) that shouldn't be wrapped\nWhat was reformatted:\n- ✅ All text content wrapped at 72 columns\n- ✅ Trailing whitespace removed\n- ✅ Single newline at end of each file\n- ✅ Code blocks preserved intact\n- ✅ URLs left unbroken\n- ✅ Tables maintained\nSample output showing proper wrapping:\nBelow is a concise, end-to-end recipe that shows how you can start a\nbrand-new Python project with **uv**, add production and test\ndependencies, write unit tests with the built-in `unittest` module, and\nfollow a **Test-Driven Development (TDD)** loop.\nAll files now follow the AGENTS.md guidelines!\n\n  █▀▀█  AGENTS.md guidelines for codebase agents\n  █  █  opencode -s ses_3aa71e2a9ffeU7AEEo7nv75zsY\n  ▀▀▀▀  \n"
+}

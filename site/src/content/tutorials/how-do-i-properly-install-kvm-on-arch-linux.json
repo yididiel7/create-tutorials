@@ -1,0 +1,104 @@
+{
+  "slug": "how-do-i-properly-install-kvm-on-arch-linux",
+  "filePath": "how-do-i-properly-install-kvm-on-arch-linux.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Install KVM/QEMU/libvirt on Arch Linux\n\nTitle: How to Properly Install KVM on Arch Linux\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Lin…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Step 1: Verify Hardware Support",
+      "slug": "step-1-verify-hardware-support"
+    },
+    {
+      "level": 3,
+      "text": "Step 2: Install Packages",
+      "slug": "step-2-install-packages"
+    },
+    {
+      "level": 3,
+      "text": "Step 3: Enable Modular libvirt Daemons",
+      "slug": "step-3-enable-modular-libvirt-daemons"
+    },
+    {
+      "level": 3,
+      "text": "Step 4: Configure Network Bridge (Optional)",
+      "slug": "step-4-configure-network-bridge-optional"
+    },
+    {
+      "level": 3,
+      "text": "Step 5: Add User to libvirt Group",
+      "slug": "step-5-add-user-to-libvirt-group"
+    },
+    {
+      "level": 3,
+      "text": "Step 6: Set ACL on Images Directory",
+      "slug": "step-6-set-acl-on-images-directory"
+    },
+    {
+      "level": 3,
+      "text": "Step 7: Reboot and Validate",
+      "slug": "step-7-reboot-and-validate"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "KVM Architecture",
+      "slug": "kvm-architecture"
+    },
+    {
+      "level": 3,
+      "text": "Modular vs Monolithic libvirt",
+      "slug": "modular-vs-monolithic-libvirt"
+    },
+    {
+      "level": 3,
+      "text": "Why virtio Drivers?",
+      "slug": "why-virtio-drivers"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "IOMMU/VT-d for PCI Passthrough",
+      "slug": "iommu-vt-d-for-pci-passthrough"
+    },
+    {
+      "level": 3,
+      "text": "TuneD Profiles",
+      "slug": "tuned-profiles"
+    },
+    {
+      "level": 3,
+      "text": "AMD SEV (Secure Encrypted Virtualization)",
+      "slug": "amd-sev-secure-encrypted-virtualization"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 3,
+  "content": "LOG: [LEARN] Guide: Install KVM/QEMU/libvirt on Arch Linux\n\n**Title:** How to Properly Install KVM on Arch Linux\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** how-do-i-properly-install-kvm-on-arch-linux.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n**Source:** Adapted from sysguides.com/install-kvm-on-linux\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Arch Linux installed\n- CPU with hardware virtualization (Intel VT-x or AMD-V)\n- Root/sudo access\n\n### Step 1: Verify Hardware Support\n```bash\n$ lscpu | grep Virtualization\n# Output: VT-x (Intel) or AMD-V (AMD)\n\n$ zgrep CONFIG_KVM /proc/config.gz\n# Ensure CONFIG_KVM=m or y\n```\n\n### Step 2: Install Packages\n```bash\n$ sudo pacman -S qemu-full libvirt virt-install virt-manager virt-viewer \\\n    edk2-ovmf swtpm qemu-img guestfs-tools libosinfo\n$ yay -S tuned  # Optional: from AUR\n```\n\n### Step 3: Enable Modular libvirt Daemons\n```bash\n$ for drv in qemu interface network nodedev nwfilter secret storage; do\n    sudo systemctl enable virt${drv}d.service\n    sudo systemctl enable virt${drv}d{,-ro,-admin}.socket\n  done\n```\n\n### Step 4: Configure Network Bridge (Optional)\n```bash\n$ sudo nmcli connection add type bridge con-name bridge0 ifname bridge0\n$ sudo nmcli connection add type ethernet slave-type bridge \\\n    con-name \"Bridge connection 1\" ifname enp2s0 master bridge0\n$ sudo nmcli connection up bridge0\n```\n\n### Step 5: Add User to libvirt Group\n```bash\n$ sudo usermod -aG libvirt $USER\n$ echo \"export LIBVIRT_DEFAULT_URI='qemu:///system'\" >> ~/.bashrc\n$ source ~/.bashrc\n```\n\n### Step 6: Set ACL on Images Directory\n```bash\n$ sudo setfacl -R -b /var/lib/libvirt/images\n$ sudo setfacl -R -m u:$USER:rwX /var/lib/libvirt/images\n$ sudo setfacl -m d:u:$USER:rwx /var/lib/libvirt/images\n```\n\n### Step 7: Reboot and Validate\n```bash\n$ sudo reboot\n$ sudo virt-host-validate qemu\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### KVM Architecture\n- **KVM kernel modules** (`kvm`, `kvm_intel`/`kvm_amd`): Hardware virtualization\n- **QEMU** (`qemu-full`): Device emulation, user-space\n- **libvirt** (`libvirt`, `virt-install`, `virsh`): Management API/daemon\n\n### Modular vs Monolithic libvirt\n- Modular (Arch/Fedora): Separate daemons per driver → granular control\n- Monolithic (Ubuntu/Debian): Single `libvirtd` → simpler but less flexible\n\n### Why virtio Drivers?\nPara-virtualized drivers for network/disk → near-native performance in guests.\n\n## The \"Deep Dive\" (The Technical Root)\n\n### IOMMU/VT-d for PCI Passthrough\n```bash\n# Intel: /etc/default/grub\nGRUB_CMDLINE_LINUX=\"... intel_iommu=on iommu=pt\"\n$ sudo grub-mkconfig -o /boot/grub/grub.cfg\n\n# Verify\n$ dmesg | grep -i -e DMAR -e IOMMU\n```\n\n### TuneD Profiles\n```bash\n$ sudo systemctl enable --now tuned\n$ sudo tuned-adm profile virtual-host\n$ sudo tuned-adm verify\n```\n\n### AMD SEV (Secure Encrypted Virtualization)\n```bash\n$ lscpu | grep sev\n# Enable in BIOS + kernel if supported\n```\n\n### References\n- [Arch Wiki: KVM](https://wiki.archlinux.org/title/KVM)\n- [Arch Wiki: libvirt](https://wiki.archlinux.org/title/Libvirt)\n- [sysguides.com](https://sysguides.com/install-kvm-on-linux)"
+}

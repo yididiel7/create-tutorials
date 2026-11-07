@@ -1,0 +1,69 @@
+{
+  "slug": "warp-key",
+  "filePath": "warp_key.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Reference: Warp Terminal API Key\n\nTitle: Warp Key\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: warp_key.md\nCo…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "API Key",
+      "slug": "api-key"
+    },
+    {
+      "level": 3,
+      "text": "Usage",
+      "slug": "usage"
+    },
+    {
+      "level": 3,
+      "text": "Security Notes",
+      "slug": "security-notes"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Warp API",
+      "slug": "warp-api"
+    },
+    {
+      "level": 3,
+      "text": "Best Practices",
+      "slug": "best-practices"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Key Format",
+      "slug": "key-format"
+    },
+    {
+      "level": 3,
+      "text": "Rotation",
+      "slug": "rotation"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 2,
+  "content": "LOG: [LEARN] Reference: Warp Terminal API Key\n\n**Title:** Warp Key\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** warp_key.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### API Key\n```\nwk-1.<YOUR_WARP_API_KEY_HERE>\n```\n\n### Usage\n```bash\n# Set as environment variable\nexport WARP_API_KEY=\"wk-1.<YOUR_WARP_API_KEY_HERE>\"\n\n# Or add to ~/.zshrc\necho 'export WARP_API_KEY=\"wk-1.<YOUR_WARP_API_KEY_HERE>\"' >> ~/.zshrc\n```\n\n### Security Notes\n- **Never commit** API keys to version control\n- Use `.zshrc-personal` or `.env` files (gitignored)\n- Rotate keys periodically\n- Store in password manager (pass, 1Password, Bitwarden)\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Warp API\n- Warp Terminal cloud features\n- Team sync, workflows, AI features\n- Key format: `wk-1.<hex>`\n\n### Best Practices\n```bash\n# Use password manager\npass insert warp/api-key\n\n# Or use direnv\necho 'export WARP_API_KEY=\"...\"' > .envrc\ndirenv allow\n```\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Key Format\n```\nwk-1.<base64_encoded_payload>\n# Prefix: wk-1 = Warp Key v1\n# Payload: 64-char hex = 256-bit key\n```\n\n### Rotation\n```bash\n# Generate new key at https://app.warp.dev/settings/keys\n# Update all environments\n# Revoke old key\n```\n\n### References\n- [Warp Documentation](https://docs.warp.dev/)\n- [Warp API Keys](https://app.warp.dev/settings/keys)\n"
+}

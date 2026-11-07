@@ -1,0 +1,104 @@
+{
+  "slug": "sysadmin-linux-commands",
+  "filePath": "SysAdmin-Linux-Commands.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Reference: Essential System Administration Commands\n\nTitle: SysAdmin Linux Commands\nDate: 2026-02-13 (06:09:04 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, De…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "File & Timestamp Management",
+      "slug": "file-timestamp-management"
+    },
+    {
+      "level": 3,
+      "text": "User Identity",
+      "slug": "user-identity"
+    },
+    {
+      "level": 3,
+      "text": "Service Management (systemd)",
+      "slug": "service-management-systemd"
+    },
+    {
+      "level": 3,
+      "text": "Shell & Output",
+      "slug": "shell-output"
+    },
+    {
+      "level": 3,
+      "text": "Bash Variables",
+      "slug": "bash-variables"
+    },
+    {
+      "level": 3,
+      "text": "File Transfer (SFTP)",
+      "slug": "file-transfer-sftp"
+    },
+    {
+      "level": 3,
+      "text": "Network Scanning (nmap)",
+      "slug": "network-scanning-nmap"
+    },
+    {
+      "level": 3,
+      "text": "Kernel Version",
+      "slug": "kernel-version"
+    },
+    {
+      "level": 3,
+      "text": "Command Location",
+      "slug": "command-location"
+    },
+    {
+      "level": 3,
+      "text": "Kernel Parameters (sysctl)",
+      "slug": "kernel-parameters-sysctl"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Command Categories for Sysadmins",
+      "slug": "command-categories-for-sysadmins"
+    },
+    {
+      "level": 3,
+      "text": "Arch Linux Specifics",
+      "slug": "arch-linux-specifics"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "systemd Unit Types",
+      "slug": "systemd-unit-types"
+    },
+    {
+      "level": 3,
+      "text": "sysctl Persistence",
+      "slug": "sysctl-persistence"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 4,
+  "content": "LOG: [LEARN] Reference: Essential System Administration Commands\n\n**Title:** SysAdmin Linux Commands\n**Date:** 2026-02-13 (06:09:04 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** SysAdmin-Linux-Commands.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### File & Timestamp Management\n```bash\n# touch — create files, update timestamps\n$ touch file.txt                    # create or update mtime/atime\n$ touch -a file.txt                 # update access time only\n$ touch -m file.txt                 # update modification time only\n$ touch -d \"2024-01-01 12:00\" file.txt  # set specific timestamp\n$ touch -r reference.txt file.txt   # copy timestamp from reference\n\n# Multiple files\n$ touch file1 file2 file3\n$ touch {1..10}.txt                 # brace expansion\n```\n\n### User Identity\n```bash\n$ whoami                            # current effective user\n$ id                                # detailed user/group info\n$ logname                           # login name (from utmp)\n$ w                                 # who is logged in\n$ who                               # logged in users\n```\n\n### Service Management (systemd)\n```bash\n$ systemctl start service           # start now\n$ systemctl stop service            # stop now\n$ systemctl restart service         # restart\n$ systemctl reload service          # reload config\n$ systemctl enable service          # enable at boot\n$ systemctl disable service         # disable at boot\n$ systemctl status service          # check status\n$ systemctl list-units --type=service  # list all services\n```\n\n### Shell & Output\n```bash\n# echo — print text\n$ echo \"hello\"\n$ echo -n \"no newline\"\n$ echo -e \"interpret\\tescapes\"\n$ echo $VAR                         # variable value\n$ echo \"$VAR\"                       # preserve whitespace\n$ echo > file.txt                   # write to file (truncate)\n$ echo >> file.txt                  # append to file\n```\n\n### Bash Variables\n```bash\n$ declare -i num=42                 # integer\n$ declare -r readonly_var=\"value\"   # read-only\n$ declare -a arr=(a b c)            # array\n$ declare -A assoc=([\"k\"]=\"v\")      # associative array\n$ declare -p var                    # show attributes\n```\n\n### File Transfer (SFTP)\n```bash\n$ sftp user@host                    # connect\nsftp> put local.txt remote.txt      # upload\nsftp> get remote.txt local.txt      # download\nsftp> ls                            # remote list\nsftp> lls                           # local list\nsftp> chmod 644 remote.txt          # remote chmod\nsftp> !command                      # local shell command\n```\n\n### Network Scanning (nmap)\n```bash\n$ nmap 192.168.1.0/24               # ping scan\n$ nmap -p 80,443 target             # specific ports\n$ nmap -sS target                   # SYN scan\n$ nmap -O target                    # OS detection\n$ nmap -sV target                   # service versions\n$ nmap -A target                    # aggressive (OS + version + scripts)\n$ nmap -iL targets.txt              # scan from file\n```\n\n### Kernel Version\n```bash\n$ uname -r                          # kernel release\n$ uname -a                          # all info\n$ hostnamectl                       # systemd hostnamectl\n$ cat /proc/version                 # procfs\n```\n\n### Command Location\n```bash\n$ which command                     # first in PATH\n$ which -a command                  # all in PATH\n$ type command                      # shell builtin/alias/function\n$ command -v command                # POSIX standard\n```\n\n### Kernel Parameters (sysctl)\n```bash\n$ sysctl -a                         # all parameters\n$ sysctl kernel.param               # show one\n$ sysctl -w kernel.param=value      # runtime change\n$ sysctl -p /etc/sysctl.d/99-custom.conf  # load config\n$ sysctl --system                   # load all\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Command Categories for Sysadmins\n| Category | Core Commands |\n|----------|---------------|\n| Files | touch, cp, mv, rsync, find |\n| Users | whoami, id, useradd, usermod |\n| Services | systemctl, journalctl |\n| Network | ss, ip, nmap, ping |\n| Kernel | uname, sysctl, dmesg |\n| Shell | bash, declare, echo |\n\n### Arch Linux Specifics\n- `systemctl` only (no `service` command)\n- `pacman` for packages (not apt/yum/dnf)\n- `journalctl` for logs (not /var/log/messages)\n\n## The \"Deep Dive\" (The Technical Root)\n\n### systemd Unit Types\n| Type | Suffix | Purpose |\n|------|--------|---------|\n| Service | `.service` | Daemons |\n| Socket | `.socket` | Socket activation |\n| Timer | `.timer` | Scheduled tasks |\n| Mount | `.mount` | Filesystem mounts |\n\n### sysctl Persistence\n```\n/etc/sysctl.d/\n  99-sysadmin.conf    # custom settings (loaded last)\n  50-default.conf     # distribution defaults\n```\nRun `sysctl --system` to apply all.\n\n### References\n- `man systemctl`, `man sysctl`, `man nmap`\n- [Arch Wiki: systemd](https://wiki.archlinux.org/title/systemd)\n- [Arch Wiki: Network configuration](https://wiki.archlinux.org/title/Network_configuration)"
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "generate-random-man-pages",
+  "filePath": "generate-random-man-pages.md",
+  "title": "To clear or empty any log file, just issue the following command.",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "How to Generate a Random Man Page in [[Lunix]]\n dd if=/dev/sdX of=/tmp/dd_example/chunk.bin bs=512 count=1\n\n To clear or empty any log file, just issue the following command.\n\n$ cat /dev/null >…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "To clear or empty any log file, just issue the following command.",
+      "slug": "to-clear-or-empty-any-log-file-just-issue-the-following-command"
+    }
+  ],
+  "readingTime": 1,
+  "content": "# How to Generate a Random Man Page in [[Lunix]]\n# dd if=/dev/sdX of=/tmp/dd_example/chunk.bin bs=512 count=1\n\n## To clear or empty any log file, just issue the following command.\n\n`$ cat /dev/null > app.log`\n\n`$ ls -lh app.log`\n"
+}

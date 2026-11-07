@@ -1,0 +1,13 @@
+{
+  "slug": "niri-launcher-issue-fixed",
+  "filePath": "Niri-Guides/Niri-Launcher-Issue-Fixed.md",
+  "title": "Niri-Launcher-Issue-Fixed",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "Niri-Guides",
+  "tags": [],
+  "description": "Title: Niri Launcher Issue Fixed\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Niri-Launcher-Issue-Fixed.md\nCopyright: ©…",
+  "headings": [],
+  "readingTime": 2,
+  "content": "**Title:** Niri Launcher Issue Fixed\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Niri-Launcher-Issue-Fixed.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\nPerfect! ✅ Niri Launcher Issue Fixed\n🔧 Problems Identified & Fixed:\n1. Rofi Window Switcher Issue\n- Problem: Rofi was using window-match-fields with unsupported fields\nfor Wayland\n- Fix: Updated from \"title,class,role,name,desktop\" to \"title,class\"\n- Result: Window switcher now works properly with Wayland\n2. Window Command Issue\n- Problem: Using wmctrl (X11 tool) instead of niri commands\n- Fix: Changed from \"wmctrl -i -R {window}\" to \"niri msg action\nfocus-window --id {window}\"\n- Result: Window switching now uses native niri IPC\n3. Workspace Assignment Issue\n- Problem: Using workspace names (\"a\", \"b\", \"c\") instead of workspace\nnumbers (1, 2, 3, 4)\n- Fix: Updated all open-on-workspace rules to use numeric workspace IDs\n- Result: Applications now open on correct numbered workspaces\n📋 Your Updated Configuration:\nWorkspace Assignments:\n- Workspace 1: Firefox (opens maximized)\n- Workspace 2: Kitty (opens maximized)\n- Workspace 3: Geany (opens maximized)\n- Workspace 4: Thunar (opens maximized)\nRofi Launcher (Mod+D):\n- ✅ Fixed window field compatibility for Wayland\n- ✅ Uses niri-native window commands\n- ✅ Better window format: {title} [class]\nNext Steps:\n1. Test the launcher: Press Mod+D to open Rofi\n2. Test window switching: Use window switcher mode to see A, B, C, D\nlayouts\n3. Test new apps: Open Firefox/Kitty/Geany - they should now appear on\ntheir correct workspaces\nThe launcher should now correctly display your window layouts with\nproper workspace organization!\n"
+}

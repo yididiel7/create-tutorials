@@ -1,0 +1,19 @@
+{
+  "slug": "to-install-ter-powerline-v18n-vconsolefont",
+  "filePath": "To-install-ter-powerline-v18n-vconsolefont.md",
+  "title": "To install the ter-powerline-v18n.psf.gz font",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Vconsole-kbd-Font-Change.md\nTo-install-ter-powerline-v18n-vconsolefont.md\n\nFONT=ter-powerline-v18n\n\n❯ sudo vim /etc/vconsole.conf\n\nKEYMAP=us\nFONT=default8x16\nFONT_MAP=8859-2\n\n❯ pdw\n/usr/share/kbd/cons…",
+  "headings": [
+    {
+      "level": 3,
+      "text": "To install the ter-powerline-v18n.psf.gz font",
+      "slug": "to-install-the-ter-powerline-v18n-psf-gz-font"
+    }
+  ],
+  "readingTime": 2,
+  "content": "Vconsole-kbd-Font-Change.md\nTo-install-ter-powerline-v18n-vconsolefont.md\n\nFONT=ter-powerline-v18n\n\n❯ sudo vim /etc/vconsole.conf\n\nKEYMAP=us\nFONT=default8x16\nFONT_MAP=8859-2\n\n❯ pdw\n/usr/share/kbd/consolefonts\n❯ cd\n❯ git clone https://github.com/powerline/fonts powerline-fonts\n\nCloning into 'powerline-fonts'...\nremote: Enumerating objects: 1018, done.\nremote: Counting objects: 100% (23/23), done.\nremote: Compressing objects: 100% (11/11), done.\nremote: Total 1018 (delta 13), reused 12 (delta 12), pack-reused 995 (from 2)\nReceiving objects: 100% (1018/1018), 20.66 MiB | 1.77 MiB/s, done.\nResolving deltas: 100% (414/414), done.\n❯ cd powerline-fonts\n❯ sudo cp Terminus/PSF/ter-powerline-v18n.psf.gz /usr/share/kbd/consolefonts/\n❯ sudo vim /etc/vconsole.conf\n❯ sudo vim /etc/mkinitcpio.conf\n$ sudo mkinitcpio -P\n~/powerline-fonts master\n\n### To install the ter-powerline-v18n.psf.gz font\nTo install the ter-powerline-v18n.psf.gz font, first copy the file to the /usr/share/kbd/consolefonts/ directory using the command sudo cp ter-powerline-v18n.psf.gz /usr/share/kbd/consolefonts/. After that, you can set the font in your console by editing the /etc/vconsole.conf file to include FONT=ter-powerline-v18n and then reboot your system. Arch Linuxphoikoi.io\nInstalling ter-powerline-v18n.psf.gz to /usr/share/kbd/consolefonts\nStep 1: Download the Font\n\n    Clone the Powerline fonts repository from GitHub:\n\n    Code\n    git clone https://github.com/powerline/fonts powerline-fonts\n\n    Navigate to the cloned directory:\n\n    Code\n    cd powerline-fonts\n\nStep 2: Copy the Font File\n\n    Copy the specific font file to the console fonts directory:\n\n    Code\n    cp Terminus/PSF/ter-powerline-v18n.psf.gz /usr/share/kbd/consolefonts/\n\nStep 3: Update Console Configuration\n\n    Edit the /etc/vconsole.conf file to set the font:\n\n    Code\n    FONT=ter-powerline-v18n\n\nStep 4: Rebuild Initramfs (if necessary)\n\n    If you are using KMS (Kernel Mode Setting) with Intel graphics, you may need to edit the mkinitcpio.conf file and rebuild the initramfs:\n\n    Code\n    mkinitcpio -P\n\nStep 5: Reboot\n\n    Restart your system to apply the changes.\n\nAfter following these steps, the ter-powerline-v18n.psf.gz font should be installed and ready for use in your console.\n"
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "neovim-leader-key-maps",
+  "filePath": "neovim-leader-key-maps.md",
+  "title": "neovim-leader-key-maps",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "❯ grep \"<leader>\" mappings.lua\nmap(\"n\", \"<leader>n\", \"<cmd>set nu!<CR>\", { desc = \"toggle line number\"\n})\nmap(\"n\", \"<leader>rn\", \"<cmd>set rnu!<CR>\", { desc = \"toggle relative\nnumber\" })\nmap(\"n\", \"<le…",
+  "headings": [],
+  "readingTime": 2,
+  "content": "❯ grep \"<leader>\" mappings.lua\nmap(\"n\", \"<leader>n\", \"<cmd>set nu!<CR>\", { desc = \"toggle line number\"\n})\nmap(\"n\", \"<leader>rn\", \"<cmd>set rnu!<CR>\", { desc = \"toggle relative\nnumber\" })\nmap(\"n\", \"<leader>ch\", \"<cmd>NvCheatsheet<CR>\", { desc = \"toggle\nnvcheatsheet\" })\nmap({ \"n\", \"x\" }, \"<leader>fm\", function()\nmap(\"n\", \"<leader>ds\", vim.diagnostic.setloclist, { desc = \"LSP\ndiagnostic loclist\" })\n  map(\"n\", \"<leader>b\", \"<cmd>enew<CR>\", { desc = \"buffer new\" })\n  map(\"n\", \"<leader>x\", function()\nmap(\"n\", \"<leader>/\", \"gcc\", { desc = \"toggle comment\", remap = true })\nmap(\"v\", \"<leader>/\", \"gc\", { desc = \"toggle comment\", remap = true })\nmap(\"n\", \"<leader>e\", \"<cmd>NvimTreeFocus<CR>\", { desc = \"nvimtree focus\nwindow\" })\nmap(\"n\", \"<leader>fw\", \"<cmd>Telescope live_grep<CR>\", { desc =\n\"telescope live grep\" })\nmap(\"n\", \"<leader>fb\", \"<cmd>Telescope buffers<CR>\", { desc = \"telescope\nfind buffers\" })\nmap(\"n\", \"<leader>fh\", \"<cmd>Telescope help_tags<CR>\", { desc =\n\"telescope help page\" })\nmap(\"n\", \"<leader>ma\", \"<cmd>Telescope marks<CR>\", { desc = \"telescope\nfind marks\" })\nmap(\"n\", \"<leader>fo\", \"<cmd>Telescope oldfiles<CR>\", { desc =\n\"telescope find oldfiles\" })\nmap(\"n\", \"<leader>fz\", \"<cmd>Telescope current_buffer_fuzzy_find<CR>\", {\ndesc = \"telescope find in current buffer\" })\nmap(\"n\", \"<leader>cm\", \"<cmd>Telescope git_commits<CR>\", { desc =\n\"telescope git commits\" })\nmap(\"n\", \"<leader>gt\", \"<cmd>Telescope git_status<CR>\", { desc =\n\"telescope git status\" })\nmap(\"n\", \"<leader>pt\", \"<cmd>Telescope terms<CR>\", { desc = \"telescope\npick hidden term\" })\nmap(\"n\", \"<leader>th\", function()\nmap(\"n\", \"<leader>ff\", \"<cmd>Telescope find_files<cr>\", { desc =\n\"telescope find files\" })\n  \"<leader>fa\",\nmap(\"n\", \"<leader>h\", function()\nmap(\"n\", \"<leader>v\", function()\nmap(\"n\", \"<leader>wK\", \"<cmd>WhichKey <CR>\", { desc = \"whichkey all\nkeymaps\" })\nmap(\"n\", \"<leader>wk\", function()\n"
+}

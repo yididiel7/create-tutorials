@@ -1,0 +1,29 @@
+{
+  "slug": "fdisk-cfdisk",
+  "filePath": "fdisk_cfdisk.md",
+  "title": "✔ You:  … Disk Setup Process - mkfs & mount",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "✔ You:  … Disk Setup Process - mkfs & mount \nGPT-3: \n\nTo format and mount a new disk, you'll need to use the mkfs and mount commands. \nThe mkfs command will format the disk, and the mount command w…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "✔ You:  … Disk Setup Process - mkfs & mount",
+      "slug": "you-disk-setup-process-mkfs-mount"
+    },
+    {
+      "level": 2,
+      "text": "Example:",
+      "slug": "example"
+    },
+    {
+      "level": 2,
+      "text": "Example:",
+      "slug": "example"
+    }
+  ],
+  "readingTime": 2,
+  "content": "## ✔ You:  … Disk Setup Process - mkfs & mount \nGPT-3: \n\nTo format and mount a new disk, you'll need to use the mkfs and mount commands. \nThe mkfs command will format the disk, and the mount command will mount it so that it can be used.\n\nFirst, use the fdisk command to create a new partition on the disk. Then, \nuse the mkfs command to format the new partition. \nFinally, use the mount command to mount the new partition.\n\n✔ You:  … Can you give me an example of the Linux Disk Setup Process - mkfs & mount?\nGPT-3: \n\n## Example:\n\nTo format and mount a new disk, you'll need to use the mkfs and mount commands. \nThe mkfs command will format the disk, and the mount command will mount it so that it can be used.\n\nFirst, use the fdisk command to create a new partition on the disk. \nFor example, to create a new partition on /dev/sdb, you would run:\n\nfdisk /dev/sdb\n\nThen, use the mkfs command to format the new partition. \nFor example, to format the new partition as ext4, you would run:\n\nmkfs -t ext4 /dev/sdb1\n\nFinally, use the mount command to mount the new partition. \nFor example, to mount the new partition on /mnt, you would run:\n\nmount /dev/sdb1 /mnt\n\n✔ You:  … Can you use cfdisk in this example?\nGPT-3: \n\nNo, cfdisk cannot be used in this example.\n\n✔ You:  … How to use cfdisk?\nGPT-3: \n\nTo use cfdisk, you must first create a new partition on the disk. \nThen, use the cfdisk command to format the new partition. Finally, use the mount command to mount the new partition.\n\n✔ You:  … Can you show me an Example with cfdisk and partitioning disk?/\nGPT-3: \n\n## Example:\n\nTo partition a new disk with cfdisk, you would run:\n\ncfdisk /dev/sdb\n\nThis will open up a curses-based interface. Use the arrow keys to navigate, and press Enter to select an option. To create a new partition, select the \"New\" option. Then, select the size of the partition, the type of partition, and the location of the partition. Once you're done, select the \"Write\" option to write the changes to the disk. Finally, select the \"Quit\" option to exit cfdisk.\n\n"
+}

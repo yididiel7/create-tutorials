@@ -1,0 +1,89 @@
+{
+  "slug": "bindkey-re-magic-space",
+  "filePath": "bindkey-re-magic-space.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Reference: Bindkey Magic-Space Fix for Zsh History Expansion\n\nTitle: Bindkey Re Magic Space\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux A…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Quick Fix",
+      "slug": "quick-fix"
+    },
+    {
+      "level": 3,
+      "text": "Verify Widget Exists",
+      "slug": "verify-widget-exists"
+    },
+    {
+      "level": 3,
+      "text": "If magic-space Missing (Arch Linux)",
+      "slug": "if-magic-space-missing-arch-linux"
+    },
+    {
+      "level": 3,
+      "text": "Test It Works",
+      "slug": "test-it-works"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "What magic-space Does",
+      "slug": "what-magic-space-does"
+    },
+    {
+      "level": 3,
+      "text": "Why It Fails on Arch",
+      "slug": "why-it-fails-on-arch"
+    },
+    {
+      "level": 3,
+      "text": "Solution Options",
+      "slug": "solution-options"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "History Expansion Syntax",
+      "slug": "history-expansion-syntax"
+    },
+    {
+      "level": 3,
+      "text": "Zsh Widget Architecture",
+      "slug": "zsh-widget-architecture"
+    },
+    {
+      "level": 3,
+      "text": "Debugging Bindings",
+      "slug": "debugging-bindings"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 2,
+  "content": "LOG: [LEARN] Reference: Bindkey Magic-Space Fix for Zsh History Expansion\n\n**Title:** Bindkey Re Magic Space\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** bindkey-re-magic-space.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Zsh shell\n- History expansion enabled (`setopt BANG_HIST`)\n\n### Quick Fix\n```bash\n# Add to ~/.zshrc\nbindkey ' ' magic-space\n```\n\n### Verify Widget Exists\n```bash\n$ zsh -c 'zle -l | grep magic-space'\n# If empty, magic-space not available\n```\n\n### If magic-space Missing (Arch Linux)\n```bash\n# Create custom widget\nmagic-space() {\n    zle _expand_history\n    zle self-insert\n}\nzle -N magic-space\nbindkey ' ' magic-space\n```\n\n### Test It Works\n```bash\n$ source ~/.zshrc\n$ echo \"hello world\"\n$ !!<SPACE>  # Expands to previous command\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### What magic-space Does\n1. **History expansion**: Expands `!!`, `!$`, `!n`, `!-n`, `!string`, etc.\n2. **Inserts space**: After expansion, inserts the space character\n\n### Why It Fails on Arch\n- `zshcontrib` module (which provides built-in `magic-space`) not installed\n- Module file `/usr/lib/zsh/5.9/zshcontrib.so` missing from standard package\n\n### Solution Options\n| Approach | Pros | Cons |\n|----------|------|------|\n| Install `zshcontrib` package | Native widget | May not exist for your Zsh version |\n| Custom widget (recommended) | Works everywhere | Slight overhead |\n\n## The \"Deep Dive\" (The Technical Root)\n\n### History Expansion Syntax\n| Pattern | Expands To |\n|---------|------------|\n| `!!` | Previous command |\n| `!$` | Last argument of previous command |\n| `!n` | Command number n from history |\n| `!-n` | n-th command back |\n| `!string` | Most recent command starting with string |\n| `!?string?` | Most recent command containing string |\n\n### Zsh Widget Architecture\n```bash\n# Built-in widgets: zle -l\n# Custom widget creation:\nmy-widget() { ... }\nzle -N my-widget\nbindkey 'KEY' my-widget\n```\n\n### Debugging Bindings\n```bash\n# Show all bindings\n$ bindkey\n\n# Show space binding\n$ bindkey ' '\n\n# List available widgets\n$ zle -l\n```\n\n### References\n- `man zshzle`\n- [Arch Wiki: Zsh](https://wiki.archlinux.org/title/Zsh)\n- [Zsh Manual: History Expansion](https://zsh.sourceforge.io/Doc/Release/History-Expansion.html)"
+}

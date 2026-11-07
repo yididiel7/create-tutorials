@@ -1,0 +1,104 @@
+{
+  "slug": "learn-to-use-ollama-in-the-terminal",
+  "filePath": "Learn-to-use-Ollama-in-the-terminal.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Run Ollama Models in Terminal\n\nTitle: Learn to Use Ollama in the Terminal\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Devel…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Basic Commands",
+      "slug": "basic-commands"
+    },
+    {
+      "level": 3,
+      "text": "Model Management",
+      "slug": "model-management"
+    },
+    {
+      "level": 3,
+      "text": "File I/O",
+      "slug": "file-i-o"
+    },
+    {
+      "level": 3,
+      "text": "Custom Models (Modelfile)",
+      "slug": "custom-models-modelfile"
+    },
+    {
+      "level": 3,
+      "text": "Automation",
+      "slug": "automation"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Why Ollama CLI?",
+      "slug": "why-ollama-cli"
+    },
+    {
+      "level": 3,
+      "text": "Architecture",
+      "slug": "architecture"
+    },
+    {
+      "level": 3,
+      "text": "Parameter Guide",
+      "slug": "parameter-guide"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Modelfile Internals",
+      "slug": "modelfile-internals"
+    },
+    {
+      "level": 3,
+      "text": "API Endpoints",
+      "slug": "api-endpoints"
+    },
+    {
+      "level": 3,
+      "text": "OpenAI Compatibility",
+      "slug": "openai-compatibility"
+    },
+    {
+      "level": 3,
+      "text": "GPU Acceleration",
+      "slug": "gpu-acceleration"
+    },
+    {
+      "level": 3,
+      "text": "Env Variables",
+      "slug": "env-variables"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 3,
+  "content": "LOG: [LEARN] Guide: Run Ollama Models in Terminal\n\n**Title:** Learn to Use Ollama in the Terminal\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Learn-to-use-Ollama-in-the-terminal.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Ollama installed (`curl -fsSL https://ollama.com/install.sh | sh`)\n- Terminal with bash/zsh\n\n### Basic Commands\n```bash\n$ ollama --version\n$ ollama serve                    # Start server\n$ ollama pull llama3.2            # Pull model\n$ ollama list                     # List models\n$ ollama run llama3.2 \"prompt\"    # Run with prompt\n$ ollama run llama3.2             # Interactive\n/bye                              # Exit interactive\n```\n\n### Model Management\n```bash\n$ ollama show llama3.2            # Model details\n$ ollama ps                       # Running models\n$ ollama stop llama3.2            # Stop model\n$ ollama rm llama3.2              # Remove model\n$ ollama cp llama3.2 my-model     # Copy model\n```\n\n### File I/O\n```bash\n$ ollama run llama3.2 \"Summarize\" < input.txt\n$ ollama run llama3.2 \"Prompt\" > output.txt\n$ cat input.txt | ollama run llama3.2 \"Summarize\"\n```\n\n### Custom Models (Modelfile)\n```bash\n# Modelfile\nFROM llama3.2\nPARAMETER temperature 0.7\nPARAMETER num_ctx 4096\nSYSTEM \"You are a cybersecurity expert.\"\nTEMPLATE \"{{ if .System }}System: {{ .System }}{{ end }}User: {{ .Prompt }}Assistant: \"\n\n$ ollama create my-model -f Modelfile\n$ ollama run my-model\n```\n\n### Automation\n```bash\n#!/bin/bash\nollama run llama3.2 \"AI trends\" > ai-output.txt\n```\n```bash\n# Cron: 0 0 * * 0 /path/script.sh\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Why Ollama CLI?\n- Local execution, no API keys\n- Scriptable for automation\n- File I/O for large documents\n- Custom models via Modelfile\n\n### Architecture\n- `ollama serve` — REST API server (localhost:11434)\n- Models stored in `~/.ollama/models/`\n- Modelfile = Dockerfile-like blueprint\n\n### Parameter Guide\n| Param | Range | Effect |\n|-------|-------|--------|\n| `temperature` | 0.0–2.0 | Creativity (0=deterministic) |\n| `num_ctx` | 512–128k | Context window (model max) |\n| `top_p` | 0.0–1.0 | Nucleus sampling |\n| `num_predict` | -1 to N | Max output tokens |\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Modelfile Internals\n- `FROM` — base model or GGUF path\n- `PARAMETER` — runtime params\n- `SYSTEM` — system prompt\n- `TEMPLATE` — chat template (Go template)\n- `ADAPTER` — LoRA path\n\n### API Endpoints\n```\nPOST /api/generate   — single completion\nPOST /api/chat       — conversation\nPOST /api/embeddings — embeddings\nGET  /api/tags       — list models\n```\n\n### OpenAI Compatibility\n```python\nfrom openai import OpenAI\nclient = OpenAI(base_url=\"http://localhost:11434/v1\", api_key=\"ollama\")\n```\n\n### GPU Acceleration\n- NVIDIA: CUDA 5.0+, `nvidia-smi`\n- AMD: ROCm, RX 6000+\n- Apple: Metal (auto)\n- Env: `CUDA_VISIBLE_DEVICES`, `ROCR_VISIBLE_DEVICES`\n\n### Env Variables\n| Var | Purpose |\n|-----|---------|\n| `OLLAMA_HOST` | API bind (default 127.0.0.1:11434) |\n| `OLLAMA_MODELS` | Model storage path |\n| `OLLAMA_KEEP_ALIVE` | Model RAM retention |\n| `OLLAMA_DEBUG` | Verbose logging |\n\n### References\n- `man ollama`\n- [Ollama Docs](https://github.com/ollama/ollama/blob/main/docs/)\n- [Model Library](https://ollama.com/library)"
+}

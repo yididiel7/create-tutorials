@@ -1,0 +1,454 @@
+{
+  "slug": "copilot-session-e1ebe014-169b-4ade-9855-454c2df7019f",
+  "filePath": "copilot-session-e1ebe014-169b-4ade-9855-454c2df7019f.md",
+  "title": "👤 User",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "🤖 Copilot CLI Session\n\n> Session ID: e1ebe014-169b-4ade-9855-454c2df7019f\n> Started: 2/5/2026, 9:25:26 AM\n> Duration: 51m 54s\n> Exported: 2/5/2026, 10:17:21 AM\n\n<sub>⏱️ 1s</sub>…",
+  "headings": [
+    {
+      "level": 3,
+      "text": "👤 User",
+      "slug": "user"
+    },
+    {
+      "level": 3,
+      "text": "💬 Copilot",
+      "slug": "copilot"
+    },
+    {
+      "level": 3,
+      "text": "👤 User",
+      "slug": "user"
+    },
+    {
+      "level": 3,
+      "text": "💬 Copilot",
+      "slug": "copilot"
+    },
+    {
+      "level": 3,
+      "text": "👤 User",
+      "slug": "user"
+    },
+    {
+      "level": 3,
+      "text": "✅ `fetch_copilot_cli_documentation`",
+      "slug": "fetch-copilot-cli-documentation"
+    },
+    {
+      "level": 2,
+      "text": "README",
+      "slug": "readme"
+    },
+    {
+      "level": 2,
+      "text": "🚀 Introduction and Overview",
+      "slug": "introduction-and-overview"
+    },
+    {
+      "level": 2,
+      "text": "📦 Getting Started",
+      "slug": "getting-started"
+    },
+    {
+      "level": 3,
+      "text": "Supported Platforms",
+      "slug": "supported-platforms"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Installation",
+      "slug": "installation"
+    },
+    {
+      "level": 3,
+      "text": "Launching the CLI",
+      "slug": "launching-the-cli"
+    },
+    {
+      "level": 4,
+      "text": "Authenticate with a Personal Access Token (PAT)",
+      "slug": "authenticate-with-a-personal-access-token-pat"
+    },
+    {
+      "level": 3,
+      "text": "Using the CLI",
+      "slug": "using-the-cli"
+    },
+    {
+      "level": 2,
+      "text": "📢 Feedback and Participation",
+      "slug": "feedback-and-participation"
+    },
+    {
+      "level": 2,
+      "text": "Help Command Output",
+      "slug": "help-command-output"
+    },
+    {
+      "level": 3,
+      "text": "💬 Copilot",
+      "slug": "copilot"
+    },
+    {
+      "level": 3,
+      "text": "👤 User",
+      "slug": "user"
+    },
+    {
+      "level": 3,
+      "text": "💬 Copilot",
+      "slug": "copilot"
+    },
+    {
+      "level": 3,
+      "text": "ℹ️ Info",
+      "slug": "info"
+    },
+    {
+      "level": 3,
+      "text": "👤 User",
+      "slug": "user"
+    },
+    {
+      "level": 3,
+      "text": "💬 Copilot",
+      "slug": "copilot"
+    },
+    {
+      "level": 3,
+      "text": "👤 User",
+      "slug": "user"
+    },
+    {
+      "level": 3,
+      "text": "💬 Copilot",
+      "slug": "copilot"
+    },
+    {
+      "level": 3,
+      "text": "👤 User",
+      "slug": "user"
+    },
+    {
+      "level": 3,
+      "text": "💬 Copilot",
+      "slug": "copilot"
+    },
+    {
+      "level": 3,
+      "text": "✅ `bash`",
+      "slug": "bash"
+    },
+    {
+      "level": 3,
+      "text": "✅ `web_fetch`",
+      "slug": "web-fetch"
+    },
+    {
+      "level": 2,
+      "text": "Model Context Protocol servers",
+      "slug": "model-context-protocol-servers"
+    },
+    {
+      "level": 2,
+      "text": "🌟 Reference Servers",
+      "slug": "reference-servers"
+    },
+    {
+      "level": 3,
+      "text": "Archived",
+      "slug": "archived"
+    },
+    {
+      "level": 3,
+      "text": "💬 Copilot",
+      "slug": "copilot"
+    },
+    {
+      "level": 3,
+      "text": "✅ `web_fetch`",
+      "slug": "web-fetch"
+    },
+    {
+      "level": 3,
+      "text": "API Base URL",
+      "slug": "api-base-url"
+    },
+    {
+      "level": 3,
+      "text": "💬 Copilot",
+      "slug": "copilot"
+    },
+    {
+      "level": 3,
+      "text": "✅ `bash`",
+      "slug": "bash"
+    },
+    {
+      "level": 3,
+      "text": "💬 Copilot",
+      "slug": "copilot"
+    },
+    {
+      "level": 3,
+      "text": "👤 User",
+      "slug": "user"
+    },
+    {
+      "level": 3,
+      "text": "✅ `fetch_copilot_cli_documentation`",
+      "slug": "fetch-copilot-cli-documentation"
+    },
+    {
+      "level": 2,
+      "text": "README",
+      "slug": "readme"
+    },
+    {
+      "level": 2,
+      "text": "🚀 Introduction and Overview",
+      "slug": "introduction-and-overview"
+    },
+    {
+      "level": 2,
+      "text": "📦 Getting Started",
+      "slug": "getting-started"
+    },
+    {
+      "level": 3,
+      "text": "Supported Platforms",
+      "slug": "supported-platforms"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Installation",
+      "slug": "installation"
+    },
+    {
+      "level": 3,
+      "text": "Launching the CLI",
+      "slug": "launching-the-cli"
+    },
+    {
+      "level": 4,
+      "text": "Authenticate with a Personal Access Token (PAT)",
+      "slug": "authenticate-with-a-personal-access-token-pat"
+    },
+    {
+      "level": 3,
+      "text": "Using the CLI",
+      "slug": "using-the-cli"
+    },
+    {
+      "level": 3,
+      "text": "Experimental Mode",
+      "slug": "experimental-mode"
+    },
+    {
+      "level": 4,
+      "text": "Experimental Features",
+      "slug": "experimental-features"
+    },
+    {
+      "level": 2,
+      "text": "🔧 Configuring LSP Servers",
+      "slug": "configuring-lsp-servers"
+    },
+    {
+      "level": 3,
+      "text": "Installing Language Servers",
+      "slug": "installing-language-servers"
+    },
+    {
+      "level": 3,
+      "text": "Configuring LSP Servers",
+      "slug": "configuring-lsp-servers"
+    },
+    {
+      "level": 3,
+      "text": "Viewing LSP Server Status",
+      "slug": "viewing-lsp-server-status"
+    },
+    {
+      "level": 2,
+      "text": "📢 Feedback and Participation",
+      "slug": "feedback-and-participation"
+    },
+    {
+      "level": 2,
+      "text": "Help Command Output",
+      "slug": "help-command-output"
+    },
+    {
+      "level": 3,
+      "text": "💬 Copilot",
+      "slug": "copilot"
+    },
+    {
+      "level": 2,
+      "text": "**BASICS**",
+      "slug": "basics"
+    },
+    {
+      "level": 3,
+      "text": "1. **Installation on Arch Linux**",
+      "slug": "1-installation-on-arch-linux"
+    },
+    {
+      "level": 3,
+      "text": "2. **Launch Copilot CLI**",
+      "slug": "2-launch-copilot-cli"
+    },
+    {
+      "level": 3,
+      "text": "3. **Authentication**",
+      "slug": "3-authentication"
+    },
+    {
+      "level": 3,
+      "text": "4. **Basic Workflow**",
+      "slug": "4-basic-workflow"
+    },
+    {
+      "level": 2,
+      "text": "**KEYBOARD SHORTCUTS (Essential)**",
+      "slug": "keyboard-shortcuts-essential"
+    },
+    {
+      "level": 2,
+      "text": "**ADVANCED OPTIONS & COMMANDS**",
+      "slug": "advanced-options-commands"
+    },
+    {
+      "level": 3,
+      "text": "**Model Selection**",
+      "slug": "model-selection"
+    },
+    {
+      "level": 3,
+      "text": "**Planning & Agentic Tasks**",
+      "slug": "planning-agentic-tasks"
+    },
+    {
+      "level": 3,
+      "text": "**File & Directory Management**",
+      "slug": "file-directory-management"
+    },
+    {
+      "level": 3,
+      "text": "**GitHub Integration**",
+      "slug": "github-integration"
+    },
+    {
+      "level": 3,
+      "text": "**Session Management**",
+      "slug": "session-management"
+    },
+    {
+      "level": 3,
+      "text": "**Working Directory**",
+      "slug": "working-directory"
+    },
+    {
+      "level": 3,
+      "text": "**Experimental Features**",
+      "slug": "experimental-features"
+    },
+    {
+      "level": 3,
+      "text": "**MCP (Model Context Protocol) Servers**",
+      "slug": "mcp-model-context-protocol-servers"
+    },
+    {
+      "level": 3,
+      "text": "**Custom Instructions & Skills**",
+      "slug": "custom-instructions-skills"
+    },
+    {
+      "level": 3,
+      "text": "**Context & Usage**",
+      "slug": "context-usage"
+    },
+    {
+      "level": 3,
+      "text": "**Sharing & Feedback**",
+      "slug": "sharing-feedback"
+    },
+    {
+      "level": 3,
+      "text": "**Terminal & Theme**",
+      "slug": "terminal-theme"
+    },
+    {
+      "level": 3,
+      "text": "**Other Utilities**",
+      "slug": "other-utilities"
+    },
+    {
+      "level": 2,
+      "text": "**EXPERT TIPS FOR ARCH LINUX**",
+      "slug": "expert-tips-for-arch-linux"
+    },
+    {
+      "level": 2,
+      "text": "**COMMON WORKFLOWS**",
+      "slug": "common-workflows"
+    },
+    {
+      "level": 3,
+      "text": "**Debugging Code**",
+      "slug": "debugging-code"
+    },
+    {
+      "level": 3,
+      "text": "**Code Review**",
+      "slug": "code-review"
+    },
+    {
+      "level": 3,
+      "text": "**Building Features**",
+      "slug": "building-features"
+    },
+    {
+      "level": 3,
+      "text": "**Learning**",
+      "slug": "learning"
+    },
+    {
+      "level": 3,
+      "text": "👤 User",
+      "slug": "user"
+    },
+    {
+      "level": 3,
+      "text": "💬 Copilot",
+      "slug": "copilot"
+    },
+    {
+      "level": 3,
+      "text": "👤 User",
+      "slug": "user"
+    },
+    {
+      "level": 3,
+      "text": "💬 Copilot",
+      "slug": "copilot"
+    }
+  ],
+  "readingTime": 29,
+  "content": "# 🤖 Copilot CLI Session\n\n> **Session ID:** `e1ebe014-169b-4ade-9855-454c2df7019f`\n> **Started:** 2/5/2026, 9:25:26 AM\n> **Duration:** 51m 54s\n> **Exported:** 2/5/2026, 10:17:21 AM\n\n<sub>⏱️ 1s</sub>\n\n### 👤 User\n\nsuggest How do i clear the GITHUB_TOKEN environment variable value from the environment?\n\n---\n\n<sub>⏱️ 7s</sub>\n\n### 💬 Copilot\n\nTo clear the `GITHUB_TOKEN` environment variable, use one of these approaches:\n\n**Option 1: Unset the variable (temporary - just this session)**\n```bash\nunset GITHUB_TOKEN\n```\n\n**Option 2: Set it to empty (temporary - just this session)**\n```bash\nexport GITHUB_TOKEN=\"\"\n```\n\n**Option 3: Remove from shell config (permanent)**\nIf it's defined in your shell config file (~/.bashrc, ~/.zshrc, ~/.bash_profile, etc.), remove or comment out the line that sets it:\n```bash\n# Remove or comment this line:\n# export GITHUB_TOKEN=\"your_token_here\"\n```\n\nThen reload the shell:\n```bash\nsource ~/.bashrc  # or ~/.zshrc depending on your shell\n```\n\n**Option 4: Verify it's cleared**\n```bash\necho $GITHUB_TOKEN  # Should output nothing\n```\n\nWhich approach depends on whether you want to clear it just for the current session (Options 1-2) or permanently (Option 3).\n\n---\n\n<sub>⏱️ 1m 27s</sub>\n\n### 👤 User\n\necho $GITHUB_TOKEN=\"\"\n\n---\n\n<sub>⏱️ 1m 31s</sub>\n\n### 💬 Copilot\n\nThat command won't actually clear the variable. It will:\n1. Echo the current value of `GITHUB_TOKEN`\n2. Try to set a variable with that value name to an empty string (which won't work as intended)\n\n**To actually clear it, use:**\n\n```bash\nunset GITHUB_TOKEN\n```\n\nOr:\n\n```bash\nexport GITHUB_TOKEN=\"\"\n```\n\n**Then verify it's cleared:**\n\n```bash\necho $GITHUB_TOKEN\n# (should output nothing)\n```\n\nThe `unset` command is the cleanest way to remove an environment variable entirely.\n\n---\n\n<sub>⏱️ 2m 48s</sub>\n\n### 👤 User\n\nHow do i restart Copilot Cli\n\n---\n\n<sub>⏱️ 2m 53s</sub>\n\n### ✅ `fetch_copilot_cli_documentation`\n\n<details>\n<summary>Arguments</summary>\n\n```json\n{}\n```\n\n</details>\n\n<details>\n<summary>151 lines</summary>\n\n````\n# GitHub Copilot CLI Documentation\n\n## README\n# GitHub Copilot CLI (Public Preview)\n\nThe power of GitHub Copilot, now in your terminal.\n\nGitHub Copilot CLI brings AI-powered coding assistance directly to your command line, enabling you to build, debug, and understand code through natural language conversations. Powered by the same agentic harness as GitHub's Copilot coding agent, it provides intelligent assistance while staying deeply integrated with your GitHub workflow.\n\nSee [our official documentation](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) for more information.\n\n![Image of the splash screen for the Copilot CLI](https://github.com/user-attachments/assets/f40aa23d-09dd-499e-9457-1d57d3368887)\n\n\n## 🚀 Introduction and Overview\n\nWe're bringing the power of GitHub Copilot coding agent directly to your terminal. With GitHub Copilot CLI, you can work locally and synchronously with an AI agent that understands your code and GitHub context.\n\n- **Terminal-native development:** Work with Copilot coding agent directly in your command line — no context switching required.\n- **GitHub integration out of the box:** Access your repositories, issues, and pull requests using natural language, all authenticated with your existing GitHub account.\n- **Agentic capabilities:** Build, edit, debug, and refactor code with an AI collaborator that can plan and execute complex tasks.\n- **MCP-powered extensibility:** Take advantage of the fact that the coding agent ships with GitHub's MCP server by default and supports custom MCP servers to extend capabilities.\n- **Full control:** Preview every action before execution — nothing happens without your explicit approval.\n\nWe're still early in our journey, but with your feedback, we're rapidly iterating to make the GitHub Copilot CLI the best possible companion in your terminal.\n\n## 📦 Getting Started\n\n### Supported Platforms\n\n- **Linux**\n- **macOS**\n- **Windows**\n\n### Prerequisites\n\n- (On Windows) **PowerShell** v6 or higher\n- An **active Copilot subscription**. See [Copilot plans](https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=install-copilot-cli&ref_page=docs).\n\nIf you have access to GitHub Copilot via your organization or enterprise, you cannot use GitHub Copilot CLI if your organization owner or enterprise administrator has disabled it in the organization or enterprise settings. See [Managing policies and features for GitHub Copilot in your organization](http://docs.github.com/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization) for more information.\n\n### Installation\n\nInstall with [WinGet](https://github.com/microsoft/winget-cli) (Windows):\n\n```bash\nwinget install GitHub.Copilot\n```\n\n```bash\nwinget install GitHub.Copilot.Prerelease\n```\n\nInstall with [Homebrew](https://formulae.brew.sh/cask/copilot-cli) (macOS and Linux):\n\n```bash\nbrew install copilot-cli\n```\n\n```bash\nbrew install copilot-cli@prerelease\n```\n\nInstall with [npm](https://www.npmjs.com/package/@github/copilot) (macOS, Linux, and Windows):\n\n```bash\nnpm install -g @github/copilot\n```\n\n```bash\nnpm install -g @github/copilot@prerelease\n```\n\nInstall with the install script (macOS and Linux):\n\n```bash\ncurl -fsSL https://gh.io/copilot-install | bash\n```\n\nOr\n\n```bash\nwget -qO- https://gh.io/copilot-install | bash\n```\n\nUse `| sudo bash` to run as root and install to `/usr/local/bin`.\n\nSet `PREFIX` to install to `$PREFIX/bin/` directory. Defaults to `/usr/local`\nwhen run as root or `$HOME/.local` when run as a non-root user.\n\nSet `VERSION` to install a specific version. Defaults to the latest version.\n\nFor example, to install version `v0.0.369` to a custom directory:\n\n```bash\ncurl -fsSL https://gh.io/copilot-install | VERSION=\"v0.0.369\" PREFIX=\"$HOME/custom\" bash\n```\n\n### Launching the CLI\n\n```bash\ncopilot\n```\n\nOn first launch, you'll be greeted with our adorable animated banner! If you'd like to see this banner again, launch `copilot` with the `--banner` flag.\n\nIf you're not currently logged in to GitHub, you'll be prompted to use the `/login` slash command. Enter this command and follow the on-screen instructions to authenticate.\n\n#### Authenticate with a Personal Access Token (PAT)\n\nYou can also authenticate using a fine-grained PAT with the \"Copilot Requests\" permission enabled.\n\n1. Visit https://github.com/settings/personal-access-tokens/new\n2. Under \"Permissions,\" click \"add permissions\" and select \"Copilot Requests\"\n3. Generate your token\n4. Add the token to your environment via the environment variable `GH_TOKEN` or `GITHUB_TOKEN` (in order of precedence)\n\n### Using the CLI\n\nLaunch `copilot` in a folder that contains code you want to work with.\n\nBy default, `copilot` utilizes Claude Sonnet 4.5. Run the `/model` slash command to choose from other available models, including Claude Sonnet 4 and GPT-5.\n\nEach time you submit a prompt to GitHub Copilot CLI, your monthly quota of premium requests is reduced by one. For information about premium requests, see [About premium requests](https://docs.github.com/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).\n\nFor more information about how to use the GitHub Copilot CLI, see [our official documentation](https://docs.github.com/copilot/concepts/agents/about-copilot-cli).\n\n## 📢 Feedback and Participation\n\nWe're excited to have you join us early in the Copilot CLI journey.\n\nThis is an early-stage preview, and we're building quickly. Expect frequent updates--please keep your client up to date for the latest features and fixes!\n\nYour insights are invaluable! Open issue in this repo, join Discussions, and run `/feedback` from the CLI to submit a confidential feedback survey!\n\n\n## Help Command Output\nGlobal shortcuts\n  @ - mention files, include contents in context\n  ctrl+x → / - run command (press ctrl+x, then /)\n  Esc - cancel the current operation\n  ! - execute command in your local shell (bypass Copilot)\n  ctrl+c - cancel operation / clear input / exit\n  ctrl+d - shutdown\n  ctrl+l - clear the screen\n\nTimeline shortcuts\n  ctrl+o - expand recent timeline (when no input)\n  ctrl+e - expand all timeline (when no input)\n\nMotion shortcuts\n  ctrl+a - move to beginning of line (when typing)\n  ctrl+e - move to end of line (when typing)\n  ctrl+h - delete previous character\n  ctrl+w - delete previous word\n  ctrl+u - delete from cursor to beginning of line\n  ctrl+k - delete from cursor to end of line\n  meta+←/→ - move cursor by word\n  ↑ / ↓ - navigate command history\n\nAvailable commands\n  /add-dir <directory> - Add a directory to the allowed list for file access\n  /agent - Browse and select from available agents (if any)\n  /allow-all, /yolo - Enable all permissions (tools, paths, and URLs)\n  /clear, /new - Clear the conversation history\n  /compact - Summarize conversation history to reduce context window usage\n  /context - Show context window token usage and visualization\n  /cwd, /cd [directory] - Change working directory or show current directory\n  /diff - Review the changes made in the current directory\n  /exit, /quit - Exit the CLI\n  /experimental [on|off] - Toggle or set experimental features\n  /share [file|gist] [path] - Share session to markdown file or GitHub gist\n  /feedback - Provide feedback about the CLI\n  /help - Show help for interactive commands\n  /init - Initialize Copilot instructions and agentic features for this repository\n  /list-dirs - Display all allowed directories for file access\n  /login - Log in to Copilot\n  /logout - Log out of Copilot\n  /mcp [show|add|edit|delete|disable|enable] [server-name] - Manage MCP server configuration\n  /model, /models [model] - Select AI model to use\n  /plan [prompt] - Create an implementation plan before coding\n  /plugin [marketplace|install|uninstall|update|list] [args...] - Manage plugins and plugin marketplaces\n  /rename <name> - Rename the current session (alias for /session rename)\n  /reset-allowed-tools - Reset the list of allowed tools\n  /resume [sessionId] - Switch to a different session (optionally specify session ID)\n  /review [prompt] - Run code review agent to analyze changes\n  /session [checkpoints [n]|files|plan|rename <name>] - Show session info and workspace summary. Use subcommands for details.\n  /skills [list|info|add|remove|reload] [args...] - Manage skills for enhanced capabilities\n  /terminal-setup - Configure terminal for multiline input support (shift+enter and ctrl+enter)\n  /theme [show|set|list] [auto|<theme-id>] - View or configure terminal theme\n  /usage - Display session usage metrics and statistics\n  /user [show|list|switch] - Manage GitHub user list\n\nCopilot respects instructions from these locations:\n  CLAUDE.md\n  GEMINI.md\n  AGENTS.md (in git root & cwd)\n  .github/instructions/**/*.instructions.md (in git root & cwd)\n  .github/copilot-instructions.md\n  $HOME/.copilot/copilot-instructions.md\n  COPILOT_CUSTOM_INSTRUCTIONS_DIRS (additional directories via env var)\n\nTo learn about what I can do\n  Ask me: \"What can you do?\"\n  Or visit: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli\n\n---\n\n**Note**: If the above documentation doesn't answer the user's request, you can fetch additional documentation from the official GitHub Docs for more information.\n\nUse the web_fetch tool to fetch https://docs.github.com/api/article/body?pathname=/en/copilot/how-tos/use-copilot-agents/use-copilot-cli\n\nYou can also follow hyperlinks to related docs pages using the same API pattern.\n````\n\n</details>\n\n\n---\n\n<sub>⏱️ 2m 58s</sub>\n\n### 💬 Copilot\n\nBased on the documentation, here are the ways to restart or exit/restart the Copilot CLI:\n\n**Exit and restart the CLI:**\n```bash\ncopilot\n```\nThen inside the CLI, use one of these commands:\n- `/exit` or `/quit` - Exit the CLI\n- `ctrl+d` - Shutdown (keyboard shortcut)\n\n**To restart in a fresh state:**\n1. Exit with `/exit` or `ctrl+d`\n2. Run `copilot` again to launch a new session\n\n**To clear conversation history and start fresh (without exiting):**\n```\n/clear\n```\nor\n```\n/new\n```\n\n**For additional context:**\n- `ctrl+l` clears the screen without exiting\n- `/session` shows session info and workspace summary\n\nThe simplest approach is just `ctrl+d` to exit, then run `copilot` again to restart fresh.\n\n---\n\n<sub>⏱️ 3m 49s</sub>\n\n### 👤 User\n\nHow do i restart after exiting Copilot CLI?\n\n---\n\n<sub>⏱️ 3m 53s</sub>\n\n### 💬 Copilot\n\nSimply run:\n\n```bash\ncopilot\n```\n\nThis will launch a new Copilot CLI session. You'll be back in the interactive CLI environment where you can start entering prompts and commands.\n\n---\n\n<sub>⏱️ 11m 50s</sub>\n\n### ℹ️ Info\n\nMCP configuration saved successfully! Changes will take effect immediately.\n\n---\n\n<sub>⏱️ 14m 50s</sub>\n\n### 👤 User\n\nclaude-haiku-4.5\n\n---\n\n<sub>⏱️ 14m 56s</sub>\n\n### 💬 Copilot\n\nAre you trying to switch to the **Claude Haiku 4.5** model in Copilot CLI?\n\nIf so, inside the CLI, run:\n\n```\n/model claude-haiku-4.5\n```\n\nOr simply:\n\n```\n/model\n```\n\nThis will show all available models and let you select one.\n\n**Note:** By default, Copilot CLI uses Claude Sonnet 4.5. Claude Haiku 4.5 is a lighter, faster model option that may be useful for simpler tasks.\n\n---\n\n<sub>⏱️ 17m 21s</sub>\n\n### 👤 User\n\nWhat's the default model and can I use a local Ollama model?/\n\n---\n\n<sub>⏱️ 17m 28s</sub>\n\n### 💬 Copilot\n\n**Default Model:**\nBy default, Copilot CLI uses **Claude Sonnet 4.5**.\n\n**Regarding Ollama:**\nThe documentation doesn't explicitly mention native Ollama support. However, Copilot CLI has **MCP (Model Context Protocol) server support** that could potentially allow integration with local models through custom MCP servers.\n\nYou can manage MCP servers with:\n```\n/mcp [show|add|edit|delete|disable|enable] [server-name]\n```\n\nFor Ollama specifically, you'd need to:\n1. Check if there's an existing MCP server wrapper for Ollama\n2. Configure it via the `/mcp` command\n\nAvailable models you can switch to:\n```\n/model\n```\n\nThis shows the officially supported models (Claude Sonnet 4.5, Claude Sonnet 4, GPT-5, etc.).\n\nFor the latest on Ollama/local model support, check the [official Copilot CLI documentation](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) or see if there are community MCP servers for Ollama integration.\n\n---\n\n<sub>⏱️ 18m 3s</sub>\n\n### 👤 User\n\nCan you Check if there's an existing MCP server wrapper for Ollama and Configure it via the /mcp command\n\n---\n\n<sub>⏱️ 18m 9s</sub>\n\n### 💬 Copilot\n\nI can help you find and configure an Ollama MCP server. Let me search for existing wrappers:\n\n---\n\n<sub>⏱️ 18m 27s</sub>\n\n### ✅ `bash`\n\n**Search for MCP server wrappers for Ollama**\n\n$ curl -s https://api.github.com/search/repositories?q=mcp+ollama+server&sort=stars | jq '.items[] | {name, url: .html_url, description}' | head -30\n\n```\n[1] 531084\n<exited with exit code 0>\n```\n\n\n---\n\n<sub>⏱️ 18m 20s</sub>\n\n### ✅ `web_fetch`\n\n<details>\n<summary>Arguments</summary>\n\n```json\n{\n  \"url\": \"https://github.com/modelcontextprotocol/servers\",\n  \"max_length\": 5000\n}\n```\n\n</details>\n\n<details>\n<summary>45 lines</summary>\n\n```\nContents of https://github.com/modelcontextprotocol/servers:\n## Model Context Protocol servers\n\n[](#model-context-protocol-servers)\n\nThis repository is a collection of _reference implementations_ for the [Model Context Protocol](https://modelcontextprotocol.io/) (MCP), as well as references to community-built servers and additional resources.\n\nImportant\n\nIf you are looking for a list of MCP servers, you can browse published servers on [the MCP Registry](https://registry.modelcontextprotocol.io/). The repository served by this README is dedicated to housing just the small number of reference servers maintained by the MCP steering group.\n\nWarning\n\nThe servers in this repository are intended as **reference implementations** to demonstrate MCP features and SDK usage. They are meant to serve as educational examples for developers building their own MCP servers, not as production-ready solutions. Developers should evaluate their own security requirements and implement appropriate safeguards based on their specific threat model and use case.\n\nThe servers in this repository showcase the versatility and extensibility of MCP, demonstrating how it can be used to give Large Language Models (LLMs) secure, controlled access to tools and data sources. Typically, each MCP server is implemented with an MCP SDK:\n\n*   [C# MCP SDK](https://github.com/modelcontextprotocol/csharp-sdk)\n*   [Go MCP SDK](https://github.com/modelcontextprotocol/go-sdk)\n*   [Java MCP SDK](https://github.com/modelcontextprotocol/java-sdk)\n*   [Kotlin MCP SDK](https://github.com/modelcontextprotocol/kotlin-sdk)\n*   [PHP MCP SDK](https://github.com/modelcontextprotocol/php-sdk)\n*   [Python MCP SDK](https://github.com/modelcontextprotocol/python-sdk)\n*   [Ruby MCP SDK](https://github.com/modelcontextprotocol/ruby-sdk)\n*   [Rust MCP SDK](https://github.com/modelcontextprotocol/rust-sdk)\n*   [Swift MCP SDK](https://github.com/modelcontextprotocol/swift-sdk)\n*   [TypeScript MCP SDK](https://github.com/modelcontextprotocol/typescript-sdk)\n\n## 🌟 Reference Servers\n\n[](#-reference-servers)\n\nThese servers aim to demonstrate MCP features and the official SDKs.\n\n*   **[Everything](/modelcontextprotocol/servers/blob/main/src/everything)** - Reference / test server with prompts, resources, and tools.\n*   **[Fetch](/modelcontextprotocol/servers/blob/main/src/fetch)** - Web content fetching and conversion for efficient LLM usage.\n*   **[Filesystem](/modelcontextprotocol/servers/blob/main/src/filesystem)** - Secure file operations with configurable access controls.\n*   **[Git](/modelcontextprotocol/servers/blob/main/src/git)** - Tools to read, search, and manipulate Git repositories.\n*   **[Memory](/modelcontextprotocol/servers/blob/main/src/memory)** - Knowledge graph-based persistent memory system.\n*   **[Sequential Thinking](/modelcontextprotocol/servers/blob/main/src/sequentialthinking)** - Dynamic and reflective problem-solving through thought sequences.\n*   **[Time](/modelcontextprotocol/servers/blob/main/src/time)** - Time and timezone conversion capabilities.\n\n### Archived\n\n[](#archived)\n\nThe following reference servers are now archived and can be found at [servers-archived](https://github.com/modelcontextprotocol/servers-archived).\n\n*   **[AWS KB Retrieval](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/aws-kb-retrieval-server)** - Retrieval from AWS Knowledge Base using Bedrock Agent Runtime.\n*   **[Brave Search](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/brave-search)** - Web and local search using Brave's Search API. Has been replaced by the [official server](https://github.com/brave/brave-search-mcp-server).\n*   **[EverArt](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/everart)** - AI image generation using various models.\n*   **[GitHub](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/github)** - Repository management, file operations, and GitHub API integration.\n*   **[GitLab](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/gitlab)** - GitLab API, enabling project management.\n*   **[Google Drive](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/gdrive)** - File access and search capabilities for Google Drive.\n*   **[Google Maps](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/google-maps)** - Location services, directions, and place details.\n*   **[PostgreSQL](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/postgres)** - Read-only database access with schema inspection.\n*   **[Puppeteer](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/puppeteer)** - Browser automation and web scraping.\n*   **[Redis](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/redis)** - Interact with Redis key-value stores.\n*   **[Sentry](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/sentry)** - Retrieving and analyzing issues from Sentry.io.\n*   **[Slack](https://github.com/modelcontex\n\n<note>Content truncated. Call the fetch tool with a start_index of 5000 to get more content.</note>\n```\n\n</details>\n\n\n---\n\n<sub>⏱️ 18m 30s</sub>\n\n### 💬 Copilot\n\nLet me search the MCP Registry specifically for Ollama:\n\n---\n\n<sub>⏱️ 18m 38s</sub>\n\n### ✅ `web_fetch`\n\n<details>\n<summary>Arguments</summary>\n\n```json\n{\n  \"max_length\": 10000,\n  \"url\": \"https://registry.modelcontextprotocol.io/\"\n}\n```\n\n</details>\n\n```\nContents of https://registry.modelcontextprotocol.io/:\n### API Base URL\n\nProduction (registry.modelcontextprotocol.io) Staging (staging.registry.modelcontextprotocol.io) Local (localhost:8080) Custom\n```\n\n\n---\n\n<sub>⏱️ 18m 42s</sub>\n\n### 💬 Copilot\n\nLet me search GitHub for Ollama MCP servers:\n\n---\n\n<sub>⏱️ 18m 49s</sub>\n\n### ✅ `bash`\n\n**Search for Ollama MCP servers on GitHub**\n\n$ curl -s \"https://api.github.com/search/repositories?q=ollama+mcp+server&per_page=10\" | jq '.items[] | {name, url: .html_url, stars: .stargazers_count, description}' 2>/dev/null\n\n<details>\n<summary>61 lines</summary>\n\n```\n{\n  \"name\": \"pal-mcp-server\",\n  \"url\": \"https://github.com/BeehiveInnovations/pal-mcp-server\",\n  \"stars\": 11005,\n  \"description\": \"The power of Claude Code / GeminiCLI / CodexCLI + [Gemini / OpenAI / OpenRouter / Azure / Grok / Ollama / Custom Model / All Of The Above] working as one.\"\n}\n{\n  \"name\": \"ollama-mcp-bridge\",\n  \"url\": \"https://github.com/patruff/ollama-mcp-bridge\",\n  \"stars\": 962,\n  \"description\": \"Bridge between Ollama and MCP servers, enabling local LLMs to use Model Context Protocol tools\"\n}\n{\n  \"name\": \"mcp-client-for-ollama\",\n  \"url\": \"https://github.com/jonigl/mcp-client-for-ollama\",\n  \"stars\": 524,\n  \"description\": \"A text-based user interface (TUI) client for interacting with MCP servers using Ollama. Features include agent mode, multi-server, model switching, streaming responses, tool management, human-in-the-loop, thinking mode, model params config, MCP prompts, custom system prompt and saved preferences. Built for developers working with local LLMs.\"\n}\n{\n  \"name\": \"deep-research\",\n  \"url\": \"https://github.com/u14app/deep-research\",\n  \"stars\": 4373,\n  \"description\": \"Use any LLMs (Large Language Models) for Deep Research. Support SSE API and MCP server.\"\n}\n{\n  \"name\": \"ollama-mcp\",\n  \"url\": \"https://github.com/rawveg/ollama-mcp\",\n  \"stars\": 133,\n  \"description\": \"An MCP Server for Ollama\"\n}\n{\n  \"name\": \"mcp-server\",\n  \"url\": \"https://github.com/strands-agents/mcp-server\",\n  \"stars\": 256,\n  \"description\": \"This MCP server provides documentation about Strands Agents to your GenAI tools, so you can use your favorite AI coding assistant to vibe-code Strands Agents.\"\n}\n{\n  \"name\": \"burp-mcp-agents\",\n  \"url\": \"https://github.com/six2dez/burp-mcp-agents\",\n  \"stars\": 177,\n  \"description\": \"Practical setup guides and helpers to connect Burp Suite MCP Server to multiple AI backends (Codex, Gemini, Ollama, ...).\"\n}\n{\n  \"name\": \"ollama-mcp-bridge\",\n  \"url\": \"https://github.com/jonigl/ollama-mcp-bridge\",\n  \"stars\": 56,\n  \"description\": \"Extend the Ollama API with dynamic AI tool integration from multiple MCP (Model Context Protocol) servers. Fully compatible, transparent, and developer-friendly, ideal for building powerful local LLM applications, AI agents, and custom chatbots\"\n}\n{\n  \"name\": \"just-prompt\",\n  \"url\": \"https://github.com/disler/just-prompt\",\n  \"stars\": 705,\n  \"description\": \"just-prompt is an MCP server that provides a unified interface to top LLM providers (OpenAI, Anthropic, Google Gemini, Groq, DeepSeek, and Ollama)\"\n}\n{\n  \"name\": \"mcp-ollama-agent\",\n  \"url\": \"https://github.com/ausboss/mcp-ollama-agent\",\n  \"stars\": 27,\n  \"description\": \"A TypeScript example showcasing the integration of Ollama with the Model Context Protocol (MCP) servers. This project provides an interactive command-line interface for an AI agent that can utilize the tools from multiple MCP Servers..\"\n}\n<exited with exit code 0>\n```\n\n</details>\n\n\n---\n\n<sub>⏱️ 18m 55s</sub>\n\n### 💬 Copilot\n\nGreat! I found several options. Here are the best Ollama MCP servers:\n\n**Top Options:**\n\n1. **ollama-mcp** (133 stars)\n   - Direct MCP Server for Ollama\n   - GitHub: https://github.com/rawveg/ollama-mcp\n\n2. **ollama-mcp-bridge** (962 stars)\n   - Bridge between Ollama and MCP servers\n   - GitHub: https://github.com/patruff/ollama-mcp-bridge\n\n3. **pal-mcp-server** (11K stars)\n   - Supports Ollama + many other providers\n   - GitHub: https://github.com/BeehiveInnovations/pal-mcp-server\n\n**To Configure in Copilot CLI:**\n\nOnce you install one, inside the Copilot CLI session, run:\n\n```\n/mcp add ollama-mcp\n```\n\nThen configure it with:\n\n```\n/mcp edit ollama-mcp\n```\n\nOr view existing MCP servers:\n\n```\n/mcp show\n```\n\n**Quick Setup:**\nYou'd need to:\n1. Clone or install one of these MCP servers\n2. Run it locally (usually on localhost:3000 or similar)\n3. Add it to Copilot CLI via `/mcp add` with the server URL\n\nCheck the repository README for specific installation and configuration instructions. The **ollama-mcp** or **ollama-mcp-bridge** are probably the simplest for direct Ollama integration.\n\n---\n\n<sub>⏱️ 23m 54s</sub>\n\n### 👤 User\n\nShow me how to use Copilot Cli on my Arch-Linux PC Explain the Basics and Advanced Options available to me?\n\n---\n\n<sub>⏱️ 23m 58s</sub>\n\n### ✅ `fetch_copilot_cli_documentation`\n\n<details>\n<summary>Arguments</summary>\n\n```json\n{}\n```\n\n</details>\n\n<details>\n<summary>191 lines</summary>\n\n````\n# GitHub Copilot CLI Documentation\n\n## README\n# GitHub Copilot CLI (Public Preview)\n\nThe power of GitHub Copilot, now in your terminal.\n\nGitHub Copilot CLI brings AI-powered coding assistance directly to your command line, enabling you to build, debug, and understand code through natural language conversations. Powered by the same agentic harness as GitHub's Copilot coding agent, it provides intelligent assistance while staying deeply integrated with your GitHub workflow.\n\nSee [our official documentation](https://docs.github.com/copilot/concepts/agents/about-copilot-cli) for more information.\n\n![Image of the splash screen for the Copilot CLI](https://github.com/user-attachments/assets/f40aa23d-09dd-499e-9457-1d57d3368887)\n\n\n## 🚀 Introduction and Overview\n\nWe're bringing the power of GitHub Copilot coding agent directly to your terminal. With GitHub Copilot CLI, you can work locally and synchronously with an AI agent that understands your code and GitHub context.\n\n- **Terminal-native development:** Work with Copilot coding agent directly in your command line — no context switching required.\n- **GitHub integration out of the box:** Access your repositories, issues, and pull requests using natural language, all authenticated with your existing GitHub account.\n- **Agentic capabilities:** Build, edit, debug, and refactor code with an AI collaborator that can plan and execute complex tasks.\n- **MCP-powered extensibility:** Take advantage of the fact that the coding agent ships with GitHub's MCP server by default and supports custom MCP servers to extend capabilities.\n- **Full control:** Preview every action before execution — nothing happens without your explicit approval.\n\nWe're still early in our journey, but with your feedback, we're rapidly iterating to make the GitHub Copilot CLI the best possible companion in your terminal.\n\n## 📦 Getting Started\n\n### Supported Platforms\n\n- **Linux**\n- **macOS**\n- **Windows**\n\n### Prerequisites\n\n- (On Windows) **PowerShell** v6 or higher\n- An **active Copilot subscription**. See [Copilot plans](https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=install-copilot-cli&ref_page=docs).\n\nIf you have access to GitHub Copilot via your organization or enterprise, you cannot use GitHub Copilot CLI if your organization owner or enterprise administrator has disabled it in the organization or enterprise settings. See [Managing policies and features for GitHub Copilot in your organization](http://docs.github.com/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization) for more information.\n\n### Installation\n\nInstall with [WinGet](https://github.com/microsoft/winget-cli) (Windows):\n\n```bash\nwinget install GitHub.Copilot\n```\n\n```bash\nwinget install GitHub.Copilot.Prerelease\n```\n\nInstall with [Homebrew](https://formulae.brew.sh/cask/copilot-cli) (macOS and Linux):\n\n```bash\nbrew install copilot-cli\n```\n\n```bash\nbrew install copilot-cli@prerelease\n```\n\nInstall with [npm](https://www.npmjs.com/package/@github/copilot) (macOS, Linux, and Windows):\n\n```bash\nnpm install -g @github/copilot\n```\n\n```bash\nnpm install -g @github/copilot@prerelease\n```\n\nInstall with the install script (macOS and Linux):\n\n```bash\ncurl -fsSL https://gh.io/copilot-install | bash\n```\n\nOr\n\n```bash\nwget -qO- https://gh.io/copilot-install | bash\n```\n\nUse `| sudo bash` to run as root and install to `/usr/local/bin`.\n\nSet `PREFIX` to install to `$PREFIX/bin/` directory. Defaults to `/usr/local`\nwhen run as root or `$HOME/.local` when run as a non-root user.\n\nSet `VERSION` to install a specific version. Defaults to the latest version.\n\nFor example, to install version `v0.0.369` to a custom directory:\n\n```bash\ncurl -fsSL https://gh.io/copilot-install | VERSION=\"v0.0.369\" PREFIX=\"$HOME/custom\" bash\n```\n\n### Launching the CLI\n\n```bash\ncopilot\n```\n\nOn first launch, you'll be greeted with our adorable animated banner! If you'd like to see this banner again, launch `copilot` with the `--banner` flag.\n\nIf you're not currently logged in to GitHub, you'll be prompted to use the `/login` slash command. Enter this command and follow the on-screen instructions to authenticate.\n\n#### Authenticate with a Personal Access Token (PAT)\n\nYou can also authenticate using a fine-grained PAT with the \"Copilot Requests\" permission enabled.\n\n1. Visit https://github.com/settings/personal-access-tokens/new\n2. Under \"Permissions,\" click \"add permissions\" and select \"Copilot Requests\"\n3. Generate your token\n4. Add the token to your environment via the environment variable `GH_TOKEN` or `GITHUB_TOKEN` (in order of precedence)\n\n### Using the CLI\n\nLaunch `copilot` in a folder that contains code you want to work with.\n\nBy default, `copilot` utilizes Claude Sonnet 4.5. Run the `/model` slash command to choose from other available models, including Claude Sonnet 4 and GPT-5.\n\n### Experimental Mode\n\nExperimental mode enables access to new features that are still in development. You can activate experimental mode by:\n\n- Launching with the `--experimental` flag: `copilot --experimental`\n- Using the `/experimental` slash command from within the CLI\n\nOnce activated, the setting is persisted in your config, so the `--experimental` flag is no longer needed on subsequent launches.\n\n#### Experimental Features\n\n- **Autopilot mode:** Autopilot is a new mode (press `Shift+Tab` to cycle through modes), which encourages the agent to continue working until a task is completed.\n\nEach time you submit a prompt to GitHub Copilot CLI, your monthly quota of premium requests is reduced by one. For information about premium requests, see [About premium requests](https://docs.github.com/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).\n\nFor more information about how to use the GitHub Copilot CLI, see [our official documentation](https://docs.github.com/copilot/concepts/agents/about-copilot-cli).\n\n## 🔧 Configuring LSP Servers\n\nGitHub Copilot CLI supports Language Server Protocol (LSP) for enhanced code intelligence. This feature provides intelligent code features like go-to-definition, hover information, and diagnostics.\n\n### Installing Language Servers\n\nCopilot CLI does not bundle LSP servers. You need to install them separately. For example, to set up TypeScript support:\n\n```bash\nnpm install -g typescript-language-server\n```\n\nFor other languages, install the corresponding LSP server and configure it following the same pattern shown below.\n\n### Configuring LSP Servers\n\nLSP servers are configured through a dedicated LSP configuration file. You can configure LSP servers at the user level or repository level:\n\n**User-level configuration** (applies to all projects):\nEdit `~/.copilot/lsp-config.json`\n\n**Repository-level configuration** (applies to specific project):\nCreate `.github/lsp.json` in your repository root\n\nExample configuration:\n\n```json\n{\n  \"lspServers\": {\n    \"typescript\": {\n      \"command\": \"typescript-language-server\",\n      \"args\": [\"--stdio\"],\n      \"fileExtensions\": {\n        \".ts\": \"typescript\",\n        \".tsx\": \"typescript\"\n      }\n    }\n  }\n}\n```\n\n### Viewing LSP Server Status\n\nCheck configured LSP servers using the `/lsp` command in an interactive session, or view your configuration files directly.\n\nFor more information, see the [changelog](./changelog.md).\n\n## 📢 Feedback and Participation\n\nWe're excited to have you join us early in the Copilot CLI journey.\n\nThis is an early-stage preview, and we're building quickly. Expect frequent updates--please keep your client up to date for the latest features and fixes!\n\nYour insights are invaluable! Open issue in this repo, join Discussions, and run `/feedback` from the CLI to submit a confidential feedback survey!\n\n\n## Help Command Output\nGlobal shortcuts\n  @ - mention files, include contents in context\n  ctrl+x → / - run command (press ctrl+x, then /)\n  Esc - cancel the current operation\n  ! - execute command in your local shell (bypass Copilot)\n  ctrl+c - cancel operation / clear input / exit\n  ctrl+d - shutdown\n  ctrl+l - clear the screen\n\nTimeline shortcuts\n  ctrl+o - expand recent timeline (when no input)\n  ctrl+e - expand all timeline (when no input)\n  ctrl+t - toggle model reasoning display\n\nMotion shortcuts\n  ctrl+a - move to beginning of line (when typing)\n  ctrl+e - move to end of line (when typing)\n  ctrl+h - delete previous character\n  ctrl+w - delete previous word\n  ctrl+u - delete from cursor to beginning of line\n  ctrl+k - delete from cursor to end of line\n  meta+←/→ - move cursor by word\n  ↑ / ↓ - navigate command history\n\nAvailable commands\n  /add-dir <directory> - Add a directory to the allowed list for file access\n  /agent - Browse and select from available agents (if any)\n  /allow-all, /yolo - Enable all permissions (tools, paths, and URLs)\n  /clear, /new - Clear the conversation history\n  /compact - Summarize conversation history to reduce context window usage\n  /context - Show context window token usage and visualization\n  /cwd, /cd [directory] - Change working directory or show current directory\n  /diff - Review the changes made in the current directory\n  /exit, /quit - Exit the CLI\n  /experimental [on|off] - Toggle or set experimental features\n  /share [file|gist] [path] - Share session to markdown file or GitHub gist\n  /feedback - Provide feedback about the CLI\n  /help - Show help for interactive commands\n  /init - Initialize Copilot instructions and agentic features for this repository\n  /list-dirs - Display all allowed directories for file access\n  /login - Log in to Copilot\n  /logout - Log out of Copilot\n  /mcp [show|add|edit|delete|disable|enable] [server-name] - Manage MCP server configuration\n  /model, /models [model] - Select AI model to use\n  /plan [prompt] - Create an implementation plan before coding\n  /plugin [marketplace|install|uninstall|update|list] [args...] - Manage plugins and plugin marketplaces\n  /rename <name> - Rename the current session (alias for /session rename)\n  /reset-allowed-tools - Reset the list of allowed tools\n  /resume [sessionId] - Switch to a different session (optionally specify session ID)\n  /review [prompt] - Run code review agent to analyze changes\n  /session [checkpoints [n]|files|plan|rename <name>] - Show session info and workspace summary. Use subcommands for details.\n  /skills [list|info|add|remove|reload] [args...] - Manage skills for enhanced capabilities\n  /terminal-setup - Configure terminal for multiline input support (shift+enter and ctrl+enter)\n  /theme [show|set|list] [auto|<theme-id>] - View or configure terminal theme\n  /usage - Display session usage metrics and statistics\n  /user [show|list|switch] - Manage GitHub user list\n\nCopilot respects instructions from these locations:\n  CLAUDE.md\n  GEMINI.md\n  AGENTS.md (in git root & cwd)\n  .github/instructions/**/*.instructions.md (in git root & cwd)\n  .github/copilot-instructions.md\n  $HOME/.copilot/copilot-instructions.md\n  COPILOT_CUSTOM_INSTRUCTIONS_DIRS (additional directories via env var)\n\nTo learn about what I can do\n  Ask me: \"What can you do?\"\n  Or visit: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli\n\n---\n\n**Note**: If the above documentation doesn't answer the user's request, you can fetch additional documentation from the official GitHub Docs for more information.\n\nUse the web_fetch tool to fetch https://docs.github.com/api/article/body?pathname=/en/copilot/how-tos/use-copilot-agents/use-copilot-cli\n\nYou can also follow hyperlinks to related docs pages using the same API pattern.\n````\n\n</details>\n\n\n---\n\n<sub>⏱️ 24m 15s</sub>\n\n### 💬 Copilot\n\n# Copilot CLI Guide for Arch Linux\n\n## **BASICS**\n\n### 1. **Installation on Arch Linux**\n\n**Option A: Using Homebrew**\n```bash\nbrew install copilot-cli\n```\n\n**Option B: Using npm**\n```bash\nnpm install -g @github/copilot\n```\n\n**Option C: Using install script (recommended)**\n```bash\ncurl -fsSL https://gh.io/copilot-install | bash\n```\n\nInstall to a custom location:\n```bash\ncurl -fsSL https://gh.io/copilot-install | PREFIX=\"$HOME/.local\" bash\n```\n\n### 2. **Launch Copilot CLI**\n```bash\ncopilot\n```\n\n### 3. **Authentication**\n\n**Option A: Interactive login**\n```\n/login\n```\n(Copilot will guide you through GitHub OAuth)\n\n**Option B: Using Personal Access Token (PAT)**\n1. Visit: https://github.com/settings/personal-access-tokens/new\n2. Enable \"Copilot Requests\" permission\n3. Set environment variable:\n```bash\nexport GITHUB_TOKEN=\"your_token_here\"\n# or\nexport GH_TOKEN=\"your_token_here\"\n```\n\n### 4. **Basic Workflow**\n\n```bash\ncd /path/to/your/project\ncopilot\n# Type your prompt\n# Example: \"help me fix this bug in main.rs\"\n```\n\n---\n\n## **KEYBOARD SHORTCUTS (Essential)**\n\n| Shortcut | Action |\n|----------|--------|\n| `Esc` | Cancel operation |\n| `ctrl+c` | Clear input / exit |\n| `ctrl+d` | Shutdown CLI |\n| `ctrl+l` | Clear screen |\n| `ctrl+a` / `ctrl+e` | Move to start/end of line |\n| `ctrl+w` | Delete previous word |\n| `ctrl+u` | Delete from cursor to beginning |\n| `ctrl+k` | Delete from cursor to end |\n| `↑` / `↓` | Navigate command history |\n| `meta+←` / `meta+→` | Move cursor by word |\n| `ctrl+o` | Expand recent timeline |\n| `ctrl+e` | Expand all timeline |\n| `Shift+Tab` | Cycle through modes (autopilot) |\n\n---\n\n## **ADVANCED OPTIONS & COMMANDS**\n\n### **Model Selection**\n```\n/model\n```\n- **Default:** Claude Sonnet 4.5\n- **Options:** Claude Sonnet 4, GPT-5, Claude Haiku 4.5\n- Set specific model: `/model claude-haiku-4.5`\n\n### **Planning & Agentic Tasks**\n```\n/plan \"your task description\"\n```\nCreates an implementation plan before coding.\n\n```\n/review \"optional prompt\"\n```\nRuns code review agent to analyze changes.\n\n### **File & Directory Management**\n```\n/add-dir /path/to/directory\n```\nAdd directory to allowed file access list.\n\n```\n/list-dirs\n```\nShow all allowed directories.\n\n```\n@ filename\n```\nMention files and include their contents in context.\n\n### **GitHub Integration**\n```\n/diff\n```\nReview changes made in current directory.\n\n### **Session Management**\n```\n/session\n```\nShow session info and workspace summary.\n\n```\n/session checkpoints [n]\n```\nShow last n checkpoints.\n\n```\n/session rename \"new name\"\n```\nOr use: `/rename \"new name\"`\n\n```\n/resume [sessionId]\n```\nSwitch to a different session.\n\n### **Working Directory**\n```\n/cwd\n```\nShow current working directory.\n\n```\n/cd /path/to/directory\n```\nChange working directory.\n\n### **Experimental Features**\n```\n/experimental on\n```\nEnable experimental features (autopilot mode).\n\n```\ncopilot --experimental\n```\nLaunch with experimental mode enabled.\n\n### **MCP (Model Context Protocol) Servers**\n```\n/mcp show\n```\nView all MCP servers.\n\n```\n/mcp add ollama-mcp\n```\nAdd custom MCP server (e.g., Ollama).\n\n```\n/mcp edit server-name\n```\nEdit MCP server configuration.\n\n```\n/mcp disable server-name\n```\nTemporarily disable server.\n\n### **Custom Instructions & Skills**\n```\n/init\n```\nInitialize Copilot instructions for repository.\n\n```\n/skills list\n```\nList available skills.\n\n```\n/skills add skill-name\n```\nAdd new skill.\n\n### **Context & Usage**\n```\n/context\n```\nShow token usage and context window visualization.\n\n```\n/usage\n```\nDisplay session usage metrics.\n\n```\n/compact\n```\nSummarize conversation history to reduce context usage.\n\n### **Sharing & Feedback**\n```\n/share file\n```\nShare session to markdown file.\n\n```\n/share gist path\n```\nShare to GitHub gist.\n\n```\n/feedback\n```\nSubmit confidential feedback.\n\n### **Terminal & Theme**\n```\n/terminal-setup\n```\nConfigure multiline input support (Shift+Enter, Ctrl+Enter).\n\n```\n/theme set auto\n```\nSet automatic theme.\n\n```\n/theme list\n```\nView available themes.\n\n### **Other Utilities**\n```\n/clear\n```\nClear conversation history.\n\n```\n/help\n```\nShow help for interactive commands.\n\n```\n/logout\n```\nLog out from GitHub.\n\n---\n\n## **EXPERT TIPS FOR ARCH LINUX**\n\n1. **Keep it updated:**\n   ```bash\n   brew upgrade copilot-cli  # if using Homebrew\n   npm update -g @github/copilot  # if using npm\n   ```\n\n2. **Add shell alias for quick access:**\n   ```bash\n   echo 'alias ai=\"copilot\"' \\>\\> ~/.bashrc\n   # Then: ai\n   ```\n\n3. **Use with `! ` to bypass Copilot:**\n   ```\n   ! ls -la\n   ```\n   Runs shell command directly without Copilot's AI processing.\n\n4. **Configure custom instructions:**\n   Create `~/.copilot/copilot-instructions.md` for persistent instructions across all projects.\n\n5. **Set up LSP for enhanced code intelligence:**\n   ```bash\n   npm install -g typescript-language-server\n   ```\n   Edit `~/.copilot/lsp-config.json` to configure.\n\n6. **Enable all permissions for testing:**\n   ```\n   /allow-all\n   ```\n   or `/yolo`\n\n---\n\n## **COMMON WORKFLOWS**\n\n### **Debugging Code**\n```\nI'm getting this error: [paste error]\nHelp me fix it in my Rust/Python/JavaScript code\n```\n\n### **Code Review**\n```\n/review\nPlease check my recent changes for bugs\n```\n\n### **Building Features**\n```\n/plan Create a user authentication system with JWT tokens\n```\nThen follow the plan it generates.\n\n### **Learning**\n```\nExplain how this code works [use @ to include files]\nWhat are best practices for [topic]?\n```\n\nThat's Copilot CLI in action! Start with simple prompts and gradually explore advanced features. 🚀\n\n---\n\n<sub>⏱️ 25m 51s</sub>\n\n### 👤 User\n\nhow do I copy this session?\n\n---\n\n<sub>⏱️ 25m 58s</sub>\n\n### 💬 Copilot\n\nTo **copy/share your Copilot CLI session**, use:\n\n**Option 1: Export to Markdown file**\n```\n/share file\n```\nCreates a markdown file with your session conversation.\n\n**Option 2: Share to GitHub Gist**\n```\n/share gist\n```\nUploads your session to a GitHub gist (requires GitHub authentication).\n\n**Option 3: View session info**\n```\n/session\n```\nShows session ID and workspace summary.\n\n**Option 4: Get session ID for later**\n```\n/session files\n```\nShows all files in current session.\n\n**Then resume the session later:**\n```\n/resume [sessionId]\n```\n\nOr simply type the session ID to switch back to it.\n\n**To rename current session:**\n```\n/rename \"My Project Session\"\n```\n\nMost useful: use `/share file` to save the entire conversation and context to a file you can review or share with others.\n\n---\n\n<sub>⏱️ 27m 6s</sub>\n\n### 👤 User\n\nOkay, but for instance. What is the name of this current sessionn?\n\n---\n\n<sub>⏱️ 27m 12s</sub>\n\n### 💬 Copilot\n\nTo see your current Copilot CLI session name/ID, run this **inside the CLI**:\n\n```\n/session\n```\n\nThis will display:\n- Session ID\n- Session name (if you've renamed it)\n- Workspace summary\n- Checkpoint info\n\nYou can also use:\n```\n/rename \"Your Custom Name\"\n```\n\nTo give it a memorable name (instead of the auto-generated UUID).\n\nIf you want to check from the command line without entering Copilot, the session folder is at:\n```bash\nls -la ~/.copilot/session-state/\n```\n\nEach folder there is a session ID.\n\n---\n\n<sub>Generated by [GitHub Copilot CLI](https://github.com/features/copilot/cli)</sub>\n"
+}

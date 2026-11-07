@@ -1,0 +1,49 @@
+{
+  "slug": "diy-sample3-tutorial",
+  "filePath": "DIY_Sample3_tutorial.md",
+  "title": "OUTPUT",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Title: DIY Sample3 Tutorial\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: DIY_Sample3_tutorial.md\nCopyright: © 2026-2027…",
+  "headings": [
+    {
+      "level": 3,
+      "text": "OUTPUT",
+      "slug": "output"
+    },
+    {
+      "level": 4,
+      "text": "PARTITIONING A HARD DRIVE USING CFDISK DISK UTILITY ON ARCH-LINUX",
+      "slug": "partitioning-a-hard-drive-using-cfdisk-disk-utility-on-arch-linux"
+    },
+    {
+      "level": 4,
+      "text": "REQUIRED DEPENDENCIES",
+      "slug": "required-dependencies"
+    },
+    {
+      "level": 4,
+      "text": "INSTALLATION COMMANDS",
+      "slug": "installation-commands"
+    },
+    {
+      "level": 4,
+      "text": "ESTIMATED TIME",
+      "slug": "estimated-time"
+    },
+    {
+      "level": 4,
+      "text": "SKILL LEVEL",
+      "slug": "skill-level"
+    },
+    {
+      "level": 3,
+      "text": "EXAMPLE",
+      "slug": "example"
+    }
+  ],
+  "readingTime": 3,
+  "content": "**Title:** DIY Sample3 Tutorial\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** DIY_Sample3_tutorial.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n**IDENTITY AND PURPOSE**\n\nAs an AI assistant, my role in completing this DIY tutorial is to guide\nusers through the process of partitioning a hard drive using cfdisk Disk\nUtility on Arch-Linux. I will provide step-by-step instructions, format\nthe output clearly, and include examples from the prompt to ensure\naccessibility.\n\n**STEP-SIZE-INSTRUCTIONS**\n\n1. **Install required dependencies**: Install the cfdisk package manager\n(pacman) and Disk Utility (cfdisk) on your Arch-Linux system.\n```\nsudo pacman -S cfdisk\n```\n\n2. **Configure system settings**: Update your system's time and date,\nand set your locale to 'en_US.UTF-8'.\n```bash\nsudo timedatectl update-timezone\nsudo locale-gen en_US.UTF-8\n```\n\n3. **Create a new partition**: Create a new primary partition using\ncfdisk.\n```\nsudo cfdisk /dev/sda1\n```\n\n4. **Format the partition**: Format the newly created partition with a\nsuitable file system (e.g., ext4).\n```\nsudo mkfs.ext4 /dev/sda1\n```\n\n5. **Create a new partition on another device**: Create a new primary\npartition on another disk, for example, `/dev/sdb1`.\n```bash\nsudo cfdisk /dev/sda2\n```\n\n6. **Format the second partition**: Format the newly created partition\nwith a suitable file system (e.g., ext4).\n```\nsudo mkfs.ext4 /dev/sda2\n```\n\n7. **Verify partitions**: Verify that both partitions are now mounted\nand can be accessed by opening a terminal and running `lsblk`.\n```\nlsblk -f\n```\n\n**OUTPUT INSTRUCTIONS**\n\n### OUTPUT\n\n#### PARTITIONING A HARD DRIVE USING CFDISK DISK UTILITY ON ARCH-LINUX\n\nThis tutorial guides you through the process of partitioning a hard\ndrive using cfdisk Disk Utility on Arch-Linux.\n\n#### REQUIRED DEPENDENCIES\n\n* cfdisk package manager (pacman)\n* Disk Utility (cfdisk)\n\n#### INSTALLATION COMMANDS\n\n```bash\nsudo pacman -S cfdisk\n```\n\n#### ESTIMATED TIME\n\nThe estimated time required to complete this tutorial is approximately\n30 minutes.\n\n#### SKILL LEVEL\n\nThis tutorial requires an intermediate level of technical skills and\nfamiliarity with Arch-Linux system administration.\n\n### EXAMPLE\n\nHere's an example of what the terminal output might look like:\n```\n# Partitioning a hard drive using cfdisk Disk Utility on Arch-Linux\nTarget device: /dev/sda1\nPartition table:\n/dev/sda1 (primary): 1004 MB free, 600 MB in use (34.6%)\n/dev/sdb1 (primary): 200 GB available, 180 GB used (90%)\n\nCreate new partition on /dev/sdb1:\n/dev/sdb1 (primary): 20 GB available, 10 GB used (50%)\n\nVerify partitions:\nlsblk -f\n```\n\nNote: The specific steps and output may vary depending on the system\nconfiguration.\n"
+}

@@ -1,0 +1,69 @@
+{
+  "slug": "beginner-tutorial-arch0-intro-cli",
+  "filePath": "Beginner_Tutorial_Arch0_Intro_CLI.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Beginner Arch Linux CLI Setup\n\nTitle: Beginner Tutorial: Arch Linux CLI Introduction\nDate: 2025-11-15 (20:57:02 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux A…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Steps",
+      "slug": "steps"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Why These Packages?",
+      "slug": "why-these-packages"
+    },
+    {
+      "level": 3,
+      "text": "Why ed25519 Over RSA?",
+      "slug": "why-ed25519-over-rsa"
+    },
+    {
+      "level": 3,
+      "text": "systemd vs SysVinit",
+      "slug": "systemd-vs-sysvinit"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "SSH Service Details",
+      "slug": "ssh-service-details"
+    },
+    {
+      "level": 3,
+      "text": "Troubleshooting",
+      "slug": "troubleshooting"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 2,
+  "content": "LOG: [LEARN] Guide: Beginner Arch Linux CLI Setup\n\n**Title:** Beginner Tutorial: Arch Linux CLI Introduction\n**Date:** 2025-11-15 (20:57:02 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Beginner_Tutorial_Arch0_Intro_CLI.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Arch Linux installed\n- Root/sudo access\n- Internet connection\n\n### Steps\n1. Install required packages\n```bash\n$ sudo pacman -S curl openssh pwgen\n```\n\n2. Generate SSH key pair\n```bash\n$ ssh-keygen -t ed25519 -C \"your-email@example.com\"\n```\n\n3. Start and enable sshd service\n```bash\n$ sudo systemctl enable --now sshd\n```\n\n4. Configure SSH (optional hardening)\n```bash\n$ sudo vim /etc/ssh/sshd_config\n# Set: PermitRootLogin no, PasswordAuthentication no\n$ sudo systemctl restart sshd\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Why These Packages?\n- `curl`: Download files, test APIs\n- `openssh`: Provides `sshd` (server), `ssh` (client), `ssh-keygen`, `ssh-agent`\n- `pwgen`: Generate secure passwords\n\n### Why ed25519 Over RSA?\n- Smaller keys, faster operations, better security\n- Modern standard (OpenSSH 6.5+)\n\n### systemd vs SysVinit\nArch Linux uses systemd exclusively. No `/etc/init.d/`, no `rc.d`.\n\n## The \"Deep Dive\" (The Technical Root)\n\n### SSH Service Details\n- Service unit: `/usr/lib/systemd/system/sshd.service`\n- Config: `/etc/ssh/sshd_config` (man `sshd_config`)\n- Keys stored in `/etc/ssh/` (host) and `~/.ssh/` (user)\n\n### Troubleshooting\n- `systemctl status sshd` — check service state\n- `journalctl -u sshd` — view logs\n- `sshd -t` — test config syntax\n\n### References\n- [Arch Wiki: OpenSSH](https://wiki.archlinux.org/title/OpenSSH)\n- [Arch Wiki: systemd](https://wiki.archlinux.org/title/systemd)"
+}

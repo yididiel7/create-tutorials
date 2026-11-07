@@ -1,0 +1,13 @@
+{
+  "slug": "niri-kdl-shortcut-keys",
+  "filePath": "Niri-Guides/niri-kdl-shortcut-keys.md",
+  "title": "niri-kdl-shortcut-keys",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "Niri-Guides",
+  "tags": [],
+  "description": "Title: Niri KDL Shortcut Keys\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: niri-kdl-shortcut-keys.md\nCopyright: © 2026-2…",
+  "headings": [],
+  "readingTime": 1,
+  "content": "**Title:** Niri KDL Shortcut Keys\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** niri-kdl-shortcut-keys.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n// Mod-Shift-/, which is usually the same as Mod-/,\n    Mod+Shift+Slash { show-hotkey-overlay; }\nMod+Return hotkey-overlay-title=\"Open a Terminal: kitty\" { spawn\n\"kitty\"; }\nMod+D hotkey-overlay-title=\"Run an Application: Rofi\" { spawn-sh \"rofi\n-show drun\"; }\n    Mod+Alt+B { spawn \"/opt/firefox/firefox\"; }\n    Mod+Alt+E { spawn \"geany\"; }\n    Mod+Alt+Y { spawn \"thunar\"; }\n    Mod+Alt+G { spawn \"~/wallpaper.sh\"; }\n    Mod+Alt+W { spawn \"atril\"; }\n    Mod+Alt+K { spawn \"alacritty\"; }\nMod+Alt+C { spawn \"qs\" \"-c\" \"noctalia-shell\" \"ipc\" \"call\" \"launcher\"\n\"clipboard\"; }\nMod+Alt+U { spawn \"qs\" \"-c\" \"noctalia-shell\" \"ipc\" \"call\" \"launcher\"\n\"calculator\"; }\nMod+Alt+J { spawn \"qs\" \"-c\" \"noctalia-shell\" \"ipc\" \"call\" \"lockScreen\"\n\"lock\"; }\n    Mod+O repeat=false { toggle-overview; }\n    Mod+Q repeat=false { close-window; }\n"
+}

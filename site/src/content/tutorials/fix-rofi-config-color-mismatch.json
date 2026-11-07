@@ -1,0 +1,13 @@
+{
+  "slug": "fix-rofi-config-color-mismatch",
+  "filePath": "Fix-Rofi-config-color-mismatch.md",
+  "title": "Fix-Rofi-config-color-mismatch",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Title: Fix Rofi Config Color Mismatch\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Fix-Rofi-config-color-mismatch.md\nCopyr…",
+  "headings": [],
+  "readingTime": 1,
+  "content": "**Title:** Fix Rofi Config Color Mismatch\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Fix-Rofi-config-color-mismatch.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n  █▀▀█  Rofi config color mismatch with Sweet-Rainbow the…\n  █  █  opencode -s ses_3b165c333ffezAKqsolPcR9PGH\n"
+}

@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import GuideCard from '../components/GuideCard.astro';
+import TerminalBlock from '../components/TerminalBlock.astro';
+---
+
+<Layout title="Arch Linux Guides & Tutorials">
+  <section class="py-12 border-b border-arch-border mb-12">
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+      Master <span class="text-arch-cyan">Arch Linux</span> Step-by-Step
+    </h1>
+    <p class="text-lg text-arch-muted max-w-2xl mb-6">
+      Clean, minimalistic, and production-tested guides for installation, package management (Pacman/AUR), and system configuration.
+    </p>
+
+    <TerminalBlock command="sudo pacman -Syu && yay -S visual-studio-code-bin" />
+  </section>
+
+  <section>
+    <h2 class="text-2xl font-bold text-white mb-6">Featured Tutorials</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <GuideCard
+        title="Arch Linux Post-Installation Setup"
+        description="Essential configuration steps right after finishing a fresh installation."
+        category="Installation"
+        slug="post-install-guide"
+        readTime="10 min read"
+      />
+      <GuideCard
+        title="AUR Helpers Comparison: Paru vs Yay"
+        description="Detailed speed, features, and security analysis of top Arch User Repository helpers."
+        category="Pacman & AUR"
+        slug="aur-helpers-yay-paru"
+        readTime="6 min read"
+      />
+      <GuideCard
+        title="Customizing Hyprland Desktop Environment"
+        description="How to configure a smooth, hardware-accelerated Wayland compositor on Arch."
+        category="Desktop"
+        slug="hyprland-setup-guide"
+        readTime="15 min read"
+      />
+    </div>
+  </section>
+</Layout>

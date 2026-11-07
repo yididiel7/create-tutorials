@@ -1,0 +1,89 @@
+{
+  "slug": "zsh-fix-bindkey-space",
+  "filePath": "zsh-fix-bindkey-space.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Fix bindkey ' ' magic-space in Zsh\n\nTitle: Zsh Fix Bindkey Space Magic Space\nDate: 2026-02-04 (11:25:35 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, De…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Problem",
+      "slug": "problem"
+    },
+    {
+      "level": 3,
+      "text": "Root Cause",
+      "slug": "root-cause"
+    },
+    {
+      "level": 3,
+      "text": "Fix: Custom magic-space Widget",
+      "slug": "fix-custom-magic-space-widget"
+    },
+    {
+      "level": 3,
+      "text": "Alternative: Use _expand_history",
+      "slug": "alternative-use-expand-history"
+    },
+    {
+      "level": 3,
+      "text": "Test It Works",
+      "slug": "test-it-works"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Why It Fails on Arch",
+      "slug": "why-it-fails-on-arch"
+    },
+    {
+      "level": 3,
+      "text": "Widget Creation Pattern",
+      "slug": "widget-creation-pattern"
+    },
+    {
+      "level": 3,
+      "text": "Available Expansion Widgets",
+      "slug": "available-expansion-widgets"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "ZLE Architecture",
+      "slug": "zle-architecture"
+    },
+    {
+      "level": 3,
+      "text": "History Expansion Syntax",
+      "slug": "history-expansion-syntax"
+    },
+    {
+      "level": 3,
+      "text": "Zshcontrib Module",
+      "slug": "zshcontrib-module"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 2,
+  "content": "LOG: [LEARN] Guide: Fix bindkey ' ' magic-space in Zsh\n\n**Title:** Zsh Fix Bindkey Space Magic Space\n**Date:** 2026-02-04 (11:25:35 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** zsh-fix-bindkey-space.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Problem\n`bindkey ' ' magic-space` doesn't work - space doesn't expand history (`!!`, `!$`, etc.)\n\n### Root Cause\n- `magic-space` widget requires `zshcontrib` module\n- Module not installed on Arch Linux (`/usr/lib/zsh/5.9/zshcontrib.so` missing)\n\n### Fix: Custom magic-space Widget\n```bash\n# Add to ~/.zshrc\nmagic-space() {\n    # Expand history (like !!, !$, !:1, etc.)\n    zle history-expand-word\n    # Insert space\n    zle self-insert\n}\nzle -N magic-space\nbindkey ' ' magic-space\n```\n\n### Alternative: Use _expand_history\n```bash\nmagic-space() {\n    zle _expand_history\n    zle self-insert\n}\nzle -N magic-space\nbindkey ' ' magic-space\n```\n\n### Test It Works\n```bash\n$ source ~/.zshrc\n$ echo \"hello world\"\n$ !!<SPACE>   # Expands to previous command\n$ !$<SPACE>   # Expands to last argument\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Why It Fails on Arch\n- `magic-space` is in `zshcontrib` module\n- Arch's `zsh` package doesn't include `zshcontrib.so`\n- Module file: `/usr/lib/zsh/5.9/zshcontrib.so` missing\n\n### Widget Creation Pattern\n```bash\nmy-widget() {\n    zle some-action\n    zle another-action\n}\nzle -N my-widget\nbindkey 'KEY' my-widget\n```\n\n### Available Expansion Widgets\n```bash\n$ zle -l | grep -i expand\n# history-expand-word (standard)\n# expand-history-or-space (if available)\n```\n\n## The \"Deep Dive\" (The Technical Root)\n\n### ZLE Architecture\n```\nKeystroke → bindkey → Widget → ZLE Action\n                ↑\n            zle -N\n```\n\n### History Expansion Syntax\n| Pattern | Expands To |\n|---------|------------|\n| `!!` | Previous command |\n| `!$` | Last argument |\n| `!n` | Command n |\n| `!-n` | n commands back |\n| `!string` | Last command starting with string |\n\n### Zshcontrib Module\n```bash\n# Check if available\n$ ls /usr/lib/zsh/5.9/ | grep contrib\n\n# If missing, use custom widget instead\n```\n\n### References\n- `man zshzle`\n- [Zsh Manual: History Expansion](https://zsh.sourceforge.io/Doc/Release/History-Expansion.html)\n- [Arch Wiki: Zsh](https://wiki.archlinux.org/title/Zsh)\n"
+}

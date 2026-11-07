@@ -1,0 +1,89 @@
+{
+  "slug": "edit-command-buffer-fix",
+  "filePath": "Edit-Command-Buffer-Fix.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Fix Zsh Edit-Command-Buffer Key Binding\n\nTitle: Edit Command Buffer Fix\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Develop…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Quick Fix",
+      "slug": "quick-fix"
+    },
+    {
+      "level": 3,
+      "text": "Verify Current Binding",
+      "slug": "verify-current-binding"
+    },
+    {
+      "level": 3,
+      "text": "Test It Works",
+      "slug": "test-it-works"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "The Problem",
+      "slug": "the-problem"
+    },
+    {
+      "level": 3,
+      "text": "Why `^X^E` Fails",
+      "slug": "why-x-e-fails"
+    },
+    {
+      "level": 3,
+      "text": "Standard Convention",
+      "slug": "standard-convention"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Widget Implementation",
+      "slug": "widget-implementation"
+    },
+    {
+      "level": 3,
+      "text": "Vi Mode Considerations",
+      "slug": "vi-mode-considerations"
+    },
+    {
+      "level": 3,
+      "text": "$EDITOR Requirements",
+      "slug": "editor-requirements"
+    },
+    {
+      "level": 3,
+      "text": "Testing Checklist",
+      "slug": "testing-checklist"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 2,
+  "content": "LOG: [LEARN] Guide: Fix Zsh Edit-Command-Buffer Key Binding\n\n**Title:** Edit Command Buffer Fix\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Edit-Command-Buffer-Fix.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Zsh shell\n- `$EDITOR` set (e.g., `nvim`)\n\n### Quick Fix\n```bash\n# Add to ~/.zshrc\nautoload -Uz edit-command-line\nzle -N edit-command-line\nbindkey '^Xe' edit-command-line  # Ctrl+X, then e (not Ctrl+E)\n```\n\n### Verify Current Binding\n```bash\n$ bindkey | grep edit-command-line\n# Problematic: \"^X^E\" edit-command-line\n# Correct:     \"^Xe\"  edit-command-line\n```\n\n### Test It Works\n```bash\n$ source ~/.zshrc\n# Type a long command, then press Ctrl+X, release, press e\n# Opens command in $EDITOR\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### The Problem\n| Binding | Keys | Issue |\n|---------|------|-------|\n| `^X^E` | Ctrl+X, Ctrl+E | Two-finger control sequence, awkward |\n| `^Xe` | Ctrl+X, then e | Standard, intuitive |\n\n### Why `^X^E` Fails\n1. **Terminal capture**: Some terminals don't pass Ctrl+E after Ctrl+X\n2. **User expectation**: Standard is Ctrl+X then regular key\n3. **Vi mode conflict**: In vi mode, Ctrl+E may be bound elsewhere\n\n### Standard Convention\n- `^X` = prefix for extended commands\n- `e` = edit (mnemonic)\n- Matches bash `C-x C-e` but more practical\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Widget Implementation\n```bash\n# Built-in Zsh widget\nautoload -Uz edit-command-line\nzle -N edit-command-line  # Register as widget\n\n# Key binding syntax\nbindkey '^Xe' edit-command-line\n# ^X = Ctrl+X, e = literal 'e'\n```\n\n### Vi Mode Considerations\n```bash\n# For vi command mode users\nbindkey -M vicmd 'v' edit-command-line\n# Press ESC, then v to edit\n```\n\n### $EDITOR Requirements\n```bash\n# Must be set for edit-command-line to work\nexport EDITOR=nvim\nexport VISUAL=nvim\n```\n\n### Testing Checklist\n```bash\n$ bindkey | grep edit-command-line\n# Should show: \"^Xe\" edit-command-line\n\n$ echo $EDITOR\n# Should show: nvim (or your editor)\n\n# Test: type \"echo hello\", press Ctrl+X e\n# Should open in nvim with \"echo hello\"\n```\n\n### References\n- `man zshzle`\n- [Zsh Manual: Edit Command Line](https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html#index-edit-command-line)\n- [Arch Wiki: Zsh](https://wiki.archlinux.org/title/Zsh)"
+}

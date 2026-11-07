@@ -1,0 +1,1496 @@
+[
+  {
+    "slug": "zshrc-personal-febupd-1126-1",
+    "title": "zshrc_Personal-FebUpd-1126_1",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 12,
+    "description": "Basic System Commands\n ====================\n Clear terminal and reset commands\nalias cl='clear'                           Clear terminal screen\nalias re='reset'                           Reset t…"
+  },
+  {
+    "slug": "zsh-to-fix-a-corrupt-zsh-history-file",
+    "title": "Understanding the Corrupt History Error",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Title: Zsh To Fix a Corrupt Zsh History File\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: zsh_To_fix_a_corrupt_zsh_history_f…"
+  },
+  {
+    "slug": "zsh-fix-bindkey-space",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "LOG: [LEARN] Guide: Fix bindkey ' ' magic-space in Zsh\n\nTitle: Zsh Fix Bindkey Space Magic Space\nDate: 2026-02-04 (11:25:35 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, De…"
+  },
+  {
+    "slug": "zle-expand-history-error-fix",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "LOG: [LEARN] Guide: Fix zle _expand_history Error in Zsh\n\nTitle: Zle Expand History Error Fix\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Devel…"
+  },
+  {
+    "slug": "xfcepolicykit-agent-gdbus-error-org-freedesktop",
+    "title": "COMMENT THIS OUT",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 1,
+    "description": "Xfce policykit agent GDBus.Error:org.freedesktop.Policykit1.Error.Failed 2022\n\n[Solved]\nxefce-policykit1-error-failed.md\nxfce based distro commands:\nxfce4-panel --disable-wm-check\n\nOR\n\nxfce4 panel…"
+  },
+  {
+    "slug": "warp-key",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "LOG: [LEARN] Reference: Warp Terminal API Key\n\nTitle: Warp Key\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: warp_key.md\nCo…"
+  },
+  {
+    "slug": "warp-terminal-install-errors-corrected",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "LOG: [LEARN] Guide: Fix Warp Terminal Install on Arch Linux\n\nTitle: Warp Terminal Install Errors Corrected\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux…"
+  },
+  {
+    "slug": "vimhelp-in-avert-split",
+    "title": "vimhelp-in-avert-split",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 1,
+    "description": "The command to open help in a vert split is:\n\n:vert help <topic>\n\n\nCtrl+W, S (case does not matter) for horizontal splitting\n\nCtrl+W, v (lower case) for vertical splitting\n\nCtrl+W, q (lower case)…"
+  },
+  {
+    "slug": "vim-reference-editing-commands",
+    "title": "First Steps",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 11,
+    "description": "Title: Vim Reference Editing Commands\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: vim_reference_editing_commands.md\nCopyr…"
+  },
+  {
+    "slug": "uv-python-package-manager",
+    "title": "**Introduction**",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 5,
+    "description": "-- Title: Display documentation for a command\n-- Developer: Sr. Yididiel Hills\n-- Date: March, 12-03-2025\n\n<details type=\"reasoning\" done=\"true\" duration=\"39\">\n<summary>Thought for 39 seconds</summary…"
+  },
+  {
+    "slug": "uv-python-manager",
+    "title": "uv-python-manager",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 4,
+    "description": "[[Topic UV python ]] Uv's Commands\n    \nUV Self Update: \n    \n    $ uv self update \n\nTo update your UV installation, simply run the command $ uv self update in your terminal or command prompt. This…"
+  },
+  {
+    "slug": "using-the-fsck-command",
+    "title": "using-the-fsck-command",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 7,
+    "description": "Title: How To Use The fsck Command\nDate: February, 04-02-2026 (02:33:55 IST)\nAuthor: Sr. Yididiel Hills Arch Linux AMD, Developer\nlfnc: using-the-fsck-command.md\nCopyright: © 202…"
+  },
+  {
+    "slug": "ufw-setup-firewall-in-linux",
+    "title": "Last Modified: Fri 08 Mar 2024 10:17:40",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 6,
+    "description": "How to set up a firewall in Linux?\n Last Modified: Fri 08 Mar 2024 10:17:40\n\n UFW status check\n\nCheck that the firewall is switched on, use this command:\n\n$ sudo ufw status \n\nThe result will…"
+  },
+  {
+    "slug": "twingate-fast-cuscus-connector-1",
+    "title": "twingate-fast-cuscus-connector_1",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 1,
+    "description": "The Twingate connector has been successfully deployed! The container is now running with:\n- Container name: twingate-fast-cuscus\n- Network: host mode\n- Auto-restart: unless-stopped\n- Connected to the…"
+  },
+  {
+    "slug": "twingate-fast-cuscus-connector",
+    "title": "twingate-fast-cuscus-connector",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 1,
+    "description": "Title: Twingate Fast Cuscus Connector\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: twingate-fast-cuscus-connector.md\nCopyr…"
+  },
+  {
+    "slug": "tmux-status-bar-styling-with-catppuccin-arrows",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 4,
+    "description": "LOG: [LEARN] Reference: Tmux Status Bar with Catppuccin Mocha and Arrow Separators\n\nTitle: Tmux Status Bar Styling with Catppuccin Arrows\nDate: 2026-02-01 (19:02:37 Asia/Jerusalem)\nAuthor:…"
+  },
+  {
+    "slug": "starship-install-config",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "LOG: [LEARN] Guide: Install and Configure Starship Prompt\n\nTitle: Starship Install Config\nDate: 2023-12-29\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: starship-instal…"
+  },
+  {
+    "slug": "setting-marks-in-vim",
+    "title": "setting_marks_in_vim",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 4,
+    "description": "Setting marks in vim\nTo set a mark, type m followed by a letter. For example, ma sets mark a at the current position (line and column). If you set mark a, any mark in the current file that was previ…"
+  },
+  {
+    "slug": "session-ses-47ae",
+    "title": "User",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 13,
+    "description": "Debugging Docker Watchtower API version error\n\nSession ID: ses_47ae3c132fferPHB6grERZrWSP\nCreated: 1/3/2026, 8:26:19 PM\nUpdated: 1/3/2026, 8:44:02 PM\n\n---\n\n User\n\nCan you fix the error…"
+  },
+  {
+    "slug": "session-ses-3c87",
+    "title": "User",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 7,
+    "description": "Shell startup error: /bin/sh line 1: tuigreet: not found\n\nSession ID: ses_3c875b4faffeS3aQ5Bx3iW02pp\nCreated: 2/7/2026, 11:58:56 AM\nUpdated: 2/7/2026, 12:07:07 PM\n\n---\n\n User\n\nWhen reb…"
+  },
+  {
+    "slug": "session-ses-3c7a",
+    "title": "User",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Git clone failure: destination exists for inir repo\nGit-clone-failure-destination-exists-for-inir-repo.md\nSession ID: ses_3c7a0cd6effeR8OvRuuqrUOZJb\nCreated: 2/7/2026, 3:51:28 PM\nUpdated:…"
+  },
+  {
+    "slug": "session-ses-3bdc",
+    "title": "User",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 24,
+    "description": "Neovim KDL LSP Error: Buffer name exists issue\n\nSession ID: ses_3bdc1512dffezXH4VAuXhI9hEa\nCreated: 2/9/2026, 1:52:10 PM\nUpdated: 2/9/2026, 2:12:18 PM\n\n---\n\n User\n\nConfigure the KDL LS…"
+  },
+  {
+    "slug": "session-ses-3b9d",
+    "title": "User",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 56,
+    "description": "Command alias: spawn-sh-at-startup for fabric clipboard pipeline\n\nSession ID: ses_3b9df91c5ffexM3kUDz7bbOvhl\nCreated: 2/10/2026, 7:57:36 AM\nUpdated: 2/10/2026, 8:16:34 AM\n\n---\n\n User…"
+  },
+  {
+    "slug": "session-ses-3b75",
+    "title": "User",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 12,
+    "description": "Fabric-AI completion issue in terminals vs Geany terminal\n\nSession ID: ses_3b7526299ffelHAKutSIgP5GrI\nCreated: 2/10/2026, 7:51:03 PM\nUpdated: 2/10/2026, 7:58:07 PM\n\n---\n\n User\n\nAfter r…"
+  },
+  {
+    "slug": "review-batch-arch-linux",
+    "title": "Summary of Changes per File",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 16,
+    "description": "Review Batch: Arch-Linux\n\nGenerated: 2026-11-04\nFiles: 18 (4 P0 tutorials, 14 P1 references)\nStandard: 4-section format with LOG: [LEARN] header + Recipe/Blueprint/Deep Dive + Metadata…"
+  },
+  {
+    "slug": "review-batch-ai-ml-tools",
+    "title": "Summary of Changes per File",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 12,
+    "description": "Review Batch: AI-ML-Tools\n\nGenerated: 2026-11-04\nFiles: 17 (16 files + 1 subdirectory file)\nStandard: 4-section format with LOG: [LEARN] header + Recipe/Blueprint/Deep Dive + Metadata…"
+  },
+  {
+    "slug": "refactor-markdown-prompt",
+    "title": "refactor_markdown_prompt",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "You are an experienced technical writer with a strong background in\norganizing complex information for various audiences. Your specialty\nlies in restructuring documents to enhance clarity, flow, and u…"
+  },
+  {
+    "slug": "readline-cheatsheet",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 4,
+    "description": "LOG: [LEARN] Reference: Readline Emacs Editing Mode Cheatsheet\n\nTitle: Readline Cheatsheet\nDate: 2023-12-29\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: readline-cheat…"
+  },
+  {
+    "slug": "politics-and-quotes",
+    "title": "politics-and-quotes",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Quote By -- Oscar Ameringer\n\nPolitics -- the gentle art of getting\nvotes from the poor and campaign funds\nfrom the rich by promising to protect\neach from the other.\n\nI notice this appears to be a sa…"
+  },
+  {
+    "slug": "nvim-updated-pacman-pkg-installed",
+    "title": "nvim_Updated_pacman_pkg_installed",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "  Please read the docs at nvchad.com from start to end 󰕹 󰱬\n\n  All NvChad available options are in 'core/default_config.lua', know them\n\n  Mason just downloads binaries, dont expect it to configu…"
+  },
+  {
+    "slug": "nvchad-to-change-the-statusline-style-in-nvchad",
+    "title": "nvchad_to_change_the_statusline_style_in_NVChad",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "To change the statusline style in NVChad\n\nyou have several options available through the statusline module\nconfiguration.\n\nHere are the different styles you can use:\n\n→ Read lua/custom/chadrc.lua\n\nHer…"
+  },
+  {
+    "slug": "numerological-name-yididiel-meaning",
+    "title": "**1. Y (25)**",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "Title: Numerological Name Yididiel Meaning\nDate: 2026-02-10 (01:13:56 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: numerological-name-Yididiel-meaning.…"
+  },
+  {
+    "slug": "null-ls-nvim-fixed",
+    "title": "null-ls-nvim-fixed",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 1,
+    "description": "Fixed! The issues were:\n\n1. Duplicate null-ls entries - You had null-ls.nvim defined twice in\nplugins.lua (lines 81-86 and 94-99). Removed the duplicate.\n2. Wrong require statement - Your config file…"
+  },
+  {
+    "slug": "neovim-leader-key-maps",
+    "title": "neovim-leader-key-maps",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "❯ grep \"<leader>\" mappings.lua\nmap(\"n\", \"<leader>n\", \"<cmd>set nu!<CR>\", { desc = \"toggle line number\"\n})\nmap(\"n\", \"<leader>rn\", \"<cmd>set rnu!<CR>\", { desc = \"toggle relative\nnumber\" })\nmap(\"n\", \"<le…"
+  },
+  {
+    "slug": "neovim-deleting-the-existing-dot-git-folder",
+    "title": "1. What is the `.git` folder?",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 9,
+    "description": "Title: Neovim Deleting The Existing .git Folder\nDate: February, 06-02-2026 (13:51:51 IST)\nAuthor: Sr. Yididiel Hills Arch Linux AMD, Developer\nlfnc: neovim-deleting-the-existing-dot-…"
+  },
+  {
+    "slug": "myenv-hf-config",
+    "title": "myenv-hf_Config",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 1,
+    "description": "❯ uv venv myenv-hf\nUsing CPython 3.14.2 interpreter at: /usr/bin/python\nCreating virtual environment at: myenv-hf\nActivate with: source myenv-hf/bin/activate…"
+  },
+  {
+    "slug": "lookup-flag-meaning-of-each-package-manager",
+    "title": "lookup-flag-meaning-of-each-package-manager",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": ">>> How to lookup the meaning of each flag and how to use it, show me\naan example of how to from the commands to use the flags for each\npackage manager\nHere's an example of how to look up the meaning…"
+  },
+  {
+    "slug": "logo-colors-hex",
+    "title": "Background Color Scheme: '#222222'",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 5,
+    "description": "10 Logo Color Combinations for Your Design Projects\n Tue 05 Mar 2024 20:18:45\n\n\n1. AZURE LIME WINTER SKY\n\nAZURE HEX 3A86FF\n\nABSOLUTE ZERO HEX 064AB8\n\nLIME GREEN HEX 56DE02\n\nHARLEQUIN HEX 58E600…"
+  },
+  {
+    "slug": "how-to-install-sweet-dark-v40-tar-xz-theme",
+    "title": "how-to-install-sweet-dark-v40.tar.xz-theme",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Title: How to Install Sweet Dark v40 Theme\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: how-to-install-sweet-dark-v40.tar.xz…"
+  },
+  {
+    "slug": "how-do-i-properly-install-kvm-on-arch-linux",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "LOG: [LEARN] Guide: Install KVM/QEMU/libvirt on Arch Linux\n\nTitle: How to Properly Install KVM on Arch Linux\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Lin…"
+  },
+  {
+    "slug": "history-bk1-backup",
+    "title": "history-bk1-backup",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 1,
+    "description": "…"
+  },
+  {
+    "slug": "generate-random-man-pages",
+    "title": "To clear or empty any log file, just issue the following command.",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 1,
+    "description": "How to Generate a Random Man Page in [[Lunix]]\n dd if=/dev/sdX of=/tmp/dd_example/chunk.bin bs=512 count=1\n\n To clear or empty any log file, just issue the following command.\n\n$ cat /dev/null >…"
+  },
+  {
+    "slug": "format-markdown-txt",
+    "title": "format_markdown_txt",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Title: Format Markdown Text\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: format_markdown_txt.md\nCopyright: © 2026-2027 S…"
+  },
+  {
+    "slug": "fisadevsetupforvimrcpyton",
+    "title": "fisadevSetupforvimrcPyton",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 9,
+    "description": "\" Fisa-vim-config, a config for both Vim and NeoVim\n\" http://vim.fisadev.com\n\" version: 12.0.1\n\n\" To use fancy symbols wherever possible, change this setting from 0 to 1\n\" and use a font from https://…"
+  },
+  {
+    "slug": "fisa-vim-configuration-file",
+    "title": "fisa-vim-configuration-file",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 6,
+    "description": "Fisa Vim Configuration\n\n[Vim and NeoVim configuration](https://vim.fisadev.com/)\n\n\n\nUsing Vim or Neovim?\n\nIt doesn't matter anymore!! This config now works on both editors :)\n\nThis is my personal Vi…"
+  },
+  {
+    "slug": "firefox-keyboard-shortcuts",
+    "title": "Windows Navigation",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 5,
+    "description": "Keyboard Shortcuts for Firefox\n\n Windows Navigation\n\nTo do this\tPress this\n\nBack\tAlt + ← \nBackspace\nForward\tAlt + → \nShift + Backspace\nHome\tAlt + Home\nOpen File\tCtrl + O\nReload\tF5 \nCtrl + R\nReload…"
+  },
+  {
+    "slug": "fdisk-cfdisk",
+    "title": "✔ You:  … Disk Setup Process - mkfs & mount",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "✔ You:  … Disk Setup Process - mkfs & mount \nGPT-3: \n\nTo format and mount a new disk, you'll need to use the mkfs and mount commands. \nThe mkfs command will format the disk, and the mount command w…"
+  },
+  {
+    "slug": "fabric-ai-tab-autocompletion-issue-session-ses-3b77",
+    "title": "User",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 57,
+    "description": "Fabric AI: tab autocompletion for patterns in improve_prompt issue\n\nSession ID: ses_3b77bdfccffeUPCj2mTIT6qzSw\nCreated: 2/10/2026, 7:05:44 PM\nUpdated: 2/10/2026, 7:15:06 PM\n\n---\n\n User…"
+  },
+  {
+    "slug": "editor-terminal-functions",
+    "title": "Keyboard combo in terminal Readline commands",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 1,
+    "description": "Editor Terminal Functions\n This is line editting on one line\n Thu 28 Dec 2023 01:23:55 \n\n Keyboard combo in terminal Readline commands\n\nCtrl+w = killword backwards\nCrlt+Shift+__ = Undo last edit…"
+  },
+  {
+    "slug": "duck-ai-2025-11-20-07-20-20",
+    "title": "Configure `config.kdl` for Niri",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-4o mini Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-ter…"
+  },
+  {
+    "slug": "create-prompt-tutorial-1",
+    "title": "create_prompt_tutorial_1",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "echo \"You are an experienced DIY tutorial creator with a passion for crafting clear and engaging instructions for various projects.\nYour expertise allows you to break down complex processes into easy-…"
+  },
+  {
+    "slug": "create-prompt-tutorial",
+    "title": "create_prompt_tutorial",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "IDENTITY and PURPOSE\n\nYou are an AI assistant tasked with creating (DIY) \"Do It Yourself\"\ntutorial patterns. You will carefully analyze each prompt to identify\nthe specific requirements, materials,…"
+  },
+  {
+    "slug": "create-archcraft-usb",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "LOG: [LEARN] Guide: Create Archcraft Bootable USB with dd\n\nTitle: Create Archcraft Bootable USB\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Dev…"
+  },
+  {
+    "slug": "copilot-session-e1ebe014-169b-4ade-9855-454c2df7019f",
+    "title": "👤 User",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 29,
+    "description": "🤖 Copilot CLI Session\n\n> Session ID: e1ebe014-169b-4ade-9855-454c2df7019f\n> Started: 2/5/2026, 9:25:26 AM\n> Duration: 51m 54s\n> Exported: 2/5/2026, 10:17:21 AM\n\n<sub>⏱️ 1s</sub>…"
+  },
+  {
+    "slug": "content-raw-cfdisk",
+    "title": "content_raw_cfdisk",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Here's a step-by-step guide on formatting a hard drive using cfdisk in\nArch Linux:\n\nPrerequisites:\n\n You have installed Arch Linux.\n You have an unformatted hard drive that you want to format.…"
+  },
+  {
+    "slug": "configuring-a-new-kvm-on-arch-linux-using-qemu-cli",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "LOG: [LEARN] Guide: Create KVM Virtual Machine with QEMU CLI on Arch Linux\n\nTitle: Configuring a New KVM on Arch Linux Using QEMU CLI\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr.…"
+  },
+  {
+    "slug": "conference-call-on-hfd-aid",
+    "title": "conference_call_on_hfd_aid",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 4,
+    "description": "\"\"\"I have a block of AI-generated text that I want to revise so it sounds like it was written by a human.\nPlease improve it using the following guidelines:\n– Vary sentence structure and sentence lengt…"
+  },
+  {
+    "slug": "check-for-memory-fragmentation-on-arch-linux",
+    "title": "check-for-memory-fragmentation-on-Arch-Linux",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Here are the key commands to check for memory fragmentation on Linux:\n\nPrimary Commands\n\n1. /proc/buddyinfo - Most Direct Method\n\ncat /proc/buddyinfo\n\nShows free memory blocks by order (power of 2). H…"
+  },
+  {
+    "slug": "chat-refactoring-markdown-instructions",
+    "title": "USER",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 7,
+    "description": "USER\nYou are an experienced technical writer with a strong background in\norganizing complex information for various audiences. Your specialty\nlies in restructuring documents to enhance clarity, fl…"
+  },
+  {
+    "slug": "chat-understanding-the-sort-command",
+    "title": "USER",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 8,
+    "description": "USER\nWhen working with text files on Unix or Linux systems, two of the most\ninvaluable tools for data manipulation are sort and grep.\nThese powerful command-line utilities assist in organizing…"
+  },
+  {
+    "slug": "cannot-update-oh-my-zsh",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "LOG: [LEARN] Guide: Fix Oh My Zsh Update Issues\n\nTitle: Cannot Update Oh My Zsh\nDate: 2023-11-23\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: cannot-update-oh-my-zsh.m…"
+  },
+  {
+    "slug": "build-llama-cpp-on-arch-linux",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "LOG: [LEARN] Guide: Build llama.cpp on Arch Linux with UV\n\nTitle: Build llama.cpp on Arch Linux in a UV Virtual Environment\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel…"
+  },
+  {
+    "slug": "bindkey-re-magic-space",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "LOG: [LEARN] Reference: Bindkey Magic-Space Fix for Zsh History Expansion\n\nTitle: Bindkey Re Magic Space\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux A…"
+  },
+  {
+    "slug": "archiso-build-install",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "LOG: [LEARN] Guide: Build Custom Arch Linux ISO with archiso\n\nTitle: archiso Build and Install\nDate: 2025-12-08 (00:00:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Deve…"
+  },
+  {
+    "slug": "alias-fix-keyserver-aliases",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "LOG: [LEARN] Reference: Fix GPG Keyserver Aliases for Arch Linux\n\nTitle: Alias Fix Keyserver Aliases\nDate: 2026-02-02 (20:55:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin…"
+  },
+  {
+    "slug": "add-folders-to-a-github-repository-using-the-command-line",
+    "title": "add-folders-to-a-GitHub-repository-using-the-command-line",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 7,
+    "description": "Title: Add Folders to a GitHub Repository Using the Command Line\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: add-folders-to…"
+  },
+  {
+    "slug": "zsh-hacks-dreams-of-code",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 5,
+    "description": "LOG: [LEARN] Reference: Zsh Hacks from Dreams of Code\n\nTitle: ZSH Hacks - Dreams of Code\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer…"
+  },
+  {
+    "slug": "yazi-other-keybindings-can-follow-mgr-prepend-keymap",
+    "title": "Yazi_other_keybindings_can_follow_mgr_prepend_keymap",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Title: Identify keymap.toml configuration or settings directory\nDate: February, 14-02-2026 (10:07:40 IST)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Yazi_other_key…"
+  },
+  {
+    "slug": "yazi-quick-start-key-navigation",
+    "title": "Navigation[​](https://yazi-rs.github.io/docs/quick-start#navigation \"Direct link to Navigation\")",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 6,
+    "description": "Title: Quick Start | Yazi\nYazi-Quick-Start-Key-Navigation.md\n\nURL Source: https://yazi-rs.github.io/docs/quick-start\n\nURL Converted\nSource:https://r.jina.ai/https://yazi-rs.github.io/docs/quick-start…"
+  },
+  {
+    "slug": "yh-pp00-09feb26",
+    "title": "YH-PP00-09FEB26",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "Title: Psychological Profile Sr. Yididiel Hills\nDate: February, 09-02-2026 (23:28:33 IST)\nAuthor: Sr. Yididiel Hills Arch Linux Admin, Developer\nCopyright: © 2026-2027 Sr. Tyrone Hills…"
+  },
+  {
+    "slug": "which-key-conflicts",
+    "title": "Which_key_conflicts",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "- ✅ OK Most of these checks are for informational purposes only.\n  WARNINGS should be treated as a warning, and don't necessarily indicate a problem with your config.\n  Please |DON'T| report these war…"
+  },
+  {
+    "slug": "updating-archcraft-hooks-os-specific",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "LOG: [LEARN] Debug: Fix Archcraft Pacman Hook Dependency Errors\n\nTitle: Updating Archcraft Hooks OS Specific\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Lin…"
+  },
+  {
+    "slug": "understanding-the-command-sudo-cfdisk-l",
+    "title": "Understanding_the_Command_sudo_cfdisk_l",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Title: Understanding the Command sudo cfdisk l\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Understanding_the_Command_sudo_c…"
+  },
+  {
+    "slug": "uv-how-to-install-uv",
+    "title": "UV_how_to_Install_uv",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "Title: UV How to Install uv\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: UV_how_to_Install_uv.md\nCopyright: © 2026-2027…"
+  },
+  {
+    "slug": "to-search-for-patterns-in-files-using-grep",
+    "title": "To_search_for_patterns_in_files_using_grep",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "\"\"\"You are an experienced DIY tutorial creator with a passion for\ncrafting clear and engaging instructions for various projects.\n... Your expertise allows you to break down complex processes into\neasy…"
+  },
+  {
+    "slug": "to-install-ter-powerline-v18n-vconsolefont",
+    "title": "To install the ter-powerline-v18n.psf.gz font",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Vconsole-kbd-Font-Change.md\nTo-install-ter-powerline-v18n-vconsolefont.md\n\nFONT=ter-powerline-v18n\n\n❯ sudo vim /etc/vconsole.conf\n\nKEYMAP=us\nFONT=default8x16\nFONT_MAP=8859-2\n\n❯ pdw\n/usr/share/kbd/cons…"
+  },
+  {
+    "slug": "to-fix-tty1-showing-strange-characters-2026-02-13-10-59-42",
+    "title": "Check Terminal Configuration",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-4o mini Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-ter…"
+  },
+  {
+    "slug": "tmuxifier-quick-start-fix",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 4,
+    "description": "LOG: [LEARN] Guide: Tmuxifier Quick Start and Zsh Integration Fix\n\nTitle: Tmuxifier Quick Start Fix\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin,…"
+  },
+  {
+    "slug": "tmux-display-popup-custom-configuration",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 4,
+    "description": "LOG: [LEARN] Reference: Tmux Display Popup Custom Configuration\n\nTitle: Tmux Display Popup Custom Configuration\nDate: 2026-02-14 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch…"
+  },
+  {
+    "slug": "the-warning-message-understand-pacnew",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "LOG: [LEARN] Guide: Handle .pacnew Files on Arch Linux\n\nTitle: The Warning Message Understand Pacnew\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin…"
+  },
+  {
+    "slug": "the-best-chatgpt-prompts-ever-written",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 4,
+    "description": "LOG: [LEARN] Reference: CRAFT Prompt Framework for LLM Prompt Engineering\n\nTitle: The Best ChatGPT Prompts Ever Written — CRAFT Framework\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor:…"
+  },
+  {
+    "slug": "tails-install-on-linux",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "LOG: [LEARN] Guide: Install Tails OS to USB with Cryptographic Verification\n\nTitle: Tails Install On Linux\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux…"
+  },
+  {
+    "slug": "telos-background-information",
+    "title": "TELOS_background_information",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 14,
+    "description": "Title: TELOS Background Information\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: TELOS_background_information.md\nCopyright…"
+  },
+  {
+    "slug": "sysadmin-linux-commands",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 4,
+    "description": "LOG: [LEARN] Reference: Essential System Administration Commands\n\nTitle: SysAdmin Linux Commands\nDate: 2026-02-13 (06:09:04 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, De…"
+  },
+  {
+    "slug": "slashdot-account",
+    "title": "SlashDot_Account",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 1,
+    "description": "SlashDot Account\n\nUsername: yididi7\nPassword: mDc9yfypJh8rihL\nEmail: mobw4u@gmail.com…"
+  },
+  {
+    "slug": "sha-leadership-confcallconference-call-on-hfd-aid",
+    "title": "SHA_Leadership_Confcallconference_call_on_hfd_aid",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "🤝 SHA's Dimona Leadership Conference Call Introduction\n\nMeeting Title: Trust Unite to Build a Better Future Together\nMeeting Date: Thursday, Jan 15th, 2026\nMeeting Time: 1:00 PM IST\nZoom Link: https:…"
+  },
+  {
+    "slug": "repotask-01-createtutorials-reformatted-100-markdown-files",
+    "title": "RepoTask-01-CreateTutorials-Reformatted-100-Markdown-Files",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 1,
+    "description": "Done! I've reformatted 99 out of 100 markdown files in the repository.\nRepoTask-01-CreateTutorials-Reformatted-100-Markdown-Files.md\nSummary\n\nTotal Files: 100 markdown files\nReformatted: 99 files\nUnch…"
+  },
+  {
+    "slug": "qs-inst-analysis-summary-session-ses-3c11",
+    "title": "User",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 114,
+    "description": "Noctalia-shell update failed attempt\n\nSession ID: ses_3c11306b0ffeSsfy2plhW7dP77\nCreated: 2/8/2026, 10:24:03 PM\nUpdated: 2/8/2026, 10:55:42 PM\n\n---\n\n User\n\nTrying to update with yay no…"
+  },
+  {
+    "slug": "python-test-driven-development",
+    "title": "Python-Test-Driven-Development",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 4,
+    "description": "Title: Python Test Driven Development\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Python-Test-Driven-Development.md\nCopyr…"
+  },
+  {
+    "slug": "pythoh-guide-for-unit-module-testing-00",
+    "title": "Option 1: The \"Architect\" Prompt (Structured & Detailed)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Title: Python Guide for Unit Module Testing 00\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Pythoh-guide-for-unit-module-tes…"
+  },
+  {
+    "slug": "pypi-account-recovery-codes",
+    "title": "PyPI recovery codes",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 1,
+    "description": "Username: yididi7\nPassword: }V3^&ggY@5qD=9q -> OldTpda3bcB8ew74BZ\nDefault Email: hills.tyrone@gmail.com\n\nWebsite: https://pypi.org/\n\n PyPI recovery codes\n\n9e88e03106f16089 used\n42d1f8cb20c389dc\n4f…"
+  },
+  {
+    "slug": "psychological-profile-sr-yididiel-hills",
+    "title": "Psychological-Profile-Sr-Yididiel-Hills",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "Psychological Profile Sr. Yididiel Hills\n\nPsychological Profile:\n\nSr. Yididiel Hills\nAge: 59\nOccupation: Chief Executive Officer\nPersonality Traits:\n• Analytical and logical, with a creative spark…"
+  },
+  {
+    "slug": "promptmaxer",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 4,
+    "description": "LOG: [LEARN] Reference: PromptMaxer — Prompt Expansion Framework\n\nTitle: PromptMaxer\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlf…"
+  },
+  {
+    "slug": "prompt-rewrite-reforge-markdown-files",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "LOG: [LEARN] Reference: Prompt Rewrite — Reforge Markdown Files\n\nTitle: Prompt Rewrite Reforge Markdown Files\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Li…"
+  },
+  {
+    "slug": "powerful-command-line-installation-commands",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "LOG: [LEARN] Reference: Pacman Package Installation Commands\n\nTitle: Powerful Command-Line Installation Commands\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch…"
+  },
+  {
+    "slug": "polybar-texts-settings",
+    "title": "Polybar Texts Settings",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 1,
+    "description": "Polybar Texts Settings\npolybar-texts-settings.md\n Polybar Directory:\n\n$ /home/srhills/.config/openbox-themes/themes/default/polybar\n\n Configuration File:\n\nEdit File: \nnvim config.ini\n\n; te…"
+  },
+  {
+    "slug": "partition-fhd-util-cfdisk-arch",
+    "title": "Introduction",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 4,
+    "description": "Title: Partition FHD Util Cfdisk Arch\nDate: 2025-11-16 (23:26:26 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Partition_FHD_Util_Cfdisk_Arch.md\nCopyr…"
+  },
+  {
+    "slug": "paperless-digities-your-life",
+    "title": "IDEAS",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "Title: Paperless Digitize Your Life\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Paperless_Digities_Your_Life.md\nCopyright…"
+  },
+  {
+    "slug": "pc-performance-analysis-complete",
+    "title": "PC-Performance-Analysis-Complete",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Title: PC Performance Analysis Complete\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: PC-Performance-Analysis-Complete.md\nC…"
+  },
+  {
+    "slug": "opencode-run-attach-connection-to-running-server",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "LOG: [LEARN] Reference: Opencode Run Attach — Connect to Running Server\n\nTitle: Opencode Run Attach Connection to Running Server\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yidi…"
+  },
+  {
+    "slug": "opencode-run-attach-connection-to-running-server",
+    "title": "Opencode-run--attach-connection-to-running-server",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Opencode run --attach connection to running server\n\n\n  █▀▀█  Opencode run --attach connection to running server\n  █  █  opencode -s ses_3a49440afffewgy0G4FTspRZ71\n  ▀▀▀▀\n\nBased on the documentation,…"
+  },
+  {
+    "slug": "opencode-ai-capabilities",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "LOG: [LEARN] Reference: Opencode — AI Coding Agent Capabilities\n\nTitle: Opencode AI Capabilities\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, De…"
+  },
+  {
+    "slug": "ollama-cli-tricks",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "LOG: [LEARN] Reference: Ollama CLI Tricks & Patterns\n\nTitle: Ollama CLI Tricks\nDate: 2026-02-09 (22:27:16 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc:…"
+  },
+  {
+    "slug": "nvimtreeresize",
+    "title": "NvimTreeResize",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 1,
+    "description": "NvimTreeResize 20\nlocal lazypath = vim.fn.stdpath(\"data\") .. \"/lazy/lazy.nvim\"\nif not (vim.uv or vim.loop).fs_stat(lazypath) then\n  vim.fn.system({\n    \"git\",\n    \"clone\",\n    \"--filter=blob:none\",…"
+  },
+  {
+    "slug": "nmcli-a-powerful-command-line-tool",
+    "title": "Nmcli-a-Powerful-Command-line-tool",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 4,
+    "description": "Title: Nmcli a Powerful Command line tool\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Nmcli-a-Powerful-Command-line-tool.md…"
+  },
+  {
+    "slug": "niri-main-default-hotkeys",
+    "title": "Niri_Main_Default_Hotkeys",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 4,
+    "description": "Fix Thunar File Manager Not Running\n\nMake sure XDG_CURRENT_DESKTOP is set. Make sure WAYLAND_DISPLAY and XDG_CURRENT_DESKTOP are imported into D-Bus. If you're running Niri, this can be added to your…"
+  },
+  {
+    "slug": "neovim-keybindings-not-working-cheatsheet-check",
+    "title": "Neovim-keybindings-not-working-cheatsheet-check",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 4,
+    "description": "Root Cause: The mappings had plugin = true which tells NvChad not to auto-load them.\n\n\n  █▀▀█  Neovim keybindings not working: cheatsheet check\n  █  █  opencode -s ses_3a902970effefAbblxSxQmowWf\n  ▀▀▀…"
+  },
+  {
+    "slug": "neovim-help-system-commands-and-keys",
+    "title": "Install from package",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "Neovim Help System - Commands & Keys\n\nBasic Help Commands\n\nOpening Help\n\n- :help or :h - Open main help page\n- :help {subject} - Get help on specific topic (e.g., :help nvim-tree)\n- :helpgrep {patte…"
+  },
+  {
+    "slug": "memory-optimization-tasks-completed",
+    "title": "Memory-Optimization-Tasks-Completed",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Title: Memory Optimization Tasks Completed\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Memory-Optimization-Tasks-Completed.…"
+  },
+  {
+    "slug": "meld-gtk-nonetype-error-with-grub-pacnew-files",
+    "title": "Meld-GTK-NoneType-error-with-grub-pacnew-files",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Title: Meld GTK NoneType error with grub pacnew files\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Meld-GTK-NoneType-error-w…"
+  },
+  {
+    "slug": "my-telos-file",
+    "title": "✅ Problems",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "TELOS\nDate: January, 31-01-2026 (21:49:17 IST)\n\n MY TELOS FILE\n\n ✅ Problems\n- P1: Economic inequality remains a significant challenge that\naffects many communities of color.\n- P2: M…"
+  },
+  {
+    "slug": "learn-to-use-ollama-in-the-terminal",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "LOG: [LEARN] Guide: Run Ollama Models in Terminal\n\nTitle: Learn to Use Ollama in the Terminal\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Devel…"
+  },
+  {
+    "slug": "kitty-neovim-performance-optimization-plan",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 4,
+    "description": "LOG: [LEARN] Guide: Fix Kitty + Neovim Performance Issues\n\nTitle: Kitty Neovim Performance Optimization Plan\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Lin…"
+  },
+  {
+    "slug": "kitty-color-schemes-how-to-change",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "LOG: [LEARN] Guide: Change Kitty Terminal Color Schemes\n\nTitle: Kitty Color Schemes How to Change\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, D…"
+  },
+  {
+    "slug": "instruct-command-for-package-management",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "LOG: [LEARN] Reference: Package Manager Commands (pacman, yay, npm, bun, cargo)\n\nTitle: Instruct Command for Package Management\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yidid…"
+  },
+  {
+    "slug": "installed-fresh-editor-v0-1-99",
+    "title": "Installed-Fresh-Editor-v0.1.99",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Installation Summary\n\n✅ Successfully installed Fresh Editor v0.1.99\n\n\nWhat worked:\n\n- The cargo install fresh-editor command was timing out due to the large\nnumber of dependencies (527 packages) that…"
+  },
+  {
+    "slug": "install-setup-and-enable-the-auditd-service",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "LOG: [LEARN] Guide: Install and Configure auditd on Arch Linux\n\nTitle: Install, Setup, and Enable the Auditd Service\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills,…"
+  },
+  {
+    "slug": "human-resources-prompts",
+    "title": "Human_Resources_prompts",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 7,
+    "description": "Human Resources prompts\nHuman Resources\n\n    As an HR professional, I need you to draft an inclusive workplace policy that covers diversity and anti-discrimination practices.\n\n    Create a comprehensi…"
+  },
+  {
+    "slug": "huggingface-project-directory",
+    "title": "Huggingface-project-directory",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Title: Huggingface Project Directory\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Huggingface-project-directory.md\nCopyrig…"
+  },
+  {
+    "slug": "how-to-paste-in-vim",
+    "title": "Key Registers to Know:",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 4,
+    "description": "Title: How to Paste in Vim\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: How_to_paste_in_vim.md\nCopyright: © 2026-2027 Sr…"
+  },
+  {
+    "slug": "how-to-copy-in-vim",
+    "title": "Character-wise Selection",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 6,
+    "description": "Title: How to Copy in Vim\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: How_to_Copy_in_Vim.md\nCopyright: © 2026-2027 Sr.…"
+  },
+  {
+    "slug": "how-to-change-ownership-of-files",
+    "title": "Change Ownership commands in Linux",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 1,
+    "description": "How to change Ownership of Files\n\n Change Ownership commands in Linux\n\n$ sudo chown srhills:srhills .config/polybar/config.ini\n\n$ sudo chmod +x .config/polybar/launch.sh\n\n Polybar Texts Sett…"
+  },
+  {
+    "slug": "grep-search-patterns-files",
+    "title": "🛠️ Project Name:",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 5,
+    "description": "DIY Tutorial: Mastering grep – Search Patterns in Files Like a Pro\n\n\n 🛠️ Project Name:\nGrep Search Patterns in Files\n\n ⏱ Estimated Time:\n15–30 minutes\n\n 🧠 Skill Level:\nBeginner t…"
+  },
+  {
+    "slug": "gitbutler-cli-install",
+    "title": "GitButler-Cli-Install",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 1,
+    "description": "Title: GitButler CLI Install\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: GitButler-Cli-Install.md\nCopyright: © 2026-202…"
+  },
+  {
+    "slug": "git-clone-failure-destination-exists-for-inir-repo-md-session-ses-3c7a",
+    "title": "User",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Git clone failure: destination exists for inir repo\nGit-clone-failure-destination-exists-for-inir-repo.md\nSession ID: ses_3c7a0cd6effeR8OvRuuqrUOZJb\nCreated: 2/7/2026, 3:51:28 PM\nUpdated:…"
+  },
+  {
+    "slug": "git-how-to-make-a-folder-in-github",
+    "title": "Git-How-to-Make-a-Folder-in-GitHub",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 5,
+    "description": "Title: Git How to Make a Folder in GitHub\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Git-How-to-Make-a-Folder-in-GitHub.md…"
+  },
+  {
+    "slug": "geany-startup-logs-and-error-debugging",
+    "title": "Geany-startup-logs-and-error-debugging",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Thinking: Good, all tasks are completed. Let me summarize the fixes for\nthe user.\n\nFixed All Errors ✅\n\n1. Lua Script: hotkeys.cfg ✅ FIXED\n\nCreated ~/.config/geany/plugins/geanylua/hotkeys.cfg - this w…"
+  },
+  {
+    "slug": "gdk-critical-fix-transient-for-assertion-failed",
+    "title": "Gdk-Critical-fix-transient_for-assertion-failed",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "→ Read quickshell/src/core/platformmenu_p.hpp\n\n  █▀▀█  Gdk Critical: transient_for assertion failed in W…\n  █  █  opencode -s ses_3acc2a7bfffehXWclbSadE6Pf3\n\nThinking: Now I understand the issue compl…"
+  },
+  {
+    "slug": "gpf-hard-drive-in-arch-linux",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "LOG: [LEARN] Guide: Partition, Format, and Mount Hard Drive on Arch Linux\n\nTitle: GPF Hard Drive In Arch Linux\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch L…"
+  },
+  {
+    "slug": "geany-setup-guide",
+    "title": "Overview",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 5,
+    "description": "Geany Python Code Checker Setup Guide\n\n Overview\nThis guide configures Geany to check Python code using pycodestyle, pyflakes, and pylint.\nPress F9 to check your code, view errors in the Compiler…"
+  },
+  {
+    "slug": "geany-project-setup",
+    "title": "Quick Start (3 Steps)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 6,
+    "description": "Geany Setup Guide for Pgp_Encrypt Project\n\nThis guide configures Geany specifically for the Pgp_Encrypt Python project with automatic virtual environment detection and project-specific settings.…"
+  },
+  {
+    "slug": "formatting-hard-drive-fdisk-cfdisk-arch-linux",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 4,
+    "description": "LOG: [LEARN] Guide: Format Hard Drive with fdisk/cfdisk on Arch Linux\n\nTitle: Formatting a Hard Drive Using fdisk/cfdisk on Arch Linux\nDate: 2025-11-18 (00:17:22 IST)\nAuthor: Sr. Yididiel…"
+  },
+  {
+    "slug": "fix-rofi-config-color-mismatch",
+    "title": "Fix-Rofi-config-color-mismatch",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 1,
+    "description": "Title: Fix Rofi Config Color Mismatch\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Fix-Rofi-config-color-mismatch.md\nCopyr…"
+  },
+  {
+    "slug": "fix-no-gtk-environment-variables-in-shell-configs-session-ses-3b3e",
+    "title": "User",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 11,
+    "description": "New session - 2026-02-11T09:43:42.467Z\n\nSession ID: ses_3b3ea357cffeWm49WAP3Igowur\nCreated: 2/11/2026, 11:43:42 AM\nUpdated: 2/11/2026, 11:44:38 AM\n\n---\n\n User\n\n[analyze-mode]\nANALYSIS…"
+  },
+  {
+    "slug": "fabric-fixed-error-analysis-and-shell-completion-review",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "LOG: [LEARN] Guide: Fix Fabric Zsh Completion Errors\n\nTitle: Fabric Error Analysis and Shell Completion Review\nDate: 2026-02-14 (10:12:11 IST)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin,…"
+  },
+  {
+    "slug": "fabric-ai-tab-autocompletion-error",
+    "title": "Fabric-AI-tab-autocompletion-error",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Title: Fabric AI Tab Autocompletion Error\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Fabric-AI-tab-autocompletion-error.md…"
+  },
+  {
+    "slug": "fhd-prompt-bestresults-deep-v3-1-671b-cloud",
+    "title": "1. Install Necessary Tools",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "Title: Formatting a Hard Drive Using (fdisk/cfdisk) on Arch Linux\nAuthor: Sr. Yididiel Hills Arch Linux AMD, Developer\nDate: November, 18-11-2025 (00:17:22 IST)\nlfnc: FHD_Prompt_BestRe…"
+  },
+  {
+    "slug": "fabric-solution",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 4,
+    "description": "LOG: [LEARN] Guide: Fabric Clipboard Automation with Wayland & Niri\n\nTitle: Fabric Clipboard Integration - Complete Solution\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel…"
+  },
+  {
+    "slug": "editing-text-in-vim-by-selecting-and-replacing-2026-01-24-17-58-47",
+    "title": "Editing Text in Vim by Selecting and Replacing",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Title: Editing Text in Vim by Selecting and Replacing\nDate: 2026-01-24 (17:58:47 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Editing_Text_in_Vim_by_Se…"
+  },
+  {
+    "slug": "edit-command-buffer-fix",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "LOG: [LEARN] Guide: Fix Zsh Edit-Command-Buffer Key Binding\n\nTitle: Edit Command Buffer Fix\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Develop…"
+  },
+  {
+    "slug": "duckduckgo-search-error",
+    "title": "Duckduckgo_Search-Error",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 16,
+    "description": "Thinking: Good, the code is fixed. There's one minor linting warning\nabout unused import but that's not critical. The main fix is done - I've\nupdated:\n1. The import statement from duckduckgo_search to…"
+  },
+  {
+    "slug": "document-heading-auto-populate-for-agents",
+    "title": "Document-heading-auto-populate-for-AGENTS",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 1,
+    "description": "Document heading auto-populate for AGENTS.md\n\n\n\n  █▀▀█  Document heading auto-populate for AGENTS.md and …\n  █  █  opencode -s ses_3a9dd8c30ffePS1IIELLT346GZ\n  ▀▀▀▀…"
+  },
+  {
+    "slug": "diy-sample3-tutorial",
+    "title": "OUTPUT",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "Title: DIY Sample3 Tutorial\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: DIY_Sample3_tutorial.md\nCopyright: © 2026-2027…"
+  },
+  {
+    "slug": "diy-partition-formatting-with-cfdisk",
+    "title": "Introduction",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "Title: DIY Partition Formatting with Cfdisk\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: DIY_Partition_formatting_with_cfdis…"
+  },
+  {
+    "slug": "customizing-your-linux-system-with-user-management",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "LOG: [LEARN] Understanding: Linux User Management and Sudo Privileges\n\nTitle: Customizing Your Linux System with User Management\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yidi…"
+  },
+  {
+    "slug": "creating-custom-fabric-patterns",
+    "title": "1. Understand Where Patterns Live",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "ASSISTANT\n\nDefining Fabric Patterns\n\nBased on the video transcript provided, here is a clear, step-by-step\nguide on\nhow to create and use custom patterns in Fabric.\nSetting Up Custom Pattern…"
+  },
+  {
+    "slug": "create-a-new-venv-installing-uv-on-archlinux",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "LOG: [LEARN] Guide: Create Python Virtual Environment with UV on Arch Linux\n\nTitle: Create a New VENV Installing UV on Archlinux\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yidi…"
+  },
+  {
+    "slug": "confidential-executive-psychological-overview",
+    "title": "Confidential-Executive-Psychological-Overview",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 4,
+    "description": "Sr. Yididiel Hills – Confidential Executive Psychological Overview\n(Prepared for coaching & development purposes – internal use only)\n------------------------------------------------------------------…"
+  },
+  {
+    "slug": "common-ollama-interactive-commands",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "LOG: [LEARN] Reference: Ollama Interactive Commands & Parameters\n\nTitle: Common Ollama Interactive Commands\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linu…"
+  },
+  {
+    "slug": "check-locale-installation-packages-2026-02-11-20-43-04",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "LOG: [LEARN] Reference: Arch Linux Locale Configuration and Troubleshooting\n\nTitle: Check Locale Installation Packages\nDate: 2026-02-11 (20:43:04 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills…"
+  },
+  {
+    "slug": "beginner-tutorial-arch0-intro-cli",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "LOG: [LEARN] Guide: Beginner Arch Linux CLI Setup\n\nTitle: Beginner Tutorial: Arch Linux CLI Introduction\nDate: 2025-11-15 (20:57:02 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux A…"
+  },
+  {
+    "slug": "base16-colorschemes-for-geany",
+    "title": "Base16-Colorschemes-for-Geany",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 1,
+    "description": "Title: Base16 Colorschemes for Geany\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Base16-Colorschemes-for-Geany.md\nCopyrig…"
+  },
+  {
+    "slug": "atuin-search-analysis-complete",
+    "title": "Atuin-Search-Analysis-Complete",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Title: Atuin Search Analysis Complete\nDate: 2026-02-03 (00:05:50 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Atuin-Search-Analysis-Complete.md\nCopyr…"
+  },
+  {
+    "slug": "arch-linux-command-line-commands",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "LOG: [LEARN] Reference: Arch Linux Command-Line Commands\n\nTitle: Arch Linux Command-Line Commands\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, D…"
+  },
+  {
+    "slug": "analyze-the-codebase-for-torch-and-nvim",
+    "title": "Analyze-the-codebase-for-torch-and-nvim",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Title: Analyze the code-base for torch and nvim working directory\nconfiguration issues\nDate: February, 03-02-2026 (13:28:36 IST)\nAuthor: Sr. Yididiel Hills Arch Linux AMD, Developer\nlfnc…"
+  },
+  {
+    "slug": "advanced-research-assistant",
+    "title": "The \"Recipe\" (The How)",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "LOG: [LEARN] Guide: Web-LLM.py Interactive Research Assistant\n\nTitle: Advanced Research Assistant\nDate: 2026-02-11 (17:46:18 IST)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer…"
+  },
+  {
+    "slug": "agents",
+    "title": "Repository Overview",
+    "category": "General",
+    "tags": [],
+    "date": null,
+    "readingTime": 5,
+    "description": "AGENTS.md - Agentic Coding Guidelines\n\n Repository Overview\n\nThis is a documentation/tutorial repository containing Linux/Arch Linux guides,\nCLI tool tutorials, and system administration refer…"
+  },
+  {
+    "slug": "nmcli-a-powerful-command-line-tool",
+    "title": "Nmcli-a-Powerful-Command-line-tool",
+    "category": "Nm-Arch-Guide",
+    "tags": [],
+    "date": null,
+    "readingTime": 4,
+    "description": "Title: Nmcli a Powerful Command line tool\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Nmcli-a-Powerful-Command-line-tool.md…"
+  },
+  {
+    "slug": "networkmanager-arch-linux-enabling-and-starting",
+    "title": "NetworkManager-Arch-Linux-Enabling-and-Starting",
+    "category": "Nm-Arch-Guide",
+    "tags": [],
+    "date": null,
+    "readingTime": 4,
+    "description": "Title: NetworkManager Arch Linux Enabling and Starting\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: NetworkManager-Arch-Linu…"
+  },
+  {
+    "slug": "niri-zsh-completion-config-fix",
+    "title": "niri-zsh-completion-config-fix",
+    "category": "Niri-Guides",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Title: Niri ZSH Completion Config Fix\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: niri-zsh-completion-config-fix.md\nCopyr…"
+  },
+  {
+    "slug": "niri-shell-startup-error",
+    "title": "niri-shell-startup-error",
+    "category": "Niri-Guides",
+    "tags": [],
+    "date": null,
+    "readingTime": 4,
+    "description": "Title: Niri Shell Startup Error\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: niri-shell-startup-error.md\nCopyright: © 20…"
+  },
+  {
+    "slug": "niri-msg-action-commands",
+    "title": "niri-msg-action-commands",
+    "category": "Niri-Guides",
+    "tags": [],
+    "date": null,
+    "readingTime": 7,
+    "description": "Title: Niri Msg Action Commands\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: niri-msg-action-commands.md\nCopyright: © 20…"
+  },
+  {
+    "slug": "niri-kdl-shortcut-keys",
+    "title": "niri-kdl-shortcut-keys",
+    "category": "Niri-Guides",
+    "tags": [],
+    "date": null,
+    "readingTime": 1,
+    "description": "Title: Niri KDL Shortcut Keys\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: niri-kdl-shortcut-keys.md\nCopyright: © 2026-2…"
+  },
+  {
+    "slug": "niri-system-commands-explained",
+    "title": "Niri-System-Commands-Explained",
+    "category": "Niri-Guides",
+    "tags": [],
+    "date": null,
+    "readingTime": 5,
+    "description": "Title: Niri System Commands Explained\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Niri-System-Commands-Explained.md\nCopyr…"
+  },
+  {
+    "slug": "niri-launcher-issue-fixed",
+    "title": "Niri-Launcher-Issue-Fixed",
+    "category": "Niri-Guides",
+    "tags": [],
+    "date": null,
+    "readingTime": 2,
+    "description": "Title: Niri Launcher Issue Fixed\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Niri-Launcher-Issue-Fixed.md\nCopyright: ©…"
+  },
+  {
+    "slug": "niri-install-wayland-compositor-on-arch-linux-2026-02-09-17-30-34",
+    "title": "How to Install and Customize Niri Wayland Compositor on Arch Linux",
+    "category": "Niri-Guides",
+    "tags": [],
+    "date": null,
+    "readingTime": 3,
+    "description": "Title: Niri Install Wayland Compositor on Arch Linux\nDate: 2026-02-09 (17:30:34 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Niri-Install-Wayland-Compo…"
+  }
+]

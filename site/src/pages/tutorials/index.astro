@@ -1,0 +1,133 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const tutorials = await getCollection('tutorials');
+const categories = [...new Set(tutorials.map(t => t.data.category))].sort();
+const allTags = [...new Set(tutorials.flatMap(t => t.data.tags))].sort();
+---
+
+<Layout title="All Guides" description="Browse and search all Linux/Arch tutorials.">
+  <header class="mb-12">
+    <h1 class="font-display text-4xl sm:text-5xl font-bold text-white tracking-tight">Guides</h1>
+    <p class="mt-3 text-lg text-arch-muted">{tutorials.length} guides — search, filter, learn.</p>
+  </header>
+
+  <div class="flex flex-col lg:flex-row gap-10">
+    <aside class="lg:w-72 shrink-0">
+      <div class="sticky top-28 space-y-8">
+        <section>
+          <h3 class="font-display text-sm font-semibold text-white uppercase tracking-wider mb-4">Categories</h3>
+          <ul class="space-y-1.5" id="category-filters">
+            <li>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" value="all" checked class="w-4 h-4 rounded border-arch-border bg-arch-surface text-arch-cyan focus:ring-2 focus:ring-arch-cyan focus:ring-offset-2 focus:ring-offset-arch-bg appearance-none" />
+                <span class="text-sm text-arch-muted group-hover:text-white transition-colors">All</span>
+              </label>
+            </li>
+            {categories.map(c => (
+              <li>
+                <label class="flex items-center gap-3 cursor-pointer group">
+                  <input type="checkbox" value={c} class="w-4 h-4 rounded border-arch-border bg-arch-surface text-arch-cyan focus:ring-2 focus:ring-arch-cyan focus:ring-offset-2 focus:ring-offset-arch-bg appearance-none" />
+                  <span class="text-sm text-arch-muted group-hover:text-white transition-colors">{c}</span>
+                </label>
+              </li>
+            ))}
+          </ul>
+        </section>
+        <section>
+          <h3 class="font-display text-sm font-semibold text-white uppercase tracking-wider mb-4">Tags</h3>
+          <div class="flex flex-wrap gap-1.5" id="tag-cloud">
+            {allTags.map(tag => (
+              <button type="button" class="tag-btn rounded-md px-3 py-1.5 text-xs font-medium border border-arch-border bg-arch-surface text-arch-muted hover:border-arch-cyan/50 hover:bg-arch-border hover:text-white transition-all" data-tag={tag}>{tag}</button>
+            ))}
+          </div>
+        </section>
+      </div>
+    </aside>
+
+    <section class="flex-1 min-w-0">
+      <div class="mb-8">
+        <label for="search" class="sr-only">Search tutorials</label>
+        <div class="relative">
+          <svg class="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-arch-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input type="search" id="search" placeholder="Search by title, description, tags…" class="w-full rounded-xl border border-arch-border bg-arch-surface px-12 py-3.5 text-sm placeholder:text-arch-muted focus:outline-none focus:border-arch-cyan focus:ring-2 focus:ring-arch-cyan/20 focus:bg-arch-bg transition-all" />
+        </div>
+      </div>
+      <div id="results" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {tutorials.map((t, i) => (
+          <article class="card group" data-category={t.data.category} data-tags={t.data.tags.join(',')} style={{ animationDelay: `${(i % 12) * 40}ms` }}>
+            <div class="absolute inset-0 bg-gradient-to-br from-arch-cyan/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div class="relative z-10 p-6">
+              <div class="flex items-start gap-2 mb-3">
+                <span class="text-xs font-medium text-arch-cyan uppercase tracking-wider">{t.data.category}</span>
+                <span class="text-xs text-arch-muted ml-auto">{t.data.readingTime} min read</span>
+              </div>
+              <h3 class="font-display text-lg font-semibold text-white group-hover:text-arch-cyan transition-colors mb-3">
+                <a href={`/tutorials/${t.id}`}>{t.data.title}</a>
+              </h3>
+              <p class="text-sm text-arch-muted line-clamp-3 mb-5">{t.data.description}</p>
+              <div class="flex flex-wrap gap-1.5">
+                {t.data.tags.slice(0, 4).map(tag => (
+                  <span class="rounded px-2.5 py-1 text-xs font-medium border border-arch-border bg-arch-bg/50 text-arch-muted hover:border-arch-cyan/50 hover:bg-arch-border hover:text-white transition-all">{tag}</span>
+                ))}
+              </div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-arch-cyan/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+          </article>
+        ))}
+      </div>
+      <p id="no-results" class="hidden text-center text-arch-muted py-16 text-lg">No tutorials match your filters.</p>
+    </section>
+  </div>
+</Layout>
+
+<script is:inline>
+  const search = document.getElementById('search');
+  const categoryFilters = document.querySelectorAll('#category-filters input[type="checkbox"]');
+  const tagButtons = document.querySelectorAll('.tag-btn');
+  const cards = document.querySelectorAll('#results article');
+  const noResults = document.getElementById('no-results');
+
+  let activeCategories = ['all'];
+  let activeTags = new Set();
+  let searchTerm = '';
+
+  function filter() {
+    let visible = 0;
+    cards.forEach((card, i) => {
+      const cats = card.dataset.category;
+      const tags = card.dataset.tags.split(',');
+      const text = card.textContent.toLowerCase();
+
+      const catMatch = activeCategories.includes('all') || activeCategories.includes(cats);
+      const tagMatch = activeTags.size === 0 || tags.some(t => activeTags.has(t));
+      const searchMatch = !searchTerm || text.includes(searchTerm);
+
+      const show = catMatch && tagMatch && searchMatch;
+      card.classList.toggle('hidden', !show);
+      card.style.animationDelay = `${(visible % 12) * 40}ms`;
+      if (show) visible++;
+    });
+    noResults.classList.toggle('hidden', visible > 0);
+  }
+
+  search.addEventListener('input', e => { searchTerm = e.target.value.toLowerCase(); filter(); });
+  categoryFilters.forEach(cb => cb.addEventListener('change', () => {
+    if (cb.value === 'all') {
+      if (cb.checked) { categoryFilters.forEach(c => { c.checked = c === cb; }); activeCategories = ['all']; }
+      else { cb.checked = true; }
+    } else {
+      document.querySelector('#category-filters input[value="all"]').checked = false;
+      activeCategories = Array.from(categoryFilters).filter(c => c.checked).map(c => c.value);
+      if (activeCategories.length === 0) { document.querySelector('#category-filters input[value="all"]').checked = true; activeCategories = ['all']; }
+    }
+    filter();
+  }));
+  tagButtons.forEach(btn => btn.addEventListener('click', () => {
+    const tag = btn.dataset.tag;
+    if (activeTags.has(tag)) { activeTags.delete(tag); btn.classList.remove('border-arch-cyan', 'text-white', 'bg-arch-border'); }
+    else { activeTags.add(tag); btn.classList.add('border-arch-cyan', 'text-white', 'bg-arch-border'); }
+    filter();
+  }));
+</script>

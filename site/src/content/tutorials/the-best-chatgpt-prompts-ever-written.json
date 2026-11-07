@@ -1,0 +1,94 @@
+{
+  "slug": "the-best-chatgpt-prompts-ever-written",
+  "filePath": "The-Best-ChatGPT-Prompts-Ever-Written.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Reference: CRAFT Prompt Framework for LLM Prompt Engineering\n\nTitle: The Best ChatGPT Prompts Ever Written — CRAFT Framework\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor:…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "CRAFT Acronym Framework",
+      "slug": "craft-acronym-framework"
+    },
+    {
+      "level": 3,
+      "text": "CRAFT Template",
+      "slug": "craft-template"
+    },
+    {
+      "level": 3,
+      "text": "Example: Monthly Goals Guide",
+      "slug": "example-monthly-goals-guide"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Why CRAFT Works",
+      "slug": "why-craft-works"
+    },
+    {
+      "level": 3,
+      "text": "Design Principles",
+      "slug": "design-principles"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "CRAFT vs. Standard Prompting",
+      "slug": "craft-vs-standard-prompting"
+    },
+    {
+      "level": 3,
+      "text": "CRAFT as Meta-Prompt",
+      "slug": "craft-as-meta-prompt"
+    },
+    {
+      "level": 3,
+      "text": "Prompt Injection Defense",
+      "slug": "prompt-injection-defense"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "LLM Training Alignment",
+      "slug": "llm-training-alignment"
+    },
+    {
+      "level": 3,
+      "text": "CRAFT Prompt Quality Checklist",
+      "slug": "craft-prompt-quality-checklist"
+    },
+    {
+      "level": 3,
+      "text": "CRAFT Variants",
+      "slug": "craft-variants"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 4,
+  "content": "LOG: [LEARN] Reference: CRAFT Prompt Framework for LLM Prompt Engineering\n\n**Title:** The Best ChatGPT Prompts Ever Written — CRAFT Framework\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** The-Best-ChatGPT-Prompts-Ever-Written.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### CRAFT Acronym Framework\nUse **C.R.A.F.T.** to structure high-quality LLM prompts:\n\n| Letter | Section | Purpose |\n|--------|---------|---------|\n| **C** | **Context** | Situation, background, why this prompt exists |\n| **R** | **Role** | Expert identity, 20+ years experience, thought leadership |\n| **A** | **Action** | Numbered sequential steps for the LLM to follow |\n| **F** | **Format** | Output structure: essay, table, code, markdown, list, etc. |\n| **T** | **Target Audience** | Demographics, language, reading level, preferences |\n\n### CRAFT Template\n```markdown\n**Context:**\n[Describe the situation, background, and why this prompt is needed.\nWhat knowledge/expertise should the LLM reference?]\n\n**Role:**\n[Define the LLM's persona: expert type, 20+ years experience,\nspecialization, writing style, tone]\n\n**Action:**\n1. [First sequential step]\n2. [Second step]\n3. [Continue with clear, actionable steps...]\n\n**Format:**\n[Specify output structure: essay, table, code, markdown, list, summary, etc.\nInclude details: headings, lists, examples, case studies]\n\n**Target Audience:**\n[Demographics, geography, language, reading level, preferences,\nexpertise level, goals]\n```\n\n### Example: Monthly Goals Guide\n```markdown\n**Context:**\nCreate a detailed guide to help individuals set, track, and achieve\nmonthly goals. Break down larger objectives into manageable, actionable\nsteps aligned with yearly vision. Focus on consistency, overcoming\nobstacles, celebrating progress using SMART goals.\n\n**Role:**\nExpert productivity coach with 20+ years experience helping individuals\noptimize time, define goals, achieve sustained success. Skilled in habit\nformation, motivational strategies, practical planning. Clear,\nmotivating, actionable writing style.\n\n**Action:**\n1. Engaging intro: why monthly goals work for personal/professional growth\n2. Step-by-step: breaking annual goals into monthly objectives\n3. Strategies for identifying monthly priorities\n4. Techniques for focus, tracking, plan adjustment\n5. Examples: health, career, finances, personal development\n6. Obstacles (procrastination, challenges) and solutions\n7. Motivational conclusion: reflection and continuous improvement\n\n**Format:**\nPlain text, clear headings/subheadings, numbered/bulleted lists,\npractical examples, case studies\n\n**Target Audience:**\nWorking professionals/entrepreneurs 25-55 seeking productivity strategies.\nSelf-motivated, value structure/clarity. 6th grade reading level.\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Why CRAFT Works\n| Component | Purpose |\n|-----------|---------|\n| **Context** | Grounds LLM in relevant knowledge domain |\n| **Role** | Activates expert-level knowledge patterns |\n| **Action** | Provides executable, sequential instructions |\n| **Format** | Constrains output to usable structure |\n| **Target Audience** | Calibrates tone, complexity, vocabulary |\n\n### Design Principles\n| Principle | Application |\n|-----------|-------------|\n| **Sequential steps** | LLMs execute ordered instructions better |\n| **Explicit role** | Activates domain-specific training patterns |\n| **Concrete format** | Prevents rambling, ensures usability |\n| **Audience awareness** | Calibrates vocabulary, depth, tone |\n\n## The \"Deep Dive\" (The Technical Root)\n\n### CRAFT vs. Standard Prompting\n| Standard | CRAFT |\n|----------|-------|\n| \"Write a guide on monthly goals\" | Full CRAFT template above |\n| Implicit context | Explicit context |\n| Generic role | 20-year expert persona |\n| Vague output | Structured format spec |\n| Unknown audience | 6th grade, professionals 25-55 |\n\n### CRAFT as Meta-Prompt\n```markdown\n# Meta-Prompt: Generate CRAFT Prompt\nCONTEXT: We are creating a CRAFT prompt for [TOPIC].\nROLE: You are a prompt engineering expert.\nACTION:\n1. Ask user for topic if not provided\n2. Generate all 5 CRAFT sections\n3. Include fill-in-the-blank placeholders\n4. Output complete CRAFT-formatted prompt\nFORMAT: CRAFT template (above)\nTARGET: ChatGPT-4o / o1\n```\n\n### Prompt Injection Defense\nCRAFT's explicit structure reduces injection risk:\n- Explicit role bounds behavior\n- Action steps constrain execution flow\n- Format constraints limit output space\n- Audience constraints limit style drift\n\n## The \"Deep Dive\" (The Technical Root)\n\n### LLM Training Alignment\n| CRAFT Element | Training Pattern |\n|---------------|------------------|\n| Role | System prompt conditioning |\n| Action | Instruction-following (RLHF) |\n| Format | Structured output training |\n| Context | In-context learning |\n\n### CRAFT Prompt Quality Checklist\n- [ ] Context explains *why* and *what knowledge to use*\n- [ ] Role specifies *expertise level* and *writing style*\n- [ ] Action has *numbered, sequential, testable steps*\n- [ ] Format specifies *exact output structure*\n- [ ] Audience defines *reading level* and *vocabulary*\n\n### CRAFT Variants\n| Variant | Use Case |\n|---------|----------|\n| **CRAFT** | General purpose, high quality |\n| **CRAFT+CoT** | Add Chain-of-Thought to Action steps |\n| **CRAFT-FewShot** | Include examples in Context |\n| **CRAFT-Code** | Format=code, Role=senior engineer |\n| **CRAFT-Analytical** | Role=analyst, Format=structured report |\n\n### References\n- [Original Video](https://youtu.be/3fVAtaGhUyU) — Dreams of Code\n- [Prompt Engineering Guide](https://www.promptingguide.ai/)\n- [Anthropic Prompt Library](https://docs.anthropic.com/en/prompt-library)"
+}

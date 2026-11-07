@@ -1,0 +1,44 @@
+{
+  "slug": "ufw-setup-firewall-in-linux",
+  "filePath": "ufw_setup_firewall_in_Linux.md",
+  "title": "Last Modified: Fri 08 Mar 2024 10:17:40",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "How to set up a firewall in Linux?\n Last Modified: Fri 08 Mar 2024 10:17:40\n\n UFW status check\n\nCheck that the firewall is switched on, use this command:\n\n$ sudo ufw status \n\nThe result will…",
+  "headings": [
+    {
+      "level": 4,
+      "text": "Last Modified: Fri 08 Mar 2024 10:17:40",
+      "slug": "last-modified-fri-08-mar-2024-10-17-40"
+    },
+    {
+      "level": 2,
+      "text": "UFW status check",
+      "slug": "ufw-status-check"
+    },
+    {
+      "level": 2,
+      "text": "Switching on UFW",
+      "slug": "switching-on-ufw"
+    },
+    {
+      "level": 2,
+      "text": "To enable UFW on your system, run the command:",
+      "slug": "to-enable-ufw-on-your-system-run-the-command"
+    },
+    {
+      "level": 2,
+      "text": "To activate the UFW firewall, run:",
+      "slug": "to-activate-the-ufw-firewall-run"
+    },
+    {
+      "level": 2,
+      "text": "Next, check its status:",
+      "slug": "next-check-its-status"
+    }
+  ],
+  "readingTime": 6,
+  "content": "# How to set up a firewall in Linux?\n#### Last Modified: Fri 08 Mar 2024 10:17:40\n\n## UFW status check\n\nCheck that the firewall is switched on, use this command:\n\n`$ sudo ufw status `\n\nThe result will show whether your firewall is active or not.\n\n## Switching on UFW\n\nIf you get a Status: inactive message when running the ufw status command, \nit means that the firewall is not yet enabled on the system. \nYou will need to run a command to enable it.\n\nBy default, when UFW is enabled, it blocks external access to all ports on the server. \nIn practice, this means that if you connect to a server via SSH and enable ufw before \nallowing access on the SSH port, you will be disconnected.\n\n## To enable UFW on your system, run the command:\n\n`$ sudo ufw enable `\n\nYou will see a result similar to this.\n\nTo see what is currently blocked or allowed, you can use the verbose parameter \nwhen running ufw status as shown below:\n\n`$ sudo ufw status verbose `\n\nOutput\n\n> Switching off the UFW\n\nIf for some reason you need to disable the firewall, you can do so with the following command:\nsudo ufw disable\nCopy\n\nBe careful, this command will completely disable the firewall service on your system!\nBlocking an IP address from being addressed\n\nTo block all network connections originating from a specific IP address, \nrun the following command, replacing the allocated IP address with the IP address you wish to block:\n\nsudo ufw deny from 91.198.174.190\n\n\n4-ufw\n\n    In this example, \"from 91.198.174.190\" indicates the source IP address \"91.198.174.190\".\n\n`sudo ufw status`\n\n\nIf you run this command, you will see that the specified IP address is on the banned list:\n\n5-ufw\n\n    All connections, incoming and outgoing, are blocked for the specified IP address.\n\n- Block the subnet\n\nIf you need to block the entire subnet, you can use the subnet address as the \"from\" parameter in the ufw deny command. This will block all IP addresses in the example subnet 91.198.174.0/24:\n\nsudo ufw deny from 198.174.0/24\n\n\n6-ufw\n\n    - Block the subnet\n\n> Blocking incoming connections to the network interface\n\nTo block incoming connections from a specific IP address to a specific network interface, run the following command, replacing the IP address with the IP address you want to block:\n\nsudo ufw deny in on eth0 from 91.198.174.192\n\n\n7-ufw\n\n    The \"in\" parameter tells the firewall to apply the rule only to incoming connections, and the \"on eth0\" parameter tells it that the rule applies only to the eth0 interface. This can be useful if you have a system with multiple network interfaces (including virtual interfaces) and you need to block external access to some of those interfaces, but not all.\n\n> Allow IP address conversions\n\nTo allow all network connections originating from a specific IP address, run the following command, replacing the allocated IP address with the IP address you wish to allow access to:\n\nsudo ufw allow from 198.174.192\n\n\n8-ufw\n\n    If you now run \"sudo ufw status\", you will see output similar to this, with ALLOW next to the IP address you have just added.\n\nsudo ufw status\n\n\n9-ufw\n\n    You can also allow connections from an entire subnet by specifying the appropriate subnet mask for the host, e.g. 91.198.174.0/24.\n\n- Allow incoming connections to the network interface\n\nTo allow incoming connections from a specific IP address to a specific network interface, run the following command, replacing the IP address with the one you want to allow:\n\nsudo ufw allow in on eth0 from 91.198.174.22\n\n\n10-ufw\n\n    The \"in\" parameter tells the firewall to apply the rule only to incoming connections and the \"on eth0\" parameter specifies that the rule applies only to the \"eth0\" interface.\n\n`sudo ufw status`\n\n\nIf you run the command, you will see a result similar to this:\n\n11-ufw\n\n    Result of \"sudo ufw status\"\n\n\nThere are several programs you can use to configure and run a firewall in Linux. \nBut I will show you only two programs which I believe are the most worthy.\n\nUFW – it is probably the most user-friendly firewall available in Linux. \nIf you are a complete newbie or you just want to use your Linux without going to deep into its settings, \nuse UFW.\niptables - which is a more advanced but probably a proper way to configure the Linux Firewall. \nIf you really want to learn Linux and you aim to become a Linux expert, you need to learn iptables.\n\n- UFW - the uncomplicated firewall\n\nAs I said above, UFW is the most simple and the most user-friendly way to get firewall running in Linux. \nIt can be used with a graphical front end as well as from the command line only. In the first case, \nyou need to install the program GUFW from your software manager. In the latter case, install only UFW, \nthat is without G and thus without GUI.\nGUFW\n\nSo, let’s start with the graphical interface. Simply install GUFW, open it, and enable.\n\n## To activate the UFW firewall, run:\n\n`sudo ufw enable`\n\n## Next, check its status:\n\n`sudo ufw status verbose`\n\n> By default, it has the same rules to deny incoming and allow outgoing.\n\nIf you need to open some ports, you just need to run one command. For example, to open ssh port, run:\n\n`sudo ufw allow ssh`\n\n- If you check the status again:\n\n- You will see the ssh port 22 is open.\n\n\n`sudo pacman -S ufw`\n`sudo ufw status`\n`sudo ufw enable`\n`sudo ufw reload`\n`sudo ufw reset`\n`sudo ufw allow sshd`\n`sudo ufw allow from 192.168.10.107`\n`sudo ufw allow 2222/tcp`\n`sudo ufw allow 22/tcp`\n`sudo ufw status verbose`\n`sudo ufw deny 2222/tcp`\n`sudo vim ufw.conf`\n`sudo ufw delete deny 2222/tcp`\n`sudo ufw delete allow 22`\n`sudo ufw delete allow 192.168.10.107`\n`sudo ufw delete anywhere allow 192.168.10.107`\n`sudo ufw delete anywhere 192.168.10.107`\n`sudo ufw delete 192.168.10.107`\ncd ufw/\ncd /etc/ufw/\ncd /etc/default/ufw\n\nYou can read more about settings of UFW in its man page, simply run man ufw.\n\n# Adding Email and GitHub link\n\nE-mail: [[mobw4u@gmail.com](mailto:mobw4u@gmail.com)]\n\nAlso visit this page [[GitHub](https://github.com/yididiel7)]\n\n"
+}

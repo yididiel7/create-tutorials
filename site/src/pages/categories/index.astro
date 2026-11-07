@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const tutorials = await getCollection('tutorials');
+const categories = [...new Set(tutorials.map(t => t.data.category))]
+  .filter(c => c !== 'General')
+  .sort()
+  .map(c => ({
+    name: c,
+    count: tutorials.filter(t => t.data.category === c).length,
+    slug: c.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+  }));
+---
+
+<Layout title="Categories" description="Browse tutorials by category.">
+  <header class="mb-12">
+    <h1 class="font-display text-3xl sm:text-4xl font-bold text-white">Categories</h1>
+    <p class="mt-2 text-arch-muted">{categories.length} topic areas to explore.</p>
+  </header>
+
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {categories.map(c => (
+      <a href={`/categories/${c.slug}`} class="card group">
+        <h3 class="font-display text-lg font-semibold text-white group-hover:text-arch-cyan transition-colors">{c.name}</h3>
+        <p class="mt-2 text-sm text-arch-muted">{c.count} tutorials</p>
+      </a>
+    ))}
+  </div>
+</Layout>

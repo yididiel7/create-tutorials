@@ -1,0 +1,274 @@
+{
+  "slug": "vim-reference-editing-commands",
+  "filePath": "vim_reference_editing_commands.md",
+  "title": "First Steps",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Title: Vim Reference Editing Commands\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: vim_reference_editing_commands.md\nCopyr…",
+  "headings": [
+    {
+      "level": 3,
+      "text": "First Steps",
+      "slug": "first-steps"
+    },
+    {
+      "level": 3,
+      "text": "Emergency Exit",
+      "slug": "emergency-exit"
+    },
+    {
+      "level": 3,
+      "text": "Character Movement",
+      "slug": "character-movement"
+    },
+    {
+      "level": 3,
+      "text": "Word Movement",
+      "slug": "word-movement"
+    },
+    {
+      "level": 3,
+      "text": "Line Movement",
+      "slug": "line-movement"
+    },
+    {
+      "level": 3,
+      "text": "Screen Movement",
+      "slug": "screen-movement"
+    },
+    {
+      "level": 3,
+      "text": "File Movement",
+      "slug": "file-movement"
+    },
+    {
+      "level": 3,
+      "text": "Entering Insert Mode",
+      "slug": "entering-insert-mode"
+    },
+    {
+      "level": 3,
+      "text": "Basic Editing",
+      "slug": "basic-editing"
+    },
+    {
+      "level": 3,
+      "text": "Copy & Paste",
+      "slug": "copy-paste"
+    },
+    {
+      "level": 3,
+      "text": "Undo & Redo",
+      "slug": "undo-redo"
+    },
+    {
+      "level": 3,
+      "text": "Line Numbers",
+      "slug": "line-numbers"
+    },
+    {
+      "level": 3,
+      "text": "Find Character",
+      "slug": "find-character"
+    },
+    {
+      "level": 3,
+      "text": "Matching",
+      "slug": "matching"
+    },
+    {
+      "level": 3,
+      "text": "Sentence & Paragraph",
+      "slug": "sentence-paragraph"
+    },
+    {
+      "level": 3,
+      "text": "Syntax",
+      "slug": "syntax"
+    },
+    {
+      "level": 3,
+      "text": "Common Text Objects",
+      "slug": "common-text-objects"
+    },
+    {
+      "level": 3,
+      "text": "Examples",
+      "slug": "examples"
+    },
+    {
+      "level": 3,
+      "text": "Visual Mode Types",
+      "slug": "visual-mode-types"
+    },
+    {
+      "level": 3,
+      "text": "Visual Operations",
+      "slug": "visual-operations"
+    },
+    {
+      "level": 3,
+      "text": "Block Visual Tips",
+      "slug": "block-visual-tips"
+    },
+    {
+      "level": 3,
+      "text": "Basic Search",
+      "slug": "basic-search"
+    },
+    {
+      "level": 3,
+      "text": "Search Options",
+      "slug": "search-options"
+    },
+    {
+      "level": 3,
+      "text": "Replace",
+      "slug": "replace"
+    },
+    {
+      "level": 3,
+      "text": "Advanced Replace",
+      "slug": "advanced-replace"
+    },
+    {
+      "level": 3,
+      "text": "Basic File Commands",
+      "slug": "basic-file-commands"
+    },
+    {
+      "level": 3,
+      "text": "File Navigation",
+      "slug": "file-navigation"
+    },
+    {
+      "level": 3,
+      "text": "File Information",
+      "slug": "file-information"
+    },
+    {
+      "level": 3,
+      "text": "Buffers",
+      "slug": "buffers"
+    },
+    {
+      "level": 3,
+      "text": "Windows (Splits)",
+      "slug": "windows-splits"
+    },
+    {
+      "level": 3,
+      "text": "Window Navigation",
+      "slug": "window-navigation"
+    },
+    {
+      "level": 3,
+      "text": "Window Resizing",
+      "slug": "window-resizing"
+    },
+    {
+      "level": 3,
+      "text": "Tabs",
+      "slug": "tabs"
+    },
+    {
+      "level": 3,
+      "text": "Recording Macros",
+      "slug": "recording-macros"
+    },
+    {
+      "level": 3,
+      "text": "Macro Tips",
+      "slug": "macro-tips"
+    },
+    {
+      "level": 3,
+      "text": "Setting Marks",
+      "slug": "setting-marks"
+    },
+    {
+      "level": 3,
+      "text": "Jumping to Marks",
+      "slug": "jumping-to-marks"
+    },
+    {
+      "level": 3,
+      "text": "Special Marks",
+      "slug": "special-marks"
+    },
+    {
+      "level": 3,
+      "text": "Jump List",
+      "slug": "jump-list"
+    },
+    {
+      "level": 3,
+      "text": "Command History",
+      "slug": "command-history"
+    },
+    {
+      "level": 3,
+      "text": "Command Completion",
+      "slug": "command-completion"
+    },
+    {
+      "level": 3,
+      "text": "Useful Commands",
+      "slug": "useful-commands"
+    },
+    {
+      "level": 3,
+      "text": "Basic Settings",
+      "slug": "basic-settings"
+    },
+    {
+      "level": 3,
+      "text": "Color Schemes",
+      "slug": "color-schemes"
+    },
+    {
+      "level": 3,
+      "text": ".vimrc Location",
+      "slug": "vimrc-location"
+    },
+    {
+      "level": 3,
+      "text": "Efficiency Tips",
+      "slug": "efficiency-tips"
+    },
+    {
+      "level": 3,
+      "text": "Common Patterns",
+      "slug": "common-patterns"
+    },
+    {
+      "level": 3,
+      "text": "Useful Combinations",
+      "slug": "useful-combinations"
+    },
+    {
+      "level": 3,
+      "text": "Plugin Recommendations",
+      "slug": "plugin-recommendations"
+    },
+    {
+      "level": 3,
+      "text": "Learning Resources",
+      "slug": "learning-resources"
+    },
+    {
+      "level": 3,
+      "text": "Most Important Commands",
+      "slug": "most-important-commands"
+    },
+    {
+      "level": 3,
+      "text": "Remember",
+      "slug": "remember"
+    }
+  ],
+  "readingTime": 11,
+  "content": "**Title:** Vim Reference Editing Commands\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** vim_reference_editing_commands.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\nURL Source:\nhttps://r.jina.ai/https://scthornton.github.io/cheatsheets/vim_cheatsheet/\nURL Source: https://scthornton.github.io/cheatsheets/vim_cheatsheet/\n\nPublished Time: 2025-03-20T00:00:00+00:0\n\nMarkdown Content:\nVim Cheat Sheet\n---------------\n\n> A comprehensive reference for vim commands, organized by skill level\nand use case.\n\nTable of Contents\n-----------------\n\n*   [Getting\nStarted](https://scthornton.github.io/cheatsheets/vim_cheatsheet/#getting-started)\n*  \n[Modes](https://scthornton.github.io/cheatsheets/vim_cheatsheet/#modes)\n*   [Basic\nNavigation](https://scthornton.github.io/cheatsheets/vim_cheatsheet/#basic-navigation)\n*   [Essential\nEditing](https://scthornton.github.io/cheatsheets/vim_cheatsheet/#essential-editing)\n*   [Advanced\nMovement](https://scthornton.github.io/cheatsheets/vim_cheatsheet/#advanced-movement)\n*   [Text\nObjects](https://scthornton.github.io/cheatsheets/vim_cheatsheet/#text-objects)\n*   [Visual\nMode](https://scthornton.github.io/cheatsheets/vim_cheatsheet/#visual-mode)\n*   [Search &\nReplace](https://scthornton.github.io/cheatsheets/vim_cheatsheet/#search--replace)\n*   [File\nOperations](https://scthornton.github.io/cheatsheets/vim_cheatsheet/#file-operations)\n*   [Buffers &\nWindows](https://scthornton.github.io/cheatsheets/vim_cheatsheet/#buffers--windows)\n*  \n[Macros](https://scthornton.github.io/cheatsheets/vim_cheatsheet/#macros)\n*   [Marks &\nJumps](https://scthornton.github.io/cheatsheets/vim_cheatsheet/#marks--jumps)\n*   [Command\nLine](https://scthornton.github.io/cheatsheets/vim_cheatsheet/#command-line)\n*  \n[Configuration](https://scthornton.github.io/cheatsheets/vim_cheatsheet/#configuration)\n*   [Tips &\nTricks](https://scthornton.github.io/cheatsheets/vim_cheatsheet/#tips--tricks)\n\n* * *\n\nGetting Started\n---------------\n\n### First Steps\n\n```\nvim filename    # Open file in vim\nvimtutor       # Interactive vim tutorial\n:help          # Built-in help system\n:q             # Quit vim\n```\n\n### Emergency Exit\n\n```\n:q!            # Quit without saving (force quit)\n<Esc>:q!       # From any mode: escape, then force quit\n```\n\n* * *\n\nModes\n-----\n\nVim operates in different modes. Understanding modes is crucial to vim\nmastery.\n\n| Mode        | Purpose               | How to Enter       | Indicator       |\n| ---         | ---                   | ---                | ---             |\n| **Normal**  | Navigation & commands | `<Esc>`            | Default mode    |\n| **Insert**  | Typing text           | `i`, `a`, `o`, `O` | `-- INSERT --`  |\n| **Visual**  | Selecting text        | `v`, `V`, `<C-v>`  | `-- VISUAL --`  |\n| **Command** | Execute commands      | `:`                | `:` at bottom   |\n| **Replace** | Overwrite text        | `R`                | `-- REPLACE --` |\n\n* * *\n\nBasic Navigation\n----------------\n\n### Character Movement\n\n```\nh              # Left\nj              # Down\nk              # Up\nl              # Right\n```\n\n### Word Movement\n\n```\nw              # Next word beginning\nb              # Previous word beginning\ne              # Next word end\nge             # Previous word end\nW              # Next WORD (space-separated)\nB              # Previous WORD\nE              # Next WORD end\n```\n\n### Line Movement\n\n```\n0              # Beginning of line\n^              # First non-blank character\n$              # End of line\ng_             # Last non-blank character\n```\n\n### Screen Movement\n\n```\nH              # Top of screen\nM              # Middle of screen\nL              # Bottom of screen\n<C-f>          # Page down\n<C-b>          # Page up\n<C-d>          # Half page down\n<C-u>          # Half page up\n```\n\n### File Movement\n\n```\ngg             # Top of file\nG              # Bottom of file\n:n             # Go to line n\nnG             # Go to line n\n```\n\n* * *\n\nEssential Editing\n-----------------\n\n### Entering Insert Mode\n\n```\ni              # Insert before cursor\na              # Insert after cursor\nI              # Insert at beginning of line\nA              # Insert at end of line\no              # Open new line below\nO              # Open new line above\ns              # Substitute character\nS              # Substitute line\n```\n\n### Basic Editing\n\n```\nx              # Delete character under cursor\nX              # Delete character before cursor\ndd             # Delete line\nD              # Delete from cursor to end of line\ndw             # Delete word\ncw             # Change word\ncc             # Change line\nC              # Change from cursor to end of line\nr              # Replace single character\nR              # Replace mode\n```\n\n### Copy & Paste\n\n```\nyy             # Copy line\nyw             # Copy word\ny$             # Copy from cursor to end of line\np              # Paste after cursor\nP              # Paste before cursor\n```\n\n### Undo & Redo\n\n```\nu              # Undo\n<C-r>          # Redo\nU              # Undo all changes on line\n```\n\n* * *\n\nAdvanced Movement\n-----------------\n\n### Line Numbers\n\n```\n:set number    # Show line numbers\n:set nonumber  # Hide line numbers\n:set relativenumber  # Show relative line numbers\n```\n\n### Find Character\n\n```\nf{char}        # Find next occurrence of char\nF{char}        # Find previous occurrence of char\nt{char}        # Move to before next char\nT{char}        # Move to before previous char\n;              # Repeat last find\n,              # Repeat last find (opposite direction)\n```\n\n### Matching\n\n```\n%              # Jump to matching bracket/parenthesis\n*              # Search for word under cursor (forward)\n#              # Search for word under cursor (backward)\n```\n\n### Sentence & Paragraph\n\n```\n(              # Previous sentence\n)              # Next sentence\n{              # Previous paragraph\n}              # Next paragraph\n```\n\n* * *\n\nText Objects\n------------\n\nText objects allow you to operate on logical text structures. Combine\nwith operators like `d`, `c`, `y`.\n\n### Syntax\n\n```\n[operator][a/i][object]\n```\n\n*   `a` = “a” (includes surrounding)\n*   `i` = “inner” (excludes surrounding)\n\n### Common Text Objects\n\n```\niw / aw        # inner word / a word\nis / as        # inner sentence / a sentence\nip / ap        # inner paragraph / a paragraph\ni( / a(        # inner parentheses / a parentheses\ni[ / a[        # inner brackets / a brackets\ni{ / a{        # inner braces / a braces\ni\" / a\"        # inner quotes / a quotes\ni' / a'        # inner single quotes / a single quotes\nit / at        # inner tag / a tag (HTML/XML)\n```\n\n### Examples\n\n```\nciw            # Change inner word\ndi\"            # Delete inside quotes\nya(            # Copy everything including parentheses\nvit            # Visually select inside tag\n```\n\n* * *\n\nVisual Mode\n-----------\n\n### Visual Mode Types\n\n```\nv              # Character-wise visual mode\nV              # Line-wise visual mode\n<C-v>          # Block visual mode\ngv             # Reselect last visual selection\n```\n\n### Visual Operations\n\n```\nd              # Delete selection\ny              # Copy selection\nc              # Change selection\n>              # Indent selection\n<              # Unindent selection\n=              # Auto-indent selection\nu              # Make lowercase\nU              # Make uppercase\n```\n\n### Block Visual Tips\n\n```\n<C-v>          # Start block selection\nI              # Insert at beginning of all selected lines\nA              # Append at end of all selected lines\n```\n\n* * *\n\nSearch & Replace\n----------------\n\n### Basic Search\n\n```\n/pattern       # Search forward\n?pattern       # Search backward\nn              # Next match\nN              # Previous match\n*              # Search word under cursor forward\n#              # Search word under cursor backward\n```\n\n### Search Options\n\n```\n:set ignorecase    # Case insensitive search\n:set smartcase     # Case sensitive if uppercase present\n:set incsearch     # Incremental search\n:set hlsearch      # Highlight search results\n:nohlsearch        # Clear search highlighting\n```\n\n### Replace\n\n```\n:s/old/new/        # Replace first occurrence in line\n:s/old/new/g       # Replace all occurrences in line\n:%s/old/new/g      # Replace all in file\n:%s/old/new/gc     # Replace all with confirmation\n:5,12s/old/new/g   # Replace in lines 5-12\n```\n\n### Advanced Replace\n\n```\n:%s/\\<word\\>/new/g    # Replace whole word only\n:%s/old/new/gi        # Case insensitive replace\n:%s/^/new/g           # Add 'new' to beginning of each line\n:%s/$/new/g           # Add 'new' to end of each line\n```\n\n* * *\n\nFile Operations\n---------------\n\n### Basic File Commands\n\n```\n:w             # Save file\n:w filename    # Save as filename\n:q             # Quit\n:wq            # Save and quit\n:x             # Save and quit (only if modified)\n:q!            # Quit without saving\n```\n\n### File Navigation\n\n```\n:e filename    # Edit file\n:e!            # Reload current file\n:e .           # Open file browser\n:pwd           # Show current directory\n:cd path       # Change directory\n```\n\n### File Information\n\n```\n<C-g>          # Show file info\n:f             # Show filename and position\n:ls            # List open buffers\n```\n\n* * *\n\nBuffers & Windows\n-----------------\n\n### Buffers\n\n```\n:ls            # List buffers\n:b n           # Switch to buffer n\n:b filename    # Switch to buffer by name\n:bp            # Previous buffer\n:bn            # Next buffer\n:bd            # Delete buffer\n:b#            # Switch to alternate buffer\n```\n\n### Windows (Splits)\n\n```\n:split         # Horizontal split\n:vsplit        # Vertical split\n:sp filename   # Split and open file\n:vsp filename  # Vertical split and open file\n<C-w>s         # Horizontal split\n<C-w>v         # Vertical split\n```\n\n### Window Navigation\n\n```\n<C-w>h         # Move to left window\n<C-w>j         # Move to window below\n<C-w>k         # Move to window above\n<C-w>l         # Move to right window\n<C-w>w         # Cycle through windows\n<C-w>q         # Close current window\n```\n\n### Window Resizing\n\n```\n<C-w>=         # Make all windows equal size\n<C-w>+         # Increase height\n<C-w>-         # Decrease height\n<C-w>>         # Increase width\n<C-w><         # Decrease width\n```\n\n### Tabs\n\n```\n:tabnew        # New tab\n:tabnext       # Next tab\n:tabprev       # Previous tab\n:tabclose      # Close tab\ngt             # Next tab\ngT             # Previous tab\n```\n\n* * *\n\nMacros\n------\n\n### Recording Macros\n\n```\nqa             # Start recording macro 'a'\nq              # Stop recording\n@a             # Execute macro 'a'\n@@             # Repeat last executed macro\n5@a            # Execute macro 'a' 5 times\n```\n\n### Macro Tips\n\n```\n:let @a='...'  # Edit macro 'a' directly\n:reg a         # View contents of register 'a'\nqA             # Append to existing macro 'a'\n```\n\n* * *\n\nMarks & Jumps\n-------------\n\n### Setting Marks\n\n```\nma             # Set mark 'a' at current position\nmA             # Set global mark 'A'\n```\n\n### Jumping to Marks\n\n```\n'a             # Jump to line with mark 'a'\n`a             # Jump to exact position of mark 'a'\n''             # Jump to previous position\n``             # Jump to exact previous position\n```\n\n### Special Marks\n\n```\n'.             # Last edited position\n'^             # Last insert position\n'[             # Beginning of last change\n']             # End of last change\n```\n\n### Jump List\n\n```\n<C-o>          # Jump to previous location\n<C-i>          # Jump to next location\n:jumps         # Show jump list\n```\n\n* * *\n\nCommand Line\n------------\n\n### Command History\n\n```\n:              # Enter command mode\n<C-p>          # Previous command in history\n<C-n>          # Next command in history\n:history       # Show command history\nq:             # Open command history window\n```\n\n### Command Completion\n\n```\n:e <Tab>       # File completion\n:set <Tab>     # Option completion\n:colorscheme <Tab>  # Colorscheme completion\n```\n\n### Useful Commands\n\n```\n:!command      # Execute shell command\n:r !command    # Insert output of shell command\n:w !sudo tee % # Save as root (if opened without sudo)\n:source %      # Source current file\n```\n\n* * *\n\nConfiguration\n-------------\n\n### Basic Settings\n\n```\n:set number         # Show line numbers\n:set relativenumber # Show relative line numbers\n:set ignorecase     # Case insensitive search\n:set smartcase      # Override ignorecase if uppercase\n:set incsearch      # Incremental search\n:set hlsearch       # Highlight search results\n:set autoindent     # Auto-indent new lines\n:set expandtab      # Use spaces instead of tabs\n:set tabstop=4      # Tab width\n:set shiftwidth=4   # Indent width\n:set wrap           # Wrap long lines\n:set linebreak      # Break at word boundaries\n```\n\n### Color Schemes\n\n```\n:colorscheme desert     # Change color scheme\n:colorscheme <Tab>      # Browse available schemes\n:syntax on              # Enable syntax highlighting\n:syntax off             # Disable syntax highlighting\n```\n\n### .vimrc Location\n\n```\n~/.vimrc          # Unix/Linux/macOS\n$HOME/_vimrc      # Windows\n```\n\n* * *\n\nTips & Tricks\n-------------\n\n### Efficiency Tips\n\n*   **Stay in Normal mode**: Don’t live in Insert mode\n*   **Use counts**: `3dd`, `5j`, `2w` for repeated actions\n*   **Learn text objects**: `ciw`, `di\"`, `va(` are game changers\n*   **Use `.` command**: Repeat last change\n*   **Master search**: `/` and `*` for quick navigation\n\n### Common Patterns\n\n```\n3dd            # Delete 3 lines\n5j             # Move down 5 lines\n2w             # Move forward 2 words\nd2w            # Delete 2 words\ny5j            # Copy current line plus 5 below\n>ip            # Indent paragraph\n=ap            # Auto-indent paragraph\n```\n\n### Useful Combinations\n\n```\n<C-a>          # Increment number under cursor\n<C-x>          # Decrement number under cursor\nggVG           # Select entire file\n:%y            # Copy entire file\n:%d            # Delete entire file content\n:g/pattern/d   # Delete all lines matching pattern\n:v/pattern/d   # Delete all lines NOT matching pattern\n```\n\n### Plugin Recommendations\n\n*   **vim-plug**: Plugin manager\n*   **fzf.vim**: Fuzzy file finder\n*   **vim-surround**: Manipulate surrounding characters\n*   **vim-commentary**: Easy commenting\n*   **vim-fugitive**: Git integration\n*   **nerdtree**: File explorer\n\n### Learning Resources\n\n*   `:help` - Built-in help system\n*   `:help user-manual` - Complete user manual\n*   `vimtutor` - Interactive tutorial\n*   `:help quickref` - Quick reference\n*   [Vim Adventures](https://vim-adventures.com/) - Game-based learning\n*   [OpenVim](https://www.openvim.com/) - Interactive tutorial\n\n* * *\n\nQuick Reference Card\n--------------------\n\n### Most Important Commands\n\n| Command | Action | | ——– | ————————— | | `<Esc>` | Return to Normal mode | | `i` | Insert mode | | `hjkl` | Navigate left/down/up/right | | `w``b` | Next/previous word | | `0``$` | Beginning/end of line | | `gg``G` | Top/bottom of file | | `dd` | Delete line | | `yy` | Copy line | | `p` | Paste | | `u` | Undo | | `/text` | Search for text | | `:w` | Save | | `:q` | Quit | | `:wq` | Save and quit |\n\n### Remember\n\n*   **Everything in vim is composable**: operators + motions + text\nobjects\n*   **When in doubt, press `<Esc>`** to return to Normal mode\n*   **Practice daily**: 15 minutes of focused practice beats hours of\noccasional use\n*   **Start simple**: Master the basics before moving to advanced\nfeatures\n\n* * *\n\n_This cheat sheet covers the essential vim commands. For more detailed\ninformation, use `:help [command]` within vim._\n"
+}

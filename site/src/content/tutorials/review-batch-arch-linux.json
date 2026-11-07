@@ -1,0 +1,494 @@
+{
+  "slug": "review-batch-arch-linux",
+  "filePath": "review_batch_Arch-Linux.md",
+  "title": "Summary of Changes per File",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Review Batch: Arch-Linux\n\nGenerated: 2026-11-04\nFiles: 18 (4 P0 tutorials, 14 P1 references)\nStandard: 4-section format with LOG: [LEARN] header + Recipe/Blueprint/Deep Dive + Metadata…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "Summary of Changes per File",
+      "slug": "summary-of-changes-per-file"
+    },
+    {
+      "level": 3,
+      "text": "P0 Tutorials (Full Restructure + Content Verification)",
+      "slug": "p0-tutorials-full-restructure-content-verification"
+    },
+    {
+      "level": 3,
+      "text": "P1 References (Structural Fixes + Metadata + LOG Header)",
+      "slug": "p1-references-structural-fixes-metadata-log-header"
+    },
+    {
+      "level": 2,
+      "text": "Detailed Diffs",
+      "slug": "detailed-diffs"
+    },
+    {
+      "level": 3,
+      "text": "1. Beginner_Tutorial_Arch0_Intro_CLI.md (P0)",
+      "slug": "1-beginner-tutorial-arch0-intro-cli-md-p0"
+    },
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Steps",
+      "slug": "steps"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Why These Packages?",
+      "slug": "why-these-packages"
+    },
+    {
+      "level": 3,
+      "text": "Why ed25519 Over RSA?",
+      "slug": "why-ed25519-over-rsa"
+    },
+    {
+      "level": 3,
+      "text": "systemd vs SysVinit",
+      "slug": "systemd-vs-sysvinit"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "SSH Service Details",
+      "slug": "ssh-service-details"
+    },
+    {
+      "level": 3,
+      "text": "Troubleshooting",
+      "slug": "troubleshooting"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    },
+    {
+      "level": 3,
+      "text": "2. Customizing-Your-Linux-System-with-User-Management.md (P0)",
+      "slug": "2-customizing-your-linux-system-with-user-management-md-p0"
+    },
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Method 1: Add User to wheel Group (Arch Standard)",
+      "slug": "method-1-add-user-to-wheel-group-arch-standard"
+    },
+    {
+      "level": 3,
+      "text": "Method 2: Edit sudoers with visudo",
+      "slug": "method-2-edit-sudoers-with-visudo"
+    },
+    {
+      "level": 3,
+      "text": "Method 3: Drop-in File in /etc/sudoers.d/",
+      "slug": "method-3-drop-in-file-in-etc-sudoers-d"
+    },
+    {
+      "level": 3,
+      "text": "Verify Sudo Access",
+      "slug": "verify-sudo-access"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Why wheel Group?",
+      "slug": "why-wheel-group"
+    },
+    {
+      "level": 3,
+      "text": "Why visudo?",
+      "slug": "why-visudo"
+    },
+    {
+      "level": 3,
+      "text": "Security Principle: Least Privilege",
+      "slug": "security-principle-least-privilege"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "sudoers Syntax",
+      "slug": "sudoers-syntax"
+    },
+    {
+      "level": 3,
+      "text": "File Precedence",
+      "slug": "file-precedence"
+    },
+    {
+      "level": 3,
+      "text": "Troubleshooting",
+      "slug": "troubleshooting"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    },
+    {
+      "level": 3,
+      "text": "3. how-do-i-properly-install-kvm-on-arch-linux.md (P0)",
+      "slug": "3-how-do-i-properly-install-kvm-on-arch-linux-md-p0"
+    },
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Step 1: Verify Hardware Support",
+      "slug": "step-1-verify-hardware-support"
+    },
+    {
+      "level": 3,
+      "text": "Step 2: Install Packages",
+      "slug": "step-2-install-packages"
+    },
+    {
+      "level": 3,
+      "text": "Step 3: Enable Modular libvirt Daemons",
+      "slug": "step-3-enable-modular-libvirt-daemons"
+    },
+    {
+      "level": 3,
+      "text": "Step 4: Configure Network Bridge (Optional)",
+      "slug": "step-4-configure-network-bridge-optional"
+    },
+    {
+      "level": 3,
+      "text": "Step 5: Add User to libvirt Group",
+      "slug": "step-5-add-user-to-libvirt-group"
+    },
+    {
+      "level": 3,
+      "text": "Step 6: Set ACL on Images Directory",
+      "slug": "step-6-set-acl-on-images-directory"
+    },
+    {
+      "level": 3,
+      "text": "Step 7: Reboot and Validate",
+      "slug": "step-7-reboot-and-validate"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "KVM Architecture",
+      "slug": "kvm-architecture"
+    },
+    {
+      "level": 3,
+      "text": "Modular vs Monolithic libvirt",
+      "slug": "modular-vs-monolithic-libvirt"
+    },
+    {
+      "level": 3,
+      "text": "Why virtio Drivers?",
+      "slug": "why-virtio-drivers"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "IOMMU/VT-d for PCI Passthrough",
+      "slug": "iommu-vt-d-for-pci-passthrough"
+    },
+    {
+      "level": 3,
+      "text": "TuneD Profiles",
+      "slug": "tuned-profiles"
+    },
+    {
+      "level": 3,
+      "text": "AMD SEV (Secure Encrypted Virtualization)",
+      "slug": "amd-sev-secure-encrypted-virtualization"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    },
+    {
+      "level": 3,
+      "text": "4. Instruct-Command-for-Package-Management.md (P0)",
+      "slug": "4-instruct-command-for-package-management-md-p0"
+    },
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "pacman (Arch Official Repositories)",
+      "slug": "pacman-arch-official-repositories"
+    },
+    {
+      "level": 3,
+      "text": "yay (AUR Helper)",
+      "slug": "yay-aur-helper"
+    },
+    {
+      "level": 3,
+      "text": "npm / bun (Node.js)",
+      "slug": "npm-bun-node-js"
+    },
+    {
+      "level": 3,
+      "text": "cargo (Rust)",
+      "slug": "cargo-rust"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Package Manager Roles",
+      "slug": "package-manager-roles"
+    },
+    {
+      "level": 3,
+      "text": "pacman Flags Explained",
+      "slug": "pacman-flags-explained"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "pacman Database",
+      "slug": "pacman-database"
+    },
+    {
+      "level": 3,
+      "text": "AUR Safety",
+      "slug": "aur-safety"
+    },
+    {
+      "level": 3,
+      "text": "bun vs npm",
+      "slug": "bun-vs-npm"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    },
+    {
+      "level": 3,
+      "text": "5. Install_Setup-and-enable-the_Auditd_service.md (P0)",
+      "slug": "5-install-setup-and-enable-the-auditd-service-md-p0"
+    },
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Step 1: Install audit Package",
+      "slug": "step-1-install-audit-package"
+    },
+    {
+      "level": 3,
+      "text": "Step 2: Enable and Start Service",
+      "slug": "step-2-enable-and-start-service"
+    },
+    {
+      "level": 3,
+      "text": "Step 3: Configure Audit Rules",
+      "slug": "step-3-configure-audit-rules"
+    },
+    {
+      "level": 3,
+      "text": "Step 4: Load Rules and Verify",
+      "slug": "step-4-load-rules-and-verify"
+    },
+    {
+      "level": 3,
+      "text": "Step 5: View Logs",
+      "slug": "step-5-view-logs"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "auditd Components",
+      "slug": "auditd-components"
+    },
+    {
+      "level": 3,
+      "text": "Rule Syntax",
+      "slug": "rule-syntax"
+    },
+    {
+      "level": 3,
+      "text": "Permissions",
+      "slug": "permissions"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Kernel Audit Subsystem",
+      "slug": "kernel-audit-subsystem"
+    },
+    {
+      "level": 3,
+      "text": "Performance Considerations",
+      "slug": "performance-considerations"
+    },
+    {
+      "level": 3,
+      "text": "Integration",
+      "slug": "integration"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    },
+    {
+      "level": 3,
+      "text": "6. Arch_Linux_command-line_commands.md (P1)",
+      "slug": "6-arch-linux-command-line-commands-md-p1"
+    },
+    {
+      "level": 3,
+      "text": "7. archiso_build_install.md (P1)",
+      "slug": "7-archiso-build-install-md-p1"
+    },
+    {
+      "level": 3,
+      "text": "8. build-llama.cpp-on-Arch-Linux.md (P1)",
+      "slug": "8-build-llama-cpp-on-arch-linux-md-p1"
+    },
+    {
+      "level": 3,
+      "text": "9. Check-Locale-Installation-Packages_2026-02-11_20-43-04.md (P1)",
+      "slug": "9-check-locale-installation-packages-2026-02-11-20-43-04-md-p1"
+    },
+    {
+      "level": 3,
+      "text": "10. configuring-a-new-kvm-on-arch-linux-using-qemu-cli.md (P1)",
+      "slug": "10-configuring-a-new-kvm-on-arch-linux-using-qemu-cli-md-p1"
+    },
+    {
+      "level": 3,
+      "text": "11. Create-a-New-VENV-Installing-UV-on-Archlinux.md (P1)",
+      "slug": "11-create-a-new-venv-installing-uv-on-archlinux-md-p1"
+    },
+    {
+      "level": 3,
+      "text": "12. GPF_Hard_Drive_In_Arch_Linux.md (P1)",
+      "slug": "12-gpf-hard-drive-in-arch-linux-md-p1"
+    },
+    {
+      "level": 3,
+      "text": "13. Powerful-Command-line-Installation-Commands.md (P1)",
+      "slug": "13-powerful-command-line-installation-commands-md-p1"
+    },
+    {
+      "level": 3,
+      "text": "14. SysAdmin-Linux-Commands.md (P1)",
+      "slug": "14-sysadmin-linux-commands-md-p1"
+    },
+    {
+      "level": 3,
+      "text": "15. The-Warning-Message-Understand-pacnew.md (P1)",
+      "slug": "15-the-warning-message-understand-pacnew-md-p1"
+    },
+    {
+      "level": 3,
+      "text": "16. Updating-Archcraft-Hooks-OS-Specific.md (P1)",
+      "slug": "16-updating-archcraft-hooks-os-specific-md-p1"
+    },
+    {
+      "level": 3,
+      "text": "17. create-archcraft-usb.md (P1)",
+      "slug": "17-create-archcraft-usb-md-p1"
+    },
+    {
+      "level": 3,
+      "text": "18. Tails_Install_On_Linux.md (P1)",
+      "slug": "18-tails-install-on-linux-md-p1"
+    },
+    {
+      "level": 2,
+      "text": "Approval Request",
+      "slug": "approval-request"
+    }
+  ],
+  "readingTime": 16,
+  "content": "# Review Batch: Arch-Linux\n\n**Generated:** 2026-11-04\n**Files:** 18 (4 P0 tutorials, 14 P1 references)\n**Standard:** 4-section format with `LOG: [LEARN]` header + Recipe/Blueprint/Deep Dive + Metadata\n\n---\n\n## Summary of Changes per File\n\n### P0 Tutorials (Full Restructure + Content Verification)\n\n| File | Primary Issues | Restructure Needed |\n|------|---------------|-------------------|\n| `Beginner_Tutorial_Arch0_Intro_CLI.md` | 17 headers, 22 code blocks, 14 inline spacing, missing metadata, no LOG header | ✅ Full 4-section |\n| `Customizing-Your-Linux-System-with-User-Management.md` | 33 headers, 20 code blocks, 9 inline spacing, duplicated content, missing metadata | ✅ Full 4-section |\n| `how-do-i-properly-install-kvm-on-arch-linux.md` | 18 line len, 25 headers, 50 code blocks, 20 inline, 11 trailing, missing metadata | ✅ Full 4-section |\n| `Instruct-Command-for-Package-Management.md` | 29 code blocks, 24 inline spacing, 1 trailing, missing metadata | ✅ Full 4-section |\n| `Install_Setup-and-enable-the_Auditd_service.md` | 1 line len, 2 headers, 7 code blocks, 7 inline, 7 trailing, missing metadata | ✅ Full 4-section |\n\n### P1 References (Structural Fixes + Metadata + LOG Header)\n\n| File | Primary Issues |\n|------|---------------|\n| `Arch_Linux_command-line_commands.md` | 1 header, 1 code block, 16 inline spacing, **has metadata** but wrong case, no LOG |\n| `archiso_build_install.md` | 20 line len, 2 trailing, missing metadata |\n| `build-llama.cpp-on-Arch-Linux.md` | Missing metadata only |\n| `Check-Locale-Installation-Packages_2026-02-11_20-43-04.md` | 14 headers, 2 code blocks, 9 inline, missing metadata |\n| `configuring-a-new-kvm-on-arch-linux-using-qemu-cli.md` | Missing metadata only |\n| `Create-a-New-VENV-Installing-UV-on-Archlinux.md` | 1 inline, **has metadata**, no LOG |\n| `GPF_Hard_Drive_In_Arch_Linux.md` | 16 line len, 11 headers, 3 inline, missing metadata |\n| `Powerful-Command-line-Installation-Commands.md` | 1 code block, missing metadata |\n| `SysAdmin-Linux-Commands.md` | Missing metadata only |\n| `The-Warning-Message-Understand-pacnew.md` | Missing metadata only |\n| `Updating-Archcraft-Hooks-OS-Specific.md` | Missing metadata only |\n| `create-archcraft-usb.md` | 5 line len, 3 headers, 1 trailing, missing metadata |\n| `Tails_Install_On_Linux.md` | 19 line len, 3 headers, 1 trailing, missing final newline, missing metadata |\n\n---\n\n## Detailed Diffs\n\n### 1. Beginner_Tutorial_Arch0_Intro_CLI.md (P0)\n\n**Issues Found:**\n- 17 headers (mixed Setext/ATX, wrong case)\n- 22 code blocks missing language tags\n- 14 inline code spacing violations\n- Missing metadata block (all 6 fields)\n- No `LOG: [LEARN]` header\n- Content has procedural steps but no conceptual structure\n\n**Content Corrections Needed:**\n- `ssh-agent` and `sshd` are not package names (Arch uses `openssh`)\n- `useradd -m sshuser` should be `useradd -m -G wheel sshuser` for sudo\n- `/etc/init.d/` and `rc.d` are SysVinit — Arch uses systemd only\n- `sudo systemctl start ssh` → `sudo systemctl start sshd`\n- Duplicate sections at end of file\n\n**Proposed Structure:**\n```\nLOG: [LEARN] Guide: Beginner Arch Linux CLI Setup\n\n**Title:** Beginner Tutorial: Arch Linux CLI Introduction\n**Date:** 2025-11-15 (20:57:02 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Beginner_Tutorial_Arch0_Intro_CLI.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Arch Linux installed\n- Root/sudo access\n- Internet connection\n\n### Steps\n1. Install required packages\n   ```bash\n   $ sudo pacman -S curl openssh pwgen\n   ```\n\n2. Generate SSH key pair\n   ```bash\n   $ ssh-keygen -t ed25519 -C \"your-email@example.com\"\n   ```\n\n3. Start and enable sshd service\n   ```bash\n   $ sudo systemctl enable --now sshd\n   ```\n\n4. Configure SSH (optional hardening)\n   ```bash\n   $ sudo vim /etc/ssh/sshd_config\n   # Set: PermitRootLogin no, PasswordAuthentication no\n   $ sudo systemctl restart sshd\n   ```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Why These Packages?\n- `curl`: Download files, test APIs\n- `openssh`: Provides `sshd` (server), `ssh` (client), `ssh-keygen`, `ssh-agent`\n- `pwgen`: Generate secure passwords\n\n### Why ed25519 Over RSA?\n- Smaller keys, faster operations, better security\n- Modern standard (OpenSSH 6.5+)\n\n### systemd vs SysVinit\nArch Linux uses systemd exclusively. No `/etc/init.d/`, no `rc.d`.\n\n## The \"Deep Dive\" (The Technical Root)\n\n### SSH Service Details\n- Service unit: `/usr/lib/systemd/system/sshd.service`\n- Config: `/etc/ssh/sshd_config` (man `sshd_config`)\n- Keys stored in `/etc/ssh/` (host) and `~/.ssh/` (user)\n\n### Troubleshooting\n- `systemctl status sshd` — check service state\n- `journalctl -u sshd` — view logs\n- `sshd -t` — test config syntax\n\n### References\n- [Arch Wiki: OpenSSH](https://wiki.archlinux.org/title/OpenSSH)\n- [Arch Wiki: systemd](https://wiki.archlinux.org/title/systemd)\n```\n\n---\n\n### 2. Customizing-Your-Linux-System-with-User-Management.md (P0)\n\n**Issues Found:**\n- 33 headers (duplicated sections)\n- 20 code blocks missing language tags\n- 9 inline code spacing violations\n- **Entire content duplicated** (prompt + assistant response repeated twice)\n- Missing metadata block\n- No `LOG: [LEARN]` header\n- Uses `sudo` group — Arch uses `wheel` group\n\n**Content Corrections:**\n- Arch uses `wheel` group for sudo, not `sudo` group\n- `visudo` edits `/etc/sudoers` — correct\n- `/etc/sudoers.d/` — correct\n- TinyURL link should be expanded or removed\n\n**Proposed Structure:**\n```\nLOG: [LEARN] Understanding: Linux User Management and Sudo Privileges\n\n**Title:** Customizing Your Linux System with User Management\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Customizing-Your-Linux-System-with-User-Management.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Linux system with sudo\n- Root/sudo access\n\n### Method 1: Add User to wheel Group (Arch Standard)\n```bash\n# Add existing user to wheel group\n$ sudo usermod -aG wheel username\n# Verify\n$ groups username\n```\n\n### Method 2: Edit sudoers with visudo\n```bash\n$ sudo visudo\n# Add line:\nusername ALL=(ALL:ALL) ALL\n# Or passwordless:\nusername ALL=(ALL:ALL) NOPASSWD:ALL\n# Or specific commands:\nusername ALL=(ALL) /usr/bin/pacman\n```\n\n### Method 3: Drop-in File in /etc/sudoers.d/\n```bash\n$ sudo visudo -f /etc/sudoers.d/username\n# Add:\nusername ALL=(ALL:ALL) ALL\n```\n\n### Verify Sudo Access\n```bash\n$ sudo -l -U username\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Why wheel Group?\nArch Linux follows the traditional BSD convention where `wheel` group members may `su` to root. The default `/etc/sudoers` includes:\n```\n%wheel ALL=(ALL:ALL) ALL\n```\n\n### Why visudo?\n- Validates syntax before saving\n- Prevents lockout from malformed sudoers\n- Uses `EDITOR` environment variable\n\n### Security Principle: Least Privilege\n- Grant only needed commands\n- Prefer drop-in files (`/etc/sudoers.d/`) for auditability\n- Audit regularly: `sudo -l -U username`\n\n## The \"Deep Dive\" (The Technical Root)\n\n### sudoers Syntax\n```\nuser  host=(runas:runas_group) commands\n```\n\n### File Precedence\n1. `/etc/sudoers` (main)\n2. `/etc/sudoers.d/*` (drop-ins, lexical order)\n\n### Troubleshooting\n- `sudo visudo -c` — check syntax\n- `groups` — verify current user groups (relogin after changes)\n- `sudo -k` — reset timestamp cache\n\n### References\n- `man sudoers`, `man visudo`\n- [Arch Wiki: Sudo](https://wiki.archlinux.org/title/Sudo)\n```\n\n---\n\n### 3. how-do-i-properly-install-kvm-on-arch-linux.md (P0)\n\n**Issues Found:**\n- 18 lines >72 cols\n- 25 headers (mixed case)\n- 50 code blocks missing language tags\n- 20 inline spacing violations\n- 11 trailing whitespace\n- Missing metadata block\n- No `LOG: [LEARN]` header\n- Content is copied from sysguides.com (needs attribution)\n- Multi-distro (Fedora, Ubuntu, Arch) — should focus on Arch\n\n**Content Corrections:**\n- Focus on Arch Linux commands only\n- `qemu-full` is correct Arch package (not `qemu-kvm`)\n- Modular libvirt daemons: `virtqemud`, `virtnetworkd`, etc.\n- `grub-mkconfig -o /boot/grub/grub.cfg` for Arch\n\n**Proposed Structure:**\n```\nLOG: [LEARN] Guide: Install KVM/QEMU/libvirt on Arch Linux\n\n**Title:** How to Properly Install KVM on Arch Linux\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** how-do-i-properly-install-kvm-on-arch-linux.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n**Source:** Adapted from sysguides.com/install-kvm-on-linux\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Arch Linux installed\n- CPU with hardware virtualization (Intel VT-x or AMD-V)\n- Root/sudo access\n\n### Step 1: Verify Hardware Support\n```bash\n$ lscpu | grep Virtualization\n# Output: VT-x (Intel) or AMD-V (AMD)\n\n$ zgrep CONFIG_KVM /proc/config.gz\n# Ensure CONFIG_KVM=m or y\n```\n\n### Step 2: Install Packages\n```bash\n$ sudo pacman -S qemu-full libvirt virt-install virt-manager virt-viewer \\\n    edk2-ovmf swtpm qemu-img guestfs-tools libosinfo\n$ yay -S tuned  # Optional: from AUR\n```\n\n### Step 3: Enable Modular libvirt Daemons\n```bash\n$ for drv in qemu interface network nodedev nwfilter secret storage; do\n    sudo systemctl enable virt${drv}d.service\n    sudo systemctl enable virt${drv}d{,-ro,-admin}.socket\n  done\n```\n\n### Step 4: Configure Network Bridge (Optional)\n```bash\n$ sudo nmcli connection add type bridge con-name bridge0 ifname bridge0\n$ sudo nmcli connection add type ethernet slave-type bridge \\\n    con-name \"Bridge connection 1\" ifname enp2s0 master bridge0\n$ sudo nmcli connection up bridge0\n```\n\n### Step 5: Add User to libvirt Group\n```bash\n$ sudo usermod -aG libvirt $USER\n$ echo \"export LIBVIRT_DEFAULT_URI='qemu:///system'\" >> ~/.bashrc\n$ source ~/.bashrc\n```\n\n### Step 6: Set ACL on Images Directory\n```bash\n$ sudo setfacl -R -b /var/lib/libvirt/images\n$ sudo setfacl -R -m u:$USER:rwX /var/lib/libvirt/images\n$ sudo setfacl -m d:u:$USER:rwx /var/lib/libvirt/images\n```\n\n### Step 7: Reboot and Validate\n```bash\n$ sudo reboot\n$ sudo virt-host-validate qemu\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### KVM Architecture\n- **KVM kernel modules** (`kvm`, `kvm_intel`/`kvm_amd`): Hardware virtualization\n- **QEMU** (`qemu-full`): Device emulation, user-space\n- **libvirt** (`libvirt`, `virt-install`, `virsh`): Management API/daemon\n\n### Modular vs Monolithic libvirt\n- Modular (Arch/Fedora): Separate daemons per driver → granular control\n- Monolithic (Ubuntu/Debian): Single `libvirtd` → simpler but less flexible\n\n### Why virtio Drivers?\nPara-virtualized drivers for network/disk → near-native performance in guests.\n\n## The \"Deep Dive\" (The Technical Root)\n\n### IOMMU/VT-d for PCI Passthrough\n```bash\n# Intel: /etc/default/grub\nGRUB_CMDLINE_LINUX=\"... intel_iommu=on iommu=pt\"\n$ sudo grub-mkconfig -o /boot/grub/grub.cfg\n\n# Verify\n$ dmesg | grep -i -e DMAR -e IOMMU\n```\n\n### TuneD Profiles\n```bash\n$ sudo systemctl enable --now tuned\n$ sudo tuned-adm profile virtual-host\n$ sudo tuned-adm verify\n```\n\n### AMD SEV (Secure Encrypted Virtualization)\n```bash\n$ lscpu | grep sev\n# Enable in BIOS + kernel if supported\n```\n\n### References\n- [Arch Wiki: KVM](https://wiki.archlinux.org/title/KVM)\n- [Arch Wiki: libvirt](https://wiki.archlinux.org/title/Libvirt)\n- [sysguides.com](https://sysguides.com/install-kvm-on-linux)\n```\n\n---\n\n### 4. Instruct-Command-for-Package-Management.md (P0)\n\n**Issues Found:**\n- 29 code blocks missing language tags\n- 24 inline spacing violations\n- 1 trailing whitespace\n- Missing metadata block\n- No `LOG: [LEARN]` header\n- Content is AI chat transcript (ollama) — needs restructuring\n- Mixes bun, npm, pacman, yay, cargo — should focus per section\n\n**Proposed Structure:**\n```\nLOG: [LEARN] Reference: Package Manager Commands (pacman, yay, npm, bun, cargo)\n\n**Title:** Instruct Command for Package Management\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Instruct-Command-for-Package-Management.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### pacman (Arch Official Repositories)\n```bash\n# Install multiple packages\n$ sudo pacman -S package1 package2 package3\n\n# Install with auto-dependencies\n$ sudo pacman -Sy --needed package1 package2\n\n# Query installed package info\n$ pacman -Qi package-name\n\n# List files owned by package\n$ pacman -Ql package-name\n\n# List all installed packages with locations\n$ pacman -Ql\n```\n\n### yay (AUR Helper)\n```bash\n# Install AUR package\n$ yay -S package-name\n\n# Query package info\n$ yay -Qi package-name\n\n# List files\n$ yay -Ql package-name\n```\n\n### npm / bun (Node.js)\n```bash\n# npm: install multiple\n$ npm install package1 package2 package3\n\n# npm: global install multiple\n$ npm install -g package1 package2 package3\n\n# bun: install (project)\n$ bun add package1 package2\n\n# bun: global (workspace)\n$ bun install -w package1 package2\n```\n\n### cargo (Rust)\n```bash\n# Install binary\n$ cargo install package-name\n\n# List installed binaries\n$ cargo install --list\n\n# Update installed binaries\n$ cargo install --list | awk '{print $1}' | xargs cargo install\n\n# Dependency tree\n$ cargo tree\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Package Manager Roles\n| Manager | Scope | Use Case |\n|---------|-------|----------|\n| pacman | System (official repos) | Core system, maintained packages |\n| yay | System (AUR) | Community-maintained, cutting-edge |\n| npm/bun | Project (Node.js) | JavaScript/TypeScript dependencies |\n| cargo | Project (Rust) | Rust dependencies |\n\n### pacman Flags Explained\n- `-S` — sync (install from repos)\n- `-y` — refresh databases\n- `--needed` — skip already installed\n- `-Q` — query local database\n- `-l` — list files\n- `-i` — detailed info\n\n## The \"Deep Dive\" (The Technical Root)\n\n### pacman Database\n- `/var/lib/pacman/local/` — installed package metadata\n- `/var/cache/pacman/pkg/` — downloaded packages\n\n### AUR Safety\n```bash\n# Always review PKGBUILD before installing\n$ yay -G package-name  # Download PKGBUILD\n$ vim PKGBUILD         # Inspect\n$ makepkg -si          # Build and install\n```\n\n### bun vs npm\n- bun: faster, built-in bundler, `bun.lockb` lockfile\n- npm: mature, `package-lock.json`, wider ecosystem\n\n### References\n- `man pacman`, `man yay`\n- [Arch Wiki: Pacman](https://wiki.archlinux.org/title/Pacman)\n- [Arch Wiki: AUR](https://wiki.archlinux.org/title/Arch_User_Repository)\n```\n\n---\n\n### 5. Install_Setup-and-enable-the_Auditd_service.md (P0)\n\n**Issues Found:**\n- 1 line >72 cols\n- 2 headers (Setext style)\n- 7 code blocks missing language tags\n- 7 inline spacing violations\n- 7 trailing whitespace\n- Missing metadata block\n- No `LOG: [LEARN]` header\n- **Incorrect commands**: `sudo pacman -U auditd` (should be `-S`), `rc.local` editing (obsolete), malformed `auditd` flags\n\n**Content Corrections:**\n- `sudo pacman -S audit` (package name is `audit`, not `auditd`)\n- systemd service: `sudo systemctl enable --now auditd`\n- Rules in `/etc/audit/rules.d/`\n- No `rc.local` on Arch\n\n**Proposed Structure:**\n```\nLOG: [LEARN] Guide: Install and Configure auditd on Arch Linux\n\n**Title:** Install, Setup, and Enable the Auditd Service\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Install_Setup-and-enable-the_Auditd_service.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Arch Linux\n- Root/sudo access\n\n### Step 1: Install audit Package\n```bash\n$ sudo pacman -S audit\n```\n\n### Step 2: Enable and Start Service\n```bash\n$ sudo systemctl enable --now auditd\n```\n\n### Step 3: Configure Audit Rules\n```bash\n# Create rules file\n$ sudo vim /etc/audit/rules.d/audit.rules\n\n# Example: Monitor file access\n-w /etc/passwd -p wa -k identity\n-w /etc/shadow -p wa -k identity\n-w /etc/sudoers -p wa -k scope\n\n# Example: Monitor syscalls\n-a always,exit -F arch=b64 -S execve -k exec\n```\n\n### Step 4: Load Rules and Verify\n```bash\n$ sudo auditctl -R /etc/audit/rules.d/audit.rules\n$ sudo auditctl -l\n$ sudo systemctl status auditd\n```\n\n### Step 5: View Logs\n```bash\n$ sudo ausearch -k identity\n$ sudo aureport --summary\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### auditd Components\n- **auditd daemon**: Kernel → userspace log collector\n- **auditctl**: Runtime rule management\n- **ausearch/aureport**: Log analysis\n- **Rules**: `/etc/audit/rules.d/*.rules` (persistent)\n\n### Rule Syntax\n```\n-w path -p permissions -k keyname    # File watch\n-a action,filter -S syscall -k key   # Syscall audit\n```\n\n### Permissions\n- `r` — read, `w` — write, `x` — execute, `a` — attribute change\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Kernel Audit Subsystem\n- Netlink socket communication\n- Kernel ring buffer (configurable size)\n- Rate limiting: `auditctl --rate-limit`\n\n### Performance Considerations\n- High syscall volume → disk I/O pressure\n- Use `-F` filters to reduce noise\n- Consider `audispd` plugins for remote logging\n\n### Integration\n- `auditd` + `systemd` — automatic service management\n- `auditd` + `SELinux` — combined MAC + audit\n- Log forwarding: `audispd-plugins` → syslog/remote\n\n### References\n- `man auditd`, `man auditctl`, `man ausearch`\n- [Arch Wiki: Audit](https://wiki.archlinux.org/title/Audit_framework)\n- [Red Hat Audit Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/security_hardening/setting-up-and-configuring-auditing)\n```\n\n---\n\n### 6. Arch_Linux_command-line_commands.md (P1)\n\n**Issues Found:**\n- 1 header case issue\n- 1 code block missing language tag\n- 16 inline spacing violations\n- **Has metadata block** (but \"Command line\" → \"Command-Line\")\n- No `LOG: [LEARN]` header\n- Content is AI-generated list (two prompts duplicated)\n- `memoryinfo` is not a command\n- `getconf MCEXTNAME` is obscure\n\n**Proposed Fix:** Add LOG header, fix metadata case, tag code blocks, fix inline spacing, deduplicate.\n\n---\n\n### 7. archiso_build_install.md (P1)\n\n**Issues Found:**\n- 20 lines >72 cols\n- 2 trailing whitespace\n- Missing metadata block\n- No `LOG: [LEARN]` header\n- Good content, just needs structure\n\n**Proposed Structure:** Add LOG header + metadata, wrap lines, fix trailing whitespace, organize into Recipe/Blueprint/Deep Dive.\n\n---\n\n### 8. build-llama.cpp-on-Arch-Linux.md (P1)\n\n**Issues Found:**\n- Missing metadata block only\n- No `LOG: [LEARN]` header\n- Content is minimal but correct\n\n**Proposed Fix:** Add LOG header + metadata block.\n\n---\n\n### 9. Check-Locale-Installation-Packages_2026-02-11_20-43-04.md (P1)\n\n**Issues Found:**\n- 14 headers\n- 2 code blocks missing language tags\n- 9 inline spacing violations\n- Missing metadata block\n- No `LOG: [LEARN]` header\n- Content is Duck.ai chat transcript (3 prompts)\n- Contains Debian commands (`dpkg-reconfigure`, `apt`) mixed with Arch\n\n**Content Corrections:**\n- Remove Debian-specific commands\n- Focus on Arch: `locale-gen`, `/etc/locale.gen`, `/etc/locale.conf`\n\n---\n\n### 10. configuring-a-new-kvm-on-arch-linux-using-qemu-cli.md (P1)\n\n**Issues Found:**\n- Missing metadata block only\n- No `LOG: [LEARN]` header\n- Minimal but correct QEMU commands\n\n**Proposed Fix:** Add LOG header + metadata, expand with Blueprint/Deep Dive.\n\n---\n\n### 11. Create-a-New-VENV-Installing-UV-on-Archlinux.md (P1)\n\n**Issues Found:**\n- 1 inline spacing violation\n- **Has metadata block** (complete)\n- No `LOG: [LEARN]` header\n- Content has duplicated sections (Prompt #1 + Prompt #2)\n- `uv create` → `uv venv` (deprecated)\n- `uv on`/`uv off` → not standard (use `source .venv/bin/activate`)\n\n**Content Corrections:**\n- Update to current `uv` commands\n- Deduplicate\n\n---\n\n### 12. GPF_Hard_Drive_In_Arch_Linux.md (P1)\n\n**Issues Found:**\n- 16 lines >72 cols\n- 11 headers\n- 3 inline spacing violations\n- Missing metadata block\n- No `LOG: [LEARN]` header\n- Contains Excel-style table (not Markdown)\n- `cfdisk /dev/sdb1` → should be `/dev/sdb` (disk, not partition)\n\n**Content Corrections:**\n- Fix device path\n- Convert Excel table to Markdown\n- `mkfs` needs filesystem type: `mkfs.ext4 /dev/sdX1`\n\n---\n\n### 13. Powerful-Command-line-Installation-Commands.md (P1)\n\n**Issues Found:**\n- 1 code block missing language tag\n- Missing metadata block\n- No `LOG: [LEARN]` header\n- Single command only\n\n**Proposed Fix:** Add LOG header + metadata, tag code block, expand with context.\n\n---\n\n### 14. SysAdmin-Linux-Commands.md (P1)\n\n**Issues Found:**\n- Missing metadata block only\n- No `LOG: [LEARN]` header\n- List of links to external resources (tecmint.com etc.)\n\n**Proposed Fix:** Add LOG header + metadata, convert to reference format.\n\n---\n\n### 15. The-Warning-Message-Understand-pacnew.md (P1)\n\n**Issues Found:**\n- Missing metadata block only\n- No `LOG: [LEARN]` header\n- Good content on `.pacnew` handling\n\n**Proposed Fix:** Add LOG header + metadata, wrap lines at 72 cols.\n\n---\n\n### 16. Updating-Archcraft-Hooks-OS-Specific.md (P1)\n\n**Issues Found:**\n- Missing metadata block only\n- No `LOG: [LEARN]` header\n- Session/log content (opencode session)\n\n**Proposed Fix:** Add minimal metadata + LOG header (Debug type).\n\n---\n\n### 17. create-archcraft-usb.md (P1)\n\n**Issues Found:**\n- 5 lines >72 cols\n- 3 headers\n- 1 trailing whitespace\n- Missing metadata block\n- No `LOG: [LEARN]` header\n- Good `dd` content\n\n**Proposed Fix:** Add LOG header + metadata, wrap lines, fix headers.\n\n---\n\n### 18. Tails_Install_On_Linux.md (P1)\n\n**Issues Found:**\n- 19 lines >72 cols\n- 3 headers\n- 1 trailing whitespace\n- Missing final newline\n- Missing metadata block\n- No `LOG: [LEARN]` header\n- Good Tails installation content (GnuPG verification + dd)\n\n**Proposed Fix:** Add LOG header + metadata, wrap lines, add final newline.\n\n---\n\n## Approval Request\n\nPlease review the above diffs. For each file, respond with:\n- **APPROVE** — apply as proposed\n- **MODIFY** — specify changes\n- **SKIP** — don't modify this file\n- **REVIEW** — need to see full corrected content first\n\nBatch will be applied after your approval."
+}

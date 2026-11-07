@@ -1,0 +1,129 @@
+{
+  "slug": "tmuxifier-quick-start-fix",
+  "filePath": "Tmuxifier-Quick-Start-fix.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Tmuxifier Quick Start and Zsh Integration Fix\n\nTitle: Tmuxifier Quick Start Fix\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin,…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Install Tmuxifier",
+      "slug": "install-tmuxifier"
+    },
+    {
+      "level": 3,
+      "text": "Verify Installation",
+      "slug": "verify-installation"
+    },
+    {
+      "level": 3,
+      "text": "Zsh Integration Fix",
+      "slug": "zsh-integration-fix"
+    },
+    {
+      "level": 3,
+      "text": "Common Issue: \"command not found: tmuxifier\"",
+      "slug": "common-issue-command-not-found-tmuxifier"
+    },
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (Tmuxifier Usage)",
+      "slug": "the-recipe-tmuxifier-usage"
+    },
+    {
+      "level": 3,
+      "text": "Core Commands",
+      "slug": "core-commands"
+    },
+    {
+      "level": 3,
+      "text": "Window Layout Example",
+      "slug": "window-layout-example"
+    },
+    {
+      "level": 3,
+      "text": "Session Layout Example",
+      "slug": "session-layout-example"
+    },
+    {
+      "level": 3,
+      "text": "Layout Commands Reference",
+      "slug": "layout-commands-reference"
+    },
+    {
+      "level": 3,
+      "text": "Layout Storage",
+      "slug": "layout-storage"
+    },
+    {
+      "level": 3,
+      "text": "Test Configuration",
+      "slug": "test-configuration"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Initialization Order Matters",
+      "slug": "initialization-order-matters"
+    },
+    {
+      "level": 3,
+      "text": "Why PATH Before Init?",
+      "slug": "why-path-before-init"
+    },
+    {
+      "level": 3,
+      "text": "Zinit Users: Proper Plugin Order",
+      "slug": "zinit-users-proper-plugin-order"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "tmuxifier init Output",
+      "slug": "tmuxifier-init-output"
+    },
+    {
+      "level": 3,
+      "text": "Layout Script Execution",
+      "slug": "layout-script-execution"
+    },
+    {
+      "level": 3,
+      "text": "Layout Commands Internals",
+      "slug": "layout-commands-internals"
+    },
+    {
+      "level": 3,
+      "text": "File Locations",
+      "slug": "file-locations"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 4,
+  "content": "LOG: [LEARN] Guide: Tmuxifier Quick Start and Zsh Integration Fix\n\n**Title:** Tmuxifier Quick Start Fix\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Tmuxifier-Quick-Start-fix.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Tmux installed\n- Git installed\n- Shell (zsh/bash) with `$EDITOR` set\n\n### Install Tmuxifier\n```bash\n# Clone repository\n$ git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier\n\n# Add to PATH (before tmuxifier init!)\n# ~/.zshrc or ~/.bashrc\nexport PATH=\"$HOME/.tmuxifier/bin:$PATH\"\n\n# Initialize tmuxifier\neval \"$(tmuxifier init -)\"\n\n# Restart shell\n$ source ~/.zshrc\n```\n\n### Verify Installation\n```bash\n$ tmuxifier help\n$ tmuxifier list\n```\n\n### Zsh Integration Fix\n```bash\n# CRITICAL: PATH must be set BEFORE eval \"$(tmuxifier init -)\"\n# In ~/.zshrc, ensure this order:\n\n# 1. PATH configuration (early)\nexport PATH=\"$HOME/.tmuxifier/bin:$PATH\"\nexport PATH=\"$HOME/.local/bin:$HOME/.cargo/bin:$PATH\"\n# ... other PATH exports\n\n# 2. Tool initialization (after PATH)\neval \"$(tmuxifier init -)\"\neval \"$(zoxide init --cmd cd zsh)\"\neval \"$(fzf --zsh)\"\n# ... other eval statements\n\n# 3. Aliases and functions (last)\n```\n\n### Common Issue: \"command not found: tmuxifier\"\n**Cause**: `eval \"$(tmuxifier init -)\"` runs before `$HOME/.tmuxifier/bin` is in PATH\n**Fix**: Move PATH export above the eval line\n\n## The \"Recipe\" (Tmuxifier Usage)\n\n### Core Commands\n```bash\n# Help and listing\n$ tmuxifier help\n$ tmuxifier list\n$ tmuxifier list-windows\n$ tmuxifier list-sessions\n\n# Window layouts\n$ tmuxifier new-window my-dev-window    # Create (opens in $EDITOR)\n$ tmuxifier load-window my-dev-window   # Load in current session\n$ tmuxifier edit-window my-dev-window   # Edit existing\n\n# Session layouts\n$ tmuxifier new-session my-project\n$ tmuxifier load-session my-project\n$ tmuxifier edit-session my-project\n```\n\n### Window Layout Example\n```bash\n# ~/.tmuxifier/layouts/my-dev-window.window.sh\nwindow_root \"~/projects/myapp\"\nnew_window \"My Dev Window\"\nsplit_v 20                       # 20% bottom pane\nrun_cmd \"npm run dev\"            # Command in bottom\nsplit_h 50                       # 50% right pane\nrun_cmd \"nvim\"                   # Editor in right\nselect_pane 0                    # Focus first pane\n```\n\n### Session Layout Example\n```bash\n# ~/.tmuxifier/layouts/my-project.session.sh\nsession_root \"~/projects/myapp\"\nnew_session \"my-project\"\n\n# Load existing window layouts\nload_window \"editor\"\nload_window \"logs\"\n\n# Or define inline\nnew_window \"server\"\nrun_cmd \"npm start\"\n```\n\n### Layout Commands Reference\n| Command | Description |\n|---------|-------------|\n| `window_root \"path\"` | Set window working directory |\n| `new_window \"name\"` | Create window with title |\n| `split_v [percent]` | Vertical split (bottom %) |\n| `split_h [percent]` | Horizontal split (right %) |\n| `run_cmd \"cmd\"` | Run command in current pane |\n| `select_pane [index]` | Focus pane (0-based) |\n| `session_root \"path\"` | Set session working directory |\n| `new_session \"name\"` | Create session |\n| `load_window \"name\"` | Load existing window layout |\n\n### Layout Storage\n```\n~/.tmuxifier/layouts/\n├── *.window.sh    # Window layouts\n└── *.session.sh   # Session layouts\n```\n\n### Test Configuration\n```bash\n$ source ~/.zshrc\n$ tmuxifier help  # Should work without errors\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Initialization Order Matters\n```\nPATH exports → eval init → aliases/functions\n     ↑              ↑              ↑\n  Binaries     Completion     User custom\n  available    functions      definitions\n```\n\n### Why PATH Before Init?\n- `tmuxifier init -` generates shell functions/completions\n- Functions may reference `tmuxifier` binary\n- Without PATH, completions fail to register\n\n### Zinit Users: Proper Plugin Order\n```zsh\n# In .zshrc with Zinit\nzinit ice wait'!' lucid\nzinit light jimeh/tmuxifier\n\n# OR manual (more control):\nexport PATH=\"$HOME/.tmuxifier/bin:$PATH\"\neval \"$(tmuxifier init -)\"\n```\n\n## The \"Deep Dive\" (The Technical Root)\n\n### tmuxifier init Output\n```bash\n$ tmuxifier init -\n# Generates shell code:\n# - tmuxifier() function wrapper\n# - Completion functions (_tmuxifier)\n# - Aliases (tf=tmuxifier)\n```\n\n### Layout Script Execution\n```bash\n# When you run: tmuxifier load-window foo\n# 1. Sources ~/.tmuxifier/layouts/foo.window.sh\n# 2. Executes commands in current tmux session\n# 3. Commands: new_window, split_v, run_cmd, etc.\n```\n\n### Layout Commands Internals\n| Command | Implementation |\n|---------|----------------|\n| `new_window` | `tmux new-window -n \"name\"` |\n| `split_v N` | `tmux split-window -v -p N` |\n| `split_h N` | `tmux split-window -h -p N` |\n| `run_cmd` | `tmux send-keys \"cmd\" Enter` |\n| `select_pane N` | `tmux select-pane -t N` |\n\n### File Locations\n```\n~/.tmuxifier/\n├── bin/tmuxifier          # Main script\n├── layouts/\n│   ├── *.window.sh        # Window layouts\n│   └── *.session.sh       # Session layouts\n└── completions/           # Shell completions\n```\n\n### References\n- [Tmuxifier GitHub](https://github.com/jimeh/tmuxifier)\n- `tmuxifier help`\n- [Tmux Manual](https://github.com/tmux/tmux/wiki)"
+}

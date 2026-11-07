@@ -1,0 +1,159 @@
+{
+  "slug": "geany-project-setup",
+  "filePath": "GEANY_PROJECT_SETUP.md",
+  "title": "Quick Start (3 Steps)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Geany Setup Guide for Pgp_Encrypt Project\n\nThis guide configures Geany specifically for the Pgp_Encrypt Python project with automatic virtual environment detection and project-specific settings.…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "Quick Start (3 Steps)",
+      "slug": "quick-start-3-steps"
+    },
+    {
+      "level": 3,
+      "text": "Step 1: Install Required Tools in Virtual Environment",
+      "slug": "step-1-install-required-tools-in-virtual-environment"
+    },
+    {
+      "level": 3,
+      "text": "Step 2: Open Project in Geany",
+      "slug": "step-2-open-project-in-geany"
+    },
+    {
+      "level": 3,
+      "text": "Step 3: Configure Error Parsing (First Time Only)",
+      "slug": "step-3-configure-error-parsing-first-time-only"
+    },
+    {
+      "level": 2,
+      "text": "Project-Specific Build Commands",
+      "slug": "project-specific-build-commands"
+    },
+    {
+      "level": 3,
+      "text": "Menu Items (Build Menu)",
+      "slug": "menu-items-build-menu"
+    },
+    {
+      "level": 3,
+      "text": "Manual Configuration (If Not Using Project File)",
+      "slug": "manual-configuration-if-not-using-project-file"
+    },
+    {
+      "level": 4,
+      "text": "Python Commands Section",
+      "slug": "python-commands-section"
+    },
+    {
+      "level": 2,
+      "text": "Error Regular Expression Explained",
+      "slug": "error-regular-expression-explained"
+    },
+    {
+      "level": 2,
+      "text": "Keyboard Shortcuts",
+      "slug": "keyboard-shortcuts"
+    },
+    {
+      "level": 2,
+      "text": "Using the Compiler Tab",
+      "slug": "using-the-compiler-tab"
+    },
+    {
+      "level": 3,
+      "text": "Example Output",
+      "slug": "example-output"
+    },
+    {
+      "level": 2,
+      "text": "Project Files Overview",
+      "slug": "project-files-overview"
+    },
+    {
+      "level": 2,
+      "text": "Virtual Environment Integration",
+      "slug": "virtual-environment-integration"
+    },
+    {
+      "level": 3,
+      "text": "Installing Additional Tools",
+      "slug": "installing-additional-tools"
+    },
+    {
+      "level": 2,
+      "text": "Customizing Checks",
+      "slug": "customizing-checks"
+    },
+    {
+      "level": 3,
+      "text": "Per-Project Configuration",
+      "slug": "per-project-configuration"
+    },
+    {
+      "level": 4,
+      "text": "`.pylintrc` - Pylint configuration",
+      "slug": "pylintrc-pylint-configuration"
+    },
+    {
+      "level": 4,
+      "text": "`setup.cfg` or `pyproject.toml` - pycodestyle configuration",
+      "slug": "setup-cfg-or-pyproject-toml-pycodestyle-configuration"
+    },
+    {
+      "level": 4,
+      "text": "`mypy.ini` - Type checking configuration",
+      "slug": "mypy-ini-type-checking-configuration"
+    },
+    {
+      "level": 2,
+      "text": "Troubleshooting",
+      "slug": "troubleshooting"
+    },
+    {
+      "level": 3,
+      "text": "Issue: \"Module not found\" errors",
+      "slug": "issue-module-not-found-errors"
+    },
+    {
+      "level": 3,
+      "text": "Issue: Virtual environment not detected",
+      "slug": "issue-virtual-environment-not-detected"
+    },
+    {
+      "level": 3,
+      "text": "Issue: Errors not highlighting in editor",
+      "slug": "issue-errors-not-highlighting-in-editor"
+    },
+    {
+      "level": 3,
+      "text": "Issue: \"check_project: command not found\"",
+      "slug": "issue-check-project-command-not-found"
+    },
+    {
+      "level": 3,
+      "text": "Issue: Permission denied",
+      "slug": "issue-permission-denied"
+    },
+    {
+      "level": 2,
+      "text": "Advanced: Multiple Projects",
+      "slug": "advanced-multiple-projects"
+    },
+    {
+      "level": 2,
+      "text": "Integration with Git",
+      "slug": "integration-with-git"
+    },
+    {
+      "level": 2,
+      "text": "Summary",
+      "slug": "summary"
+    }
+  ],
+  "readingTime": 6,
+  "content": "# Geany Setup Guide for Pgp_Encrypt Project\n\nThis guide configures Geany specifically for the Pgp_Encrypt Python project with automatic virtual environment detection and project-specific settings.\n\n## Quick Start (3 Steps)\n\n### Step 1: Install Required Tools in Virtual Environment\n\n```bash\ncd ~/Pgp_Encrypt\nsource .venv/bin/activate\npip install pycodestyle pyflakes pylint mypy black isort\n```\n\n### Step 2: Open Project in Geany\n\n```bash\n# Method A: Open project file directly\ngeany ~/Pgp_Encrypt/pgp_encrypt.geany\n\n# Method B: Open directory and then load project\ncd ~/Pgp_Encrypt\ngeany .\n# Then: Project → Open → pgp_encrypt.geany\n```\n\n### Step 3: Configure Error Parsing (First Time Only)\n\n1. Open any Python file (e.g., `main.py`)\n2. Go to **Build → Set Build Commands**\n3. Configure the error regex (see table below)\n4. Click **OK**\n\nThat's it! Press **F9** to check your code.\n\n---\n\n## Project-Specific Build Commands\n\nThe project file (`pgp_encrypt.geany`) comes pre-configured with these commands:\n\n### Menu Items (Build Menu)\n\n| Menu Item | Command | Key | Description |\n|-----------|---------|-----|-------------|\n| **Check Code** | `/home/srhills/Pgp_Encrypt/check_project \"%f\"` | F9 | Run all quality checks |\n| **Execute with venv** | `/home/srhills/Pgp_Encrypt/.venv/bin/python \"%f\"` | F5 | Run file using project venv |\n| **Check Style Only** | `/home/srhills/Pgp_Encrypt/check_project \"%f\" style` | - | PEP 8 + pyflakes only |\n| **Lint Only** | `/home/srhills/Pgp_Encrypt/check_project \"%f\" lint` | - | Pylint only |\n| **Type Check** | `/home/srhills/Pgp_Encrypt/check_project \"%f\" types` | - | mypy type checking |\n\n### Manual Configuration (If Not Using Project File)\n\nGo to **Build → Set Build Commands** and set:\n\n#### Python Commands Section\n\n**Command 1: Check Code**\n- Label: `_Check Code`\n- Command: `/home/srhills/Pgp_Encrypt/check_project \"%f\"`\n- Working dir: `%d`\n- Error regex: `([^:]+):([0-9]+):([0-9:]+)? .*`\n\n**Command 2: Execute**\n- Label: `_Execute with venv`\n- Command: `/home/srhills/Pgp_Encrypt/.venv/bin/python \"%f\"`\n- Working dir: `%d`\n- Error regex: `File \"([^\"]+)\", line ([0-9]+)`\n\n**Command 3: Style Check**\n- Label: `Check _Style`\n- Command: `/home/srhills/Pgp_Encrypt/check_project \"%f\" style`\n- Working dir: `%d`\n- Error regex: `([^:]+):([0-9]+):([0-9:]+)? .*`\n\n**Command 4: Lint**\n- Label: `_Lint Only`\n- Command: `/home/srhills/Pgp_Encrypt/check_project \"%f\" lint`\n- Working dir: `%d`\n- Error regex: `([^:]+):([0-9]+):.*`\n\n**Command 5: Type Check**\n- Label: `_Type Check`\n- Command: `/home/srhills/Pgp_Encrypt/check_project \"%f\" types`\n- Working dir: `%d`\n- Error regex: `([^:]+):([0-9]+):.*`\n\n---\n\n## Error Regular Expression Explained\n\nThe regex `([^:]+):([0-9]+):([0-9:]+)? .*` captures:\n\n| Group | Captures | Example |\n|-------|----------|---------|\n| Group 1 | Filename | `main.py` |\n| Group 2 | Line number | `10` |\n| Group 3 | Column (optional) | `5:` or `5` |\n\nThis pattern works with:\n- **pycodestyle**: `main.py:10:5: E302 expected 2 blank lines`\n- **pyflakes**: `main.py:10: 'x' imported but unused`\n- **pylint**: `main.py:10: [C0303(trailing-whitespace), ] Trailing whitespace`\n- **mypy**: `main.py:10: error: Incompatible return value type`\n\n---\n\n## Keyboard Shortcuts\n\n| Shortcut | Action |\n|----------|--------|\n| **F9** | Run \"Check Code\" (all tools) |\n| **F5** | Execute file with virtual environment |\n| **F4** | Jump to next error |\n| **Shift+F4** | Jump to previous error |\n| **Shift+F9** | Compile (if configured) |\n| **Ctrl+Shift+C** | Open Set Build Commands |\n| **Ctrl+Shift+D** | Build menu |\n\n---\n\n## Using the Compiler Tab\n\nWhen you press F9:\n\n1. **View Results**: All output appears in the Compiler tab (bottom panel)\n2. **Error Highlighting**: Lines with errors show red squiggly underlines\n3. **Click to Jump**: Click any error message to jump to that line\n4. **Status Bar**: Shows total error count\n\n### Example Output\n\n```\n======  pycodestyle (PEP 8 style)  ======\nmain.py:2:1: E302 expected 2 blank lines, found 1\nmain.py:4:1: W391 blank line at end of file\n\n======  pyflakes (error detection)  ======\npgp_genkey.py:3:9: 'gnupg' imported but unused\n\n======  pylint (code analysis)  ======\npgp_genkey.py:3:0: [C0103(invalid-name), ] Constant name \"gpg\" doesn't conform to UPPER_CASE naming style\n```\n\nClick any line like `main.py:2:1:` to jump directly to line 2, column 1.\n\n---\n\n## Project Files Overview\n\nThe project includes these files:\n\n| File | Purpose |\n|------|---------|\n| `main.py` | Entry point (template) |\n| `pgp_genkey.py` | PGP key generation script |\n| `check_project` | Project-specific code checker |\n| `pgp_encrypt.geany` | Geany project configuration |\n| `pyproject.toml` | Project metadata |\n| `.venv/` | Virtual environment |\n\n---\n\n## Virtual Environment Integration\n\nThe `check_project` script automatically:\n1. Detects the project's `.venv` directory\n2. Uses Python from the virtual environment\n3. Falls back to system Python if venv not found\n4. Runs all tools with the correct Python interpreter\n\n### Installing Additional Tools\n\n```bash\ncd ~/Pgp_Encrypt\nsource .venv/bin/activate\npip install <tool-name>\n```\n\n---\n\n## Customizing Checks\n\n### Per-Project Configuration\n\nCreate these files in `~/Pgp_Encrypt/`:\n\n#### `.pylintrc` - Pylint configuration\n```bash\npylint --generate-rcfile > .pylintrc\n# Edit to customize rules\n```\n\n#### `setup.cfg` or `pyproject.toml` - pycodestyle configuration\n```ini\n[pycodestyle]\nmax-line-length = 120\nignore = E203, W503\n```\n\n#### `mypy.ini` - Type checking configuration\n```ini\n[mypy]\npython_version = 3.13\nwarn_return_any = True\nwarn_unused_configs = True\n```\n\n---\n\n## Troubleshooting\n\n### Issue: \"Module not found\" errors\n\n**Solution**: Ensure tools are installed in the virtual environment:\n```bash\nsource ~/Pgp_Encrypt/.venv/bin/activate\npip install pycodestyle pyflakes pylint mypy\n```\n\n### Issue: Virtual environment not detected\n\n**Solution**: The script looks for `.venv` in the project root. Check:\n```bash\nls -la ~/Pgp_Encrypt/.venv/bin/python\n```\n\n### Issue: Errors not highlighting in editor\n\n**Solution**: Verify the Error regular expression in Build → Set Build Commands matches your tool output format.\n\n### Issue: \"check_project: command not found\"\n\n**Solution**: Use the full path or add to PATH:\n```bash\n# In Geany command field, use full path:\n/home/srhills/Pgp_Encrypt/check_project \"%f\"\n```\n\n### Issue: Permission denied\n\n**Solution**: Make the script executable:\n```bash\nchmod +x ~/Pgp_Encrypt/check_project\n```\n\n---\n\n## Advanced: Multiple Projects\n\nTo use this setup with multiple projects:\n\n1. Copy `check_project` to each project root\n2. Copy `pgp_encrypt.geany` and rename it (e.g., `myproject.geany`)\n3. Edit the `.geany` file and update:\n   - `base_path=/path/to/your/project`\n   - All file paths in `[files]` section\n   - All command paths in `[build-menu]` section\n\n---\n\n## Integration with Git\n\nAdd a pre-commit hook to run checks before commits:\n\n```bash\n# Create pre-commit hook\ncat > ~/Pgp_Encrypt/.git/hooks/pre-commit << 'EOF'\n#!/bin/sh\n# Run code checks on staged Python files\nSTAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\\.py$')\n\nif [ -n \"$STAGED_FILES\" ]; then\n    echo \"Running code checks...\"\n    for file in $STAGED_FILES; do\n        /home/srhills/Pgp_Encrypt/check_project \"$file\" || exit 1\n    done\nfi\nEOF\n\nchmod +x ~/Pgp_Encrypt/.git/hooks/pre-commit\n```\n\n---\n\n## Summary\n\n✅ **Installed**: pycodestyle, pyflakes, pylint, mypy, black, isort  \n✅ **Configured**: Build commands with error parsing  \n✅ **Project file**: `pgp_encrypt.geany` ready to open  \n✅ **Script**: `check_project` for virtual environment detection  \n✅ **Shortcuts**: F9 to check, F4 for next error  \n\n**Ready to code! Open `pgp_encrypt.geany` and press F9 to check your code.**\n"
+}

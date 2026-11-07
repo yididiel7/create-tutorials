@@ -1,0 +1,99 @@
+{
+  "slug": "readline-cheatsheet",
+  "filePath": "readline-cheatsheet.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Reference: Readline Emacs Editing Mode Cheatsheet\n\nTitle: Readline Cheatsheet\nDate: 2023-12-29\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: readline-cheat…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Key Notation",
+      "slug": "key-notation"
+    },
+    {
+      "level": 3,
+      "text": "Essentials",
+      "slug": "essentials"
+    },
+    {
+      "level": 3,
+      "text": "Movement",
+      "slug": "movement"
+    },
+    {
+      "level": 3,
+      "text": "Killing (Cutting)",
+      "slug": "killing-cutting"
+    },
+    {
+      "level": 3,
+      "text": "Yanking (Pasting)",
+      "slug": "yanking-pasting"
+    },
+    {
+      "level": 3,
+      "text": "History",
+      "slug": "history"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Readline in Shells",
+      "slug": "readline-in-shells"
+    },
+    {
+      "level": 3,
+      "text": "Emacs vs Vi Mode",
+      "slug": "emacs-vs-vi-mode"
+    },
+    {
+      "level": 3,
+      "text": "Kill Ring vs Clipboard",
+      "slug": "kill-ring-vs-clipboard"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Readline Library",
+      "slug": "readline-library"
+    },
+    {
+      "level": 3,
+      "text": "Customizing `~/.inputrc`",
+      "slug": "customizing-inputrc"
+    },
+    {
+      "level": 3,
+      "text": "Vi Mode Bindings (Command Mode)",
+      "slug": "vi-mode-bindings-command-mode"
+    },
+    {
+      "level": 3,
+      "text": "Search in Vi Mode",
+      "slug": "search-in-vi-mode"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 4,
+  "content": "LOG: [LEARN] Reference: Readline Emacs Editing Mode Cheatsheet\n\n**Title:** Readline Cheatsheet\n**Date:** 2023-12-29\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** readline-cheatsheet.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Key Notation\n| Symbol | Key |\n|--------|-----|\n| `C-` | Ctrl |\n| `M-` | Alt (Meta) |\n| `DEL` | Backspace |\n\n### Essentials\n| Binding | Action |\n|---------|--------|\n| `C-b` | Move back one character |\n| `C-f` | Move forward one character |\n| `DEL` | Delete character left of cursor |\n| `C-d` | Delete character under cursor |\n| `C-_` | Undo last change |\n\n### Movement\n| Binding | Action |\n|---------|--------|\n| `C-a` | Move to start of line |\n| `C-e` | Move to end of line |\n| `M-f` | Move forward one word |\n| `M-b` | Move backward one word |\n| `C-l` | Clear screen, reprint line at top |\n\n### Killing (Cutting)\n| Binding | Action |\n|---------|--------|\n| `C-k` | Kill to end of line |\n| `M-d` | Kill to end of word |\n| `M-DEL` | Kill to start of word |\n| `C-w` | Kill to previous whitespace |\n\n### Yanking (Pasting)\n| Binding | Action |\n|---------|--------|\n| `C-y` | Yank most recent kill |\n| `M-y` | Rotate kill-ring, yank new top |\n\n### History\n| Binding | Action |\n|---------|--------|\n| `C-p` | Previous history line (up) |\n| `C-n` | Next history line (down) |\n| `M-<` | First history line |\n| `M->` | Last history line (current input) |\n| `C-r` | Reverse incremental search |\n| `C-s` | Forward incremental search |\n| `M-p` | Reverse non-incremental search |\n| `M-n` | Forward non-incremental search |\n| `M-C-y` | Insert first arg of previous command |\n| `M-.` / `M-_` | Insert last arg of previous command |\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Readline in Shells\n- **Bash**: Uses readline by default\n- **Zsh**: Uses ZLE (Zsh Line Editor), similar but different bindings\n- **Python REPL**: Uses readline if available\n- **Many CLI tools**: Use readline for input editing\n\n### Emacs vs Vi Mode\n```bash\n# Emacs mode (default in bash)\nset -o emacs\n\n# Vi mode\nset -o vi\n# ESC to enter command mode\n# Standard vi keys: h/j/k/l, w/b/e, etc.\n```\n\n### Kill Ring vs Clipboard\n- **Kill ring**: Internal readline buffer (C-y, M-y)\n- **System clipboard**: Separate, use terminal copy/paste\n- Kill ring persists within shell session only\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Readline Library\n- GNU Readline provides line editing for interactive programs\n- Used by: bash, python, psql, sqlite3, gdb, etc.\n- Config: `~/.inputrc`\n\n### Customizing `~/.inputrc`\n```bash\n# Example customizations\n\"\\C-p\": history-search-backward\n\"\\C-n\": history-search-forward\n\"\\e[A\": history-search-backward  # Up arrow\n\"\\e[B\": history-search-forward   # Down arrow\n\n# Better completion\nset show-all-if-ambiguous on\nset completion-ignore-case on\n```\n\n### Vi Mode Bindings (Command Mode)\n| Key | Action |\n|-----|--------|\n| `h`/`l` | Left/right character |\n| `w`/`b` | Forward/back word |\n| `0`/`$` | Start/end of line |\n| `dw` | Delete word |\n| `dd` | Delete line |\n| `cc` | Change line |\n| `p`/`P` | Paste after/before |\n| `u` | Undo |\n| `.` | Repeat last change |\n\n### Search in Vi Mode\n| Key | Action |\n|-----|--------|\n| `/` | Search backward |\n| `?` | Search forward |\n| `n` | Next match |\n| `N` | Previous match |\n\n### References\n- `man readline`\n- `man bash` (READLINE section)\n- [GNU Readline Manual](https://tiswww.case.edu/php/chet/readline/rluserman.html)\n- [Zsh ZLE Manual](https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html)"
+}

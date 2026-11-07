@@ -1,0 +1,13 @@
+{
+  "slug": "pc-performance-analysis-complete",
+  "filePath": "PC-Performance-Analysis-Complete.md",
+  "title": "PC-Performance-Analysis-Complete",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Title: PC Performance Analysis Complete\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: PC-Performance-Analysis-Complete.md\nC…",
+  "headings": [],
+  "readingTime": 2,
+  "content": "**Title:** PC Performance Analysis Complete\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** PC-Performance-Analysis-Complete.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\nPerformance Analysis Complete\n\nIssue Found: System was experiencing slow startup due to several\nservices running during boot:\n\n1. reflector.service (1min 46s) - Pacman mirror list updates\n\n2. man-db.service (55s) - Manual database regeneration\n\n3. docker.service (52s) - Docker daemon initialization\n\nFixes Applied:\n\n✅ reflector.service: Disabled from boot, now runs weekly via timer\n\n✅ man-db.service: Already optimized with timer and idle priority\n\n✅ docker.service: Added startup delay and timeout optimization\n\nExpected Results:\n\n- ~2+ minutes faster startup on next reboot\n\n- System will be more responsive during initial boot\n\n- Mirror updates will run weekly instead of every boot\n\n- Manual database updates continue daily during idle time\n\nThe optimizations target the root cause of slow startup without\naffecting functionality.\nReboot to see the full performance improvement.\n Missing dependencies:\n  -> pipewire\n  -> pipewire-pulse\n  -> pipewire-alsa\n  -> wireplumber\n  -> playerctl\n  -> libdbusmenu-gtk3\n  -> pavucontrol\n  -> cava\n  -> easyeffects\n  -> mpv\n  -> yt-dlp\n==> ERROR: Could not resolve all dependencies.\n\n❯ dms dank16 \"#8b5cf6\" --alacritty\n[colors.normal]\nblack   = '#1a1a1a'\nred     = '#e25443'\ngreen   = '#6ed675'\nyellow  = '#dbd97b'\nblue    = '#9a65fd'\nmagenta = '#9173d2'\ncyan    = '#9565ff'\nwhite   = '#abb2bf'\n\n[colors.bright]\nblack   = '#5c6370'\nred     = '#e06a5f'\ngreen   = '#86e08b'\nyellow  = '#e8e697'\nblue    = '#e5c7ff'\nmagenta = '#8269d9'\ncyan    = '#9069c0'\nwhite   = '#ffffff'\n"
+}

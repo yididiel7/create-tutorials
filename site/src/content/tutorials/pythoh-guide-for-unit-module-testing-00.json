@@ -1,0 +1,34 @@
+{
+  "slug": "pythoh-guide-for-unit-module-testing-00",
+  "filePath": "Pythoh-guide-for-unit-module-testing-00.md",
+  "title": "Option 1: The \"Architect\" Prompt (Structured & Detailed)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "Title: Python Guide for Unit Module Testing 00\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: Pythoh-guide-for-unit-module-tes…",
+  "headings": [
+    {
+      "level": 3,
+      "text": "Option 1: The \"Architect\" Prompt (Structured & Detailed)",
+      "slug": "option-1-the-architect-prompt-structured-detailed"
+    },
+    {
+      "level": 3,
+      "text": "Option 2: The \"Developer Quick-Start\" (Concise & Script-Focused)",
+      "slug": "option-2-the-developer-quick-start-concise-script-focused"
+    },
+    {
+      "level": 3,
+      "text": "Option 3: The \"Script Generator\" (Code-First)",
+      "slug": "option-3-the-script-generator-code-first"
+    },
+    {
+      "level": 3,
+      "text": "Pro-Tip for running this locally:",
+      "slug": "pro-tip-for-running-this-locally"
+    }
+  ],
+  "readingTime": 2,
+  "content": "**Title:** Python Guide for Unit Module Testing 00\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Pythoh-guide-for-unit-module-testing-00.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\nTechnical guide for setting up a Python project for unit testing\nTo optimize this as a prompt for a local LLM, we need to shift from a\n\"description\" to a \"command\" that demands a structured, technical\noutput.\n\nHere are three professional versions depending on how much detail you\nwant:\n\n### Option 1: The \"Architect\" Prompt (Structured & Detailed)\n\n\"\"\"Act as a Senior DevOps Engineer. Provide a comprehensive,\nstep-by-step technical guide for setting up a Python project using\n**uv**. The guide must include:\n1. Directory initialization and `uv init` commands.\n2. Instructions for automatic Python version management and `.venv`\ncreation via `uv`.\n3. Specific activation commands for both Unix and Windows environments.\n4. The workflow for adding `pytest` as a dev dependency.\n5. A verification step to ensure the environment is correctly configured\nbefore running unit tests.\n6. A verification step to ensure the environment is correctly configured\nbefore running module tests.\"\"\"\n---\n\n### Option 2: The \"Developer Quick-Start\" (Concise & Script-Focused)\n\n\"Generate a README-style guide for a Python project using **uv** for\ndependency management. Focus on the workflow for unit and module\ntesting: include commands for environment setup, venv activation, and\nverifying the Python installation. Ensure the final step demonstrates\nrunning `pytest` via `uv run` to maintain environment sync.\"\nLearn how to create a Python project using **uv** for dependency\nmanagement. Focus on the workflow for running unit tests in python with\nthe unittest module and assert methods and also the test driven\ndevelopment concept.\n---\n\n### Option 3: The \"Script Generator\" (Code-First)\n\n\"Write a shell script/tutorial that automates the setup of a Python\ntesting environment using **uv**. Include the logic to create the\nproject, initialize the virtual environment, install module testing\ndependencies, and a 'smoke test' command to confirm Python and the venv\nare working as expected.\"\n\n---\n\n### Pro-Tip for running this locally:\n\nIf you are using a model like **Llama 3** or **Mistral**, adding the\nphrase **\"Use Markdown formatting with bash code blocks\"** will ensure\nthe output is easy to copy and paste directly into your terminal.\n\n**Would you like me to refine one of these further, or should I generate\nthe actual response these prompts would produce?**\n"
+}

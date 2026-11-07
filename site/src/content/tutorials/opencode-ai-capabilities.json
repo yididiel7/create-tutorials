@@ -1,0 +1,89 @@
+{
+  "slug": "opencode-ai-capabilities",
+  "filePath": "Opencode-AI-Capabilities.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Reference: Opencode — AI Coding Agent Capabilities\n\nTitle: Opencode AI Capabilities\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, De…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "What is Opencode?",
+      "slug": "what-is-opencode"
+    },
+    {
+      "level": 3,
+      "text": "Installation",
+      "slug": "installation"
+    },
+    {
+      "level": 3,
+      "text": "Basic Usage",
+      "slug": "basic-usage"
+    },
+    {
+      "level": 3,
+      "text": "Key Capabilities",
+      "slug": "key-capabilities"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Opencode vs. OpenAI (Critical Distinction)",
+      "slug": "opencode-vs-openai-critical-distinction"
+    },
+    {
+      "level": 3,
+      "text": "Architecture",
+      "slug": "architecture"
+    },
+    {
+      "level": 3,
+      "text": "Model Support",
+      "slug": "model-support"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "Session Management",
+      "slug": "session-management"
+    },
+    {
+      "level": 3,
+      "text": "Configuration",
+      "slug": "configuration"
+    },
+    {
+      "level": 3,
+      "text": "Tool Definitions",
+      "slug": "tool-definitions"
+    },
+    {
+      "level": 3,
+      "text": "Workflow Patterns",
+      "slug": "workflow-patterns"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 3,
+  "content": "LOG: [LEARN] Reference: Opencode — AI Coding Agent Capabilities\n\n**Title:** Opencode AI Capabilities\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Opencode-AI-Capabilities.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### What is Opencode?\nOpencode is an **AI coding agent** (not OpenAI) — a terminal-native AI assistant that operates directly in your codebase. It reads, writes, and modifies files, runs commands, and helps with software development tasks.\n\n### Installation\n```bash\n# macOS/Linux\ncurl -fsSL https://opencode.dev/install.sh | sh\n\n# Or via npm\nnpm install -g opencode-ai\n\n# Verify\nopencode --version\n```\n\n### Basic Usage\n```bash\n# Start in project directory\ncd my-project\nopencode\n\n# Or run single command\nopencode \"Add error handling to auth.py\"\n```\n\n### Key Capabilities\n| Capability | Description |\n|------------|-------------|\n| **File Operations** | Read, write, edit, search files |\n| **Command Execution** | Run shell commands, tests, builds |\n| **Code Navigation** | Jump to definitions, find references |\n| **Git Integration** | Stage, commit, diff, history |\n| **Test Running** | Execute, debug, watch tests |\n| **Refactoring** | Rename, extract, inline across files |\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Opencode vs. OpenAI (Critical Distinction)\n| Aspect | Opencode | OpenAI |\n|--------|----------|--------|\n| **Type** | Coding agent (CLI tool) | AI model provider (API) |\n| **Interface** | Terminal-native | REST API |\n| **Context** | Your entire codebase | Prompt window |\n| **Actions** | Executes code, runs tests | Generates text |\n| **Cost** | Local (Ollama) or API keys | Per-token billing |\n\n### Architecture\n```\nUser Request\n    ↓\nOpencode Agent\n    ↓\n┌─────────────────────────────────────┐\n│  Tools Available                    │\n├─────────────────────────────────────┤\n│  read_file, write_file, edit_file   │\n│  run_command, search_files          │\n│  git_status, git_diff, git_commit   │\n│  lsp_goto_definition, lsp_references│\n└─────────────────────────────────────┘\n    ↓\nExecutes in your project directory\n```\n\n### Model Support\n| Provider | Models |\n|----------|--------|\n| **Ollama (local)** | llama3.2, codellama, phi4, mistral |\n| **OpenAI API** | gpt-4o, gpt-4o-mini, o1 |\n| **Anthropic** | claude-3.5-sonnet, claude-3-opus |\n| **OpenRouter** | 100+ models |\n\n## The \"Deep Dive\" (The Technical Root)\n\n### Session Management\n```bash\n# List sessions\nopencode --list\n\n# Resume session\nopencode -s <session-id>\n\n# New session\nopencode\n```\n\n### Configuration\n```json\n// ~/.config/opencode/config.json\n{\n  \"model\": \"claude-3.5-sonnet\",\n  \"temperature\": 0.2,\n  \"max_tokens\": 8192,\n  \"tools\": [\"read\", \"write\", \"edit\", \"bash\", \"git\"],\n  \"auto_approve\": false\n}\n```\n\n### Tool Definitions\n```typescript\n// Core tools Opencode provides\ninterface OpencodeTools {\n  read_file(path: string): string;\n  write_file(path: string, content: string): void;\n  edit_file(path: string, oldStr: string, newStr: string): void;\n  search_files(pattern: string): string[];\n  run_command(cmd: string): { stdout: string; stderr: string; code: number };\n  git_status(): GitStatus;\n  git_diff(): string;\n  git_commit(msg: string): void;\n  lsp_goto_definition(symbol: string): Location;\n  lsp_references(symbol: string): Location[];\n}\n```\n\n### Workflow Patterns\n| Pattern | Use Case |\n|---------|----------|\n| **Explore → Plan → Execute** | New features, refactoring |\n| **Test → Fix → Verify** | Bug fixing |\n| **Read → Understand → Modify** | Code review, learning |\n| **Search → Analyze → Refactor** | Technical debt |\n\n### References\n- [Opencode GitHub](https://github.com/opencode-ai/opencode)\n- [Opencode Docs](https://opencode.dev/docs)\n- [Model Configuration](https://opencode.dev/docs/models)"
+}

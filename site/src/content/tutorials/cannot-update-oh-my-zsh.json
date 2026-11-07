@@ -1,0 +1,84 @@
+{
+  "slug": "cannot-update-oh-my-zsh",
+  "filePath": "cannot-update-oh-my-zsh.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Guide: Fix Oh My Zsh Update Issues\n\nTitle: Cannot Update Oh My Zsh\nDate: 2023-11-23\nAuthor: Sr. Yididiel Hills, Arch Linux Admin, Developer\nlfnc: cannot-update-oh-my-zsh.m…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Quick Fix",
+      "slug": "quick-fix"
+    },
+    {
+      "level": 3,
+      "text": "After Reinstall",
+      "slug": "after-reinstall"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Why OMZ Fails to Update",
+      "slug": "why-omz-fails-to-update"
+    },
+    {
+      "level": 3,
+      "text": "What Gets Restored",
+      "slug": "what-gets-restored"
+    },
+    {
+      "level": 3,
+      "text": "Your Customizations Preserved",
+      "slug": "your-customizations-preserved"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "OMZ Directory Structure",
+      "slug": "omz-directory-structure"
+    },
+    {
+      "level": 3,
+      "text": "Update Mechanism",
+      "slug": "update-mechanism"
+    },
+    {
+      "level": 3,
+      "text": "Backup Before Reinstall",
+      "slug": "backup-before-reinstall"
+    },
+    {
+      "level": 3,
+      "text": "Alternative: Zinit (Modern Plugin Manager)",
+      "slug": "alternative-zinit-modern-plugin-manager"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 2,
+  "content": "LOG: [LEARN] Guide: Fix Oh My Zsh Update Issues\n\n**Title:** Cannot Update Oh My Zsh\n**Date:** 2023-11-23\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** cannot-update-oh-my-zsh.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Oh My Zsh installed\n- Git available\n- Internet connection\n\n### Quick Fix\n```bash\n# Verify ZSH variable points to correct directory\n$ echo $ZSH\n# Should be: /home/username/.oh-my-zsh\n\n# Reinstall OMZ\n$ rm -rf \"$ZSH\"\n$ git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git \"$ZSH\"\n```\n\n### After Reinstall\n```bash\n# Restart shell or source config\n$ source ~/.zshrc\n\n# Verify update works\n$ omz update\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Why OMZ Fails to Update\n- `.git` directory missing from `$ZSH` (accidentally deleted)\n- Without `.git`, `git pull` fails\n- OMZ update mechanism requires git repository\n\n### What Gets Restored\n- Core OMZ framework\n- Default plugins and themes\n- Update mechanism (`omz` command)\n\n### Your Customizations Preserved\n- `~/.zshrc` (not in OMZ directory)\n- `~/.oh-my-zsh/custom/` (re-clone gets defaults only)\n- **Backup custom plugins/themes first!**\n\n## The \"Deep Dive\" (The Technical Root)\n\n### OMZ Directory Structure\n```\n$ZSH/\n├── .git/              # Required for updates\n├── lib/               # Core libraries\n├── plugins/           # Built-in plugins\n├── themes/            # Built-in themes\n├── custom/            # User customizations\n│   ├── plugins/\n│   └── themes/\n└── tools/             # Update/check scripts\n```\n\n### Update Mechanism\n```bash\n# omz update runs:\n$ git -C $ZSH pull --rebase --stat origin master\n```\n\n### Backup Before Reinstall\n```bash\n# Backup custom plugins/themes\n$ cp -r ~/.oh-my-zsh/custom ~/.oh-my-zsh.custom.backup\n```\n\n### Alternative: Zinit (Modern Plugin Manager)\n```bash\n# If OMZ issues persist, consider Zinit\n# Faster, more flexible, no update issues\n```\n\n### References\n- [Oh My Zsh GitHub](https://github.com/ohmyzsh/ohmyzsh)\n- [OMZ Update Docs](https://github.com/ohmyzsh/ohmyzsh#updates)"
+}

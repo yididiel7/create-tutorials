@@ -1,0 +1,13 @@
+{
+  "slug": "nvimtreeresize",
+  "filePath": "NvimTreeResize.md",
+  "title": "NvimTreeResize",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "NvimTreeResize 20\nlocal lazypath = vim.fn.stdpath(\"data\") .. \"/lazy/lazy.nvim\"\nif not (vim.uv or vim.loop).fs_stat(lazypath) then\n  vim.fn.system({\n    \"git\",\n    \"clone\",\n    \"--filter=blob:none\",…",
+  "headings": [],
+  "readingTime": 1,
+  "content": "NvimTreeResize 20\nlocal lazypath = vim.fn.stdpath(\"data\") .. \"/lazy/lazy.nvim\"\nif not (vim.uv or vim.loop).fs_stat(lazypath) then\n  vim.fn.system({\n    \"git\",\n    \"clone\",\n    \"--filter=blob:none\",\n    \"https://github.com/folke/lazy.nvim.git\",\n    \"--branch=stable\", -- latest stable release\n    lazypath,\n  })\nend\nvim.opt.runtimepath:prepend(lazypath)\n"
+}

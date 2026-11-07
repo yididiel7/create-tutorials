@@ -1,0 +1,89 @@
+{
+  "slug": "customizing-your-linux-system-with-user-management",
+  "filePath": "Customizing-Your-Linux-System-with-User-Management.md",
+  "title": "The \"Recipe\" (The How)",
+  "date": null,
+  "author": "Sr. Yididiel Hills",
+  "category": "General",
+  "tags": [],
+  "description": "LOG: [LEARN] Understanding: Linux User Management and Sudo Privileges\n\nTitle: Customizing Your Linux System with User Management\nDate: 2026-02-13 (10:30:00 Asia/Jerusalem)\nAuthor: Sr. Yidi…",
+  "headings": [
+    {
+      "level": 2,
+      "text": "The \"Recipe\" (The How)",
+      "slug": "the-recipe-the-how"
+    },
+    {
+      "level": 3,
+      "text": "Prerequisites",
+      "slug": "prerequisites"
+    },
+    {
+      "level": 3,
+      "text": "Method 1: Add User to wheel Group (Arch Standard)",
+      "slug": "method-1-add-user-to-wheel-group-arch-standard"
+    },
+    {
+      "level": 3,
+      "text": "Method 2: Edit sudoers with visudo",
+      "slug": "method-2-edit-sudoers-with-visudo"
+    },
+    {
+      "level": 3,
+      "text": "Method 3: Drop-in File in /etc/sudoers.d/",
+      "slug": "method-3-drop-in-file-in-etc-sudoers-d"
+    },
+    {
+      "level": 3,
+      "text": "Verify Sudo Access",
+      "slug": "verify-sudo-access"
+    },
+    {
+      "level": 2,
+      "text": "The \"Blueprint\" (The Why/Logic)",
+      "slug": "the-blueprint-the-why-logic"
+    },
+    {
+      "level": 3,
+      "text": "Why wheel Group?",
+      "slug": "why-wheel-group"
+    },
+    {
+      "level": 3,
+      "text": "Why visudo?",
+      "slug": "why-visudo"
+    },
+    {
+      "level": 3,
+      "text": "Security Principle: Least Privilege",
+      "slug": "security-principle-least-privilege"
+    },
+    {
+      "level": 2,
+      "text": "The \"Deep Dive\" (The Technical Root)",
+      "slug": "the-deep-dive-the-technical-root"
+    },
+    {
+      "level": 3,
+      "text": "sudoers Syntax",
+      "slug": "sudoers-syntax"
+    },
+    {
+      "level": 3,
+      "text": "File Precedence",
+      "slug": "file-precedence"
+    },
+    {
+      "level": 3,
+      "text": "Troubleshooting",
+      "slug": "troubleshooting"
+    },
+    {
+      "level": 3,
+      "text": "References",
+      "slug": "references"
+    }
+  ],
+  "readingTime": 2,
+  "content": "LOG: [LEARN] Understanding: Linux User Management and Sudo Privileges\n\n**Title:** Customizing Your Linux System with User Management\n**Date:** 2026-02-13 (10:30:00 Asia/Jerusalem)\n**Author:** Sr. Yididiel Hills, Arch Linux Admin, Developer\n**lfnc:** Customizing-Your-Linux-System-with-User-Management.md\n**Copyright:** © 2026-2027 Sr. Tyrone Hills\n**License:** MIT – see LICENSE file for details\n\n## The \"Recipe\" (The How)\n\n### Prerequisites\n- Linux system with sudo\n- Root/sudo access\n\n### Method 1: Add User to wheel Group (Arch Standard)\n```bash\n# Add existing user to wheel group\n$ sudo usermod -aG wheel username\n# Verify\n$ groups username\n```\n\n### Method 2: Edit sudoers with visudo\n```bash\n$ sudo visudo\n# Add line:\nusername ALL=(ALL:ALL) ALL\n# Or passwordless:\nusername ALL=(ALL:ALL) NOPASSWD:ALL\n# Or specific commands:\nusername ALL=(ALL) /usr/bin/pacman\n```\n\n### Method 3: Drop-in File in /etc/sudoers.d/\n```bash\n$ sudo visudo -f /etc/sudoers.d/username\n# Add:\nusername ALL=(ALL:ALL) ALL\n```\n\n### Verify Sudo Access\n```bash\n$ sudo -l -U username\n```\n\n## The \"Blueprint\" (The Why/Logic)\n\n### Why wheel Group?\nArch Linux follows the traditional BSD convention where `wheel` group members may `su` to root. The default `/etc/sudoers` includes:\n```\n%wheel ALL=(ALL:ALL) ALL\n```\n\n### Why visudo?\n- Validates syntax before saving\n- Prevents lockout from malformed sudoers\n- Uses `EDITOR` environment variable\n\n### Security Principle: Least Privilege\n- Grant only needed commands\n- Prefer drop-in files (`/etc/sudoers.d/`) for auditability\n- Audit regularly: `sudo -l -U username`\n\n## The \"Deep Dive\" (The Technical Root)\n\n### sudoers Syntax\n```\nuser  host=(runas:runas_group) commands\n```\n\n### File Precedence\n1. `/etc/sudoers` (main)\n2. `/etc/sudoers.d/*` (drop-ins, lexical order)\n\n### Troubleshooting\n- `sudo visudo -c` — check syntax\n- `groups` — verify current user groups (relogin after changes)\n- `sudo -k` — reset timestamp cache\n\n### References\n- `man sudoers`, `man visudo`\n- [Arch Wiki: Sudo](https://wiki.archlinux.org/title/Sudo)"
+}
